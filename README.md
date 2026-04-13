@@ -6,6 +6,11 @@
 
 > A unified dynamical framework for identity, consciousness, and observation.
 
+## 🌐 Language
+
+- English (this page)
+- [日本語はこちら](./README_jp.md)
+
 ---
 
 ![Unified System](figures/figure4.png)
