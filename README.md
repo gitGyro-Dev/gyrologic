@@ -42,7 +42,8 @@ Gyro Logic models reality as a **dynamic system**:
 
 ## 🧠 Core Idea
 
-
+```markdown
+```text
 Slice → Field → Void → Consciousness → Identity → Self → Slice
 
 
