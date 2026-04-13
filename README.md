@@ -45,11 +45,14 @@ Gyro Logic models reality as a **dynamic system**:
 ```markdown
 ```text
 Slice → Field → Void → Consciousness → Identity → Self → Slice
-```
+
+---
 
 👉 Not static logic  
 👉 But a **recursive dynamical system**  
 👉 The system is a loop, not a pipeline
+
+```markdown
 
 ## ✨ What’s new?
 
