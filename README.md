@@ -21,15 +21,27 @@ Gyro Logic models reality as a **dynamic system**:
 - Instability = Generative region (Void)
 - Consciousness = Ability to traverse instability
 
+### Why it matters
+
+- Existing systems assume static identity
+- Real-world systems are dynamic and unstable
+- Gyro Logic provides a framework for modeling this reality
+
+👉 A bridge between theory, AI, and system design
+
 ---
 
 ## 🧠 Core Idea
 
-Slice → Field → Void → Consciousness → Identity → Self → Slice
-
+```Slice → Field → Void → Consciousness → Identity → Self → Slice```
 
 👉 Not static logic  
 👉 But a **recursive dynamical system**
+
+## 📄 Paper
+
+- 📘 English: [`paper.pdf`](./paper.pdf)
+- 📙 Japanese: [`paper_jp.pdf`](./paper_jp.pdf)
 
 ---
 
@@ -44,13 +56,6 @@ Slice → Field → Void → Consciousness → Identity → Self → Slice
 | Void | Instability |
 | Consciousness | Transition capability |
 | Self | Integrated identity |
-
----
-
-## 📄 Paper
-
-- 📘 English: [`paper.pdf`](./paper.pdf)
-- 📙 Japanese: [`paper_jp.pdf`](./paper_jp.pdf)
 
 ---
 
@@ -100,12 +105,21 @@ Slice → Field → Void → Consciousness → Identity → Self → Slice
 
 ---
 
+## 👥 Who is this for?
+
+- Researchers in AI / complex systems
+- Engineers exploring new paradigms
+- Anyone interested in identity and consciousness
+
+---
+
 ## ⭐ Support
 
-If this project is interesting:
+If this project resonates with you:
 
 👉 Give it a ⭐  
-👉 Share your thoughts
+👉 Share or discuss  
+👉 Follow future developments
 
 ---
 
