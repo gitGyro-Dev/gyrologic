@@ -48,11 +48,10 @@ Slice → Field → Void → Consciousness → Identity → Self → Slice
 
 ---
 
-👉 Not static logic  
-👉 But a **recursive dynamical system**  
-👉 The system is a loop, not a pipeline
+👉 **Not static logic  **
+👉 **But a **recursive dynamical system**  
+👉 **The system is a loop, not a pipeline**
 
-```markdown
 
 ## ✨ What’s new?
 
