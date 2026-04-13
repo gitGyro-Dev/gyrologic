@@ -6,6 +6,9 @@
 
 > A unified dynamical framework for identity, consciousness, and observation.
 
+> Not static logic.  
+> A recursive dynamical system of identity and consciousness.
+
 ## 🌐 Language
 
 - English (this page)
@@ -34,14 +37,24 @@ Gyro Logic models reality as a **dynamic system**:
 
 👉 A bridge between theory, AI, and system design
 
+
+## ✨ What’s new?
+
+- Identity = stability  
+- Observation = operator  
+- Void = generative instability  
+- Consciousness = transition mechanism  
+
 ---
 
 ## 🧠 Core Idea
 
-```Slice → Field → Void → Consciousness → Identity → Self → Slice```
+``` Slice → Field → Void → Consciousness → Identity → Self → Slice ```
 
 👉 Not static logic  
 👉 But a **recursive dynamical system**
+👉 The system is a loop, not a pipeline
+
 
 ## 📄 Paper
 
