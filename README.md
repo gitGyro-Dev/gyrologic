@@ -1,4 +1,4 @@
-# Gyro Logic vNext
+## Gyro Logic v2.0 (Initial Release)
 
 ![License](https://img.shields.io/badge/license-CC--BY--4.0-blue)
 ![Status](https://img.shields.io/badge/status-active-success)
