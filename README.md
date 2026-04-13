@@ -38,23 +38,24 @@ Gyro Logic models reality as a **dynamic system**:
 👉 A bridge between theory, AI, and system design
 
 
+---
+
+## 🧠 Core Idea
+
+
+Slice → Field → Void → Consciousness → Identity → Self → Slice
+
+
+👉 Not static logic  
+👉 But a **recursive dynamical system**  
+👉 The system is a loop, not a pipeline
+
 ## ✨ What’s new?
 
 - Identity = stability  
 - Observation = operator  
 - Void = generative instability  
 - Consciousness = transition mechanism  
-
----
-
-## 🧠 Core Idea
-
-``` Slice → Field → Void → Consciousness → Identity → Self → Slice ```
-
-👉 Not static logic  
-👉 But a **recursive dynamical system**
-👉 The system is a loop, not a pipeline
-
 
 ## 📄 Paper
 
