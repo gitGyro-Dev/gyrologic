@@ -1,153 +1,151 @@
 # Gyro Logic vNext
-
-![License](https://img.shields.io/badge/license-CC--BY--4.0-blue)
-![Status](https://img.shields.io/badge/status-active-success)
-![Field](https://img.shields.io/badge/field-theoretical--framework-purple)
-
-> 同一性・意識・観測を統合する動的理論フレームワーク
+構造・観測・安定性のための形式理論フレームワーク
 
 ---
 
-![Unified System](figures/figure4.png)
+## 0. コア命題
+
+世界 = 構造  
+観測 = 圧縮  
+データ = 射影  
+真理 = 安定性  
+時間 = 安定遷移  
 
 ---
 
-## 🚀 Gyro Logicとは？
+## 1. 形式定義
 
-Gyro Logicは、現実を**動的システム**として捉える理論です：
+### 構造（Structure）
 
-- 同一性 = 安定構造  
-- 観測 = 作用素（Slice）  
-- 不安定性 = 生成領域（Void）  
-- 意識 = 不安定性を横断する能力  
+S ∈ 𝒮  
+S = (E, R, Φ)
 
----
-
-## ❓ なぜ重要か
-
-従来の理論は：
-
-- 同一性は固定されている
-- 観測は受動的である
-
-と仮定している。
-
-しかし現実は：
-
-- 同一性は変化する  
-- 観測は構造を変える  
-- 不安定性が新しい構造を生む  
-
-👉 Gyro Logicはこれを扱うための枠組みです  
-
-👉 **理論・AI・システム設計をつなぐ橋**
+- E：要素集合  
+- R：関係構造  
+- Φ：制約（ダイナミクス・保存則）
 
 ---
 
-## 🧠 コアアイデア
+### 観測（Slice）
 
-```Slice → Field → Void → Consciousness → Identity → Self → Slice```
+O : 𝒮 → 𝒳  
+X = O(S)
 
-
-👉 静的な論理ではない  
-👉 **再帰的な動的システム**
-
----
-
-## 📄 論文
-
-- 📘 英語版: [`paper.pdf`](./paper.pdf)
-- 📙 日本語版: [`paper_jp.pdf`](./paper_jp.pdf)
+観測は可逆ではなく、情報圧縮作用素である。
 
 ---
 
-## 🧩 コア概念
+### 安定性（Stability）
 
-| 概念 | 意味 |
+Stab_O(S) = E[ d( O(S), O(S + ε) )⁻¹ ]
+
+安定性は単なる不変性ではなく、摂動に対する頑健性である。
+
+---
+
+### 同一性（Identity）
+
+I_O(S) ⇔ Stab_O(S) ≥ θ
+
+同一性は「物体」ではない。  
+観測の下で維持される安定条件である。
+
+---
+
+### 時間（Time）
+
+Time = {S₀ → S₁ → S₂ → ...}
+
+t₁ < t₂ ⇔ Stab(S₁ → S₂) > θ
+
+時間は連続ではなく、安定な遷移の列である。
+
+---
+
+### 空間（Space）
+
+d_O(S₁, S₂) = d( O(S₁), O(S₂) )
+
+空間は観測によって誘導される。
+
+---
+
+## 2. 基本構造
+
+S  
+↓  
+O  
+↓  
+X = O(S)  
+↓  
+Stability  
+↓  
+選択 / 推論  
+
+---
+
+## 3. 推論（Inference）
+
+Inference = argmax_O,J Stab( O(J(S)) )
+
+推論とは、状態遷移と観測の同時最適化である。
+
+---
+
+## 4. 同一性（核心）
+
+Identity = 観測Oの下で安定な軌跡
+
+同一性は：
+
+- 物体ではない  
+- 状態でもない  
+
+👉 安定性を維持する時間発展構造である
+
+---
+
+## 5. 既存理論との関係
+
+- 動的システム → 観測依存性を導入  
+- 情報理論 → 安定性選択を導入  
+- 論理 → 安定性最適化へ再定義  
+
+---
+
+## 6. 実装対応
+
+| 概念 | 実装 |
 |------|------|
-| Field | 状態空間 |
-| Slice | 観測作用素 |
-| Stability | 構造の不変性 |
-| Identity | 安定構造 |
-| Void | 不安定領域 |
-| Consciousness | 遷移能力 |
-| Self | 時間統合構造 |
+| 構造 | グラフ / テンソル |
+| Slice | API / モデル |
+| 安定性 | スコア関数 |
+| 同一性 | 軌跡クラスタリング |
+| 時間 | 状態遷移 |
+| 空間 | 類似度距離 |
 
 ---
 
-## 🧠 ビジュアル
-
-### 🔄 遷移（Void → Jump）
-
-![Transition](figures/figure3.png)
-
----
-
-### 🧩 同一性（ソリトン）
-
-![Soliton](figures/figure2.png)
-
----
-
-### 🧠 意識
-
-![Consciousness](figures/figure5.png)
-
----
-
-## 🔗 関連プロジェクト
+## 7. 関連プロジェクト
 
 - 🔧 GyroOS（実装基盤）  
-  https://github.com/gitGyro-Dev/gyroos
+  https://github.com/gitGyro-Dev/gyroos  
 
 - 🔐 GyroAuth（応用）  
-  https://github.com/gitGyro-Dev/gyroauth
+  https://github.com/gitGyro-Dev/gyroauth  
 
 ---
 
-## 👥 想定読者
+## 8. キーワード
 
-- AI・複雑系の研究者  
-- 新しい理論に興味のあるエンジニア  
-- 同一性・意識・存在に関心のある方  
+安定性 / 同一性 / 観測 / 動的システム / 情報構造
 
 ---
 
-## 📊 ステータス
-
-- ✔ 理論定義済み
-- ✔ 論文完成
-- 🔄 Jxiv投稿中
-- 🔄 arXiv投稿予定
-
----
-
-## 🏷️ キーワード
-
-`同一性` `意識` `安定性` `動的システム`  
-`観測` `ソリトン` `情報構造`
-
----
-
-## ⭐ サポート
-
-もし面白いと感じたら：
-
-👉 ⭐ をお願いします  
-👉 シェア・議論歓迎です  
-
----
-
-## 📄 ライセンス
-
-CC BY 4.0
-
----
-
-## ✨ ビジョン
+## 9. ビジョン
 
 Gyro Logicは：
 
-> 「意味・同一性・計算」を統合する理論基盤
+> 「意味・同一性・計算」を統合する基盤理論
 
-を目指しています。
+を目指す。

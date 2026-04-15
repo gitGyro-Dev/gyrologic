@@ -1,151 +1,158 @@
-## Gyro Logic v2.0 (Initial Release)
+# Gyro Logic vNext
+A Formal Framework for Structure, Observation, and Stability
 
-![License](https://img.shields.io/badge/license-CC--BY--4.0-blue)
-![Status](https://img.shields.io/badge/status-active-success)
-![Field](https://img.shields.io/badge/field-theoretical--framework-purple)
-
-> A unified dynamical framework for identity, consciousness, and observation.
-
-> Not static logic.  
-> A recursive dynamical system of identity and consciousness.
-
-## 🌐 Language
-
-- English (this page)
-- [日本語はこちら](./README_jp.md)
+Theory core of the Gyro family.
+For system architecture, see GyroOS.
+For authentication application, see GyroAuth.
 
 ---
 
-![Unified System](figures/figure4.png)
+## 0. Core Statement
+
+World = Structure  
+Observation = Compression  
+Data = Projection  
+Truth = Stability  
+Time = Stable Transitions  
 
 ---
 
-## 🚀 What is Gyro Logic?
+## 1. Formal Definitions
 
-Gyro Logic models reality as a **dynamic system**:
+### Structure
 
-- Identity = Stable structure
-- Observation = Operator (Slice)
-- Instability = Generative region (Void)
-- Consciousness = Ability to traverse instability
+S ∈ 𝒮  
+S = (E, R, Φ)
 
-### Why it matters
-
-- Existing systems assume static identity
-- Real-world systems are dynamic and unstable
-- Gyro Logic provides a framework for modeling this reality
-
-👉 A bridge between theory, AI, and system design
-
+- E: elements  
+- R: relational structure  
+- Φ: constraints (dynamics, conservation, admissibility)
 
 ---
 
-## 🧠 Core Idea
+### Observation (Slice)
 
-```
+O : 𝒮 → 𝒳  
+X = O(S)
 
-Slice → Field → Void → Consciousness → Identity → Self → Slice
-
-```
-
-👉 Not static logic  
-👉 But a **recursive dynamical system**  
-👉 The system is a loop, not a pipeline
-
-
-## ✨ What’s new?
-
-- Identity = stability  
-- Observation = operator  
-- Void = generative instability  
-- Consciousness = transition mechanism  
-
-## 📄 Paper
-
-- 📘 English: [`paper.pdf`](./paper.pdf)
-- 📙 Japanese: [`paper_jp.pdf`](./paper_jp.pdf)
+Observation is not a neutral readout.  
+It is a generally non-invertible compression operator.
 
 ---
 
-## 🧩 Key Concepts
+### Stability
 
-| Concept | Meaning |
-|--------|--------|
-| Field | State space |
-| Slice | Observation operator |
-| Stability | Structural invariance |
-| Identity | Stable pattern |
-| Void | Instability |
-| Consciousness | Transition capability |
-| Self | Integrated identity |
+Stab_O(S) = E[ d( O(S), O(S + ε) )⁻¹ ]
+
+Stability is not mere invariance.  
+It is robustness under perturbation.
 
 ---
 
-## 🧠 Visual Overview
+### Identity
 
-### Identity (Soliton-like)
+I_O(S) ⇔ Stab_O(S) ≥ θ
 
-![Soliton](figures/figure2.png)
-
----
-
-### Transition (Void → Jump)
-
-![Transition](figures/figure3.png)
+Identity is not an object.  
+It is a stability condition under observation.
 
 ---
 
-### Consciousness
+### Time
 
-![Consciousness](figures/figure5.png)
+Time = {S₀ → S₁ → S₂ → ...}
+
+t₁ < t₂ ⇔ Stab(S₁ → S₂) > θ
+
+Time is not fundamentally continuous.  
+It is an ordered sequence of stability-preserving transitions.
 
 ---
 
-## 🔗 Related Projects
+### Space
 
-- 🔧 GyroOS (Implementation)  
+d_O(S₁, S₂) = d( O(S₁), O(S₂) )
+
+Space is induced by observation.
+
+---
+
+## 2. Core Structure
+
+S  
+↓  
+O  
+↓  
+X = O(S)  
+↓  
+Stability  
+↓  
+Selection / Inference  
+
+---
+
+## 3. Inference
+
+Inference = argmax_O,J Stab( O(J(S)) )
+
+Inference is the joint optimization of transition and observation.
+
+---
+
+## 4. Identity (Central Insight)
+
+Identity = a stable trajectory under O
+
+Identity is not:
+
+- an object
+- a frozen state
+
+It is:
+
+- a stability-preserving evolution across time
+
+---
+
+## 5. Relation to Existing Theory
+
+- Dynamical Systems → extended with observer dependence  
+- Information Theory → extended with stability selection  
+- Logic → reformulated as stability optimization  
+
+---
+
+## 6. Implementation Mapping
+
+| Concept | Implementation |
+|------|------|
+| Structure | graph / tensor / state model |
+| Slice | API / model / observer |
+| Stability | scoring function |
+| Identity | trajectory tracking / clustering |
+| Time | state transitions |
+| Space | similarity metric |
+
+---
+
+## 7. Related Projects
+
+- 🔧 GyroOS (system layer)  
   https://github.com/gitGyro-Dev/gyroos
 
-- 🔐 GyroAuth (Application)  
+- 🔐 GyroAuth (application layer)  
   https://github.com/gitGyro-Dev/gyroauth
 
 ---
 
-## 📊 Status
+## 8. Keywords
 
-- ✔ Theory Defined
-- ✔ Paper Completed
-- 🔄 Jxiv Submission
-- 🔄 arXiv Submission
+stability / identity / observation / dynamical systems / information structure
 
 ---
 
-## 🏷️ Keywords
+## 9. Vision
 
-`identity` `consciousness` `stability` `dynamical-systems`  
-`observation` `soliton` `information-structure`
+Gyro Logic aims to provide:
 
----
-
-## 👥 Who is this for?
-
-- Researchers in AI / complex systems
-- Engineers exploring new paradigms
-- Anyone interested in identity and consciousness
-
----
-
-## ⭐ Support
-
-If this project resonates with you:
-
-👉 Give it a ⭐  
-👉 Share or discuss  
-👉 Follow future developments
-
----
-
-## 📄 License
-
-CC BY 4.0
-
+> A foundational framework that unifies meaning, identity, and computation.

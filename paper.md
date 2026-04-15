@@ -54,6 +54,10 @@ $$
 \mathrm{Stab}(F; S) = - \| S(F) - F \|^2
 $$
 
+StabO​(F)=E[d(S(F),S(F+ϵ))−1]
+
+Stability is defined not only as invariance but as robustness under perturbations.
+
 
 
 A structure is stable when:
@@ -64,9 +68,9 @@ $$
 
 ## Identity
 
-$$
-I = \{ F \mid S(F) = F \}
-$$
+IO​={T=(F0​,F1​,…)∣∀t, StabO​(Ft​→Ft+1​)≥θ}
+
+Identity is not a fixed structure but a stability-preserving trajectory under an observation operator.
 
 ## Convergence
 
@@ -80,15 +84,27 @@ $$
 V(t) = 1 - \mathrm{Stab}(F(t); S(t))
 $$
 
+## Time
+
+Time is defined as an ordered sequence of stability-preserving transitions:
+
+$$
+F_0 \to F_1 \to F_2 \to \dots
+$$
+
+$$
+t_1 < t_2 \iff \mathrm{Stab}(F_1 \to F_2) > \theta
+$$
+
 ---
 
 # 3. Core Structures
 
 ## Identity Dynamics
 
-$$
-I(t+1) = I(t) + G_{id} - L_{id} + N_{id}
-$$
+I(t+1)=ΠO​(J(Ft​))
+
+Identity evolves through projection of state transitions under observation.
 
 ---
 
@@ -238,6 +254,12 @@ Consciousness → control engine
 Authentication = convergence  
 Identity = soliton-like trajectory  
 Attack = pseudo-soliton  
+
+Authentication is defined as trajectory convergence under a shared observation operator:
+
+$$
+\text{Auth} \iff \exists O,\ T_{\text{user}} \approx T_{\text{reference}}
+$$
 
 ---
 
