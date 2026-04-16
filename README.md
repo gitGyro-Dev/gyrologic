@@ -1,201 +1,134 @@
-# Gyro Logic vNext
-A Formal Framework for Structure, Observation, Stability, and Identity
+## Gyro Logic v2.1  
+### From Stability-Based Theory to a Computational Model of Reality
 
 ---
 
-## 0. Core Statement
+### Overview
 
-World = Structure  
-Observation = Compression  
-Data = Projection  
-Truth = Stability  
-Time = Stable Transitions  
+This release extends Gyro Logic from a theoretical framework into a **computational and structural model**.
 
----
+Gyro Logic originally defined:
 
-## 1. Formal Definitions
+- Meaning as stabilized behavior  
+- Truth as stability-weighted projection  
+- Inference as stability optimization  
 
-### Structure
-
-S ∈ 𝒮  
-S = (E, R, Φ)
-
-- E: elements  
-- R: relational structure  
-- Φ: constraints (dynamics, conservation)
+In this version, these principles are formalized into a **machine model capable of performing inference, reference resolution, and structural transitions**.
 
 ---
 
-### Observation (Slice)
+### What’s New
 
-O : 𝒮 → 𝒳  
+#### 1. Gyro Machine (Computational Model)
 
-X = O(S)
+A formal computational model is introduced:
 
-Observation is not passive.  
-It is a non-invertible compression operator.
+- Structure-driven computation  
+- Observation as Slice (Functor)  
+- Stability as evaluation functional  
+- Jump as structural transition  
 
-👉 Observation (Slice) is modeled as a **functor** mapping structures to observable representations.
+This defines computation not as symbolic manipulation, but as:
 
----
-
-### Stability
-
-Stab_O(S) =
-E[ d( O(S), O(S + ε) )⁻¹ ]
-
-or equivalently (measure-theoretic form):
-
-Stab_O(S) =
-∫ κ(O(S), O(S')) dμ(S')
-
-Stability is not mere invariance.  
-It is robustness under perturbation.
+> stability-driven evolution of structure
 
 ---
 
-### Identity
+#### 2. Formalization of Void
 
-I_O(S) ⇔ Stab_O(S) ≥ θ
+Void is defined as:
 
-More fundamentally:
+- instability of observation  
+- failure of reference  
+- breakdown of representation  
 
-Identity = a stable trajectory under O
+Void is not absence, but:
 
-and categorically:
-
-I = lim ← O(D)
-
-Identity is not an object.  
-It is the limit of observed structural evolution.
+> a boundary of stable observability
 
 ---
 
-### Time
+#### 3. Reference as Stability Selection
 
-Time = {S₀ → S₁ → S₂ → ...}
+Reference is formalized as:
 
-t₁ < t₂ ⇔ Stab(S₁ → S₂) > θ
+> selection of the most stable entity under context
 
-Time is not continuous.  
-It is an ordered sequence of stability-preserving transitions.
-
----
-
-### Space
-
-d_O(S₁, S₂) = d( O(S₁), O(S₂) )
-
-Space is induced by observation.
+This connects language, perception, and computation into a single mechanism.
 
 ---
 
-## 2. Core Structure
+#### 4. Consciousness as Structural Transition Mechanism
 
-S  
-↓  
-O  
-↓  
-X = O(S)  
-↓  
-Stability  
-↓  
-Selection / Inference  
+Consciousness is defined as the capacity to:
 
----
+- detect instability (Void)  
+- maintain representation under failure  
+- trigger structural transitions (Jump)  
+- re-establish stable reference  
 
-## 3. Inference
-
-Inference = argmax_O,J Stab( O(J(S)) )
-
-Inference is the joint optimization of transition and observation.
+This provides a minimal and operational definition of consciousness.
 
 ---
 
-## 4. Identity (Central Insight)
+#### 5. Unified Model
 
-Identity = stable trajectory under O  
+The framework is unified as:
 
-Identity is not:
+Structure → Slice → Stability → Meaning / Identity / Reference
+↓
+Void
+↓
+Consciousness
+↓
+Jump
+↓
+New Structure
 
-- an object  
-- a fixed state  
-
-It is:
-
-- a stability-preserving evolution across time  
-
----
-
-## 5. Categorical Interpretation
-
-- 𝒮 : category of structures  
-- 𝒳 : category of observations  
-
-O : 𝒮 → 𝒳 (Functor)  
-
-Transitions are morphisms:
-
-f : S₁ → S₂  
-
-Identity is the limit of a diagram:
-
-I = lim ← O(D)
 
 ---
 
-## 6. Measure-Theoretic Stability
+### Significance
 
-Let (𝒮, μ) be a measure space.
+Gyro Logic now establishes a unified framework connecting:
 
-Stability is defined as:
+- observation  
+- meaning  
+- identity  
+- inference  
+- reference  
+- consciousness  
 
-Stab_O(S) =
-∫ κ(O(S), O(S')) dμ(S')
-
-This captures robustness over neighboring structures.
-
----
-
-## 7. Implementation Mapping
-
-| Concept | Implementation |
-|------|------|
-| Structure | graph / tensor |
-| Slice | API / model |
-| Stability | scoring function |
-| Identity | trajectory tracking |
-| Time | state transitions |
-| Space | similarity metric |
+within a single stability-based formalism.
 
 ---
 
-## 8. Related Projects
+### Relationship to Previous Version
 
-- 🔧 GyroOS (system layer)  
-  https://github.com/gitGyro-Dev/gyroos  
+v2.0:
+- foundational theory of stability-based meaning
 
-- 🔐 GyroAuth (application layer)  
-  https://github.com/gitGyro-Dev/gyroauth  
-
----
-
-## 9. Extended Formulation
-
-👉 See categorical formulation:
-
-[Gyro Logic – Categorical Formulation](./README_categorical.md)
+v2.1:
+- computational model (Gyro Machine)
+- formal definition of Void, Reference, Consciousness
+- integration across mathematical and computational layers
 
 ---
 
-## 10. Keywords
+### Future Direction
 
-stability / identity / observation / dynamical systems / information structure
+- implementation in GyroOS  
+- application in authentication (GyroAuth)  
+- integration with AI systems  
+- formal expansion (category theory, measure theory, information theory)
 
 ---
 
-## 11. Vision
+### Statement
 
-Gyro Logic aims to provide:
+Reality is not statically given.
 
-> A foundational framework that unifies meaning, identity, and computation.
+It emerges through observation, stabilizes through consistency,  
+breaks at Void, and expands through structural transitions.
+
+---

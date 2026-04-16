@@ -6,277 +6,155 @@ date: "2026"
 
 # Abstract
 
-We propose Gyro Logic vNext, a unified dynamical framework that models identity, consciousness, and observation as interacting processes within a dynamically evolving system.
+Gyro Logic is a theoretical framework that models reality as a structured system of observable states, where meaning emerges through stability under observation.
 
-Reality is represented as a dynamic Field, observation as an adaptive operator (Slice), identity as a preserved dynamic structure, and consciousness as the capacity to detect and traverse Void within a dynamically evolving system.
+We extend the framework into a unified computational model. We introduce the Gyro Machine, in which computation is defined as the evolution of structure under observation, stability evaluation, and transition.
 
-We introduce a coupled system governing Field, Slice, Void, Consciousness, Identity, and Self, unifying epistemology, ontology, and information dynamics.
+Key concepts include Structure, Slice (as an operator), Stability (as robustness under perturbation), Identity (as a stable trajectory), Void (as instability boundary), and Consciousness (as a transition mechanism).
 
 ---
 
 # 1. Introduction
 
-Classical logic assumes static identity and passive observation.  
-However, real systems exhibit dynamic identity, observer-dependent structure, and instability-driven transformation.
+Classical logic assumes static identity and passive observation.
 
-Gyro Logic vNext proposes:
+Gyro Logic proposes:
 
-- Identity as stability  
-- Observation as operator  
-- Void as generative instability  
-- Consciousness as structural transition capacity  
+- Meaning = Stabilized Behavior  
+- Truth = Stability-weighted Projection  
+- Inference = Stability Optimization  
 
 ---
 
-![Gyro Logic Overview](figures/figure1.png)
+# 2. Structure
 
-**Figure 1:** Fundamental flow of Gyro Logic. Stability emerges from repeated application of Slice over Field, giving rise to Identity.
+Let:
 
----
+\[
+S \in \mathcal{S}
+\]
 
-# 2. Preliminaries
-
-## Field
-
-$$
-F(t) \in \mathcal{F}
-$$
-
-## Slice
-
-$$
-S(t): \mathcal{F} \to \mathcal{F}
-$$
-
-## Stability Functional
-
-$$
-\mathrm{Stab}(F; S) = - \| S(F) - F \|^2
-$$
-
-StabO​(F)=E[d(S(F),S(F+ϵ))−1]
-
-Stability is defined not only as invariance but as robustness under perturbations.
-
-
-
-A structure is stable when:
-
-$$
-S(F) \approx F
-$$
-
-## Identity
-
-IO​={T=(F0​,F1​,…)∣∀t, StabO​(Ft​→Ft+1​)≥θ}
-
-Identity is not a fixed structure but a stability-preserving trajectory under an observation operator.
-
-## Convergence
-
-$$
-\lim_{n \to \infty} S^n(F) = F^*
-$$
-
-## Void
-
-$$
-V(t) = 1 - \mathrm{Stab}(F(t); S(t))
-$$
-
-## Time
-
-Time is defined as an ordered sequence of stability-preserving transitions:
-
-$$
-F_0 \to F_1 \to F_2 \to \dots
-$$
-
-$$
-t_1 < t_2 \iff \mathrm{Stab}(F_1 \to F_2) > \theta
-$$
+Structure is a relational state.
 
 ---
 
-# 3. Core Structures
+# 3. Observation (Slice)
 
-## Identity Dynamics
+Observation is defined as:
 
-I(t+1)=ΠO​(J(Ft​))
-
-Identity evolves through projection of state transitions under observation.
-
----
-
-![Soliton Identity](figures/figure2.png)
-
-**Figure 2:** Identity behaves as a soliton-like structure, maintaining stability under perturbations and re-converging over time.
+\[
+O_\theta : \mathcal{S} \rightarrow \mathcal{X}
+\]
 
 ---
 
-## Self Dynamics
+# 4. Stability
 
-$$
-\mathrm{Self}(t+1) =
-\alpha \mathrm{Self}(t)
-+ \beta W(t) \cdot I(t)
-+ \eta M(t)
-+ \kappa H(t)
-+ \gamma J(t)
-- \delta L(t)
-$$
+Stability is defined as robustness under perturbation:
 
----
-
-## Consciousness
-
-$$
-C(t) = (D(t), H(t), J(t))
-$$
+\[
+\mathrm{Stab}_{O}(S)
+=
+\mathbb{E}_{S' \sim \mathcal{N}(S)}
+\left[
+k(O(S), O(S'))
+\right]
+\]
 
 ---
 
-# 4. Void Dynamics
+# 5. Time and Trajectory
 
-$$
-V(t+1) = V(t)
-       + a I_{\text{inst}}
-       + p L_{id}
-       + q L_{\text{self}}
-       - b R_{id}
-       - c J_{\text{eff}}
-       + d E
-$$
+\[
+T = \{S_t\}
+\]
+
+\[
+\tau = \{O(S_t)\}
+\]
 
 ---
 
-# 5. Slice Evolution
+# 6. Identity
 
-Self(t+1) = defined in Section 3  
-S(t+1) = defined in Section 5
-
-
----
-
-![Frame Transition](figures/figure3.png)
-
-**Figure 3:** Structural transition through instability. As stability collapses, Void expands, enabling a Jump into a new stable configuration.
+\[
+I = \lim_{t \to \infty} \tau_t
+\]
 
 ---
 
-# 6. Unified Dynamical System
+# 7. Void
 
-Self(t+1) = defined in Section 3  
-S(t+1) = defined in Section 5
-
----
-
-![Unified System](figures/figure4.png)
-
-**Figure 4:** Closed-loop structure of the Gyro Logic system. Observation, 
-instability, identity, and self form a recursive dynamical loop.
+\[
+\mathrm{Void}_O =
+\{S \mid O(S)\ \text{is undefined or unstable}\}
+\]
 
 ---
 
-# 7. Consciousness Process
+# 8. Jump
 
-Consciousness is defined as the ability to detect, maintain, and resolve Void through structural transition.
-
----
-
-![Consciousness Model](figures/figure5.png)
-
-**Figure 5:** Consciousness as a process: detection of instability (Void), sustained holding, and generation of a structural transition (Jump).
+\[
+J : S \rightarrow S'
+\]
 
 ---
 
-# 8. Self Integration
+# 9. Consciousness
 
-Self is formed by integrating multiple identity structures across time.
-
----
-
-![Self Integration](figures/figure6.png)
-
-**Figure 6:** Integration of identity fragments into a unified Self, with continuous reconstruction under dynamic conditions.
-
----
-
-# 9. Theoretical Results
-
-**Theorem 1 (Identity Emergence):**  
-Identity emerges only through traversal of Void followed by Jump.
-
-**Theorem 2 (Consciousness Condition):**  
-A system is conscious if and only if it can detect, maintain, and resolve Void.
-
-**Theorem 3 (Synchronization Impossibility):**  
-Complete synchronization is impossible across systems with different Slice operators.
-
-**Theorem 4 (Collapse Condition):**  
-Collapse occurs when Void exceeds reconstruction capacity over time.
-
+\[
+\mathrm{Consciousness} =
+\mathrm{DetectVoid}
+\circ
+\mathrm{TriggerJump}
+\circ
+\mathrm{ReformReference}
+\]
 
 ---
 
-# 10. Philosophical Integration
+# 10. Gyro Machine
 
-**Definition (Truth):**  
-Truth is a slice-dependent invariant projection.
+A Gyro Machine is defined as:
 
-**Definition (Creativity):**  
-Creativity is emergence after Void traversal.
+\[
+\mathbb{G} =
+(\mathcal{S}, \mathcal{O}, \mathcal{X}, \mathcal{J}, \mathrm{Stab}, \Pi)
+\]
 
-**Definition (Ethics):**  
-Ethics is evaluation over multi-scale stability.
+Transition:
 
-**Definition (Free Will):**  
-Free will is the capacity to update Slice operators.
-
-**Definition (Qualia):**  
-Qualia are structures accessible only through a first-person Slice.
+\[
+S_t \rightarrow O_t(S_t) \rightarrow \mathrm{Stab} \rightarrow S_{t+1}
+\]
 
 ---
 
-# 11. GyroOS Mapping
+# 11. Unified Model
 
-Field → State engine  
-Slice → Observation API  
-Void → anomaly layer  
-Identity → pattern detector  
-Self → integration module  
-Consciousness → control engine  
-
----
-
-# 12. GyroAuth Connection
-
-Authentication = convergence  
-Identity = soliton-like trajectory  
-Attack = pseudo-soliton  
-
-Authentication is defined as trajectory convergence under a shared observation operator:
-
-$$
-\text{Auth} \iff \exists O,\ T_{\text{user}} \approx T_{\text{reference}}
-$$
-
----
-
-# 13. Discussion
-
-Static systems fail to represent:
-
-- dynamic identity  
-- observation-dependent structure  
-- instability-driven change  
-
-Multi-dimensional representation is required.
+\[
+S
+\rightarrow
+O(S)
+\rightarrow
+\mathrm{Stab}
+\rightarrow
+\begin{cases}
+\text{Meaning} \\
+\text{Identity}
+\end{cases}
+\quad
+\text{or}
+\quad
+\mathrm{Void}
+\rightarrow
+J
+\rightarrow
+S'
+\]
 
 ---
 
-# 14. Conclusion
+# 12. Conclusion
 
-Gyro Logic vNext provides a unified dynamical model for identity, consciousness, and observation.
-
-It connects theory, computation, and application into a single framework.
+Reality is constructed through observation, stabilized through consistency, and expanded through structural transitions.
