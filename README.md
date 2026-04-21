@@ -94,7 +94,28 @@ CC-BY-4.0
 
 Gyro Logic Lab
 
-## 🌐 Languages
+---
 
-- [English](./README.md)
-- [日本語](./README_JP.md)
+## 🇯🇵 日本語論文
+
+Gyro Logicの日本語版論文です。
+
+* 📄 [日本語論文（Markdown）](./paper/paper_final_jp.md)
+
+概要：
+
+* 表現は必ずズレ（Δ）を含む
+* ズレは誤差ではなく構造
+* 安定性が意味を決める
+* 同一性は安定な軌道として定義される
+
+---
+
+## 🌐 Language
+
+* English (this page)
+* [日本語版README](./README_JP.md)
+
+
+
+

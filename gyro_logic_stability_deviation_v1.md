@@ -1,5 +1,13 @@
 # Gyro Logic: A Stability-Based Framework for Representation Under Intrinsic Deviation
 
+
+Gyro Logic Lab  
+Independent Research  
+
+April 2026  
+
+DOI: https://doi.org/10.5281/zenodo.19674375
+
 ---
 
 ## Abstract
@@ -24,7 +32,7 @@ The framework is built on three core elements:
 
 ## 2. Core Architecture
 
-![Figure 1. Core Architecture of Gyro Logic](figures/figure1_1.png)
+![Core Architecture of Gyro Logic](figures/figure1_1.png)
 
 $$
 X = O(S)
@@ -34,7 +42,7 @@ $$
 
 ## 3. Slice-Dependent Representation
 
-![Figure 2. Divergent Slice Operations on a Common Structure](figures/figure2_1.png)
+![Divergent Slice Operations on a Common Structure](figures/figure2_1.png)
 
 $$
 X_1 = O_1(S), \quad X_2 = O_2(S)
@@ -44,7 +52,7 @@ $$
 
 ## 4. Stability as a Function of Deviation
 
-![Figure 3. Stability as a Function of Deviation](figures/figure3_1.png)
+![Stability as a Function of Deviation](figures/figure3_1.png)
 
 Let the structure space be $\mathcal{S}$ and the representation space be $\mathcal{X}$.
 
@@ -78,7 +86,7 @@ $$
 
 ## 5. Collapse into Void
 
-![Figure 4. Structural Collapse Under Increasing Deviation](figures/figure4_1.png)
+![Structural Collapse Under Increasing Deviation](figures/figure4_1.png)
 
 $$
 \mathrm{Void} :=
@@ -89,7 +97,7 @@ $$
 
 ## 6. Discontinuous Transition (Jump)
 
-![Figure 5. Discontinuous Representational Jump](figures/figure5_1.png)
+![Discontinuous Representational Jump](figures/figure5_1.png)
 
 $$
 \Delta > \theta \Rightarrow O \to O'
@@ -99,7 +107,7 @@ $$
 
 ## 7. Identity as Stable Trajectory
 
-![Figure 6. Identity Stability Over Time](figures/figure6_1.png)
+![Identity Stability Over Time](figures/figure6_1.png)
 
 $$
 \gamma : [0,T] \to \mathcal{X}
