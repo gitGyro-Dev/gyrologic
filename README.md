@@ -1,134 +1,100 @@
-## Gyro Logic v2.1  
-### From Stability-Based Theory to a Computational Model of Reality
+# Gyro Logic
+
+A formal framework for understanding **representation under intrinsic deviation**.
 
 ---
 
-### Overview
+## 🧠 Core Idea
 
-This release extends Gyro Logic from a theoretical framework into a **computational and structural model**.
+Gyro Logic proposes that:
 
-Gyro Logic originally defined:
-
-- Meaning as stabilized behavior  
-- Truth as stability-weighted projection  
-- Inference as stability optimization  
-
-In this version, these principles are formalized into a **machine model capable of performing inference, reference resolution, and structural transitions**.
+* Representation is not exact
+* Deviation ($\Delta$) is intrinsic
+* Stability determines meaning
+* Identity is a stable trajectory
 
 ---
 
-### What’s New
+## 📄 Paper
 
-#### 1. Gyro Machine (Computational Model)
+**Gyro Logic v2.4 — Formalization & Paper Release**
 
-A formal computational model is introduced:
-
-- Structure-driven computation  
-- Observation as Slice (Functor)  
-- Stability as evaluation functional  
-- Jump as structural transition  
-
-This defines computation not as symbolic manipulation, but as:
-
-> stability-driven evolution of structure
+* 📥 [Download PDF](./paper/gyro_logic_stability_deviation_v1.pdf)
+* 🔗 DOI: https://doi.org/10.5281/zenodo.19674375
 
 ---
 
-#### 2. Formalization of Void
+## 🔑 Core Formulation
 
-Void is defined as:
+$$
+\mathrm{Stability}(S) = \exp(-\lambda \Delta(S))
+$$
 
-- instability of observation  
-- failure of reference  
-- breakdown of representation  
-
-Void is not absence, but:
-
-> a boundary of stable observability
+* $\Delta$ : deviation between representations
+* $\lambda$ : sensitivity parameter
+* Stability $\in (0,1]$
 
 ---
 
-#### 3. Reference as Stability Selection
+## 🧩 Conceptual Structure
 
-Reference is formalized as:
-
-> selection of the most stable entity under context
-
-This connects language, perception, and computation into a single mechanism.
-
----
-
-#### 4. Consciousness as Structural Transition Mechanism
-
-Consciousness is defined as the capacity to:
-
-- detect instability (Void)  
-- maintain representation under failure  
-- trigger structural transitions (Jump)  
-- re-establish stable reference  
-
-This provides a minimal and operational definition of consciousness.
+```
+Structure (S)
+   ↓
+Slice (O)
+   ↓
+Representation (X) + Deviation (Δ)
+   ↓
+Stability
+   ↓
+Meaning / Identity
+```
 
 ---
 
-#### 5. Unified Model
+## 📊 Figures
 
-The framework is unified as:
-
-Structure → Slice → Stability → Meaning / Identity / Reference
-↓
-Void
-↓
-Consciousness
-↓
-Jump
-↓
-New Structure
-
+* Figure 1: Core Architecture
+* Figure 2: Divergent Slice Operations
+* Figure 3: Stability vs Deviation
+* Figure 4: Collapse into Void
+* Figure 5: Representational Jump
+* Figure 6: Identity as Trajectory
 
 ---
 
-### Significance
+## 🧭 Key Concepts
 
-Gyro Logic now establishes a unified framework connecting:
-
-- observation  
-- meaning  
-- identity  
-- inference  
-- reference  
-- consciousness  
-
-within a single stability-based formalism.
+* **Slice**: Reconfiguration of structure
+* **Deviation (Δ)**: intrinsic mismatch between observations
+* **Stability**: tolerance to deviation
+* **Void**: limit of evaluability
+* **Jump**: discontinuous slice transition
+* **Identity**: stability-preserving trajectory
 
 ---
 
-### Relationship to Previous Version
+## 📌 Positioning
 
-v2.0:
-- foundational theory of stability-based meaning
+This work introduces:
 
-v2.1:
-- computational model (Gyro Machine)
-- formal definition of Void, Reference, Consciousness
-- integration across mathematical and computational layers
+* Observation as reconfiguration
+* Deviation as structure (not noise)
+* Stability as a selection principle
 
 ---
 
-### Future Direction
+## 📜 License
 
-- implementation in GyroOS  
-- application in authentication (GyroAuth)  
-- integration with AI systems  
-- formal expansion (category theory, measure theory, information theory)
+CC-BY-4.0
 
 ---
 
-### Statement
+## ✍️ Author
 
-Reality is not statically given.
+Gyro Logic Lab
 
-It emerges through observation, stabilizes through consistency,  
-breaks at Void, and expands through structural transitions.
+## 🌐 Languages
 
----
+- [English](./README.md)
+- [日本語](./README_JP.md)
