@@ -1,11 +1,14 @@
 ---
 title: "Gyro Logic: A Stability-Based Framework for Representation Under Intrinsic Deviation"
-author: "Gyro Logic Lab"
+author: "Gyro Logic Lab (Independent Research)" 
 date: "April 2026"
 ---
 
 \begin{center}
-DOI: https://doi.org/10.5281/zenodo.19674375
+This manuscript is an original, unpublished work.
+
+Reference archive:
+https://doi.org/10.5281/zenodo.19674468
 \end{center}
 
 ---

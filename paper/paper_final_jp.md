@@ -1,11 +1,12 @@
 ---
 title: "Gyro Logic：内在的ズレのもとでの表現と安定性に関する理論"
-author: "Gyro Logic Lab"
+author: "Gyro Logic Lab (Independent Research)"
 date: "2026年4月"
 ---
 
 \begin{center}
-DOI: https://doi.org/10.5281/zenodo.19674375
+本原稿は未公開のオリジナル研究です。
+https://doi.org/10.5281/zenodo.19674468
 \end{center}
 
 ---
