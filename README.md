@@ -1,121 +1,137 @@
 # Gyro Logic
 
-A formal framework for understanding **representation under intrinsic deviation**.
+**A Stability-Based Framework for Representation Under Intrinsic Deviation**
 
 ---
 
-## 🧠 Core Idea
+## 🧠 What is Gyro Logic?
 
-Gyro Logic proposes that:
+Gyro Logic is a framework that models reality as:
 
-* Representation is not exact
-* Deviation ($\Delta$) is intrinsic
-* Stability determines meaning
-* Identity is a stable trajectory
-
----
-
-## 📄 Paper
-
-**Gyro Logic v2.4 — Formalization & Paper Release**
-
-* 📥 [Download PDF](./paper/gyro_logic_stability_deviation_v1.pdf)
-* 🔗 DOI: https://doi.org/10.5281/zenodo.19674375
+- Structure
+- observed through Slice
+- producing Representation + Δ (deviation)
+- evaluated by Stability
+- continuously updated through a recursive loop
 
 ---
 
-## 🔑 Core Formulation
+## 🔁 Core Idea
 
-$$
-\mathrm{Stability}(S) = \exp(-\lambda \Delta(S))
-$$
+Most systems assume:
 
-* $\Delta$ : deviation between representations
-* $\lambda$ : sensitivity parameter
-* Stability $\in (0,1]$
+Input → Process → Output
 
----
+Gyro Logic instead models:
 
-## 🧩 Conceptual Structure
+Structure  
+↓  
+Slice (Observation)  
+↓  
+Representation + Δ  
+↓  
+Stability  
+↓  
+Update  
+↺ (loop)
 
-```
-Structure (S)
-   ↓
-Slice (O)
-   ↓
-Representation (X) + Deviation (Δ)
-   ↓
-Stability
-   ↓
-Meaning / Identity
-```
+- Reality is not clean  
+- Deviation is unavoidable  
+- Stability determines what persists  
 
 ---
 
-## 📊 Figures
+## ⚠️ Why This Matters
 
-* Figure 1: Core Architecture
-* Figure 2: Divergent Slice Operations
-* Figure 3: Stability vs Deviation
-* Figure 4: Collapse into Void
-* Figure 5: Representational Jump
-* Figure 6: Identity as Trajectory
+Traditional systems fail in edge cases:
 
----
+- each step is valid  
+- but transitions break  
 
-## 🧭 Key Concepts
+Identity fails between steps.
 
-* **Slice**: Reconfiguration of structure
-* **Deviation (Δ)**: intrinsic mismatch between observations
-* **Stability**: tolerance to deviation
-* **Void**: limit of evaluability
-* **Jump**: discontinuous slice transition
-* **Identity**: stability-preserving trajectory
+Gyro Logic focuses on:
+
+**stability across transitions**
 
 ---
 
-## 📌 Positioning
+## 🔐 From Logic to Authentication
 
-This work introduces:
+This idea is implemented in:
 
-* Observation as reconfiguration
-* Deviation as structure (not noise)
-* Stability as a selection principle
+**GyroAuth**
+
+- authentication = state convergence  
+- identity = stable trajectory  
+
+---
+
+## 📊 Key Concepts
+
+- Δ (Deviation)  
+  Structural difference produced by observation  
+
+- Stability  
+  Evaluation of whether deviation remains bounded  
+
+- Gyro Loop  
+  Recursive update of observation based on stability  
+
+- Identity  
+  Stability-preserving trajectory over time  
+
+---
+
+## 📐 Minimal Model
+
+O(S) = X + Δ  
+Stability = Φ(X, Δ)  
+Oₙ₊₁ = Ψ(Oₙ, Stabilityₙ)
+
+---
+
+## 📄 Paper (v2.6)
+
+- Full theory with dynamical system formulation  
+- Fixed-point and stability analysis  
+
+(Jxiv pending)
+
+---
+
+## 📁 Repository Structure
+
+/docs  
+/paper (ignored for submission control)  
+/figures  
+
+---
+
+## 🔬 Status
+
+- Theory: v2.6 (Loop + Dynamical system)  
+- Visualization: done  
+- Implementation: GyroAuth  
+- Publication: pending  
+
+---
+
+## 🚀 Philosophy
+
+Gyro Logic does not model what reality *is*.
+
+It models how observation *keeps updating itself*.
+
+---
+
+## 🧩 Related
+
+- GyroOS → implementation layer  
+- GyroAuth → application layer  
 
 ---
 
 ## 📜 License
 
 CC-BY-4.0
-
----
-
-## ✍️ Author
-
-Gyro Logic Lab
-
----
-
-## 🇯🇵 日本語論文
-
-Gyro Logicの日本語版論文です。
-
-* 📄 [日本語論文（Markdown）](./paper/paper_final_jp.md)
-
-概要：
-
-* 表現は必ずズレ（Δ）を含む
-* ズレは誤差ではなく構造
-* 安定性が意味を決める
-* 同一性は安定な軌道として定義される
-
----
-
-## 🌐 Language
-
-* English (this page)
-* [日本語版README](./README_JP.md)
-
-
-
-

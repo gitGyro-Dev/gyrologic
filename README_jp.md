@@ -1,126 +1,136 @@
 # Gyro Logic
 
-**内在的なズレ（Δ）を前提とした、表現と安定性の理論フレームワーク**
+**内在的ズレに基づく表現理論**
 
 ---
 
-## 🧠 コアアイデア
+## 🧠 Gyro Logicとは
 
-Gyro Logic は次の前提に立ちます：
+Gyro Logicは、現実を以下のように捉える理論です：
 
-* 表現は現実を正確に写すものではない
-* すべての表現はズレ（Δ）を含む
-* 安定性（Stability）が意味を決める
-* 同一性（Identity）は「安定な軌道」として現れる
+- Structure（構造）
+- Slice（観測）
+- Representation + Δ（ズレを含む表現）
+- Stability（安定性評価）
+- Update（更新）
+
+これらが**ループ構造**として動作します。
+
+---
+
+## 🔁 基本構造
+
+従来のモデル：
+
+Input → Process → Output
+
+Gyro Logic：
+
+Structure  
+↓  
+Slice（観測）  
+↓  
+Representation + Δ  
+↓  
+Stability  
+↓  
+Update  
+↺（ループ）
+
+- 現実は完全ではない  
+- ズレは必ず発生する  
+- 安定性が継続を決める  
+
+---
+
+## ⚠️ なぜ重要か
+
+従来システムはエッジケースで破綻します：
+
+- 各ステップは正しい  
+- しかし遷移で崩れる  
+
+Gyro Logicは：
+
+👉 状態遷移の安定性を見る
+
+---
+
+## 🔐 GyroAuthへの応用
+
+GyroAuthでは：
+
+- 認証 = 状態の収束  
+- Identity = 安定した軌跡  
+
+---
+
+## 📊 主要概念
+
+- Δ（ズレ）  
+  観測により生じる構造差  
+
+- Stability（安定性）  
+  ズレが許容範囲内か評価  
+
+- Gyro Loop  
+  観測と評価の再帰更新  
+
+- Identity（同一性）  
+  安定な軌跡  
+
+---
+
+## 📐 最小モデル
+
+O(S) = X + Δ  
+Stability = Φ(X, Δ)  
+Oₙ₊₁ = Ψ(Oₙ, Stabilityₙ)
 
 ---
 
 ## 📄 論文
 
-**Gyro Logic v2.4 — 理論定式化**
+v2.6（Loop / 力学系）
 
-* 📥 [PDFダウンロード](./paper/gyro_logic_stability_deviation_v1.pdf)
-* 🔗 DOI: https://doi.org/10.5281/zenodo.19674375
-
----
-
-## 🔑 基本式
-
-$$
-\mathrm{Stability}(S) = \exp(-\lambda \Delta(S))
-$$
-
-* $\Delta$ ：表現間のズレ
-* $\lambda$ ：感度パラメータ
-* Stability は $(0,1]$ の範囲を取る
+（Jxiv審査中）
 
 ---
 
-## 🧩 構造
+## 📁 構成
 
-```text
-Structure（構造）
-   ↓
-Slice（観測・再構成）
-   ↓
-Representation（表現）＋Deviation（Δ）
-   ↓
-Stability（安定性）
-   ↓
-Meaning / Identity（意味・同一性）
-```
+/docs  
+/paper（投稿用はignore）  
+/figures  
 
 ---
 
-## 📊 図の概要
+## 🔬 状態
 
-* Figure 1：コア構造
-* Figure 2：Sliceによる表現の分岐
-* Figure 3：ズレと安定性の関係
-* Figure 4：Void（評価不能領域）への崩壊
-* Figure 5：Jump（不連続遷移）
-* Figure 6：同一性＝安定な軌道
+- 理論：完成（v2.6）  
+- 図：完成  
+- 実装：GyroAuthあり  
+- 公開：Jxiv待ち  
 
 ---
 
-## 🧭 主要概念
+## 🚀 哲学
 
-### ■ Slice（スライス）
+Gyro Logicは
 
-構造を切り出すのではなく、**再構成する操作**
+「世界を理解する」のではなく
 
----
-
-### ■ Deviation（ズレ Δ）
-
-観測の誤差ではなく、**表現に内在する構造**
+「理解の仕方を更新し続ける」理論
 
 ---
 
-### ■ Stability（安定性）
+## 🧩 関連
 
-ズレに対する耐性
-→ 意味が成立する条件
-
----
-
-### ■ Void（ボイド）
-
-ズレが評価不能になる領域
-→ 意味が成立しない極限
-
----
-
-### ■ Jump（ジャンプ）
-
-ズレが閾値を超えたときに起こる
-**表現の不連続な遷移**
-
----
-
-### ■ Identity（同一性）
-
-固定されたものではなく
-**安定性を保ち続ける軌道**
-
----
-
-## 📌 この理論の位置づけ
-
-Gyro Logic は以下を再定義します：
-
-* 観測 = 再構成（Slice）
-* ズレ = ノイズではなく構造
-* 意味 = 安定性によって選ばれる
+- GyroOS（実装層）  
+- GyroAuth（応用層）  
 
 ---
 
 ## 📜 ライセンス
 
 CC-BY-4.0
-
----
-
-## ✍️ Author
-
-Gyro Logic Lab
