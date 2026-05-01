@@ -19,6 +19,10 @@ Gyro Logic models reality as a recursive process:
 
 ## 🔁 Core Idea
 
+### Traditional vs Gyro Logic
+
+![Gyro Logic Overview](./figures/v2.6/gyro_logic_overview.png)
+
 ### Traditional Systems
 
 Input → Process → Output
@@ -34,13 +38,13 @@ Representation + Δ
 Stability  
 ↓  
 Update  
-↺
+↺  
 
 ---
 
 ## ⚠️ Why This Matters
 
-Most systems assume clean inputs.
+Most systems assume clean input.
 
 But real-world identity breaks:
 
@@ -52,6 +56,8 @@ But real-world identity breaks:
 ---
 
 ## 🔐 GyroAuth
+
+![GyroAuth Overview](./figures/v2.6/gyroauth_overview.png)
 
 Gyro Logic is implemented in:
 
@@ -85,8 +91,6 @@ Gyro Logic v2.6 (Loop + Dynamical System)
 
 Jxiv submission pending
 
-Reference archive:  
-https://doi.org/10.5281/zenodo.19674468
 
 ---
 
