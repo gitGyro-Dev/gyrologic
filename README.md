@@ -91,6 +91,8 @@ Gyro Logic v2.6 (Loop + Dynamical System)
 
 Jxiv submission pending
 
+Reference archive:  
+https://doi.org/10.5281/zenodo.19674468
 
 ---
 
