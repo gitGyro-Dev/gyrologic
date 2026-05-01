@@ -18,6 +18,10 @@ Gyro Logic is a framework that models reality as:
 
 ## 🔁 Core Idea
 
+### Traditional vs Gyro Logic
+
+![Gyro Logic Overview](./figures/v2.6/gyro_logic_overview.png)
+
 Most systems assume:
 
 Input → Process → Output
@@ -48,22 +52,24 @@ Traditional systems fail in edge cases:
 - each step is valid  
 - but transitions break  
 
-Identity fails between steps.
+👉 Identity fails **between steps**
 
 Gyro Logic focuses on:
 
-**stability across transitions**
+👉 **stability across transitions**
 
 ---
 
 ## 🔐 From Logic to Authentication
 
-This idea is implemented in:
+### GyroAuth
 
-**GyroAuth**
+![GyroAuth Overview](./figures/v2.6/gyroauth_overview.png)
 
-- authentication = state convergence  
-- identity = stable trajectory  
+GyroAuth applies Gyro Logic to authentication:
+
+- authentication = **state convergence**
+- identity = **stable trajectory**
 
 ---
 
@@ -93,27 +99,28 @@ Oₙ₊₁ = Ψ(Oₙ, Stabilityₙ)
 
 ## 📄 Paper (v2.6)
 
-- Full theory with dynamical system formulation  
+- Loop-based formulation  
+- Dynamical systems interpretation  
 - Fixed-point and stability analysis  
 
-(Jxiv pending)
+(Jxiv submission pending)
 
 ---
 
 ## 📁 Repository Structure
 
 /docs  
-/paper (ignored for submission control)  
+/paper (submission versions are ignored)  
 /figures  
 
 ---
 
 ## 🔬 Status
 
-- Theory: v2.6 (Loop + Dynamical system)  
-- Visualization: done  
-- Implementation: GyroAuth  
-- Publication: pending  
+- Theory: ✔ v2.6 (Loop + Dynamical system)  
+- Visualization: ✔  
+- Implementation: ✔ (GyroAuth)  
+- Publication: ⏳ Jxiv pending  
 
 ---
 
