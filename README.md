@@ -6,86 +6,68 @@
 
 ## 🧠 What is Gyro Logic?
 
-Gyro Logic is a framework that models reality as:
+Gyro Logic models reality as a recursive process:
 
 - Structure
-- observed through Slice
-- producing Representation + Δ (deviation)
-- evaluated by Stability
-- continuously updated through a recursive loop
+- Slice (Observation)
+- Representation + Δ (Deviation)
+- Stability
+- Update
+↺ (loop)
 
 ---
 
 ## 🔁 Core Idea
 
-### Traditional vs Gyro Logic
-
-![Gyro Logic Overview](./figures/v2.6/gyro_logic_overview.png)
-
-Most systems assume:
+### Traditional Systems
 
 Input → Process → Output
 
-Gyro Logic instead models:
+### Gyro Logic
 
 Structure  
 ↓  
-Slice (Observation)  
+Slice  
 ↓  
 Representation + Δ  
 ↓  
 Stability  
 ↓  
 Update  
-↺ (loop)
-
-- Reality is not clean  
-- Deviation is unavoidable  
-- Stability determines what persists  
+↺
 
 ---
 
 ## ⚠️ Why This Matters
 
-Traditional systems fail in edge cases:
+Most systems assume clean inputs.
 
-- each step is valid  
-- but transitions break  
+But real-world identity breaks:
 
-👉 Identity fails **between steps**
+- between steps  
+- across transitions  
 
-Gyro Logic focuses on:
-
-👉 **stability across transitions**
+👉 the problem is instability
 
 ---
 
-## 🔐 From Logic to Authentication
+## 🔐 GyroAuth
 
-### GyroAuth
+Gyro Logic is implemented in:
 
-![GyroAuth Overview](./figures/v2.6/gyroauth_overview.png)
+**GyroAuth**
 
-GyroAuth applies Gyro Logic to authentication:
-
-- authentication = **state convergence**
-- identity = **stable trajectory**
+- Authentication = State Convergence  
+- Identity = Stable Trajectory  
 
 ---
 
 ## 📊 Key Concepts
 
 - Δ (Deviation)  
-  Structural difference produced by observation  
-
 - Stability  
-  Evaluation of whether deviation remains bounded  
-
 - Gyro Loop  
-  Recursive update of observation based on stability  
-
 - Identity  
-  Stability-preserving trajectory over time  
 
 ---
 
@@ -97,45 +79,30 @@ Oₙ₊₁ = Ψ(Oₙ, Stabilityₙ)
 
 ---
 
-## 📄 Paper (v2.6)
+## 📄 Paper
 
-- Loop-based formulation  
-- Dynamical systems interpretation  
-- Fixed-point and stability analysis  
+Gyro Logic v2.6 (Loop + Dynamical System)
 
-(Jxiv submission pending)
+Jxiv submission pending
+
+Reference archive:  
+https://doi.org/10.5281/zenodo.19674468
 
 ---
 
-## 📁 Repository Structure
+## 📁 Structure
 
 /docs  
-/paper (submission versions are ignored)  
+/paper (ignored)  
 /figures  
-
----
-
-## 🔬 Status
-
-- Theory: ✔ v2.6 (Loop + Dynamical system)  
-- Visualization: ✔  
-- Implementation: ✔ (GyroAuth)  
-- Publication: ⏳ Jxiv pending  
 
 ---
 
 ## 🚀 Philosophy
 
-Gyro Logic does not model what reality *is*.
+Gyro Logic does not model reality.
 
-It models how observation *keeps updating itself*.
-
----
-
-## 🧩 Related
-
-- GyroOS → implementation layer  
-- GyroAuth → application layer  
+It models how observation updates itself.
 
 ---
 

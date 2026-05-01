@@ -6,29 +6,24 @@
 
 ## 🧠 Gyro Logicとは
 
-Gyro Logicは、現実を以下のように捉える理論です：
+Gyro Logicは、現実を以下のような再帰的プロセスとしてモデル化する理論です：
 
 - Structure（構造）
 - Slice（観測）
-- Representation + Δ（ズレ）
+- Representation + Δ（ズレを含む表現）
 - Stability（安定性）
 - Update（更新）
-
-これらがループとして動作します。
+↺（ループ）
 
 ---
 
-## 🔁 基本構造
+## 🔁 基本概念
 
-### 従来 vs Gyro Logic
-
-![Gyro Logic Overview](./figures/v2.6/gyro_logic_overview.png)
-
-従来：
+### 従来のシステム
 
 Input → Process → Output
 
-Gyro Logic：
+### Gyro Logic
 
 Structure  
 ↓  
@@ -39,46 +34,44 @@ Representation + Δ
 Stability  
 ↓  
 Update  
-↺  
+↺
 
 ---
 
 ## ⚠️ なぜ重要か
 
-従来システム：
+多くのシステムは「入力が正しい」ことを前提としています。
 
-- 各ステップは正しい  
-- しかし遷移で破綻  
+しかし現実のIdentityは：
 
-👉 問題は状態遷移
+- ステップ間で崩れる  
+- 状態遷移で破綻する  
 
-Gyro Logic：
-
-👉 安定性で評価
+👉 問題は「不安定性（instability）」にある
 
 ---
 
 ## 🔐 GyroAuth
 
-![GyroAuth Overview](./figures/v2.6/gyroauth_overview.png)
+Gyro Logicは以下に実装されています：
 
-GyroAuthでは：
+**GyroAuth**
 
 - 認証 = 状態の収束  
-- Identity = 安定な軌跡  
+- Identity = 安定した軌跡  
 
 ---
 
-## 📊 概念
+## 📊 主要概念
 
 - Δ（ズレ）  
 - Stability（安定性）  
-- Gyro Loop  
+- Gyro Loop（再帰更新）  
 - Identity（軌跡）  
 
 ---
 
-## 📐 モデル
+## 📐 最小モデル
 
 O(S) = X + Δ  
 Stability = Φ(X, Δ)  
@@ -88,11 +81,16 @@ Oₙ₊₁ = Ψ(Oₙ, Stabilityₙ)
 
 ## 📄 論文
 
-v2.6（ループ・力学系）
+Gyro Logic v2.6（ループ + 力学系）
+
+Jxiv投稿中
+
+Reference archive:  
+https://doi.org/10.5281/zenodo.19674468
 
 ---
 
-## 📁 構成
+## 📁 リポジトリ構成
 
 /docs  
 /paper（投稿用はignore）  
@@ -102,9 +100,11 @@ v2.6（ループ・力学系）
 
 ## 🚀 哲学
 
-理解ではなく、
+Gyro Logicは「世界そのもの」をモデル化するのではなく、
 
-👉 理解の更新
+👉 「観測がどのように更新され続けるか」
+
+を扱う理論です。
 
 ---
 
