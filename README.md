@@ -4,7 +4,7 @@
 
 ---
 
-## What is Gyro Logic?
+## What is Gyro Logic? 
 
 Gyro Logic is a theoretical framework for modeling representation, meaning, and identity through the relation between **Structure**, **Slice**, and **Stability**.
 
