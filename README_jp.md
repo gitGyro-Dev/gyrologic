@@ -4,7 +4,7 @@
 
 ---
 
-## Gyro Logicとは 
+## Gyro Logicとは
 
 Gyro Logic は、**Structure**、**Slice**、**Stability** の関係によって、表現・意味・同一性を扱う理論的フレームワークです。
 
