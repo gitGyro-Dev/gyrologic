@@ -262,6 +262,35 @@ Jump は Operator Response によって選ばれます。
 
 ---
 
+## Boundary Extension
+
+Boundary と Boundary State は、Slice によって区別がどのように読めるものになるかを説明する補助概念です。
+
+これらは中核原理を置き換えません。
+
+```text
+Structure → Slice → Stability
+```
+
+```text
+Boundary = Slice 相対的に読める区別
+Boundary State = Boundary に対する暫定的関係状態
+```
+
+Boundary は、Structure に固定的に存在する線ではありません。  
+Boundary は、Operator Orientation と Context に基づく Slice によって、生成・顕在化・安定化される区別です。
+
+Boundary State は、その Boundary に対して、対象が現在どのような関係状態として位置づくかを示します。
+
+詳細ノート：
+
+```text
+docs/15_Boundary_20260610.md
+docs/16_Boundary_State_20260610.md
+```
+
+---
+
 ## 最小モデル
 
 時間なしの Gyro Unit：
@@ -339,8 +368,9 @@ GyroAuth は Gyro Logic の定義ではありません。
 - Stability as property / Stability over time
 - Operator Orientation / Operator Response
 - Deviation / Void / Jump
+- Boundary / Boundary State
 
-目的は、中核原理である次を保持したまま、時間的・反復的拡張を明示することです。
+目的は、中核原理である次を保持したまま、時間的・反復的・境界的拡張を明示することです。
 
 ```text
 Structure → Slice → Stability
@@ -382,10 +412,13 @@ https://doi.org/10.5281/zenodo.19674468
 Gyro Logicは、時間なしのGyro Unitから始まる：
 Structure → Slice → Stability
 
-それは時間ありのGyro Processとして展開される：
+それは時間ありのGyroProcessとして展開される：
 Structure → Operator Orientation → slice-ing → slice-done → Stability → Operator Response
 
 ProcessがOperator Responseによって反復接続されると、Gyro Loopになる。
+
+Boundary は Slice 相対的に読める区別である。
+Boundary State は Boundary に対する対象の暫定的関係状態である。
 ```
 
 ---
