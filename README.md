@@ -261,6 +261,35 @@ Jump is selected through Operator Response.
 
 ---
 
+## Boundary Extension
+
+Boundary and Boundary State are auxiliary concepts for describing how distinctions become readable through Slice.
+
+They do not replace the core principle:
+
+```text
+Structure → Slice → Stability
+```
+
+```text
+Boundary = Slice-relative readable distinction
+Boundary State = provisional relational state with respect to a Boundary
+```
+
+Boundary is not a fixed line inherent in Structure.  
+It is generated, revealed, or stabilized by Slice, relative to Operator Orientation and Context.
+
+Boundary State describes how an object is provisionally positioned relative to that Boundary under the current Slice.
+
+Detailed notes:
+
+```text
+docs/15_Boundary_20260610.md
+docs/16_Boundary_State_20260610.md
+```
+
+---
+
 ## Minimal Model
 
 Time-free Gyro Unit:
@@ -338,6 +367,7 @@ This release clarifies the theoretical distinction between:
 - Stability as property / Stability over time
 - Operator Orientation / Operator Response
 - Deviation / Void / Jump
+- Boundary / Boundary State
 
 The purpose is to preserve the core principle:
 
@@ -345,7 +375,7 @@ The purpose is to preserve the core principle:
 Structure → Slice → Stability
 ```
 
-while making the temporal and iterative extensions explicit.
+while making the temporal, iterative, and boundary-related extensions explicit.
 
 ---
 
@@ -387,6 +417,9 @@ It unfolds into a time-including Gyro Process:
 Structure → Operator Orientation → slice-ing → slice-done → Stability → Operator Response
 
 It becomes a Gyro Loop when Processes are iteratively connected through Operator Response.
+
+Boundary is a Slice-relative readable distinction.
+Boundary State is the provisional relational state of an object with respect to a Boundary.
 ```
 
 ---
