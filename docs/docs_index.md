@@ -289,7 +289,78 @@ Recommended file:
 
 ---
 
-## 5. Layer Boundary
+## 5. Boundary Extension
+
+The Boundary Extension introduces Boundary and Boundary State as auxiliary concepts for describing how distinctions become readable through Slice.
+
+These concepts do not replace the core principle:
+
+```text
+Structure → Slice → Stability
+```
+
+Boundary is not a fixed line inherent in Structure.  
+Boundary is a Slice-relative readable distinction.
+
+Boundary State describes how an object is provisionally positioned relative to such a Boundary under the current Slice.
+
+---
+
+### 15. Boundary
+
+Boundary is a Slice-relative readable distinction.
+
+It may be generated, revealed, or stabilized by Slice, relative to Operator Orientation and Context.
+
+Core statement:
+
+```text
+Boundary is not a fixed line inherent in Structure.
+Boundary is a Slice-relative readable distinction.
+```
+
+Recommended file:
+
+```text
+15_Boundary_20260610.md
+```
+
+---
+
+### 16. Boundary State
+
+Boundary State is the provisional relational state of an object with respect to a Boundary.
+
+It is not an intrinsic attribute of the object.  
+The same object may have different Boundary States under different Slices, Operators, Orientations, or Contexts.
+
+Candidate Boundary States:
+
+```text
+Normal
+Non
+Un
+Absence
+Blank
+Unknown
+Void
+```
+
+Core statement:
+
+```text
+Boundary State is the provisional relational state of an object with respect to a Boundary.
+```
+
+Recommended file:
+
+```text
+16_Boundary_State_20260610.md
+```
+
+---
+
+## 6. Layer Boundary
 
 Gyro Logic is the theoretical layer.
 
@@ -316,7 +387,7 @@ Recommended file:
 
 ---
 
-## 6. Suggested Reading Order
+## 7. Suggested Reading Order
 
 For theoretical understanding:
 
@@ -346,6 +417,13 @@ For Dynamic Equivalence:
 14_Dynamic_Equivalence_20260518.md
 ```
 
+For Boundary Extension:
+
+```text
+15_Boundary_20260610.md
+16_Boundary_State_20260610.md
+```
+
 For implementation handover:
 
 ```text
@@ -354,7 +432,7 @@ For implementation handover:
 
 ---
 
-## 7. Current Status
+## 8. Current Status
 
 Current theoretical focus:
 
@@ -367,13 +445,14 @@ Gyro Unit / Gyro Process / Gyro Loop
 Context / Re-Slice / Context Loop
 Loop Stop / Void / Coincidence
 Dynamic Equivalence / Trajectory
+Boundary / Boundary State
 ```
 
 These documents are theoretical notes and should be treated as part of the Gyro Logic layer.
 
 ---
 
-## 8. Minimal Summary
+## 9. Minimal Summary
 
 ```text
 Gyro Logic begins from Structure → Slice → Stability.
@@ -388,4 +467,9 @@ Repeated Re-Slice forms a Context Loop.
 Loop Stop is selected by Operator Response.
 
 Dynamic Equivalence is stability-bounded continuity over Trajectory.
+
+Boundary is not a fixed line inherent in Structure.  
+It is a Slice-relative readable distinction.
+
+Boundary State is the provisional relational state of an object with respect to a Boundary.
 ```
