@@ -10,31 +10,45 @@ The core principle of Gyro Logic remains unchanged:
 Structure → Slice → Stability
 ```
 
-Boundary State does not replace this core sequence.
+Boundary State does not replace this core sequence and must not be inserted into it as an additional stage.
 
-Boundary State is introduced only after Boundary is defined.
+The refined Core definitions are maintained in:
+
+```text
+docs/01_Core_Definitions.md
+```
+
+Boundary State is introduced only after Boundary is defined. It is a Slice-derived interpretation of how an object is provisionally positioned relative to a Boundary that has become readable through Slice.
 
 ---
 
 ## 2. From Boundary to Boundary State
 
-Boundary is a Slice-relative readable distinction.
+Boundary is a Slice-relative distinction that has become readable through Slice.
 
 ```text
-Boundary = distinction itself
+Boundary = the Slice-relative distinction itself
 ```
 
 Boundary State is the provisional relational state of an object with respect to that distinction.
 
 ```text
-Boundary State = relational state with respect to a Boundary
+Boundary State = provisional relational state with respect to a Boundary
 ```
 
 Japanese:
 
 ```text
-Boundary = 区別そのもの
-Boundary State = その区別に対する対象の関係状態
+Boundary = Slice によって読める区別として成立した Difference
+Boundary State = その区別に対する対象の暫定的関係状態
+```
+
+The document relationship is:
+
+```text
+01 Core Definitions
+└── 15 Boundary
+    └── 16 Boundary State
 ```
 
 ---
@@ -42,8 +56,8 @@ Boundary State = その区別に対する対象の関係状態
 ## 3. Working Definition
 
 ```text
-Boundary State is a provisional relational state of an object
-with respect to a Boundary under the current Slice.
+Boundary State is the provisional relational state of an object
+with respect to a Boundary that has become readable through Slice.
 ```
 
 More precisely:
@@ -57,9 +71,11 @@ Japanese:
 
 ```text
 Boundary State は、
-Slice result に現れた Boundary に対して、
-対象が現在どのような関係状態として位置づくかを示す暫定的分類である。
+Slice によって成立した Boundary に対して、
+対象が現在どのような関係状態として現れているかを示す暫定的分類である。
 ```
+
+Boundary State is not a stage between Slice and Stability. It is one way of interpreting a distinction contained in a Slice result.
 
 ---
 
@@ -447,7 +463,17 @@ Boundary State does not evaluate Stability.
 Boundary State ≠ Stability
 ```
 
-Stability is read from a Slice result that may include Representation, Context, Δ, Boundary, and Boundary State.
+Boundary State is not an additional stage inserted into the Core.
+
+```text
+Structure
+↓
+Slice
+↓
+Stability
+```
+
+Instead, Boundary State is a Slice-derived interpretation of a distinction contained in a Slice result.
 
 ```text
 Structure
@@ -470,7 +496,7 @@ Important:
 
 ```text
 Boundary State does not produce Stability.
-Stability reads whether a Slice result containing Boundary State and Δ can preserve continuity.
+Stability reads whether a Slice result containing Boundary State and Δ is established and can continue.
 ```
 
 ---
@@ -531,20 +557,28 @@ Void
 Operator Response
 ```
 
-Boundary State is used to explain how objects are provisionally positioned relative to Slice-relative distinctions.
+Boundary State is used to explain how objects are provisionally positioned relative to Slice-relative distinctions that have become readable through Slice.
 
 It should not be inserted into the core sequence as a mandatory stage.
+
+The document relationship is:
+
+```text
+01 Core Definitions
+└── 15 Boundary
+    └── 16 Boundary State
+```
 
 ---
 
 ## 18. One-Line Core
 
 ```text
-Boundary State is the provisional relational state of an object with respect to a Boundary.
+Boundary State is the provisional relational state of an object with respect to a Boundary that has become readable through Slice.
 ```
 
 Japanese:
 
 ```text
-Boundary State は、Boundary に対して対象が現在どのように位置づくかを示す暫定的関係状態である。
+Boundary State は、Slice によって成立した Boundary に対して、対象が現在どのように位置づくかを示す暫定的関係状態である。
 ```
