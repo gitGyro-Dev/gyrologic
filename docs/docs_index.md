@@ -2,39 +2,83 @@
 
 This directory contains theoretical notes and structured documents for **Gyro Logic**.
 
-Gyro Logic is organized around the invariant core principle:
+Gyro Logic is organized around the invariant Core principle:
 
 ```text
 Structure → Slice → Stability
 ```
 
-All extensions in this directory are defined as auxiliary or derived concepts.  
-They do not replace the core principle.
+All other concepts are auxiliary, derivative, temporal, relational, operational, or interpretive extensions. They do not replace the Core.
 
 ---
 
-## 1. Core Principle
+## 1. Core Definitions
 
-The core principle of Gyro Logic is:
+The primary definition document is:
+
+```text
+01_Core_Definitions.md
+```
+
+The refined Core definitions are:
+
+```text
+Structure = the mode in which something can be established.
+
+Slice = the process by which a path is opened through a Structure toward an establishment.
+
+Stability = the state in which the opened path is established and can continue.
+```
+
+The Core does not describe a static sequence of beginning, middle, and end. It describes how an establishment emerges within a continuing Trajectory.
+
+Stability is not an evaluator. It is evaluated.
+
+---
+
+## 2. Core Definition Reference Structure
+
+Boundary and Boundary State are read as derivative documents under the primary Core definition.
+
+```text
+01 Core Definitions
+├── 15 Boundary
+└── 16 Boundary State
+```
+
+More precisely, their conceptual dependency is:
+
+```text
+01 Core Definitions
+└── 15 Boundary
+    └── 16 Boundary State
+```
+
+This structure means:
+
+- **01 Core Definitions** defines Structure, Slice, Stability, and their integrated interpretation.
+- **15 Boundary** explains how a Difference becomes readable as a Slice-relative distinction.
+- **16 Boundary State** explains how an object is provisionally positioned relative to that Boundary.
+
+Boundary and Boundary State are not additional stages inserted into:
 
 ```text
 Structure → Slice → Stability
 ```
 
-- **Structure** is an undifferentiated or multidimensional relational structure.
-- **Slice** is the act-concept by which Structure appears under a certain perspective, angle, granularity, or context.
-- **Stability** is the state quantity that appears in the result of Slice.
-
-Stability is not an evaluator.  
-It is evaluated.
-
 ---
 
-## 2. Core Layer
+## 3. Core Layer Documents
 
-The following documents define the basic theoretical layers of Gyro Logic.
+### 01. Core Definitions
 
-### 01. Gyro Unit
+Primary definition document for the invariant Core.
+
+```text
+01_Core_Definitions.md
+```
+
+### 01A. Gyro Unit
 
 ```text
 Gyro Unit = Structure → Slice → Stability
@@ -42,13 +86,9 @@ Gyro Unit = Structure → Slice → Stability
 
 Gyro Unit is the minimal time-free theoretical structure of Gyro Logic.
 
-Recommended file:
-
 ```text
 01_GyroUnit_20260504.md
 ```
-
----
 
 ### 02. Gyro Process
 
@@ -63,13 +103,9 @@ Structure
 → Operator Response
 ```
 
-Recommended file:
-
 ```text
 02_GyroProcess_20260504.md
 ```
-
----
 
 ### 03. Gyro Loop
 
@@ -81,31 +117,21 @@ Gyro Process_n
 → Gyro Process_n+1 / Stop / Jump
 ```
 
-Recommended file:
-
 ```text
 03_GyroLoop_20260504.md
 ```
 
----
-
 ### 04. Slice / slice-ing / slice-done
 
-Gyro Logic distinguishes three layers of Slice.
-
 ```text
-Slice = general act-concept
-slice-ing = time-including process
-slice-done = completed result
+Slice = the general process by which a path is opened through Structure
+slice-ing = the time-including process in which Slice is progressing
+slice-done = the established result of Slice
 ```
-
-Recommended file:
 
 ```text
 04_Slice_20260504.md
 ```
-
----
 
 ### 05. Stability
 
@@ -116,26 +142,18 @@ Stability as property
 Stability over time
 ```
 
-Stability is a state quantity, not an evaluator.
-
-Recommended file:
+Stability is a state quantity, not an evaluator or decision-maker.
 
 ```text
 05_Stability_20260504.md
 ```
 
----
-
 ### 06. Operator
 
-Gyro Logic distinguishes between:
-
 ```text
-Operator Orientation = pre-slice directional condition
-Operator Response = post-stability reaction
+Operator Orientation = directional condition at the entrance of Slice
+Operator Response = post-Stability reaction
 ```
-
-Recommended file:
 
 ```text
 06_Operator_20260504.md
@@ -143,13 +161,11 @@ Recommended file:
 
 ---
 
-## 3. Context Extension
+## 4. Context Extension
 
 The Context Extension introduces Context, Re-Slice, Context Loop, Loop Stop, Void, and Coincidence.
 
-These concepts are derived from the core principle and extend the theory of Loop and Operator Response.
-
----
+These concepts are derived from the Core and extend the theory of Slice, Loop, and Operator Response.
 
 ### 08. Context
 
@@ -157,15 +173,9 @@ These concepts are derived from the core principle and extend the theory of Loop
 Context = inferable surrounding Structure not explicitly represented by a Slice
 ```
 
-Context is Operator-relative and distinct from Representation and Void.
-
-Recommended file:
-
 ```text
 08_Context_20260513.md
 ```
-
----
 
 ### 09. Re-Slice
 
@@ -179,17 +189,11 @@ Core statement:
 Reading Context is Re-Slice.
 ```
 
-Recommended file:
-
 ```text
 09_ReSlice_20260513.md
 ```
 
----
-
 ### 10. Context Loop
-
-Context Loop is a Gyro Loop driven by repeated Re-Slice of Context.
 
 ```text
 Context
@@ -199,34 +203,22 @@ Context
 → ...
 ```
 
-Recommended file:
-
 ```text
 10_Context_Loop_20260513.md
 ```
 
----
-
 ### 11. Loop Stop
-
-Loop Stop is selected by Operator Response.
 
 ```text
 Stability does not stop the Loop.
 Operator Response stops the Loop.
 ```
 
-Recommended file:
-
 ```text
 11_Loop_Stop_20260513.md
 ```
 
----
-
 ### 12. Context / Void / Coincidence
-
-This document distinguishes:
 
 ```text
 Context = inferable surrounding Structure
@@ -234,26 +226,16 @@ Void = non-inferable region under the current Slice
 Coincidence = event whose relation, causality, or trajectory cannot be stably reconstructed under the current Slice
 ```
 
-Recommended file:
-
 ```text
 12_Context_Void_Coincidence_20260513.md
 ```
 
----
-
 ### 13. Context Integration
-
-This document integrates Context, Re-Slice, Context Loop, Loop Stop, Void, and Coincidence into the existing Gyro Logic structure.
-
-Core statement:
 
 ```text
 Gyro Logic integrates Context as an internal structure of Slice results,
 while preserving Structure → Slice → Stability.
 ```
-
-Recommended file:
 
 ```text
 13_Context_Integration_20260513.md
@@ -261,17 +243,15 @@ Recommended file:
 
 ---
 
-## 4. Dynamic Equivalence Extension
+## 5. Dynamic Equivalence Extension
 
 ### 14. Dynamic Equivalence
 
 Dynamic Equivalence is an equivalence relation defined over Trajectory.
 
-Core statement:
-
 ```text
 Dynamic Equivalence is not static equality.
-It is stability-bounded continuity over trajectory.
+It is stability-bounded continuity over Trajectory.
 ```
 
 Notation:
@@ -281,58 +261,44 @@ A ≈_T B
 O_T(A) ≈_σ O_T(B)
 ```
 
-Recommended file:
-
 ```text
 14_Dynamic_Equivalence_20260518.md
 ```
 
 ---
 
-## 5. Boundary Extension
+## 6. Boundary Extension
 
-The Boundary Extension introduces Boundary and Boundary State as auxiliary concepts for describing how distinctions become readable through Slice.
-
-These concepts do not replace the core principle:
+The Boundary Extension is a derivative interpretation of Slice results under the refined Core.
 
 ```text
-Structure → Slice → Stability
+01 Core Definitions
+├── 15 Boundary
+└── 16 Boundary State
 ```
-
-Boundary is not a fixed line inherent in Structure.  
-Boundary is a Slice-relative readable distinction.
-
-Boundary State describes how an object is provisionally positioned relative to such a Boundary under the current Slice.
-
----
 
 ### 15. Boundary
 
-Boundary is a Slice-relative readable distinction.
-
-It may be generated, revealed, or stabilized by Slice, relative to Operator Orientation and Context.
-
-Core statement:
-
 ```text
-Boundary is not a fixed line inherent in Structure.
-Boundary is a Slice-relative readable distinction.
+Boundary = a Slice-relative distinction that has become readable through Slice.
 ```
 
-Recommended file:
+Boundary may be generated, revealed, or stabilized by Slice, relative to Operator Orientation and Context.
+
+Boundary is not a fixed line inherent in Structure and is not an additional Core stage.
 
 ```text
 15_Boundary_20260610.md
 ```
 
----
-
 ### 16. Boundary State
 
-Boundary State is the provisional relational state of an object with respect to a Boundary.
+```text
+Boundary State = the provisional relational state of an object
+with respect to a Boundary that has become readable through Slice.
+```
 
-It is not an intrinsic attribute of the object.  
-The same object may have different Boundary States under different Slices, Operators, Orientations, or Contexts.
+Boundary State is not an intrinsic attribute of the object and is not a stage between Slice and Stability.
 
 Candidate Boundary States:
 
@@ -346,21 +312,13 @@ Unknown
 Void
 ```
 
-Core statement:
-
-```text
-Boundary State is the provisional relational state of an object with respect to a Boundary.
-```
-
-Recommended file:
-
 ```text
 16_Boundary_State_20260610.md
 ```
 
 ---
 
-## 6. Layer Boundary
+## 7. Layer Boundary
 
 Gyro Logic is the theoretical layer.
 
@@ -376,10 +334,8 @@ GyroAuth
 - **GyroOS** implements the theory.
 - **GyroAuth** applies the theory.
 
-Implementation concerns from GyroOS must not redefine Gyro Logic.  
+Implementation concerns from GyroOS must not redefine Gyro Logic.
 Application concerns from GyroAuth must not be mixed into the theory layer.
-
-Recommended file:
 
 ```text
 07_toGyroOS_handover_20260504.md
@@ -387,11 +343,12 @@ Recommended file:
 
 ---
 
-## 7. Suggested Reading Order
+## 8. Suggested Reading Order
 
-For theoretical understanding:
+For the Core and its primary interpretation:
 
 ```text
+01_Core_Definitions.md
 01_GyroUnit_20260504.md
 02_GyroProcess_20260504.md
 03_GyroLoop_20260504.md
@@ -420,6 +377,7 @@ For Dynamic Equivalence:
 For Boundary Extension:
 
 ```text
+01_Core_Definitions.md
 15_Boundary_20260610.md
 16_Boundary_State_20260610.md
 ```
@@ -432,13 +390,16 @@ For implementation handover:
 
 ---
 
-## 8. Current Status
+## 9. Current Status
 
 Current theoretical focus:
 
 ```text
 Core:
 Structure → Slice → Stability
+
+Primary definition:
+01 Core Definitions
 
 Extensions:
 Gyro Unit / Gyro Process / Gyro Loop
@@ -448,14 +409,18 @@ Dynamic Equivalence / Trajectory
 Boundary / Boundary State
 ```
 
-These documents are theoretical notes and should be treated as part of the Gyro Logic layer.
+These documents belong to the Gyro Logic layer.
 
 ---
 
-## 9. Minimal Summary
+## 10. Minimal Summary
 
 ```text
 Gyro Logic begins from Structure → Slice → Stability.
+
+Structure is the mode in which something can be established.
+Slice opens a path through Structure toward an establishment.
+Stability is the state in which that path is established and can continue.
 
 Gyro Unit defines the time-free minimal structure.
 Gyro Process unfolds it into a time-including cycle.
@@ -468,8 +433,6 @@ Loop Stop is selected by Operator Response.
 
 Dynamic Equivalence is stability-bounded continuity over Trajectory.
 
-Boundary is not a fixed line inherent in Structure.  
-It is a Slice-relative readable distinction.
-
-Boundary State is the provisional relational state of an object with respect to a Boundary.
+Boundary is a Slice-relative distinction that has become readable through Slice.
+Boundary State is the provisional relational state of an object with respect to that Boundary.
 ```
