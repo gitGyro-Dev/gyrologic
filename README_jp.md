@@ -15,7 +15,13 @@ Structure → Slice → Stability
 ```
 
 この中核原理は、後続の拡張概念によって置き換えられません。
-Loop、Operator、Orientation、Response、Deviation、Void、Jump は、すべてこの原理を補助・展開する概念であり、原理そのものを変更するものではありません。
+Loop、Operator、Orientation、Response、Deviation、Void、Jump、Trajectory、Context、Boundary、Boundary State は、すべてこの原理を補助・展開・解釈する概念であり、原理そのものを変更するものではありません。
+
+精緻化された Core 定義は、次の文書で管理します。
+
+```text
+docs/01_Core_Definitions.md
+```
 
 ---
 
@@ -25,9 +31,22 @@ Loop、Operator、Orientation、Response、Deviation、Void、Jump は、すべ�
 Structure → Slice → Stability
 ```
 
-- **Structure** は、未分化または多次元的な関係構造です。
-- **Slice** は、Structure が特定の視点・角度・粒度・文脈のもとで現れる作用概念です。
-- **Stability** は、Slice の結果に現れる安定性の状態量です。
+- **Structure** は、何かが成立し得る様式です。
+- **Slice** は、Structure の中に一つの成立へ向かう道筋が開かれる過程です。
+- **Stability** は、開かれた道筋が一つの成立として現れ、そのまま継続可能な状態です。
+
+Structure は、固定された物体、入力、状態、集合、器のいずれかだけに限定されません。それまでの変遷を保持しながら、次の Slice が始まり得る状態として成立する場合があります。
+
+Slice は、物理的または論理的な切断だけに限定されません。対象や関係を局所化しながら、Difference、Boundary、Context などが読めるようになる道筋を開きます。
+
+Stability は、静止、停止、最終的な終了ではありません。成立した状態が、その後の Structure や Slice へ接続可能であることを含みます。
+
+```text
+Structure → Slice → Stability
+```
+
+は、始まり・途中・終わりという静的な三段階を表すものではありません。
+それは、継続する Trajectory の中で、一つの成立がどのように現れるかを示します。
 
 Stability は評価者ではありません。
 次の段階を判断したり、制御したりする主体ではありません。
@@ -50,6 +69,8 @@ Gyro Unit
 
 Gyro Unit における矢印は、主として物理時間の流れを表すものではありません。
 それは、論理的依存関係または関係的成立を表します。
+
+時間なしの定式化は、Core が閉じた始点から終点までの列を表すという意味ではありません。継続する Trajectory の中で、一つの成立が現れる関係的構成を切り出しているという意味です。
 
 実行、計算、反応、継続、停止、Jump などの時間過程は、Gyro Unit そのものには属しません。
 それらは Gyro Process または Gyro Loop に属します。
@@ -98,28 +119,31 @@ Gyro Loop は、中核原理を置き換えません。
 Structure → Slice → Stability
 ```
 
-Gyro Loop は、Gyro Process の反復的拡張です。
+Gyro Loop は、Gyro Process の反復的拡張であり、継続する Flow の中で局所的に繰り返し現れる成立構造として理解できます。
 
 ---
 
 ## Slice / slice-ing / slice-done
 
-Gyro Logic では、Slice を三層に分けて扱います。
+Gyro Logic では、Slice の内部を三つの読み方に分けて扱います。
 
 ```text
 Slice
-= Structureを現す作用概念全体
+= Structureの中に、一つの成立へ向かう道筋が開かれる過程全体
 ```
 
 ```text
 slice-ing
-= Sliceが進行している時間ありの作用過程
+= その道筋が開かれている時間ありの作用過程
 ```
 
 ```text
 slice-done
-= Sliceが完了した成立結果
+= Difference、Boundary、Contextなどが、Sliceの結果として読める状態になった段階
 ```
+
+Operator Orientation は Slice への方向づけを与えますが、Operator 自体を Core に追加するものではありません。
+Orientation、slice-ing、slice-done は Slice の内部的または作用的な読み分けであり、新しい Core 要素ではありません。
 
 Stability は slice-done に現れます。
 
@@ -132,7 +156,8 @@ slice-done = X + Δ
 - **X** は、Slice によって現れた Representation です。
 - **Δ** は、Structure と Representation のズレです。
 
-計算、観測、探索、変換に必要な時間は、論理結果そのものではなく **slice-ing** に属します。
+計算、観測、探索、認識、変換に必要な時間は、論理結果そのものではなく **slice-ing** に属します。
+途中状態は「半分成立した理解」ではなく、対象となる関係が slice-done として読めるようになるまでは slice-ing のままです。
 
 ---
 
@@ -166,6 +191,13 @@ Stability は状態量であり続けます。
 次の Slice、Structure、継続、停止、Jump を決めるものではありません。
 次の作用を決めるのは **Operator Response** です。
 
+Stability は、次のように読むことができます。
+
+```text
+開かれた道筋が一つの成立として読めるようになり、
+その成立が継続可能な状態にある。
+```
+
 高い Stability は頑健性を意味する場合があります。
 しかし、過剰な Stability は硬直化を意味する場合もあります。
 
@@ -177,7 +209,7 @@ Gyro Logic では、Operator の Slice 前の役割と Stability 後の役割を
 
 ```text
 Operator Orientation
-= StructureをどのようにSliceするかを方向づけるSlice前の指向性
+= Structureの中で、あるSliceの道筋が開き始める方向的条件または契機
 ```
 
 ```text
@@ -197,7 +229,8 @@ Structure
 → Next
 ```
 
-Operator Orientation は Slice そのものではありません。
+Operator Orientation は新しい Core 要素ではありません。
+作用過程として見た Slice の方向的入口または内部的始まりとして扱います。
 Operator Response は Stability そのものではありません。
 
 ---
@@ -221,10 +254,13 @@ Gyro Loop
 = 時間ありの反復構造
 ```
 
+Trajectory は、Structure、Slice、Stability より上位に置かれる新しい Core ではありません。
+それは、Core が変化と継続の中でどのように現れるかを時間方向から読んだ姿です。
+
 一文で言えば：
 
 ```text
-Gyro Logicは中核構造を時間なしとして定義し、Gyro Loopとして作用するとき、時間はslice-ingとOperator Responseに現れる。
+Gyro LogicはCoreを時間なしの関係的構成として定義し、作用過程として展開するとき、時間はslice-ing、Operator Response、Process、Loop、Trajectoryに現れる。
 ```
 
 ---
@@ -245,7 +281,8 @@ slice-done = X + Δ
 
 ### Void
 
-Void は、Stability が未定義、低すぎる、または意味のある評価ができない領域です。
+Void は、現在の Slice 条件では成立させること、読むこと、接続すること、または意味のある評価を行うことができない領域です。
+Void は絶対的な無ではなく、読める Absence とも区別されます。
 
 ### Jump
 
@@ -279,6 +316,9 @@ Boundary State = Boundary に対する暫定的関係状態
 
 Boundary は、Structure に固定的に存在する線ではありません。  
 Boundary は、Operator Orientation と Context に基づく Slice によって、生成・顕在化・安定化される区別です。
+
+精緻化された Core 解釈では、Difference は Slice によって読めるようになり、その Difference が成立した区別として扱えるとき、Boundary が現れる可能性があります。
+したがって、Boundary は Difference の原因ではなく、新しい Core 要素でもありません。
 
 Boundary State は、その Boundary に対して、対象が現在どのような関係状態として位置づくかを示します。
 
@@ -359,22 +399,26 @@ GyroAuth は Gyro Logic の定義ではありません。
 
 ## 現在の焦点
 
-このリリースでは、次の理論的区別を明確化します。
+現在の理論精緻化では、次を明確化します。
 
-- Gyro Unit
-- Gyro Process
-- Gyro Loop
+- Structure を「何かが成立し得る様式」として読むこと
+- Slice を「Structure の中に道筋が開かれる過程」として読むこと
+- Stability を「終了ではなく継続可能な成立」として読むこと
+- Gyro Unit / Gyro Process / Gyro Loop
 - Slice / slice-ing / slice-done
 - Stability as property / Stability over time
 - Operator Orientation / Operator Response
+- Trajectory を Core の時間方向の読み方として扱うこと
 - Deviation / Void / Jump
 - Boundary / Boundary State
 
-目的は、中核原理である次を保持したまま、時間的・反復的・境界的拡張を明示することです。
+目的は、中核原理である次を保持することです。
 
 ```text
 Structure → Slice → Stability
 ```
+
+そのうえで、Trajectory、Flow、Process、Loop、Boundary に関する拡張の中で、成立がどのように現れ、継続するかを明確にします。
 
 ---
 
@@ -389,7 +433,8 @@ Structure → Slice → Stability
 ## Paper / Archive
 
 Gyro Logic v2.6 では、Loop と Dynamical System 方向を導入しました。
-この版では、Unit、Process、Loop、Slice、Stability、Operator の理論構造を明確化しています。
+Gyro Logic v3.0 では、Boundary Extension を導入しました。
+現在の精緻化では、不変の Core を変更せず、Structure、Slice、Stability の定義を深めています。
 
 Reference archive:
 https://doi.org/10.5281/zenodo.19674468
@@ -404,6 +449,12 @@ https://doi.org/10.5281/zenodo.19674468
 /paper
 ```
 
+Core 定義の基準文書：
+
+```text
+docs/01_Core_Definitions.md
+```
+
 ---
 
 ## Minimal Summary
@@ -412,13 +463,20 @@ https://doi.org/10.5281/zenodo.19674468
 Gyro Logicは、時間なしのGyro Unitから始まる：
 Structure → Slice → Stability
 
-それは時間ありのGyroProcessとして展開される：
+Structureは、何かが成立し得る様式である。
+Sliceは、Structureの中に一つの成立へ向かう道筋が開かれる過程である。
+Stabilityは、その道筋が一つの成立として現れ、そのまま継続可能な状態である。
+
+Coreは、始まり・途中・終わりという静的な三段階ではない。
+継続するTrajectoryの中で、一つの成立がどのように現れるかを示す。
+
+それは時間ありのGyro Processとして展開される：
 Structure → Operator Orientation → slice-ing → slice-done → Stability → Operator Response
 
 ProcessがOperator Responseによって反復接続されると、Gyro Loopになる。
 
-Boundary は Slice 相対的に読める区別である。
-Boundary State は Boundary に対する対象の暫定的関係状態である。
+BoundaryはSlice相対的に読める区別である。
+Boundary StateはBoundaryに対する対象の暫定的関係状態である。
 ```
 
 ---
