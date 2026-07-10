@@ -15,7 +15,13 @@ Structure → Slice → Stability
 ```
 
 This core principle is not replaced by later extensions.
-Loop, Operator, Orientation, Response, Deviation, Void, and Jump are defined as auxiliary concepts that extend or unfold this principle without changing it.
+Loop, Operator, Orientation, Response, Deviation, Void, Jump, Trajectory, Context, Boundary, and Boundary State are auxiliary concepts that extend, unfold, or interpret this principle without changing it.
+
+The refined Core definitions are maintained in:
+
+```text
+docs/01_Core_Definitions.md
+```
 
 ---
 
@@ -25,9 +31,21 @@ Loop, Operator, Orientation, Response, Deviation, Void, and Jump are defined as 
 Structure → Slice → Stability
 ```
 
-- **Structure** is an undifferentiated or multidimensional relational structure.
-- **Slice** is the act-concept by which Structure appears under a certain perspective, angle, granularity, or context.
-- **Stability** is the state quantity that appears in the result of Slice.
+- **Structure** is the mode in which something can be established.
+- **Slice** is the process by which a path is opened through a Structure toward an establishment.
+- **Stability** is the state in which the opened path is established and can continue.
+
+Structure is not limited to a fixed object, input, state, set, or container. It may retain prior transitions while remaining available for another Slice.
+
+Slice is not limited to physical or logical cutting. It localizes an object or relation while opening a path through which Difference, Boundary, Context, and other relations can become readable.
+
+Stability is not static rest, termination, or completion in the sense of a final end. It is an establishment that remains capable of continuation and connection to a subsequent Structure or Slice.
+
+```text
+Structure → Slice → Stability
+```
+
+does not describe a static sequence of beginning, middle, and end. It describes how an establishment emerges within a continuing Trajectory.
 
 Stability is not an evaluator.
 It is not the agent that decides, judges, or controls the next step.
@@ -50,6 +68,8 @@ Gyro Unit
 
 In Gyro Unit, the arrow does not primarily indicate physical time.
 It indicates logical dependency or relational constitution.
+
+The time-free formulation does not mean that the Core describes a closed beginning-to-end sequence. Rather, it isolates the relational constitution by which an establishment appears within a continuing Trajectory.
 
 Temporal processes such as execution, computation, response, continuation, stopping, and jump do not belong to Gyro Unit itself.
 They belong to Gyro Process or Gyro Loop.
@@ -98,28 +118,31 @@ Gyro Loop does not replace the core principle:
 Structure → Slice → Stability
 ```
 
-Rather, Gyro Loop is the iterative extension of Gyro Process.
+Rather, Gyro Loop is the iterative extension of Gyro Process and can be understood as a locally recurring establishment structure within a continuing Flow.
 
 ---
 
 ## Slice, slice-ing, and slice-done
 
-Gyro Logic distinguishes between three layers of Slice.
+Gyro Logic distinguishes between three readings within Slice.
 
 ```text
 Slice
-= the general act-concept by which Structure appears
+= the general process by which a path is opened through Structure toward an establishment
 ```
 
 ```text
 slice-ing
-= the time-including act-process in which Slice is being performed
+= the time-including act-process in which that path is being opened
 ```
 
 ```text
 slice-done
-= the completed result of Slice
+= the state in which Difference, Boundary, Context, or another relation has become readable as a result of Slice
 ```
+
+Operator Orientation provides a directional entry into Slice, but Operator itself is not added to the Core.
+Orientation, slice-ing, and slice-done are internal or operational readings of Slice, not new Core elements.
 
 Stability appears in slice-done.
 
@@ -132,7 +155,8 @@ where:
 - **X** is the representation produced by Slice.
 - **Δ** is the deviation between Structure and Representation.
 
-The time required for computation, observation, search, or transformation belongs to **slice-ing**, not to the logical result itself.
+The time required for computation, observation, search, recognition, or transformation belongs to **slice-ing**, not to the logical establishment itself.
+An incomplete process is not a partially established understanding; it remains slice-ing until the relevant relation becomes readable as slice-done.
 
 ---
 
@@ -166,6 +190,13 @@ Stability remains a state quantity.
 It does not decide the next Slice, Structure, continuation, stopping, or Jump.
 The next action is determined by **Operator Response**.
 
+Stability should be read as:
+
+```text
+The opened path has become readable as an establishment,
+and that establishment remains capable of continuation.
+```
+
 High Stability may indicate robustness, but excessive Stability may also indicate rigidity.
 
 ---
@@ -176,7 +207,7 @@ Gyro Logic distinguishes between the pre-slice and post-stability roles of the O
 
 ```text
 Operator Orientation
-= the pre-slice directional condition by which an operator orients how Structure is sliced
+= the directional condition or occasion through which a path of Slice begins to open in Structure
 ```
 
 ```text
@@ -196,7 +227,8 @@ Structure
 → Next
 ```
 
-Operator Orientation is not Slice itself.
+Operator Orientation is not a new Core element.
+It is treated as the directional entry or internal beginning of Slice in its operational unfolding.
 Operator Response is not Stability itself.
 
 ---
@@ -220,10 +252,13 @@ Gyro Loop
 = time-including iterative structure
 ```
 
+Trajectory is not a new Core above Structure, Slice, and Stability.
+It is a temporal reading of how the Core appears through change and continuation.
+
 In one sentence:
 
 ```text
-Gyro Logic defines its core structure as time-free, while time appears in Gyro Loop through slice-ing and Operator Response.
+Gyro Logic defines its Core as a time-free relational constitution, while time appears in its operational unfolding through slice-ing, Operator Response, Process, Loop, and Trajectory.
 ```
 
 ---
@@ -244,11 +279,12 @@ slice-done = X + Δ
 
 ### Void
 
-Void is the region where Stability is undefined, too low, or cannot be meaningfully evaluated.
+Void is the region that cannot currently be established, read, connected, or meaningfully evaluated under the present Slice conditions.
+Void is not absolute nothingness and should not be reduced to readable Absence.
 
 ### Jump
 
-Jump is a non-continuous reconstruction selected when existing Orientation, Slice, or Structure cannot resolve the current deviation or void.
+Jump is a non-continuous reconstruction selected when existing Orientation, Slice, or Structure cannot resolve the current deviation or Void.
 
 ```text
 Void / large Δ / unstable Stability
@@ -278,6 +314,9 @@ Boundary State = provisional relational state with respect to a Boundary
 
 Boundary is not a fixed line inherent in Structure.  
 It is generated, revealed, or stabilized by Slice, relative to Operator Orientation and Context.
+
+Within the refined Core interpretation, Difference becomes readable through Slice, and Boundary may appear when that Difference can be treated as an established distinction.
+Boundary is therefore not the cause of Difference and is not a new Core element.
 
 Boundary State describes how an object is provisionally positioned relative to that Boundary under the current Slice.
 
@@ -358,14 +397,16 @@ It is one application of the theory.
 
 ## Current Focus
 
-This release clarifies the theoretical distinction between:
+The current theoretical refinement clarifies:
 
-- Gyro Unit
-- Gyro Process
-- Gyro Loop
+- Structure as a mode in which something can be established
+- Slice as the process by which a path is opened through Structure
+- Stability as a continuable establishment rather than termination
+- Gyro Unit / Gyro Process / Gyro Loop
 - Slice / slice-ing / slice-done
 - Stability as property / Stability over time
 - Operator Orientation / Operator Response
+- Trajectory as a temporal reading of the Core
 - Deviation / Void / Jump
 - Boundary / Boundary State
 
@@ -375,7 +416,7 @@ The purpose is to preserve the core principle:
 Structure → Slice → Stability
 ```
 
-while making the temporal, iterative, and boundary-related extensions explicit.
+while clarifying how establishment appears and continues within Trajectory, Flow, Process, Loop, and boundary-related extensions.
 
 ---
 
@@ -390,7 +431,8 @@ while making the temporal, iterative, and boundary-related extensions explicit.
 ## Paper / Archive
 
 Gyro Logic v2.6 introduced the Loop and dynamical-system direction.
-This version clarifies the theoretical structure of Unit, Process, Loop, Slice, Stability, and Operator.
+Gyro Logic v3.0 introduced the Boundary Extension.
+The current refinement deepens the definitions of Structure, Slice, and Stability without changing the invariant Core.
 
 Reference archive:
 https://doi.org/10.5281/zenodo.19674468
@@ -405,6 +447,12 @@ https://doi.org/10.5281/zenodo.19674468
 /paper
 ```
 
+Core definition reference:
+
+```text
+docs/01_Core_Definitions.md
+```
+
 ---
 
 ## Minimal Summary
@@ -412,6 +460,13 @@ https://doi.org/10.5281/zenodo.19674468
 ```text
 Gyro Logic begins with a time-free Gyro Unit:
 Structure → Slice → Stability
+
+Structure is the mode in which something can be established.
+Slice is the process by which a path is opened through Structure toward an establishment.
+Stability is the state in which that opened path is established and can continue.
+
+The Core is not a static beginning-middle-end sequence.
+It describes how an establishment emerges within a continuing Trajectory.
 
 It unfolds into a time-including Gyro Process:
 Structure → Operator Orientation → slice-ing → slice-done → Stability → Operator Response
