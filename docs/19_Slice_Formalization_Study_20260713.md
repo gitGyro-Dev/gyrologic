@@ -1,8 +1,8 @@
-# Slice Formalization Study v0
+# Slice Formalization Study v0.1
 
 ## 1. Purpose
 
-This document begins a renewed study of **Slice** after the Gyro Logic v3.1 Core Definition Refinement and the preliminary study of Structure Identity.
+This document continues the renewed study of **Slice** after the Gyro Logic v3.1 Core Definition Refinement and the preliminary study of Structure Identity.
 
 The invariant Core remains unchanged:
 
@@ -26,7 +26,7 @@ Japanese:
 Sliceとは、Structureの中に、一つの成立へ向かう道筋が開かれる過程である。
 ```
 
-This study does not redefine the Core. It clarifies the relation among Structure, Slice, Operator Orientation, slice-ing, slice-done, Stability, and Trajectory.
+This study does not redefine the Core. It clarifies the relation among Structure, Operator, Operator Orientation, Slice, slice-ing, slice-done, Stability, and Trajectory.
 
 ---
 
@@ -58,13 +58,73 @@ Structure
 Slice result
 ```
 
-A Slice may make a relation, Difference, Boundary, Context, identity criterion, or establishment readable, but it does not exhaust Structure.
+A Slice may make a relation, Difference, Boundary, Context, identity criterion, change, or establishment readable, but it does not exhaust Structure.
 
 ---
 
-## 3. Slice Is Neither Mere Observation nor Mere Transformation
+## 3. Slice Is Not Change
 
-Slice may include:
+The following distinction is fundamental:
+
+```text
+change
+≠
+Slice
+```
+
+Change may occur within Structure without itself being a Slice.
+
+Examples include:
+
+```text
+ocean currents changing
+cells being replaced
+social practices shifting
+runtime state changing
+a cake cooling
+national borders moving
+```
+
+These changes may exist before, during, or after a particular Slice.
+
+A Slice may be directed toward a change:
+
+```text
+change in ocean current
+change in document meaning
+change in runtime continuity
+change in national borders
+```
+
+In such cases, the change is what is being read, compared, localized, or established under Slice.
+
+Therefore:
+
+```text
+change may be an object of Slice
+change may be a condition encountered during Slice
+change may be a consequence associated with a Slice operation
+
+but change itself is not Slice
+```
+
+Slice is also not one attribute of change alone.
+
+A safer interpretation is:
+
+```text
+Slice is a path-opening process
+through which a state, relation, Difference, change,
+or establishment becomes readable in a particular way.
+```
+
+This is a characterization, not a replacement for the primary definition.
+
+---
+
+## 4. Slice Is Not Mere Observation or Mere Operation
+
+Slice may involve:
 
 ```text
 observation
@@ -76,31 +136,53 @@ calculation
 search
 classification
 interpretation
-transformation
 ```
 
-However, Slice should not be reduced to any one of these.
+These are possible means or forms of slice-ing.
 
-A purely observational definition is too narrow because Slice may change the conditions under which establishment becomes possible.
+They are not individually identical to Slice.
 
-A purely transformational definition is also too narrow because some Slices may primarily reveal or localize relations without materially changing Structure.
+Similarly, an operation may cause change while also supporting a Slice, but the operation and the Slice must not be automatically identified.
 
-A provisional characterization is:
+Examples:
 
 ```text
-Slice is a Structure-relative path-opening process
-through which a particular establishment may become readable.
+cutting a cake
+editing a document
+executing a runtime command
+performing a physical measurement
 ```
 
-This is a characterization, not a replacement for the primary definition.
+Each may produce physical or logical change.
+
+Whether it also constitutes a Slice depends on whether a path toward a particular readable establishment is opened through Structure.
+
+Thus:
+
+```text
+operation
+≠
+Slice
+
+operation + path-opening toward readable establishment
+may include Slice
+```
 
 ---
 
-## 4. Operator Position
+## 5. Operator Position
 
-Operator remains a Gyro element, but it is not a Core element and does not create Structure.
+Operator remains a Gyro element.
 
-The current operational relation is:
+However:
+
+```text
+Operator is not a Core element.
+Operator does not create Structure existence.
+Operator is not identical to Slice.
+```
+
+The operational relation is:
 
 ```text
 Structure
@@ -111,104 +193,203 @@ Structure
 → Operator Response
 ```
 
-Operator Orientation may influence:
+This sequence does not insert Operator into the invariant Core.
+
+It unfolds the Core within a time-including Process.
+
+---
+
+## 6. Operator and Operator Orientation
+
+Operator and Operator Orientation should be distinguished.
 
 ```text
-direction
-scope
-granularity
-question
-weight
-constraint
-relevant relation
-ignored relation
-acceptable Difference
+Operator
+=
+the Gyro element that bears, provides, or updates Orientation and Response
 ```
+
+```text
+Operator Orientation
+=
+the pre-Slice directional condition that orients how a path is opened
+```
+
+Operator Orientation may specify or influence:
+
+```text
+what is being sought
+which Difference matters
+which direction is relevant
+which range is included
+which granularity is used
+which Context is relevant
+which relations are weighted
+which relations are ignored
+which conditions count toward establishment
+```
+
+Operator Orientation is not Slice itself.
+
+```text
+Orientation
+=
+directional condition
+
+Slice
+=
+path-opening process under that condition
+```
+
+A useful relation is:
+
+```text
+Operator
+→ provides or updates Orientation
+
+Orientation
+→ conditions Slice
+
+Slice
+→ opens a path toward establishment
+```
+
+---
+
+## 7. How Large Is the Role of Operator?
+
+Operator is necessary for explaining direction, selection, and response within Gyro Process.
+
+However, Operator should not become an all-explaining center of the theory.
+
+Operator does not determine:
+
+```text
+whether Structure exists
+all properties of Structure
+whether Structure Identity exists
+Stability directly
+the entire Trajectory
+```
+
+Operator primarily contributes to:
+
+```text
+which path is opened
+how that path is constrained
+what becomes relevant under Slice
+how the resulting Stability is responded to
+```
+
+Therefore:
+
+```text
+Operator has a real but bounded role.
+```
+
+It is operationally important without replacing the Core.
+
+---
+
+## 8. Does Every Slice Require Operator Orientation?
+
+The current working position is:
+
+```text
+every actual Slice requires some Orientation condition
+```
+
+Without any directional condition, there is no basis for distinguishing one opened path from another.
 
 However:
 
 ```text
-Operator Orientation does not determine Structure existence.
-Operator Orientation does not directly determine Stability.
+Orientation condition
+≠
+conscious observation
 ```
 
-Its principal role is to orient the path-opening process.
+An Operator need not be a human observer.
 
-A useful distinction is:
+Possible Operators or Orientation sources include:
+
+```text
+human observer
+software process
+AI system
+institutional rule
+physical apparatus
+runtime controller
+prior Operator Response
+environmental condition
+internal Structure constraint
+```
+
+The important distinction is:
 
 ```text
 source of Orientation
 ≠
-conscious observer
+change itself
 ```
 
-Human observers, software processes, environmental conditions, physical interactions, institutional rules, or prior Operator Responses may all contribute to Orientation.
+For example, an ocean current may change without being an Operator and without that change itself being a Slice.
 
-This prevents Operator from being restricted to a human subject while also preventing Operator from becoming an all-explaining cause.
+A meteorological observer, a sensor system, or a model may orient a Slice toward that change.
+
+In a natural process, an internal or environmental constraint may provide the Orientation condition, but this must not be used to rename every causal influence as an Operator.
+
+Therefore, the exact boundary between:
+
+```text
+Operator
+Orientation source
+Structure condition
+causal influence
+```
+
+remains open and requires further study.
 
 ---
 
-## 5. Does Slice Require an Operator?
+## 9. Operator Is Not Necessarily an Observer
 
-This remains open.
-
-Three candidate readings are distinguished.
-
-### Candidate A: Every Slice requires Operator Orientation
+Observer is one possible Operator role, not the definition of Operator as a whole.
 
 ```text
-no Orientation
-→ no Slice
+Observer
+⊆
+possible Operator roles
 ```
 
-Advantage:
+An observer-oriented Slice may read an existing state or change.
 
-- clearly explains why one path rather than another is opened.
+An operational Operator may orient a Slice as part of computation, classification, authentication, or control.
 
-Risk:
+An institutional Operator may orient a Slice through legal or procedural criteria.
 
-- may force natural processes to be described through an artificial Operator.
-
-### Candidate B: Some Slices are self-directed by Structure conditions
+Therefore:
 
 ```text
-Structure conditions
-→ endogenous path opening
+Operator
+≠
+observer only
 ```
 
-Advantage:
+At the same time, Operator should not be extended so broadly that every event or causal factor becomes an Operator.
 
-- naturally includes crystallization, erosion, metabolism, and spontaneous runtime transitions.
-
-Risk:
-
-- may blur the distinction between Structure dynamics and Slice.
-
-### Candidate C: Orientation is required, but Operator need not be an independent entity
+The minimum requirement is provisionally:
 
 ```text
-Orientation condition
-→ Slice
+an Operator must be attributable to an Orientation or Response
+within a Gyro Process
 ```
 
-The Orientation condition may arise from:
-
-```text
-external operator
-internal constraint
-prior Stability
-prior Response
-environmental interaction
-historical condition
-```
-
-This candidate currently appears the safest because it preserves directional selection without requiring a conscious observer or an ontologically separate Operator in every case.
-
-No final decision is made here.
+This is not yet a final definition.
 
 ---
 
-## 6. Slice and Structure Identity
+## 10. Slice and Structure Identity
 
 Slice does not create Structure Identity.
 
@@ -239,13 +420,13 @@ where:
 
 - `I` is an identity criterion;
 - `c` is Context;
-- `Σ` is the Slice under which the continuity is read.
+- `Σ` is the Slice under which continuity is read.
 
-This notation concerns readability or judgement, not the creation of Structure existence.
+Operator Orientation may influence `I`, `c`, and `Σ`, but it does not create the existence of `S_a` or `S_b`.
 
 ---
 
-## 7. slice-ing and slice-done
+## 11. slice-ing and slice-done
 
 The distinction remains necessary:
 
@@ -261,18 +442,42 @@ slice-done
 the state in which the Slice has become readable as an established result
 ```
 
-The relation is:
+The time-including Process is:
 
 ```text
 Structure
+→ Operator Orientation
 → slice-ing
 → slice-done
 → Stability
+→ Operator Response
 ```
 
-But `slice-done` is not Structure itself.
+`slice-ing` is not identical to the physical or logical change occurring during that interval.
+
+For example:
+
+```text
+change in ocean current
+```
+
+may continue while a sensor system performs slice-ing directed toward that change.
+
+The change and slice-ing overlap in time but remain theoretically distinct.
+
+Similarly:
+
+```text
+editing a document
+```
+
+may change the document while a Slice is performed toward semantic consistency, but the edit operation and the Slice are not automatically the same process.
+
+`slice-done` is not Structure itself.
 
 It is a readable result under a particular Slice.
+
+Not every slice-ing necessarily reaches slice-done.
 
 A Slice may be:
 
@@ -287,68 +492,9 @@ deferred
 unable to reach a readable result
 ```
 
-Therefore, not every slice-ing necessarily reaches slice-done.
-
 ---
 
-## 8. Does Slice Change Structure?
-
-A single universal answer is not yet appropriate.
-
-Candidate cases include:
-
-### Read-only Slice
-
-```text
-Structure remains materially unchanged,
-but a relation becomes readable.
-```
-
-Examples:
-
-- reading a document;
-- measuring an existing relation;
-- classifying a stored state.
-
-### Interactive Slice
-
-```text
-The path-opening process changes part of Structure.
-```
-
-Examples:
-
-- physical measurement;
-- editing a document;
-- executing a runtime operation;
-- cutting a cake.
-
-### Constitutive Slice
-
-```text
-A readable establishment cannot be separated
-from the process that opens it.
-```
-
-Examples may include:
-
-- a legal judgement establishing a legal status;
-- institutional recognition;
-- a classification that changes operational treatment;
-- an authentication decision affecting the next runtime condition.
-
-These are candidate categories, not final types.
-
-The important point is:
-
-```text
-Slice may reveal, alter, or participate in establishment,
-but it does not create Structure existence as such.
-```
-
----
-
-## 9. Slice and Path
+## 12. Slice and Path
 
 The word `path` must be handled carefully.
 
@@ -360,27 +506,34 @@ Instead:
 Structure holds conditions under which paths may be opened.
 ```
 
-Slice is not necessarily the selection of a pre-existing path.
+Slice is not necessarily the selection of a fully pre-existing path.
 
 It may:
 
 ```text
-select
 open
-generate
+select among partial possibilities
 constrain
 redirect
 extend
-terminate
+localize
 ```
 
 a path toward establishment.
 
-Therefore, the formal model must not prematurely assume that all possible paths already exist as a fixed set.
+The path is not equivalent to the change observed along it.
+
+```text
+path toward readable establishment
+≠
+change itself
+```
+
+The formal model must not prematurely assume that all possible paths already exist as a fixed set.
 
 ---
 
-## 10. Preliminary Mathematical Candidates
+## 13. Preliminary Mathematical Candidates
 
 Slice may eventually require more than one mathematical representation.
 
@@ -390,13 +543,12 @@ Candidate families include:
 partial map
 relation
 parameterized process
-transition system
-path-generation operator
-observation operator
-constraint-guided evolution
+observation process
+selection process
+path-opening operator
+constraint-conditioned process
 morphism with internal process
 process-algebra term
-hybrid process
 ```
 
 Current cautions:
@@ -404,45 +556,52 @@ Current cautions:
 - a total function may falsely imply one determined output;
 - a projection may reduce Slice to mere selection;
 - an observation operator may make Slice purely epistemic;
-- a state transition may hide slice-ing;
-- a morphism may preserve only endpoints and lose internal process;
-- a path-generation model requires a prior account of path and possibility.
+- a state transition may confuse change with Slice;
+- a morphism may preserve only endpoints and lose slice-ing;
+- a path model requires a prior account of path and possibility;
+- an operator model may overstate the role of Operator.
 
 No candidate is selected at this stage.
 
 ---
 
-## 11. Current Working Questions
+## 14. Current Working Questions
 
-The next study should answer these questions in order:
+The next study should answer these questions:
 
-1. What distinguishes Slice from ordinary change within Structure?
-2. Is Orientation necessary for every Slice?
-3. Can Orientation be endogenous to Structure?
-4. When does Slice merely reveal, and when does it alter or constitute an establishment?
+1. What is the minimum Orientation condition required for Slice?
+2. Must Orientation always be attributable to an Operator?
+3. When is an internal Structure constraint merely a condition, and when does it count as Orientation?
+4. What distinguishes an Operator from an ordinary causal influence?
 5. What exactly becomes readable at slice-done?
-6. Can one slice-ing produce multiple slice-done results?
-7. Can multiple Slices converge on one Stability?
-8. Can one Slice support multiple Stability states under different criteria?
-9. What remains invariant across Re-Slice?
-10. What is lost if Slice is modeled only as a function?
+6. Can one Operator Orientation support multiple Slices?
+7. Can multiple Operators orient one Slice?
+8. Can one slice-ing produce multiple slice-done results?
+9. How does Operator Response update the next Orientation?
+10. What is lost if Slice is modeled only as a function or state transition?
 
 ---
 
-## 12. Preliminary Position
+## 15. Preliminary Position
 
 The present working position is:
 
 ```text
 Structure exists independently of a particular Slice.
 
-Slice is a Structure-relative process
-through which a path toward a particular establishment is opened.
+Change may occur within Structure independently of Slice.
 
-Operator Orientation influences how that path is opened,
-but Operator does not create Structure and does not directly determine Stability.
+Change itself is not Slice.
 
-slice-ing is the time-including path-opening process.
+Operator bears, provides, or updates Orientation and Response.
+
+Operator Orientation conditions how a Slice is performed.
+
+Slice is the Structure-relative process through which
+a path toward a particular establishment is opened.
+
+slice-ing is the time-including path-opening process,
+not the change itself.
 
 slice-done is the readable established result of that process.
 
@@ -452,11 +611,9 @@ as an establishment that can continue.
 
 This remains provisional.
 
-The study should next move from this conceptual position to concrete counterexamples and candidate formal models before any Core definition is changed.
-
 ---
 
-## 13. Core Change Status
+## 16. Core Change Status
 
 ```text
 Core change: none
@@ -471,5 +628,7 @@ Slice
 ↓
 Stability
 ```
+
+Operator remains a Gyro element outside the invariant Core.
 
 Trajectory remains a temporal and continuity-oriented interpretation of repeated or continuing Core realizations, not a new Core element.
