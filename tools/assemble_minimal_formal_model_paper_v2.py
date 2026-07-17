@@ -11,6 +11,12 @@ ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT / "paper"
 SECTIONS = PAPER / "sections"
 
+AUTHOR_NAME = "Shuntaro Kawakami"
+AUTHOR_AFFILIATION_EN = "Independent Researcher"
+AUTHOR_AFFILIATION_JP = "Independent Researcher（個人研究者）"
+AUTHOR_ORCID = "0009-0004-0091-1303"
+AUTHOR_EMAIL = "dev.jxiv@gyro-wedge.com"
+
 
 @dataclass(frozen=True)
 class Config:
@@ -123,11 +129,16 @@ def normalize(text: str, lang: str) -> str:
 
 
 def front_matter(config: Config) -> str:
+    affiliation = AUTHOR_AFFILIATION_EN if config.code == "en" else AUTHOR_AFFILIATION_JP
     return "\n".join(
         (
             "---",
             f'title: "{config.title}"',
-            'author: "Shuntaro Kawakami"',
+            f'author: "{AUTHOR_NAME}"',
+            f'affiliation: "{affiliation}"',
+            f'orcid: "{AUTHOR_ORCID}"',
+            f'corresponding-author: "{AUTHOR_NAME}"',
+            f'email: "{AUTHOR_EMAIL}"',
             'date: "2026"',
             'status: "Submission Candidate"',
             'paper_type: "Independent formalization paper"',
@@ -136,6 +147,26 @@ def front_matter(config: Config) -> str:
             'bibliography: "references.bib"',
             'link-citations: true',
             "---",
+        )
+    )
+
+
+def author_information(config: Config) -> str:
+    if config.code == "en":
+        return "\n".join(
+            (
+                "**Author:** Shuntaro Kawakami  ",
+                "**Affiliation:** Independent Researcher  ",
+                "**ORCID:** [0009-0004-0091-1303](https://orcid.org/0009-0004-0091-1303)  ",
+                "**Correspondence:** [dev.jxiv@gyro-wedge.com](mailto:dev.jxiv@gyro-wedge.com)",
+            )
+        )
+    return "\n".join(
+        (
+            "**著者:** Shuntaro Kawakami  ",
+            "**所属:** Independent Researcher（個人研究者）  ",
+            "**ORCID:** [0009-0004-0091-1303](https://orcid.org/0009-0004-0091-1303)  ",
+            "**連絡先:** [dev.jxiv@gyro-wedge.com](mailto:dev.jxiv@gyro-wedge.com)",
         )
     )
 
@@ -150,7 +181,7 @@ def assemble(config: Config) -> str:
     if missing:
         raise ValueError(f"Missing base sections for {config.code}: {missing}")
 
-    parts = [front_matter(config), "", f"# {abstract_title}", "", abstract_body]
+    parts = [front_matter(config), "", author_information(config), "", f"# {abstract_title}", "", abstract_body]
     parts.extend(
         (
             "",
@@ -191,6 +222,10 @@ def review(config: Config, text: str) -> list[str]:
         findings.append(("PASS" if definition in text else "FAIL") + f": canonical definition: {definition}")
     checks = {
         "bibliography metadata": 'bibliography: "references.bib"',
+        "author metadata": f'author: "{AUTHOR_NAME}"',
+        "affiliation metadata": "affiliation:",
+        "ORCID metadata": f'orcid: "{AUTHOR_ORCID}"',
+        "correspondence metadata": f'email: "{AUTHOR_EMAIL}"',
         "Related Work chapter": "Related Work" if config.code == "en" else "Related Workと形式的位置づけ",
         "Figure 1": "fig1_invariant_core.svg",
         "Figure 2": "fig2_local_realization.svg",
@@ -217,7 +252,14 @@ def report(results: dict[str, tuple[Config, str, list[str]]]) -> str:
         "",
         "## Scope",
         "",
-        "This automated review covers bilingual chapter order, Canonical Definitions, bibliography metadata, Related Work, figures, preferred notation, and submission-stage assembly.",
+        "This automated review covers bilingual chapter order, Canonical Definitions, author metadata, bibliography metadata, Related Work, figures, preferred notation, and submission-stage assembly.",
+        "",
+        "## Author Metadata",
+        "",
+        f"- Author: {AUTHOR_NAME}",
+        f"- Affiliation: {AUTHOR_AFFILIATION_EN}",
+        f"- ORCID: {AUTHOR_ORCID}",
+        f"- Correspondence: {AUTHOR_EMAIL}",
         "",
         "## Structural Decisions",
         "",
@@ -231,19 +273,18 @@ def report(results: dict[str, tuple[Config, str, list[str]]]) -> str:
         "",
         "## Results",
     ]
-    for code, (_config, _text, findings) in results.items():
+    for code, (config, _text, findings) in results.items():
         lines.extend(("", f"### {'English' if code == 'en' else 'Japanese'}", ""))
-        lines.extend(f"- {finding}" for finding in findings)
+        lines.extend(f"- {item}" for item in findings)
     lines.extend(
         (
             "",
             "## Submission Boundary",
             "",
-            "The generated manuscripts are submission candidates, not final accepted versions. Remaining human checks include journal-specific metadata, author affiliation, citation style rendering, figure sizing after PDF conversion, and final native-language proofreading.",
-            "",
+            "The generated manuscripts are submission candidates, not final accepted versions. Remaining human checks include journal-specific metadata, citation style rendering, figure sizing after PDF conversion, and final native-language proofreading.",
         )
     )
-    return "\n".join(lines)
+    return "\n".join(lines).strip() + "\n"
 
 
 def main() -> None:
@@ -251,8 +292,10 @@ def main() -> None:
     for config in CONFIGS:
         text = assemble(config)
         config.output.write_text(text, encoding="utf-8")
-        results[config.code] = (config, text, review(config, text))
+        findings = review(config, text)
+        results[config.code] = (config, text, findings)
     (PAPER / "minimal_formal_model_consistency_review.md").write_text(report(results), encoding="utf-8")
+    print("Assembled bilingual submission candidates with author metadata.")
 
 
 if __name__ == "__main__":
