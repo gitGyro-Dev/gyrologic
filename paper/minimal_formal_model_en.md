@@ -6,6 +6,34 @@ status: "Draft"
 paper_type: "Independent formalization paper"
 ---
 
+# Introduction
+
+Gyro Logic is a theoretical framework organized around the invariant Core:
+
+```text
+Structure
+↓
+Slice
+↓
+Stability
+```
+
+The introductory Gyro Logic paper established the conceptual role of this Core and presented the framework as a way to describe how an establishment becomes available through Structure, Slice, and Stability. That foundational account primarily addressed the question of what Gyro Logic is. The present paper addresses a different problem: how the current theoretical distinctions can be given a minimal formal organization without replacing the canonical definitions or reducing the framework prematurely to a single established mathematical discipline.
+
+This problem arises because familiar mathematical formalisms often begin from commitments that are stronger than those currently required by Gyro Logic. A state-space model normally assumes that states and their space are specified in advance. A function assumes an identifiable domain and codomain. A graph assumes that nodes and edges can already be represented. A dynamical trajectory is typically expressed as an ordered sequence of states. Stability is frequently modeled as equilibrium, convergence, a fixed point, robustness under perturbation, or a scalar score. Difference is commonly expressed as distance, deviation, or error. Each of these constructions may provide a useful partial model, but none can be adopted as the universal form of Gyro Logic without first examining which distinctions would be preserved and which would be lost.
+
+The central difficulty is especially visible in Slice. The canonical definition states that Slice is the process by which a path is opened through a Structure toward an establishment. This does not require the result of Slice to exist beforehand as a fully individuated object waiting to be extracted. Slice must therefore be distinguished from filtering, projection, selection, and ordinary retrieval. The present study provisionally separates the Slice process from the local articulation that becomes available through it. The articulation expresses a local “this is how it has become,” but it is not yet identical to Stability.
+
+A second difficulty concerns Stability. Gyro Logic does not treat Stability as an evaluator, a decision-maker, or a final completion. Nor is its theoretical meaning exhausted by a numerical score or fixed point. Stability is instead examined as a structured local scene in which an articulation becomes readable as an establishment that can continue. Such a scene may be locally settled enough to support confirmation and continuation while still containing unresolved local not-yet. The coexistence of local establishment and residual not-yet is essential: a Stability scene is not the closure of Structure as a whole.
+
+A third difficulty concerns continuation across local realizations. What becomes readable in one realization may alter the conditions under which later realizations occur. This effect is not adequately represented by treating prior events merely as stored history or an append-only log. The paper therefore introduces Incorporated Readability as a provisional account of how established distinctions, relations, criteria, and relevance conditions become available to later contexts. Similarly, Continuity Readability is separated from Identity, and Trajectory is separated from both a chronological event list and a predefined state sequence. A Trajectory is treated as something that becomes readable by contextually tracing admissible relations among local Gyro realizations.
+
+Difference presents a related formal problem. In Gyro Logic, Difference need not be scalar, metric, symmetric, or error-like. It may be partially defined, relational, ordered, distributive, or field-like, depending on Orientation, Context, and Slice. Boundary is therefore not identified with Difference itself. Boundary is treated as a derivative readable distinction that may become available when Difference is articulated and stabilized under a particular Slice.
+
+On this basis, the paper proposes an exploratory Minimal Formal Model rather than a final axiomatization. Its purpose is to determine the smallest formal commitments needed to preserve the current distinctions among Structure, Slice, local articulation, Stability, Incorporated Readability, Continuity Readability, Trajectory, Difference, and Boundary. The proposed notation is supporting rather than canonical. It does not alter the invariant Core, and it does not claim that Gyro Logic has already been reduced to relational structures, graph theory, topology, dynamical systems, category theory, proof theory, or any other single field.
+
+The paper proceeds as follows. It first states the contribution and research questions. It then specifies the formalization constraints imposed by the invariant Core. Structure, Slice, and Stability are examined in turn, followed by Incorporated Readability, Continuity Readability, contextual Trajectory, Difference, and Boundary. These components are integrated into a compact formal schema and compared with relevant mathematical fields. Illustrative examples and limitations are then used to clarify what the model does and does not claim.
+
 # Contribution Statement
 
 This paper makes eight principal contributions toward a minimal formal model of Gyro Logic. First, it introduces a provisional mathematical typing of the invariant Core—Structure, Slice, and Stability—without modifying the canonical definitions, changing their order, or introducing additional Core elements. The proposed formal expressions are therefore treated as supporting candidates rather than replacement definitions.
