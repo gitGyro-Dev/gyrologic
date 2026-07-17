@@ -1,14 +1,16 @@
 name: Assemble Minimal Formal Model Paper
 
-# This workflow assembles the bilingual manuscript and commits generated outputs.
+# This workflow assembles the bilingual submission candidate and commits generated outputs.
 on:
   workflow_dispatch:
   push:
     paths:
       - "paper/minimal_formal_model_en.md"
       - "paper/minimal_formal_model_jp.md"
+      - "paper/references.bib"
       - "paper/sections/**"
-      - "tools/assemble_minimal_formal_model_paper.py"
+      - "paper/figures/**"
+      - "tools/assemble_minimal_formal_model_paper_v2.py"
       - ".github/workflows/assemble_minimal_formal_model.yml"
   issues:
     types: [opened, edited, reopened]
@@ -32,34 +34,14 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Apply regex replacement compatibility fix
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-
-          path = Path("tools/assemble_minimal_formal_model_paper.py")
-          text = path.read_text(encoding="utf-8")
-          old = "text = compact_pattern.sub(full_formula, text)"
-          new = "text = compact_pattern.sub(lambda _match: full_formula, text)"
-
-          if old in text:
-              path.write_text(text.replace(old, new), encoding="utf-8")
-              print("Applied regex replacement compatibility fix.")
-          elif new in text:
-              print("Regex replacement compatibility fix is already present.")
-          else:
-              raise RuntimeError("Expected regex substitution line was not found.")
-          PY
-
-      - name: Assemble and review manuscripts
-        run: python tools/assemble_minimal_formal_model_paper.py
+      - name: Assemble and review submission candidates
+        run: python tools/assemble_minimal_formal_model_paper_v2.py
 
       - name: Commit generated manuscripts
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add tools/assemble_minimal_formal_model_paper.py
           git add -f \
             paper/minimal_formal_model_full_en.md \
             paper/minimal_formal_model_full_jp.md \
@@ -70,5 +52,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Assemble and review Minimal Formal Model paper"
+          git commit -m "Assemble submission-stage Minimal Formal Model paper"
           git push
