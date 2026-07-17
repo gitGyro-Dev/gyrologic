@@ -13,6 +13,7 @@ on:
       - "paper/figures/**"
       - "tools/assemble_minimal_formal_model_paper_v2.py"
       - "tools/build_minimal_formal_model_pdfs.sh"
+      - "tools/check_minimal_formal_model_pdf_figures.py"
       - ".github/workflows/assemble_minimal_formal_model.yml"
   issues:
     types: [opened, edited, reopened]
@@ -71,7 +72,7 @@ jobs:
       - name: Generate and validate PDFs
         run: bash tools/build_minimal_formal_model_pdfs.sh
 
-      - name: Commit generated manuscripts and PDFs
+      - name: Commit generated manuscripts, PDFs, and figure review
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -81,12 +82,13 @@ jobs:
             paper/minimal_formal_model_full_jp.md \
             paper/minimal_formal_model_consistency_review.md \
             paper/pdf/minimal_formal_model_full_en.pdf \
-            paper/pdf/minimal_formal_model_full_jp.pdf
+            paper/pdf/minimal_formal_model_full_jp.pdf \
+            paper/pdf/minimal_formal_model_figure_review.md
 
           if git diff --cached --quiet; then
             echo "No generated changes."
             exit 0
           fi
 
-          git commit -m "Assemble and render Minimal Formal Model paper PDFs"
+          git commit -m "Assemble, render, and review Minimal Formal Model paper PDFs"
           git push
