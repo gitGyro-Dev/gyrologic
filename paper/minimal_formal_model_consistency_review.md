@@ -2,7 +2,7 @@
 
 ## Scope
 
-This automated review covers bilingual chapter order, Canonical Definitions, author metadata, bibliography metadata, Related Work, figures, preferred notation, and submission-stage assembly.
+This automated review covers bilingual chapter order, Canonical Definitions, author metadata, declarations, bibliography metadata, Related Work, figures, preferred notation, and submission-stage assembly.
 
 ## Author Metadata
 
@@ -11,9 +11,16 @@ This automated review covers bilingual chapter order, Canonical Definitions, aut
 - ORCID: 0009-0004-0091-1303
 - Correspondence: dev.jxiv@gyro-wedge.com
 
+## Submission Declarations
+
+- Conflict of Interest: none declared.
+- Funding: no external funding.
+- Data Availability: no new empirical datasets generated or analyzed.
+- Code and Materials Availability: https://github.com/gitGyro-Dev/gyrologic
+
 ## Structural Decisions
 
-- Abstract / 要旨 and References / 参考文献 remain unnumbered.
+- Abstract / 要旨, Declarations / 利益相反・研究資金・データ／コードの利用可能性, and References / 参考文献 remain unnumbered.
 - Contribution Statement and Research Questions remain Sections 1.1 and 1.2.
 - Main chapters are numbered 1–16.
 - Chapter 11 provides the visual overview; Chapter 12 provides Related Work and formal positioning.
@@ -34,6 +41,10 @@ This automated review covers bilingual chapter order, Canonical Definitions, aut
 - PASS: affiliation metadata present.
 - PASS: ORCID metadata present.
 - PASS: correspondence metadata present.
+- PASS: conflict of interest declaration present.
+- PASS: funding declaration present.
+- PASS: data availability declaration present.
+- PASS: code and materials availability declaration present.
 - PASS: Related Work chapter present.
 - PASS: Figure 1 present.
 - PASS: Figure 2 present.
@@ -44,7 +55,7 @@ This automated review covers bilingual chapter order, Canonical Definitions, aut
 - PASS: Trajectory present.
 - PASS: Difference present.
 - PASS: StabScene constructor normalized.
-- INFO: 20893 whitespace-delimited tokens.
+- INFO: 20957 whitespace-delimited tokens.
 
 ### Japanese
 
@@ -57,6 +68,10 @@ This automated review covers bilingual chapter order, Canonical Definitions, aut
 - PASS: affiliation metadata present.
 - PASS: ORCID metadata present.
 - PASS: correspondence metadata present.
+- PASS: conflict of interest declaration present.
+- PASS: funding declaration present.
+- PASS: data availability declaration present.
+- PASS: code and materials availability declaration present.
 - PASS: Related Work chapter present.
 - PASS: Figure 1 present.
 - PASS: Figure 2 present.
@@ -67,7 +82,7 @@ This automated review covers bilingual chapter order, Canonical Definitions, aut
 - PASS: Trajectory present.
 - PASS: Difference present.
 - PASS: StabScene constructor normalized.
-- INFO: 3721 whitespace-delimited tokens.
+- INFO: 3736 whitespace-delimited tokens.
 
 ## Submission Boundary
 

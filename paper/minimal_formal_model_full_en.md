@@ -3014,4 +3014,22 @@ Subsequent research must test the model more rigorously. Important next steps in
 
 The present result is deliberately limited. It does not prove that the proposed schema is uniquely minimal, empirically valid across domains, computationally decidable, or complete. It establishes a more modest but necessary foundation: Gyro Logic can be given a disciplined formal organization without changing the invariant Core and without collapsing its central distinctions into narrower pre-existing mathematical forms.
 
+# Declarations
+
+## Conflict of Interest
+
+The author declares no conflicts of interest relevant to this work.
+
+## Funding
+
+This research received no external funding.
+
+## Data Availability
+
+No new empirical datasets were generated or analyzed in this theoretical study.
+
+## Code and Materials Availability
+
+The manuscript sources, figures, assembly scripts, PDF-generation workflow, and validation scripts are available in the Gyro Logic repository: [https://github.com/gitGyro-Dev/gyrologic](https://github.com/gitGyro-Dev/gyrologic).
+
 # References

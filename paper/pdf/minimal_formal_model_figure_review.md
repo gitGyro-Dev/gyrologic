@@ -31,7 +31,7 @@ The SVG figures fit within the configured A4 text area, use explicit font famili
 - Total pages: 65
 - Figure pages: Figure 1 = page 43, Figure 2 = page 44, Figure 3 = page 45
 - Embedded font programs reported: 17
-- Font names: `AVAPJL+TeXGyrePagella-Regular`, `CPHUYV+LatinModernMath-Regular`, `DQSSQI+DejaVuSans`, `GBGNAT+DejaVuMathTeXGyre-Regular`, `GVZHTD+LatinModernMath-Regular`, `GWJQAP+MSAM10`, `HTUTBN+TeXGyreHeros-Regular`, `IPIBCK+NotoSansCJKjp-Regular`, `ITGIMR+DejaVuSansMono`, `JSCIAZ+TeXGyrePagella-Bold`, `OJLQTF+NotoSansCJKjp-Regular`, `SSWGJM+NotoSerifCJKjp-Regular`, `TUIUYI+DejaVuSans`, `VVEUAL+NotoSansCJKjp-Regular`, `WYMHDN+LatinModernMath-Regular`, `YWZBGJ+TeXGyrePagella-Italic`, `ZFNJQW+TeXGyrePagella-Regular`
+- Font names: `AVAPJL+TeXGyrePagella-Regular`, `CPHUYV+LatinModernMath-Regular`, `DQSSQI+DejaVuSans`, `GBGNAT+DejaVuMathTeXGyre-Regular`, `GVZHTD+LatinModernMath-Regular`, `GWJQAP+MSAM10`, `HTUTBN+TeXGyreHeros-Regular`, `IPIBCK+NotoSansCJKjp-Regular`, `ITGIMR+DejaVuSansMono`, `OJLQTF+NotoSansCJKjp-Regular`, `SSWGJM+NotoSerifCJKjp-Regular`, `TPFSGP+TeXGyrePagella-Bold`, `TUIUYI+DejaVuSans`, `VVEUAL+NotoSansCJKjp-Regular`, `WYMHDN+LatinModernMath-Regular`, `YWZBGJ+TeXGyrePagella-Italic`, `ZFNJQW+TeXGyrePagella-Regular`
 
 ### Japanese
 
@@ -39,7 +39,7 @@ The SVG figures fit within the configured A4 text area, use explicit font famili
 - Total pages: 60
 - Figure pages: Figure 1 = page 41, Figure 2 = page 41, Figure 3 = page 42
 - Embedded font programs reported: 19
-- Font names: `AVAPJL+TeXGyrePagella-Regular`, `CPHUYV+LatinModernMath-Regular`, `DQSSQI+DejaVuSans`, `GBGNAT+DejaVuMathTeXGyre-Regular`, `GOEBAI+TeXGyrePagella-Bold`, `GWJQAP+MSAM10`, `HNBHJG+LatinModernMath-Regular`, `HTUTBN+TeXGyreHeros-Regular`, `IPIBCK+NotoSansCJKjp-Regular`, `LJXSHK+TeXGyrePagella-Regular`, `LMGHPT+DejaVuSansMono`, `OJLQTF+NotoSansCJKjp-Regular`, `OPSZKS+NotoSerifCJKjp-Regular`, `QTNFFV+NotoSerifCJKjp-Bold`, `SSWGJM+NotoSerifCJKjp-Regular`, `TUIUYI+DejaVuSans`, `VVEUAL+NotoSansCJKjp-Regular`, `WYMHDN+LatinModernMath-Regular`, `YWZBGJ+TeXGyrePagella-Italic`
+- Font names: `AVAPJL+TeXGyrePagella-Regular`, `CPHUYV+LatinModernMath-Regular`, `DQSSQI+DejaVuSans`, `GBGNAT+DejaVuMathTeXGyre-Regular`, `GOEBAI+TeXGyrePagella-Bold`, `GWJQAP+MSAM10`, `HNBHJG+LatinModernMath-Regular`, `HTUTBN+TeXGyreHeros-Regular`, `IPIBCK+NotoSansCJKjp-Regular`, `LAYSBM+NotoSerifCJKjp-Bold`, `LJXSHK+TeXGyrePagella-Regular`, `LMGHPT+DejaVuSansMono`, `OJLQTF+NotoSansCJKjp-Regular`, `SSWGJM+NotoSerifCJKjp-Regular`, `TUIUYI+DejaVuSans`, `VVEUAL+NotoSansCJKjp-Regular`, `WMFKGY+NotoSerifCJKjp-Regular`, `WYMHDN+LatinModernMath-Regular`, `YWZBGJ+TeXGyrePagella-Italic`
 
 ## Review Boundary
 
