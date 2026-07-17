@@ -1,6 +1,7 @@
 name: Assemble Minimal Formal Model Paper
 
-# This workflow assembles the bilingual submission candidate and commits generated outputs.
+# This workflow assembles the bilingual submission candidate, renders PDFs with
+# Pandoc citeproc and LuaLaTeX, validates the outputs, and commits generated files.
 on:
   workflow_dispatch:
   push:
@@ -11,6 +12,7 @@ on:
       - "paper/sections/**"
       - "paper/figures/**"
       - "tools/assemble_minimal_formal_model_paper_v2.py"
+      - "tools/build_minimal_formal_model_pdfs.sh"
       - ".github/workflows/assemble_minimal_formal_model.yml"
   issues:
     types: [opened, edited, reopened]
@@ -34,10 +36,31 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install Pandoc and PDF dependencies
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            pandoc \
+            texlive-luatex \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-lang-japanese \
+            fonts-noto-cjk \
+            fonts-dejavu-core \
+            librsvg2-bin \
+            poppler-utils
+          pandoc --version
+          lualatex --version | head -n 2
+
       - name: Assemble and review submission candidates
         run: python tools/assemble_minimal_formal_model_paper_v2.py
 
-      - name: Commit generated manuscripts
+      - name: Generate and validate PDFs
+        run: bash tools/build_minimal_formal_model_pdfs.sh
+
+      - name: Commit generated manuscripts and PDFs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -45,12 +68,14 @@ jobs:
           git add -f \
             paper/minimal_formal_model_full_en.md \
             paper/minimal_formal_model_full_jp.md \
-            paper/minimal_formal_model_consistency_review.md
+            paper/minimal_formal_model_consistency_review.md \
+            paper/pdf/minimal_formal_model_full_en.pdf \
+            paper/pdf/minimal_formal_model_full_jp.pdf
 
           if git diff --cached --quiet; then
             echo "No generated changes."
             exit 0
           fi
 
-          git commit -m "Assemble submission-stage Minimal Formal Model paper"
+          git commit -m "Assemble and render Minimal Formal Model paper PDFs"
           git push
