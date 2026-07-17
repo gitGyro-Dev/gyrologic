@@ -81,3 +81,93 @@ The central research question of this paper is: What is the smallest formal sche
 **RQ6.** Which established mathematical fields provide useful partial models for the proposed schema, and at what point do their assumptions become too restrictive for Gyro Logic? This question compares relational structures, graphs and hypergraphs, order theory, topology, dynamical systems, transition systems, event structures, category theory, logic and proof theory, constraint propagation, probability and statistics, sheaf-like structures, and process algebra. The aim is not to select one field as the final foundation, but to clarify which parts of Gyro Logic each field can model and which distinctions would be lost through premature reduction.
 
 These questions jointly define the scope of the paper. They do not ask whether Gyro Logic can be completely axiomatized or reduced to a single mathematical discipline. Rather, they ask whether a minimal, internally consistent, and explicitly provisional formal organization can be constructed that preserves the distinctions developed in the current theory and supports subsequent validation, comparison, and implementation studies.
+
+# The Invariant Core and Formalization Constraints
+
+## The Invariant Core
+
+The formal model developed in this paper is constrained by the invariant Core of Gyro Logic:
+
+```text
+Structure
+↓
+Slice
+↓
+Stability
+```
+
+The order and composition of this Core are not variables of the present study. No additional concept is inserted between its elements, and no derivative concept is promoted into a fourth Core element. Orientation, Context, local articulation, Incorporated Readability, Continuity Readability, Trajectory, Difference, Boundary, Operator Response, Re-Slice, and Jump are treated as conditioning, resulting, relational, temporal, or interpretive concepts. They may refine the formal description of a local Gyro realization, but they do not replace or extend the invariant Core itself.
+
+The canonical definitions are retained without modification:
+
+> **Structure is the mode in which something can be established.**
+
+> **Slice is the process by which a path is opened through a Structure toward an establishment.**
+
+> **Stability is the state in which an opened path becomes readable as an establishment that can continue.**
+
+These definitions have priority over every mathematical expression proposed below. If a candidate formalization implies a meaning that conflicts with a canonical definition, the candidate formalization must be revised or rejected; the canonical definition is not altered to accommodate the mathematical object.
+
+## Canonical Definition and Formal Candidate
+
+The paper distinguishes two levels of statement. A canonical definition specifies the theoretical meaning of a Gyro Logic concept. A formal candidate specifies one provisional mathematical organization that may preserve part of that meaning. The relation between them is therefore not identity:
+
+```text
+canonical definition
+≠
+formal candidate
+```
+
+A formula in this paper should be read as a disciplined representational proposal, not as a replacement definition. For example, writing a Structure as \(S_n\), a Slice process as \(\Sigma_n\), or a Stability scene as \(K_n\) introduces identifiers and relations sufficient for the model; it does not establish that Structure is fundamentally a set element, that Slice is an ordinary total function, or that Stability is a tuple in every admissible realization.
+
+This separation is necessary because mathematical notation can silently add ontological commitments. A function may imply a fixed domain and codomain. A graph may imply pre-individuated nodes and edges. A metric may imply numerical comparability, symmetry, and triangle inequality. A state trajectory may imply an already defined state space and temporal ordering. The formal model must therefore state both what each notation commits to and what it intentionally leaves open.
+
+## Minimal Formal Commitments
+
+The proposed model adopts only the following minimum commitments.
+
+First, local Gyro realizations can be distinguished for the purpose of analysis. This does not require that reality is intrinsically divided into independent units. It requires only that a local realization can provisionally be referenced and related to other realizations.
+
+Second, Slice is distinguishable from the local articulation that becomes available through Slice. The process and its locally available articulation are not treated as identical.
+
+Third, Stability is distinguishable from both the Slice process and the local articulation. Stability concerns the readability and continuability of the articulation as an establishment, not merely its appearance.
+
+Fourth, readability established in one local realization may condition later realizations. The model does not require such conditioning to be deterministic, monotonic, complete, or immediately adjacent in time.
+
+Fifth, relations among local realizations may exist without being readable as continuity under every Orientation, Context, and Slice. Relation existence, traceability, and continuity readability are therefore distinct.
+
+Sixth, Difference may be represented without assuming that it is universally scalar, metric, symmetric, total, or error-like.
+
+These commitments are sufficient to construct a minimal schema while leaving the mathematical types of Structure, relation fields, context updates, and tracing operations open to later specialization.
+
+## Formalization Constraints
+
+A candidate model is acceptable only if it satisfies the following constraints.
+
+**Core preservation.** It must preserve the order and composition of Structure, Slice, and Stability and must not introduce a replacement Core.
+
+**Definition preservation.** It must not redefine canonical concepts through a narrower mathematical special case.
+
+**Process–result separation.** It must distinguish Slice as an unfolding process from the local articulation that becomes available through that process.
+
+**Articulation–Stability separation.** It must allow a local articulation to appear without assuming that it is already readable and continuable as Stability.
+
+**Locality without global closure.** It must allow a locally established Stability scene while Structure remains globally open and while unresolved local not-yet remains within the scene.
+
+**Non-reductive readability update.** It must represent Incorporated Readability without reducing it to append-only history or immutable stored data.
+
+**Identity–continuity separation.** It must permit continuity readability without identity and identity claims without readable continuity.
+
+**Trajectory–sequence separation.** It must not identify Trajectory with a chronological log, a set of events, or one predefined linear state sequence.
+
+**Difference–metric separation.** It must not require Difference to satisfy metric or error-model assumptions.
+
+**Layer consistency.** It must remain a Gyro Logic theory model. Implementation decisions from GyroOS and application requirements from GyroAuth may instantiate the model but must not redefine its concepts.
+
+## Explicit Non-Assumptions
+
+The Minimal Formal Model does not assume that Structure is one fixed mathematical object type; that all relevant objects, states, relations, or boundaries are individuated before Slice; that Slice is a deterministic or total function; that Stability is a scalar threshold, equilibrium, or fixed point; that readability accumulates monotonically; that continuity implies identity; that Trajectory is linear; that Difference is a distance; or that one existing mathematical field provides a complete foundation for Gyro Logic.
+
+These non-assumptions do not deny the usefulness of those mathematical constructions. They delimit their status. A metric, graph, dynamical system, category, proof context, or transition system may instantiate a particular domain model when its assumptions are justified. The present paper does not elevate any such instantiation into the universal form of the theory.
+
+The invariant Core and these constraints define the admissible design space for the sections that follow. The next section examines Structure and asks what can be formally committed to before fixing it as a state, object, space, relation, or any other single mathematical type.
