@@ -32,12 +32,32 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Apply regex replacement compatibility fix
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("tools/assemble_minimal_formal_model_paper.py")
+          text = path.read_text(encoding="utf-8")
+          old = "text = compact_pattern.sub(full_formula, text)"
+          new = "text = compact_pattern.sub(lambda _match: full_formula, text)"
+
+          if old in text:
+              path.write_text(text.replace(old, new), encoding="utf-8")
+              print("Applied regex replacement compatibility fix.")
+          elif new in text:
+              print("Regex replacement compatibility fix is already present.")
+          else:
+              raise RuntimeError("Expected regex substitution line was not found.")
+          PY
+
       - name: Assemble and review manuscripts
         run: python tools/assemble_minimal_formal_model_paper.py
 
       - name: Commit generated manuscripts
         run: |
           if git diff --quiet -- \
+            tools/assemble_minimal_formal_model_paper.py \
             paper/minimal_formal_model_full_en.md \
             paper/minimal_formal_model_full_jp.md \
             paper/minimal_formal_model_consistency_review.md; then
@@ -47,6 +67,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add \
+            tools/assemble_minimal_formal_model_paper.py \
             paper/minimal_formal_model_full_en.md \
             paper/minimal_formal_model_full_jp.md \
             paper/minimal_formal_model_consistency_review.md
