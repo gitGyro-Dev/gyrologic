@@ -18,6 +18,12 @@ on:
   issues:
     types: [opened, edited, reopened]
 
+# Only one paper-generation run may update main at a time. Queued runs wait
+# instead of cancelling an in-progress PDF build.
+concurrency:
+  group: minimal-formal-model-paper-main
+  cancel-in-progress: false
+
 permissions:
   contents: write
   issues: read
@@ -31,6 +37,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
@@ -74,16 +82,21 @@ jobs:
 
       - name: Commit generated manuscripts, PDFs, and figure review
         run: |
+          set -euo pipefail
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add -f \
-            paper/minimal_formal_model_full_en.md \
-            paper/minimal_formal_model_full_jp.md \
-            paper/minimal_formal_model_consistency_review.md \
-            paper/pdf/minimal_formal_model_full_en.pdf \
-            paper/pdf/minimal_formal_model_full_jp.pdf \
+          GENERATED_FILES=(
+            paper/minimal_formal_model_full_en.md
+            paper/minimal_formal_model_full_jp.md
+            paper/minimal_formal_model_consistency_review.md
+            paper/pdf/minimal_formal_model_full_en.pdf
+            paper/pdf/minimal_formal_model_full_jp.pdf
             paper/pdf/minimal_formal_model_figure_review.md
+          )
+
+          git add -f "${GENERATED_FILES[@]}"
 
           if git diff --cached --quiet; then
             echo "No generated changes."
@@ -91,4 +104,49 @@ jobs:
           fi
 
           git commit -m "Assemble, render, and review Minimal Formal Model paper PDFs"
-          git push
+
+          # Another event may have advanced main while this job was rendering.
+          # Rebase the generated commit and retry the push. For conflicts limited
+          # to generated artifacts, retain this run's freshly validated outputs.
+          for attempt in 1 2 3; do
+            git fetch origin main
+
+            if ! git rebase origin/main; then
+              conflicted="$(git diff --name-only --diff-filter=U)"
+              if [[ -z "${conflicted}" ]]; then
+                echo "Rebase failed without identifiable conflicts."
+                git rebase --abort || true
+                exit 1
+              fi
+
+              while IFS= read -r file; do
+                [[ -z "${file}" ]] && continue
+                allowed=false
+                for generated in "${GENERATED_FILES[@]}"; do
+                  if [[ "${file}" == "${generated}" ]]; then
+                    allowed=true
+                    break
+                  fi
+                done
+                if [[ "${allowed}" != true ]]; then
+                  echo "Unexpected rebase conflict: ${file}"
+                  git rebase --abort || true
+                  exit 1
+                fi
+                git checkout --theirs -- "${file}"
+                git add -f "${file}"
+              done <<< "${conflicted}"
+
+              GIT_EDITOR=true git rebase --continue
+            fi
+
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+
+            echo "Push attempt ${attempt} failed because main advanced; retrying."
+            sleep $((attempt * 2))
+          done
+
+          echo "Unable to push generated artifacts after three attempts."
+          exit 1
