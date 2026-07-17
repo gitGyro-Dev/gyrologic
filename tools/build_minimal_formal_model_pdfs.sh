@@ -53,3 +53,6 @@ for pdf in \
   pdftotext "${pdf}" - | head -n 20
   echo "Validated ${pdf}"
 done
+
+cd "${ROOT_DIR}"
+python tools/check_minimal_formal_model_pdf_figures.py
