@@ -9,12 +9,18 @@ on:
       - "paper/sections/**"
       - "tools/assemble_minimal_formal_model_paper.py"
       - ".github/workflows/assemble_minimal_formal_model.yml"
+  issues:
+    types: [opened]
 
 permissions:
   contents: write
+  issues: read
 
 jobs:
   assemble:
+    if: >-
+      github.event_name != 'issues' ||
+      github.event.issue.title == '[automation] Assemble Minimal Formal Model Paper'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
