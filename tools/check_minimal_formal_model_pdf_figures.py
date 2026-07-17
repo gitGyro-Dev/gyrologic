@@ -139,14 +139,23 @@ def inspect_fonts(path: Path) -> tuple[list[str], list[str]]:
     data = lines[2:] if len(lines) >= 2 else []
     font_names: list[str] = []
     failures: list[str] = []
+
+    status_pattern = re.compile(
+        r"\s+(?P<embedded>yes|no)\s+"
+        r"(?P<subset>yes|no)\s+"
+        r"(?P<unicode>yes|no)\s+"
+        r"\d+\s+\d+\s*$"
+    )
+
     for line in data:
-        columns = line.split()
-        if len(columns) < 7:
-            continue
-        font_names.append(columns[0])
-        embedded = columns[4]
-        if embedded != "yes":
+        name = line.split(maxsplit=1)[0]
+        match = status_pattern.search(line)
+        if not match:
+            raise ValueError(f"Could not parse pdffonts row in {path}: {line}")
+        font_names.append(name)
+        if match.group("embedded") != "yes":
             failures.append(line)
+
     if failures:
         raise ValueError(f"Non-embedded PDF fonts in {path}: {failures}")
     return sorted(set(font_names)), lines
