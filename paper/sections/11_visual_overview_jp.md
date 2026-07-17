@@ -2,7 +2,7 @@
 
 ## Figure 1：不変Core
 
-![Figure 1. Gyro Logicの不変Core。Operator OrientationとContextはSliceを条件づけるが、追加Core要素にはならない。](../figures/fig1_invariant_core.svg){width=88%}
+![Figure 1. Gyro Logicの不変Core。Operator OrientationとContextはSliceを条件づけるが、追加Core要素にはならない。](../figures/fig1_invariant_core.svg){width=94%}
 
 Figure 1は、本論文全体を拘束する理論条件を示す。不変CoreはStructure → Slice → Stabilityのままである。Operator OrientationとContextはSlice processを条件づけるが、本モデルは、それら、local articulation、Trajectory、Difference、Boundary、Operator Responseを第四のCore要素として挿入しない。
 
