@@ -1,11 +1,13 @@
 ---
 title: "Gyro Logicの最小形式モデル：局所的表出・Stability Scene・文脈的Tracing"
-author: "Gyro Logic Lab"
+author: "Shuntaro Kawakami"
 date: "2026"
-status: "Integrated Draft"
+status: "Submission Candidate"
 paper_type: "Independent formalization paper"
 formal_model: "Minimal Formal Model v1"
 canonical_core: "unchanged"
+bibliography: "references.bib"
+link-citations: true
 ---
 
 # 要旨
@@ -1084,7 +1086,7 @@ Traceabilityは、単なる関係の存在より強いが、Continuity Readabili
 \operatorname{Adm}(r;B,c,\Sigma,\Gamma)
 \]
 
-を、関係 \(r\) がOrientation \(B\)、Context \(c\)、連続性を読むためのSlice \(\Sigma\)、およびreadability context \(\Gamma\) に相対的に許容可能であることを表すものとする。
+を、関係 \(r\) がOrientation \(B\)、Context \(c\)、連続性を読むためのSlice \(\Sigma\)、およびIncorporated Readability Context \(\Gamma\) に相対的に許容可能であることを表すものとする。
 
 Admissibilityには、例えば次の条件が含まれ得る。
 
@@ -1703,7 +1705,7 @@ Gyro Logicでは、次の補助的特徴づけを用いる。
 \operatorname{Bd}_{B,c,\Sigma,\Gamma}(d)
 \]
 
-と書く。これは、区別 \(d\) が、Orientation \(B\)、Context \(c\)、Slice \(\Sigma\)、readability context \(\Gamma\) のもとでBoundaryとして読めることを意味する。
+と書く。これは、区別 \(d\) が、Orientation \(B\)、Context \(c\)、Slice \(\Sigma\)、Incorporated Readability Context \(\Gamma\) のもとでBoundaryとして読めることを意味する。
 
 弱い候補条件は、
 
@@ -2149,15 +2151,14 @@ S_{n+1},
 \]
 
 \[
-\\operatorname{CR}(g_i,g_j;B,c,\\Sigma,\\Gamma)
+\operatorname{CR}(g_i,g_j)
 \iff
-\\exists r\,\\Bigl(
-\\operatorname{Adm}(r;B,c,\\Sigma,\\Gamma)
+\exists r:
+\operatorname{Adm}(r)
 \land
-\\operatorname{Traceable}(g_i,g_j;r)
+\operatorname{Traceable}(r)
 \land
-\\operatorname{Readable}(r;B,c,\\Sigma,\\Gamma)
-\\Bigr),
+\operatorname{Readable}(r),
 \]
 
 \[
@@ -2186,9 +2187,149 @@ T
 
 したがって統合スキーマは、形式的な設計境界として機能する。比較、例示、実装研究、後続の精緻化を支える程度に明示的でありながら、保持すべき理論的区別を上書きしない程度に弱い構成である。
 
-# 11 既存数学分野との比較
+# 11 Minimal Formal Modelの図解
 
-## 11.1 比較の目的
+## 11.1 Figure 1：不変Core
+
+![Figure 1. Gyro Logicの不変Core。Operator OrientationとContextはSliceを条件づけるが、追加Core要素にはならない。](figures/fig1_invariant_core.svg)
+
+Figure 1は、本論文全体を拘束する理論条件を示す。不変CoreはStructure → Slice → Stabilityのままである。Operator OrientationとContextはSlice processを条件づけるが、本モデルは、それら、local articulation、Trajectory、Difference、Boundary、Operator Responseを第四のCore要素として挿入しない。
+
+## 11.2 Figure 2：局所的Gyro realizationとContext更新
+
+![Figure 2. 局所的Gyro realization、Stability Scene、後続readability contextの更新。](figures/fig2_local_realization.svg)
+
+Figure 2は、暫定的な局所realization
+
+\[
+g_n=(S_n,B_n,c_n,\Sigma_n,a_n,K_n)
+\]
+
+を要約する。図は、Slice processとlocal articulationを分離し、さらにarticulationとStability Sceneを分離する。Stability Sceneは、可読な関係、残存する局所的な未、継続条件を含み得る。Incorporated Readability \(q_n=\operatorname{Inc}(g_n)\) は、後続readability context \(\Gamma_{n+1}\) を更新し、外的変化 \(e_n\) は明示的に別要因として保持される。
+
+## 11.3 Figure 3：Contextual Trajectory
+
+![Figure 3. relation-bearing fieldから可読なTrajectoryへの文脈的Tracing。](figures/fig3_contextual_trajectory.svg)
+
+Figure 3は、relation-bearing trace field
+
+\[
+\mathcal{G}_R=(G,E)
+\]
+
+と、可読なTrajectory
+
+\[
+T_{B,c,\Sigma_T,\Gamma_T}
+=
+\operatorname{Trace}_{B,c,\Sigma_T,\Gamma_T}(G,E)
+\]
+
+を分離する。relation-bearing fieldは、異種、休眠、競合、または現在不可読な関係を含み得る。Contextual Tracingは、現在条件のもとで関係を許容、抑制、重みづけ、合成、解釈する。結果としてのTrajectoryは、分岐、合流、空白、遡及的修正を含み得る。
+
+## 11.4 図解の適用境界
+
+これらの図は説明上の要約であり、置換定義ではない。Structureが箱であること、Sliceが決定論的な矢印であること、Stabilityが常にタプルであること、Trajectoryが常にグラフであることを意味しない。目的は、Minimal Formal Modelが維持する分離を可視化し、後続の数学研究および実装研究のための安定した参照点を提供することである。
+
+# 12 Related Workと形式的位置づけ
+
+## 12.1 Gyro Logic基礎論文との関係
+
+本論文は、Gyro Logic基礎論文を置き換えるものではなく、その形式化を担う補完論文である。先行する基礎論文は、不変Coreを導入し、「Gyro Logicとは何か」という問いを扱った [@kawakami2026gyro_logic_jp]。これに対して本論文が扱うのは、Canonical Definitionを変更せず、Coreの周囲に形成された現在の概念的区別を、どのように暫定的な形式スキーマとして整理できるかという、より限定された方法論的問題である。
+
+両論文の役割は、次のように区別される。
+
+```text
+基礎論文
+=
+概念的導入と理論的方向づけ
+```
+
+```text
+本論文
+=
+最小形式組織化と比較境界
+```
+
+したがって本モデルは、Gyro Logic全体を一つの閉じた数学体系へ置き換えられるかではなく、既存の区別を維持し、それぞれの仮定を検査可能にできるかによって評価されるべきである。
+
+## 12.2 関係構造とグラフモデル
+
+関係構造およびグラフ理論は、異種の局所的realizationと保持された関係を表現するための自然な資源を提供する。標準的なグラフ理論は、頂点、辺、経路、連結性、分岐、グラフ変換を明示的に扱う [@diestel2017graph]。これらは、関係を保持するtrace field
+
+\[
+\mathcal{G}_R=(G,E)
+\]
+
+の表現に直接利用できる。
+
+ただし、表現済みのグラフは通常、関連するnodeとedgeがすでに個体化されていることを前提とする。したがってGyro Logicにおけるrelation-bearing fieldと可読なTrajectoryの区別は、グラフ表現だけでは尽くされない。グラフは候補関係を保持し、TrajectoryはAdmissibilityとReadabilityの条件下で文脈的Tracingを行った結果として読まれる。
+
+## 12.3 Event Structureと並行性
+
+Event Structureは、一つのinterleavingされた列へシステムを還元することなく、出来事、因果依存、競合、並行性を表現するために発展してきた。Petri net・Event Structure・domainの古典的な関係は、出来事と因果的組織がconfiguration-based semanticsをどのように支えるかを厳密に示している [@nielsen1981petri]。後続研究では、configuration structure、Event Structure、Petri net間の対応がさらに整理された [@vanglabbeek2009configuration]。
+
+これらは、分岐、合流、競合、半順序、非線形Trajectoryに特に関係する。一方で、形式的に表現されたeventと、enableまたはconflict関係から開始する。Gyro Sliceが扱うのは、それより前または弱いコミットメント、すなわちlocal articulationが利用可能になる過程である。したがってEvent Structureは、実現済みGyro Processの領域固有表現として有力であるが、StructureまたはSliceの普遍的存在論としては採用しない。
+
+## 12.4 Transition System・Model Checking・Process Algebra
+
+Transition SystemとModel Checkingは、状態、label、transition relationが規定された後の状態発展、分岐挙動、時間的性質、検証に対して精密な技法を提供する [@baier2008principles]。Process Algebraも、相互作用、並行性、同期、継続を合成的に表現する。MilnerのCalculus of Communicating Systemsは、その基礎的な例である [@milner1980ccs; @milner1982combinators]。
+
+これらは、Gyro Process、Gyro Loop、Operator Response、Re-Slice、Defer、Jumpに関係し、GyroOS実装に有用である。ただし、事前定義されたtransitionまたはaction vocabularyを、articulationを可能にするより一般的なStructureと同一視する危険がある。本論文ではProcess AlgebraとTransition Systemを、実装層または領域層の形式化として扱い、不変Coreの置換定義には用いない。
+
+## 12.5 Dynamical SystemとStability
+
+Dynamical Systemは、trajectory、equilibrium、attractor、oscillation、convergence、bifurcation、perturbationに関する確立されたモデルを提供する [@strogatz2015nonlinear]。状態空間と発展則が正当化される場合、特に測定可能なGyroOSまたはGyroAuthの挙動に有効である。
+
+Gyro Stabilityは、dynamical stabilityより意図的に広い。局所的に可読かつ継続可能な成立に関わり、変化の継続および残存する未と共存し得る。同様に、Gyro Trajectoryを時間添字付き状態解へ普遍的に同一視しない。したがってDynamical Systemは重要な特殊化であるが、equilibrium、convergence、invarianceをStabilityの普遍的定義にはできない。
+
+## 12.6 Topology・局所性・Sheaf-like Structure
+
+Topologyは、近傍、連続性、閉包、分離、境界を形式化する [@munkres2000topology]。local articulationの周囲における局所的持続と許容変動の表現に有用である。Sheaf theoryは、局所情報、restriction、compatibility、局所データが一つのglobal objectへglueできない可能性を扱う、より豊かな言語を提供する [@maclane1992sheaves]。
+
+これらは、Stability Sceneの局所性、および局所的成立と全体非閉包の区別に対応する。また、重なり合うContext間の可読性を支える可能性がある。ただしTopologyとSheaf theoryは、基礎空間、site、covering、restriction structureが特定されていることを必要とする。本モデルは、それらがすべての領域でSlice以前から利用可能であるとは仮定しない。
+
+## 12.7 Category Theoryと合成
+
+Category Theoryは、object、morphism、composition、identity、functor、構造保存的translationの一般言語を提供する [@maclane1998categories]。均質な一つの状態型を要求せず、領域固有Gyroモデルを合成し、異なるcontinuity形式を関係づける枠組みとして有望である。
+
+主な注意点は、通常のmorphismが指定済みのdomainとcodomainを持つことである。一般的Slice relationは、local articulationがSlice process以前から完全に個体化されたcodomainとして利用可能であるとは仮定しない。したがってCategory Theoryは、適切な局所objectとmorphismが正当化された後の合成枠組みとなり得るが、StructureまたはSliceの最初からの普遍型としては課さない。
+
+## 12.8 Belief Revisionと非単調Context更新
+
+AGM belief revisionは、明示的なpostulateによってbelief setの合理的なcontractionとrevisionを形式化する [@alchourron1985logic]。これは、Incorporated Readabilityの非単調的側面、特に後続推論が利用できるものの追加、修正、無効化、重み変更に直接関係する。
+
+ただしIncorporated Readabilityは、belief revisionより広い。readability context \(\Gamma\) はdeductive closureされたbelief setである必要はなく、織り込みは命題的ではなく、物質的、手続的、知覚的、制度的、運用的であり得る。したがってAGM型revisionは論理Contextに対する強い部分モデルであるが、Incorporationの普遍的解釈ではない。
+
+## 12.9 確率・統計モデル
+
+確率と統計は、event modelと測定変数が規定された後、不確実性、信頼度、証拠、異種観測を定量化できる。Probabilistic Graphical Modelは、不確実性下の構造化された依存関係と推論に関する成熟した枠組みを提供する [@koller2009probabilistic]。
+
+これらは、段階的Readability、Stability confidence、Difference distribution、競合するTrajectory仮説を具体化し得る。一方、それ自体では、関連する変数、event、distinctionがどのように局所的にarticulableになるかを説明しない。したがってProbabilityは、Gyro Logicの一般意味論ではなく、領域固有の定量層として扱う。
+
+## 12.10 本モデルの形式的位置づけ
+
+検討した各分野は重要な形式資源を提供するが、それぞれ、特定のobject、relation、space、event、operationが規定された後に適切となるコミットメントから始まる。Minimal Formal Modelは、それらを調整する役割を担う。すなわち、各数学資源を適用するときに、どの区別を可視のまま維持しなければならないかを明示する。
+
+位置づけは、次のように要約できる。
+
+```text
+Gyro Logic Minimal Formal Model
+≠
+既存数学を置き換える新体系
+```
+
+```text
+Gyro Logic Minimal Formal Model
+=
+部分モデルの選択と調整のための形式境界
+```
+
+したがって本論文が主張する新規性は、新しいgraph theory、topology、dynamics、probability theory、process algebraではない。領域固有の形式化を比較可能にしつつ、Structure、Slice process、local articulation、Stability Scene、Incorporated Readability、Continuity Readability、contextual Trajectory、Difference、Boundaryを暗黙に潰さないための明示的な組織化にある。
+
+# 13 既存数学分野との比較
+
+## 13.1 比較の目的
 
 Minimal Formal Modelは、既存数学から切り離された独立体系として提案されるものではない。Gyro Logicの各部分については、既存の複数分野が有効な表現手段を提供する。ここで問うべきなのは、Gyro Logicがどの一分野に「属するか」ではなく、各分野がどの前提を導入し、その前提がGyro Logic固有の区別をどこまで保持し、どこから抑圧するかである。
 
@@ -2199,7 +2340,7 @@ Minimal Formal Modelは、既存数学から切り離された独立体系とし
 
 以下で扱う分野を否定するものではない。各分野は、適用領域と形式化制約を明示したうえで用いられる部分モデルとして位置づけられる。
 
-## 11.2 関係構造
+## 13.2 関係構造
 
 関係構造は、提案モデルの基礎候補として最も広い柔軟性をもつ。異種の対象、部分関係、許容条件、Difference pattern、Boundary relation、局所的Gyro realization間の接続を、すべて数値や距離へ還元せずに表現できる。
 
@@ -2215,7 +2356,7 @@ Minimal Formal Modelは、既存数学から切り離された独立体系とし
 
 この柔軟性は、Continuity ReadabilityやContextual Trajectoryに有効である。一方、通常の関係構造は、対象と関係がすでに利用可能であるように見せやすい。それ自体では、local articulationがSliceを通じてどのように利用可能になるか、不可読な関係がどのように可読になるか、Incorporated Readabilityが後続条件をどう変えるかを説明しない。
 
-## 11.3 グラフとハイパーグラフ
+## 13.3 グラフとハイパーグラフ
 
 グラフは、局所的Gyro realizationと痕跡を担う関係の自然な表現を与える。
 
@@ -2227,7 +2368,7 @@ Minimal Formal Modelは、既存数学から切り離された独立体系とし
 
 分岐、合流、競合するtrace、空白、遡及的再接続の表現に適している。しかしグラフそのものはTrajectoryではない。通常のグラフは、ノードと辺がすでに個体化され、表現可能であることを仮定する。Gyro Logicでは、関係を保持する場と、文脈的Tracingを通じて可読になるTrajectoryとを分離しなければならない。
 
-## 11.4 順序理論
+## 13.4 順序理論
 
 順序理論は、先行関係、依存、精緻化、関連性の順位、部分比較可能性を表現できる。Incorporated Readabilityによって区別の影響順位が変化する場合や、Trajectoryが単一時系列ではなく部分順序によって制約される場合に有効である。
 
@@ -2241,7 +2382,7 @@ x\preceq_{B,c,\Gamma}y.
 
 ただし、Differenceは常に順序づけられるとは限らない。比較不能であることは、欠如や失敗を意味しない。したがって順序理論は、DifferenceやStabilityの普遍的値域ではなく、有効な特殊例である。
 
-## 11.5 位相と近傍構造
+## 13.5 位相と近傍構造
 
 位相は、局所性、近傍、小さな変動に対する持続、Boundaryに類する構成を表現するのに有効である。Stability Sceneをlocal articulationの周囲の近傍として解釈できる。
 
@@ -2253,7 +2394,7 @@ a_n\in N_n.
 
 ただし、Gyro Stabilityは位相的安定性と同一ではなく、Gyro Boundaryも位相的境界より広い。さらに、Structureの理論的な「未」を位相的開性と同一視してはならない。位相は、対象と近傍が設定された後の局所場面を表現できるが、それらがSliceによってどのように表出するかを単独では説明しない。
 
-## 11.6 力学系
+## 13.6 力学系
 
 力学系は、時間発展、摂動、収束、振動、回復、発散を扱う領域モデルとして強力である。観測可能な状態変数と更新則が定義されているGyroOSやGyroAuthの実装では、とりわけ有効である。
 
@@ -2265,7 +2406,7 @@ x_{t+1}=F(x_t,u_t).
 
 この形式により、Stability score、収束条件、drift detection、response dynamicsを実装できる。しかし力学系のTrajectoryは通常、状態発展そのものである。本モデルにおけるTrajectoryは、局所的realization間の許容可能な関係をTracingすることで読まれる構成である。また、Lyapunov stability、平衡、attractorは特定仮定のもとでのStability実装となり得るが、Stability Sceneの意味全体ではない。
 
-## 11.7 遷移系とイベント構造
+## 13.7 遷移系とイベント構造
 
 遷移系は、操作的継起、分岐選択、有効化されたaction、状態依存responseを表現する。イベント構造は、並行性、因果、競合を加え、一つの線形実行順へ還元できない過程を扱える。
 
@@ -2273,7 +2414,7 @@ x_{t+1}=F(x_t,u_t).
 
 ただし、状態、event、transitionは通常、実行前に定義されている。Sliceは、local articulationが利用可能になる過程に関わる。したがって遷移系は、実現済みのGyro processを実装できるが、表出以前のStructureを自動的に形式化するわけではない。
 
-## 11.8 圏論
+## 13.8 圏論
 
 圏論は、異種対象、変換、合成、Identity、構造保存写像を扱う強力な言語である。対象型の同一性を要求せずに継続を表現する場合や、異なる領域の局所過程を合成する場合に有効である。
 
@@ -2287,7 +2428,7 @@ x_{t+1}=F(x_t,u_t).
 
 しかし通常の射は、定義された始域と終域を前提とする。Gyro Logicでは、local articulation \(a_n\) がSlice以前から完全に定められた終域として存在するとは仮定しない。圏論的モデルは、領域固有のarticulation spaceが正当化された後に適切となる可能性が高い。圏論は有力な統合言語だが、現時点でStructureやSliceの普遍的存在論ではない。
 
-## 11.9 論理と証明論
+## 13.9 論理と証明論
 
 論理と証明論は、Incorporated Readabilityの部分モデルとして非常に強い。証明文脈 \(\Gamma_n\) は、後続推論で利用可能になった定義、仮定、補題、区別、推論規則を表現できる。
 
@@ -2299,7 +2440,7 @@ Context extension、revision、非単調推論、belief revision、defeasible re
 
 ただし、通常の論理体系は、命題、述語、推論規則がすでに個体化された後から始まる。Gyro Sliceは、関連する命題、区別、推論対象そのものが局所的に表出可能になる過程を含み得る。したがって論理的帰結は後続可読性の有力モデルではあるが、Slice全体のモデルではない。
 
-## 11.10 制約充足と制約伝播
+## 13.10 制約充足と制約伝播
 
 制約系は、相互作用する条件から局所的configurationが徐々に表出する過程を表現できる。単純なろ過とは異なり、制約伝播は、相互制限と伝播を通じて局所的に整合した形を形成する。この点で、一部のSlice実装候補として有望である。
 
@@ -2307,7 +2448,7 @@ Context extension、revision、非単調推論、belief revision、defeasible re
 
 ただし通常の制約モデルは、変数、定義域、制約が事前に指定されている。Gyro Structureは、その個体化以前の段階を含み得る。したがって制約伝播は、問題表現が成立した後のlocal articulation形成をモデル化できるが、Structure一般の存在論を与えるとは限らない。
 
-## 11.11 確率と統計
+## 13.11 確率と統計
 
 確率と統計は、readability、Stability、Difference、admissibilityを不確実性のもとで表現する場合に有効である。確率的Stability score、Difference distribution、Continuity Readabilityのconfidence、Incorporated ReadabilityのBayesian revisionを支援できる。
 
@@ -2319,7 +2460,7 @@ P\bigl(\operatorname{Readable}(r)\mid B,c,\Sigma,\Gamma\bigr).
 
 ただし確率は、event space、sigma-algebra、または指定されたuncertainty modelを必要とする。そのようなモデルの存在は普遍的には仮定できない。確率は、表出済みモデル内部の不確実性を定量化するが、その基礎区別がSliceを通じてどのように表出するかを説明しない。
 
-## 11.12 層に類する局所・大域構造
+## 13.12 層に類する局所・大域構造
 
 Sheaf-like structureは、局所的に可読なdata、重なり合うContext間の整合性、局所readingが一つの大域readingへ結合できない可能性を表現するのに有望である。局所的Stability Scene、Context依存readability、大域的非閉包を扱う形式言語となり得る。
 
@@ -2327,13 +2468,13 @@ Sheaf-like structureは、局所的に可読なdata、重なり合うContext間�
 
 ただしsheaf theoryは、base space、covering structure、restriction mapを必要とする。これらは特定形式領域では正当化され得るが、Gyro Logicの普遍的なpre-Slice Structureとして仮定してはならない。
 
-## 11.13 プロセス代数
+## 13.13 プロセス代数
 
 プロセス代数は、interaction、concurrency、communication、choice、interruption、continuationを表現できる。Operator ResponseがContinue、Stop、Re-Slice、Defer、Jumpを選択するGyro ProcessやGyro Loopに関連する。
 
 その強みは、実行可能かつ合成可能なprocess descriptionにある。一方、process algebraは通常、定義済みのaction vocabularyとprocess syntaxを前提とする。関連するactionとstateが表出された後のGyro Logicの操作的realizationは表現できるが、それらの表出可能性をもつStructureそのものを単独で捉えるわけではない。
 
-## 11.14 比較の要約
+## 13.14 比較の要約
 
 比較結果は次のように整理できる。
 
@@ -2352,7 +2493,7 @@ Sheaf-like structureは、局所的に可読なdata、重なり合うContext間�
 | Sheaf-like structure | 局所・大域整合とgluing failure | base spaceとcoverを事前仮定する |
 | プロセス代数 | 操作Loop、interaction、Response | action vocabularyを事前表出済みとする |
 
-## 11.15 異種複合モデル
+## 13.15 異種複合モデル
 
 以上の比較から、Minimal Formal Modelは既存数学すべてに対抗する新分野ではなく、複数の部分モデルを調整するスキーマとして理解するのが適切である。領域固有の実装では、例えば次を組み合わせられる。
 
@@ -2365,7 +2506,7 @@ Sheaf-like structureは、局所的に可読なdata、重なり合うContext間�
 
 この複合モデルが許容される条件は、本論文で確立した区別を保持することである。便利な実装対象を提供するからという理由で、いずれかの部分モデルが不変Coreを再定義してはならない。
 
-## 11.16 比較の結論
+## 13.16 比較の結論
 
 検討した既存数学分野のいずれも、追加仮定なしにGyro Logic全体の完全な普遍モデルを提供しない。同時に、現段階で完全に独立した新しい数学を要求する必要もない。既存分野は、その適用範囲を明示すれば、強力な部分モデルを提供する。
 
@@ -2373,11 +2514,11 @@ Sheaf-like structureは、局所的に可読なdata、重なり合うContext間�
 
 次章では、具体例へスキーマを適用し、これらの区別が操作的にも理解可能なまま維持されるかを確認する。
 
-# 12 例示による確認
+# 14 例示による確認
 
 本章では、提案した区別が具体的状況へ適用されたときにも理解可能なまま維持されるかを、少数の例によって確認する。目的は、実証的妥当性を示すことでも、Minimal Formal Modelの一意性を証明することでもない。各例は概念的ストレステストとして機能する。すなわち、Structure、Slice process、local articulation、Stability、Incorporated Readability、Continuity Readability、Trajectory、Difference、Boundaryを、矛盾なく分離できるかを確認する。
 
-## 12.1 例1：数学問題を解く過程
+## 14.1 例1：数学問題を解く過程
 
 最終結果へ到達する前に、中間的な定義を導入する数学的証明を考える。ある段階における問題全体、既存の仮定、利用可能な補題、記法、未解決の証明義務は、Structure \(S_n\) を形成する。このStructureは、書かれた紙面や現在の命題そのものではない。証明上の一手が成立し得る組織化された様式である。
 
@@ -2405,7 +2546,7 @@ q_n=\operatorname{Inc}(g_n),
 
 この更新は、定義文をログへ保存することとは同じではない。新しい定義は、どの変換が関連するか、どの部分目標が見えるか、どの後続命題を帰結として読めるかを変化させ得る。この例は、Incorporated Readabilityが受動的な履歴保存よりもContext拡張に近いことを示す。
 
-## 12.2 例2：生地がケーキになる過程
+## 14.2 例2：生地がケーキになる過程
 
 生地をオーブンへ入れ、ケーキへ変化させる過程を考える。この物質過程は多数の物理状態変数によって表現できるが、Gyro Logic上の論点は、Sliceのもとで何が可読になるかにある。
 
@@ -2439,7 +2580,7 @@ Continuity break
 
 また、Differenceが大きいことは、必ずしもTrajectory breakを意味しない。食感、形状、温度、化学的組織が大きく変化しても、その変化全体は一つの継続過程として読める場合がある。
 
-## 12.3 例3：条件変化を含む認証
+## 14.3 例3：条件変化を含む認証
 
 端末、行動、ネットワーク、時間、動作に関する観測を用いる認証過程を考える。一般的なモデルでは、現在の測定値を保存済みプロファイルと比較し、誤差スコアを算出することがある。Minimal Formal Modelは、より広い解釈を許す。
 
@@ -2469,7 +2610,7 @@ Differenceは単一スカラーではなく、異種要素からなる対象と�
 
 この例は、Incorporated Readabilityが後続認証の条件を変えることも示す。以前に受理された端末、確認済みの移動パターン、回復過程などは、その後のreadability contextを変化させ得る。これは過去観測の保存以上のものであり、後続のDifferenceの解釈を変える。
 
-## 12.4 例4：社会規範の成立
+## 14.4 例4：社会規範の成立
 
 男女平等という社会的認識を考える。その規範が成立する以前から、社会には制度、実践、対立、言語、認識可能な複数の形が存在する。これらは、多様な成立が可能なStructureとして扱える。
 
@@ -2485,7 +2626,7 @@ Sliceは、法改正、公共的議論、社会運動、教育、制度解釈な
 
 また、この例におけるTrajectoryは、単なる出来事の時系列一覧ではない。社会運動、法律、判決、制度、実践の間のどの関係を、現在のContextで許容可能かつ追跡可能とみなすかによって、歴史的Trajectoryは異なる形で読まれる。法的連続性、概念的継承、政治的闘争、制度実装など、複数のTrajectory readingが成立し得る。
 
-## 12.5 例5：欠測データとTrajectoryの空白
+## 14.5 例5：欠測データとTrajectoryの空白
 
 センサーシステムに、測定が記録されなかった区間がある場合を考える。時系列ログには空白が存在する。しかし、その空白だけではTrajectory breakは成立しない。
 
@@ -2512,7 +2653,7 @@ Trajectory continuity
 
 さらに、関係保持場 \(\mathcal{G}_R=(G,E)\) がTrajectoryそのものではない理由も示す。同一のイベント場から異なる文脈的Tracingが成立し得て、現在のSliceでは不可読な関係も残り得る。
 
-## 12.6 例6：「九州以外の都道府県」の検索
+## 14.6 例6：「九州以外の都道府県」の検索
 
 「日本の都道府県のうち、九州以外」を検索する場合を考える。データベース実装では、全都道府県集合を取得し、九州に属する集合を特定し、集合差を計算できる。この実装は、対象、所属関係、地域分類がすでに利用可能な領域では妥当である。
 
@@ -2524,7 +2665,7 @@ Trajectory continuity
 
 Differenceは距離ではなく、カテゴリー的な非一致となり得る。Boundaryは現在のSliceのもとで可読な地域区別である。「九州ではない」「何もない」「不明」「空欄」「Void」を一つの状態へ潰してはならない。この例は、否定、欠如、非所属、不可読性を別々に扱う必要があることを示す。
 
-## 12.7 例を横断した観察
+## 14.7 例を横断した観察
 
 以上の例には、共通する区別が現れる。
 
@@ -2544,15 +2685,15 @@ Differenceは距離ではなく、カテゴリー的な非一致となり得る�
 
 これらの例は形式モデルを証明するものではない。しかし、論理的、物質的、計算的、社会的、観測的な複数領域において、一つの普遍的数学実装を要求せずに本モデルの区別を使用できることを示す。次章ではモデルの限界を検討し、未解決の主張を明確にする。
 
-# 13 限界と未解決課題
+# 15 限界と未解決課題
 
-## 13.1 本モデルの射程
+## 15.1 本モデルの射程
 
 本論文で提案するMinimal Formal Modelは、意図的に限定されたモデルである。その目的は、Gyro Logic内部で形成されてきた複数の区別を保持し、それらを簡潔で内部整合的な形式スキーマへ整理することにある。完全な公理化、普遍的意味論、または理論の最終的な数学的基礎を提示するものではない。
 
 したがって本モデルは、概念理論と領域固有実装の中間に位置する。明示的な対象、関係、更新則、分離条件を導入する点で単なる比喩より強いが、複数の数学型、許容可能性条件、合成則を意図的に未確定のまま残す点で、完全に規定された形式体系より弱い。
 
-## 13.2 数学型の暫定性
+## 15.2 数学型の暫定性
 
 本モデルは、Structureに対して一つの普遍的数学型を確定しない。Structureは、対象領域に応じて、状態的、関係的、空間的、論理的、組織的、または過程的に表現され得る。しかし、これらのいずれもGyro Logicの普遍的存在論へ昇格させない。
 
@@ -2570,7 +2711,7 @@ K_n=(a_n,L_n,U_n,C_n^{+})
 
 はStability Sceneの構造化表現であり、あらゆるStability Sceneが本質的に四成分タプルであるという主張ではない。
 
-## 13.3 厳密な最小性は証明されていない
+## 15.3 厳密な最小性は証明されていない
 
 本論文における「minimal」は、現在の理論的区別を保持するために必要な以上の形式的コミットメントを導入しないという設計方針を意味する。本論文は、このスキーマが一意に最小であること、要素数の意味で最小であること、または特定の理論順序のもとで最小であることを形式的に証明していない。
 
@@ -2583,7 +2724,7 @@ K_n=(a_n,L_n,U_n,C_n^{+})
 
 これらは今後の課題である。
 
-## 13.4 Readabilityの意味論は未完成である
+## 15.4 Readabilityの意味論は未完成である
 
 Readabilityは、Stability、Incorporated Readability、Continuity Readability、Boundary、Trajectoryの中心にある。しかし、本モデルはReadabilityの完全な意味論をまだ与えていない。
 
@@ -2599,7 +2740,7 @@ Readabilityを次のいずれとして扱うべきかは未解決である。
 
 本モデルはこれらを許容するが、普遍的解釈を一つ選択しない。これは意図的な開放性である一方、理論の予測精度と計算精度を制限する。
 
-## 13.5 OrientationとContextは十分に規定されていない
+## 15.5 OrientationとContextは十分に規定されていない
 
 Operator OrientationとContextは、Slice、Difference、Continuity Readability、Boundary、Trajectoryを条件づける。本モデルでは形式パラメータとして表すが、その内部構造は十分に規定していない。
 
@@ -2613,7 +2754,7 @@ Operator OrientationとContextは、Slice、Difference、Continuity Readability�
 
 これらは理論モデル、計算モデル、応用モデルで異なる解決を必要とする可能性がある。
 
-## 13.6 AdmissibilityとTraceabilityには領域基準が必要である
+## 15.6 AdmissibilityとTraceabilityには領域基準が必要である
 
 Continuity Readabilityは、暫定的に次のように表される。
 
@@ -2642,7 +2783,7 @@ Continuity Readabilityは、暫定的に次のように表される。
 
 このような基準がない限り、contextual tracingは実行手法ではなく形式スキーマにとどまる。
 
-## 13.7 Trajectory再構成はまだアルゴリズム化されていない
+## 15.7 Trajectory再構成はまだアルゴリズム化されていない
 
 本モデルは、関係を保持するtrace field
 
@@ -2673,7 +2814,7 @@ T_{B,c,\Sigma_T,\Gamma_T}
 
 今後は、contextual tracingをグラフ探索、イベント構造解析、制約伝播、確率推論、圏論的合成、またはそれらのハイブリッドとして実装すべきかを検討する必要がある。
 
-## 13.8 Differenceには普遍的な値域がない
+## 15.8 Differenceには普遍的な値域がない
 
 本モデルは、意図的に
 
@@ -2691,7 +2832,7 @@ T_{B,c,\Sigma_T,\Gamma_T}
 - DifferenceをゼロにすることなくStability evidenceへ関連づける方法
 - DifferenceがBoundaryとして可読化される過程の形式化
 
-## 13.9 Stabilityに普遍的評価規則はない
+## 15.9 Stabilityに普遍的評価規則はない
 
 本モデルはStabilityとStability scoreを区別するが、local articulationが可読かつ継続可能な成立になったかどうかを判断する普遍的手続きを与えない。
 
@@ -2699,7 +2840,7 @@ T_{B,c,\Sigma_T,\Gamma_T}
 
 このことは理論的一般性を保持する一方で、領域固有の評価関数なしに普遍的Stability判断を生成できないことを意味する。
 
-## 13.10 Incorporated Readabilityの操作的同定は未完成である
+## 15.10 Incorporated Readabilityの操作的同定は未完成である
 
 更新
 
@@ -2713,7 +2854,7 @@ T_{B,c,\Sigma_T,\Gamma_T}
 
 今後は、Incorporated Readabilityの観測可能な基準を確立し、複数領域で一貫して操作化できるかを検証する必要がある。
 
-## 13.11 実証的検証は限定的である
+## 15.11 実証的検証は限定的である
 
 Illustrative Examplesは概念分離可能性を示すが、実証的妥当性を示すものではない。数学的推論、変形、認証、社会規範、欠測データ、否定検索においてモデルが区別を整理できることは示すが、競合理論より優れた予測、説明、実装を与えることを証明しない。
 
@@ -2727,7 +2868,7 @@ Illustrative Examplesは概念分離可能性を示すが、実証的妥当性�
 
 GyroOSまたはGyroAuthによるPoCは一つの検証経路となり得るが、応用上の成功を普遍理論の証明とみなしてはならない。
 
-## 13.12 既存数学との関係にはさらに深い検討が必要である
+## 15.12 既存数学との関係にはさらに深い検討が必要である
 
 比較章では、関係構造、グラフ理論、位相、力学系、イベント構造、圏論、証明論、制約伝播、確率、sheaf-like structure、process algebraとの部分的対応を示した。しかし、これらの比較はまだ予備的である。
 
@@ -2741,7 +2882,7 @@ GyroOSまたはGyroAuthによるPoCは一つの検証経路となり得るが、
 
 目標は強制的還元ではなく、比較と統制された特殊化であるべきである。
 
-## 13.13 未解決課題：Formal Securityと敵対的条件
+## 15.13 未解決課題：Formal Securityと敵対的条件
 
 認証または脆弱性対応へ適用する場合、敵対的操作が中心課題となる。攻撃者はcriterionをpoisoningし、Contextを改変し、偽のcontinuityを構成し、Differenceを抑制し、誤ったStabilityを誘発する可能性がある。
 
@@ -2757,7 +2898,7 @@ Formal Security拡張では、少なくとも次を定義する必要がある�
 
 これらはモデルのセキュリティ特殊化に属し、普遍Coreへ暗黙に持ち込んではならない。
 
-## 13.14 未解決課題：局所realizationの形式的合成
+## 15.14 未解決課題：局所realizationの形式的合成
 
 本モデルは局所realizationを
 
@@ -2775,7 +2916,7 @@ g_i \circ g_j
 
 合成は時間的、因果的、論理的、意味的、物質的、文脈的であり得る。異なる関係型には異なる合成則が必要となる可能性がある。今後は、局所realizationがいつ合成可能か、合成が結合的か、部分的か、Re-SliceとJumpが合成へどう影響するかを検討する必要がある。
 
-## 13.15 未解決課題：モデル改訂基準
+## 15.15 未解決課題：モデル改訂基準
 
 本モデルは明示的に暫定的であるため、改訂基準が必要となる。候補構成は、次の場合に修正されるべきである。
 
@@ -2788,7 +2929,7 @@ g_i \circ g_j
 
 形式モデルは、それが明確化しようとする理論に従属し続けなければならない。
 
-## 13.16 限界の要約
+## 15.16 限界の要約
 
 本モデルは、次をまだ提供しない。
 
@@ -2806,7 +2947,7 @@ g_i \circ g_j
 
 したがって最終章では、本論文の中心的主張へ戻る。Minimal Formal Modelの価値は、Gyro Logicを一つの完成済み数学体系へ閉じることではなく、比較、検証、改訂、実装を体系的に進められる程度まで、現在のコミットメントを明示することにある。
 
-# 14 結論
+# 16 結論
 
 本論文は、Gyro Logicの不変Coreを維持したまま、探索的なMinimal Formal Modelを提示した。
 
@@ -2919,3 +3060,5 @@ Boundary
 今後は、本モデルをより厳密に検証する必要がある。主要な課題には、Readability、Admissibility、Traceabilityの領域別意味論、局所的realization間の合成、実行可能モデルまたはSimulationの構築、非単調なIncorporated Readabilityの評価、敵対的更新およびcriterion poisoningの形式化、Minimal Formal Model v1.1または後続の公理モデルが必要かどうかの判断が含まれる。
 
 本研究の到達点は、意図的に限定されている。提案スキーマが一意に最小であること、複数領域において実証的に妥当であること、計算的に決定可能であること、または完全であることは証明していない。本論文が示したのは、より限定的であるが必要な基盤である。すなわち、Gyro Logicは、不変Coreを変更せず、その中心的区別を既存の狭い数学形式へ潰すことなく、規律ある形式構成として整理可能である。
+
+# 参考文献

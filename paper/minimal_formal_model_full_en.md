@@ -1,11 +1,13 @@
 ---
 title: "A Minimal Formal Model for Gyro Logic: Local Articulation, Stability Scenes, and Contextual Tracing"
-author: "Gyro Logic Lab"
+author: "Shuntaro Kawakami"
 date: "2026"
-status: "Integrated Draft"
+status: "Submission Candidate"
 paper_type: "Independent formalization paper"
 formal_model: "Minimal Formal Model v1"
 canonical_core: "unchanged"
+bibliography: "references.bib"
+link-citations: true
 ---
 
 # Abstract
@@ -2097,15 +2099,14 @@ S_{n+1},
 \]
 
 \[
-\\operatorname{CR}(g_i,g_j;B,c,\\Sigma,\\Gamma)
+\operatorname{CR}(g_i,g_j)
 \iff
-\\exists r\,\\Bigl(
-\\operatorname{Adm}(r;B,c,\\Sigma,\\Gamma)
+\exists r:
+\operatorname{Adm}(r)
 \land
-\\operatorname{Traceable}(g_i,g_j;r)
+\operatorname{Traceable}(r)
 \land
-\\operatorname{Readable}(r;B,c,\\Sigma,\\Gamma)
-\\Bigr),
+\operatorname{Readable}(r),
 \]
 
 \[
@@ -2134,9 +2135,147 @@ The model does not yet provide a complete axiomatization, a universal semantics,
 
 The integrated schema therefore functions as a formal design boundary. It is sufficiently explicit to support comparison, examples, implementation studies, and later refinement, while remaining weak enough not to overwrite the theoretical distinctions it is intended to preserve.
 
-# 11 Comparison with Existing Mathematical Fields
+# 11 Visual Overview of the Minimal Formal Model
 
-## 11.1 Purpose of the Comparison
+## 11.1 Figure 1: Invariant Core
+
+![Figure 1. The invariant Core of Gyro Logic. Operator Orientation and Context condition Slice but do not become additional Core elements.](figures/fig1_invariant_core.svg)
+
+Figure 1 presents the theoretical constraint that governs the entire paper. The invariant Core remains Structure → Slice → Stability. Operator Orientation and Context condition the Slice process, but the model does not insert them, local articulation, Trajectory, Difference, Boundary, or Operator Response as a fourth Core element.
+
+## 11.2 Figure 2: Local Gyro Realization and Context Update
+
+![Figure 2. A local Gyro realization, the Stability Scene, and the update of later readability conditions.](figures/fig2_local_realization.svg)
+
+Figure 2 summarizes the provisional local realization
+
+\[
+g_n=(S_n,B_n,c_n,\Sigma_n,a_n,K_n).
+\]
+
+The figure separates the Slice process from the local articulation and separates the articulation from the Stability Scene. The Stability Scene may contain readable relations, residual local not-yet, and continuation conditions. Incorporated Readability \(q_n=\operatorname{Inc}(g_n)\) updates the later readability context \(\Gamma_{n+1}\), while external change \(e_n\) remains explicitly represented.
+
+## 11.3 Figure 3: Contextual Trajectory
+
+![Figure 3. Contextual tracing from a relation-bearing field to a readable Trajectory.](figures/fig3_contextual_trajectory.svg)
+
+Figure 3 distinguishes the relation-bearing trace field
+
+\[
+\mathcal{G}_R=(G,E)
+\]
+
+from a readable Trajectory
+
+\[
+T_{B,c,\Sigma_T,\Gamma_T}
+=
+\operatorname{Trace}_{B,c,\Sigma_T,\Gamma_T}(G,E).
+\]
+
+The relation-bearing field may contain heterogeneous, dormant, conflicting, or currently unreadable relations. Contextual tracing admits, suppresses, weights, composes, and interprets relations under the current conditions. The resulting Trajectory may branch, merge, contain gaps, or be retrospectively revised.
+
+## 11.4 Figure Interpretation Boundary
+
+The figures are explanatory summaries rather than replacement definitions. They do not imply that Structure is a box, Slice is a deterministic arrow, Stability is always a tuple, or Trajectory is always a graph. Their purpose is to display the separations preserved by the Minimal Formal Model and to provide stable reference points for later mathematical and implementation studies.
+
+# 12 Related Work and Formal Positioning
+
+## 12.1 Relation to the Foundational Gyro Logic Paper
+
+This paper is a formalization companion to the foundational Gyro Logic paper rather than a replacement for it. The earlier paper introduced the invariant Core and addressed the question of what Gyro Logic is [@kawakami2026gyro_logic_en]. The present paper addresses a narrower methodological question: how the distinctions currently developed around that Core can be organized into a provisional formal schema without changing the canonical definitions.
+
+The distinction between the two papers is therefore:
+
+```text
+foundational paper
+=
+conceptual introduction and theoretical orientation
+```
+
+```text
+present paper
+=
+minimal formal organization and comparison boundary
+```
+
+The present model should consequently be evaluated by whether it preserves the established distinctions and makes their assumptions inspectable, not by whether it replaces the broader theory with one closed mathematical system.
+
+## 12.2 Relational and Graph-Based Models
+
+Relational structures and graph theory provide natural resources for representing heterogeneous local realizations and retained relations. Standard graph theory supplies explicit accounts of vertices, edges, paths, connectedness, branching, and graph transformations [@diestel2017graph]. These resources are directly useful for the relation-bearing trace field
+
+\[
+\mathcal{G}_R=(G,E).
+\]
+
+However, a represented graph normally presupposes that the relevant nodes and edges have already been individuated. The Gyro Logic distinction between a relation-bearing field and a readable Trajectory therefore remains additional: the graph stores candidate relations, whereas Trajectory is the result of contextual tracing under admissibility and readability conditions.
+
+## 12.3 Event Structures and Concurrency
+
+Event structures were developed to represent occurrence, causal dependency, conflict, and concurrency without reducing a system to one interleaved sequence. The classical relation among Petri nets, event structures, and domains provides a rigorous account of how events and causal organization can support configuration-based semantics [@nielsen1981petri]. Later work further clarified correspondences among configuration structures, event structures, and Petri nets [@vanglabbeek2009configuration].
+
+These approaches are especially relevant to branching, merging, conflict, partial order, and non-linear Trajectory. They nevertheless begin with formally represented events and enabling or conflict relations. Gyro Slice addresses an earlier or weaker commitment: the process through which a local articulation becomes available. Event structures are therefore strong candidates for domain-specific representations of realized Gyro processes, but they are not adopted as the universal ontology of Structure or Slice.
+
+## 12.4 Transition Systems, Model Checking, and Process Algebra
+
+Transition systems and model checking provide precise techniques for state evolution, branching behavior, temporal properties, and verification once states, labels, and transition relations have been specified [@baier2008principles]. Process algebra similarly provides compositional languages for interaction, concurrency, synchronization, and continuation. Milner's Calculus of Communicating Systems is a foundational example [@milner1980ccs; @milner1982combinators].
+
+These methods are relevant to Gyro Process, Gyro Loop, Operator Response, Re-Slice, Defer, and Jump. Their operational precision is valuable for GyroOS implementations. Their reduction risk is that a predefined transition or action vocabulary may be mistaken for the more general Structure through which an articulation becomes available. The present paper therefore treats process algebra and transition systems as implementation-level or domain-level formalizations, not as replacement definitions of the invariant Core.
+
+## 12.5 Dynamical Systems and Stability
+
+Dynamical systems provide established models of trajectories, equilibria, attractors, oscillation, convergence, bifurcation, and perturbation [@strogatz2015nonlinear]. These models are useful when a state space and evolution law are justified, particularly for measurable GyroOS or GyroAuth behavior.
+
+Gyro Stability is deliberately broader than dynamical stability. It concerns a locally readable and continuable establishment and may coexist with ongoing change and residual not-yet. Likewise, Gyro Trajectory is not universally identified with a time-indexed state solution. Dynamical systems are therefore important specializations, but equilibrium, convergence, or invariance cannot serve as universal definitions of Stability.
+
+## 12.6 Topology, Locality, and Sheaf-Like Structures
+
+Topology provides formal accounts of neighborhoods, continuity, closure, separation, and boundaries [@munkres2000topology]. It is useful for representing local persistence and admissible variation around a local articulation. Sheaf theory provides a richer language for local information, restriction, compatibility, and the possible failure of local data to glue into one global object [@maclane1992sheaves].
+
+These ideas correspond to the local character of Stability Scenes and to the distinction between local establishment and global non-closure. They may also support context-dependent readability across overlapping domains. Nevertheless, topology and sheaf theory require a specified underlying space, site, covering, or restriction structure. The present model does not assume that such structures are available before Slice in every domain.
+
+## 12.7 Category Theory and Composition
+
+Category theory offers a general language for objects, morphisms, composition, identity, functors, and structure-preserving translation [@maclane1998categories]. It is a promising framework for composing domain-specific Gyro models and for relating different forms of continuity without requiring one homogeneous state type.
+
+The principal caution is that an ordinary morphism has a specified domain and codomain. The general Slice relation does not assume that the local articulation is already available as a fully individuated codomain before the Slice process. Category theory may therefore provide a later compositional framework once suitable local objects and morphisms have been justified, but it is not imposed as the initial universal type of Structure or Slice.
+
+## 12.8 Belief Revision and Non-Monotonic Context Update
+
+The AGM theory of belief revision formalizes rational contraction and revision of belief sets through explicit postulates [@alchourron1985logic]. It is directly relevant to the non-monotonic aspects of Incorporated Readability, particularly addition, revision, invalidation, and reweighting of what later reasoning can use.
+
+Incorporated Readability is broader than belief revision. The readability context \(\Gamma\) need not be a deductively closed belief set, and incorporation may be material, procedural, perceptual, institutional, or operational rather than propositional. AGM-style revision is therefore a strong partial model for logical contexts, not a universal interpretation of incorporation.
+
+## 12.9 Probabilistic and Statistical Models
+
+Probability and statistics can quantify uncertainty, confidence, evidence, and heterogeneous observations once an event model and measurable variables have been specified. Probabilistic graphical models provide one mature framework for structured dependency and inference under uncertainty [@koller2009probabilistic].
+
+Such methods may instantiate graded Readability, Stability confidence, Difference distributions, or competing Trajectory hypotheses. They do not explain by themselves how the relevant variables, events, or distinctions become locally articulable. Probability is therefore treated as a domain-specific quantitative layer rather than as the general semantics of Gyro Logic.
+
+## 12.10 Position of the Present Model
+
+The reviewed fields provide substantial formal resources, but each begins with commitments that are appropriate only after particular objects, relations, spaces, events, or operations have been specified. The Minimal Formal Model occupies a coordination role. It states which distinctions must remain visible when these mathematical resources are applied.
+
+The position can be summarized as follows:
+
+```text
+Gyro Logic Minimal Formal Model
+≠
+a replacement for established mathematics
+```
+
+```text
+Gyro Logic Minimal Formal Model
+=
+a formal boundary for selecting and coordinating partial models
+```
+
+The novelty claimed here is therefore not a new graph theory, topology, dynamics, probability theory, or process algebra. It is the explicit organization of Structure, Slice process, local articulation, Stability Scene, Incorporated Readability, Continuity Readability, contextual Trajectory, Difference, and Boundary so that domain-specific formalizations can be compared without silently collapsing these distinctions.
+
+# 13 Comparison with Existing Mathematical Fields
+
+## 13.1 Purpose of the Comparison
 
 The Minimal Formal Model is not proposed in isolation from established mathematics. Several existing fields provide useful representational resources for particular parts of Gyro Logic. The relevant question, however, is not which single field Gyro Logic “belongs to,” but which assumptions each field introduces and which Gyro-specific distinctions those assumptions preserve or suppress.
 
@@ -2147,7 +2286,7 @@ The comparison therefore evaluates each field along two dimensions:
 
 No field discussed below is rejected. Each is treated as a possible partial model whose use must remain conditional on the domain and on the formalization constraints stated earlier.
 
-## 11.2 Relational Structures
+## 13.2 Relational Structures
 
 Relational structures provide one of the broadest candidate foundations for the model. They can represent heterogeneous objects, partial relations, admissibility conditions, Difference patterns, Boundary relations, and connections among local Gyro realizations without requiring all relations to be numerical or metric.
 
@@ -2163,7 +2302,7 @@ where the family \(\{R_\alpha\}\) may include causal, semantic, material, tempor
 
 This flexibility is useful for Continuity Readability and contextual Trajectory. Its limitation is that an ordinary relational structure tends to present its objects and relations as already available. It does not by itself explain how a local articulation becomes available through Slice, how unreadable relations become readable, or how incorporated readability changes later conditions.
 
-## 11.3 Graphs and Hypergraphs
+## 13.3 Graphs and Hypergraphs
 
 Graphs provide a natural representation for local Gyro realizations and trace-bearing relations:
 
@@ -2175,7 +2314,7 @@ Directed graphs can represent asymmetric succession, dependency, and tracing. Mu
 
 Graphs and hypergraphs are especially useful for branching, merging, competing traces, gaps, and retrospective reconnection. However, the graph is not itself the Trajectory. A graph normally assumes that its nodes and edges are already individuated and available for representation. Gyro Logic additionally requires a distinction between the relation-bearing field and the Trajectory that becomes readable through contextual tracing.
 
-## 11.4 Order Theory
+## 13.4 Order Theory
 
 Order theory can represent precedence, dependency, refinement, relevance ordering, and partial comparability. It is useful where incorporated readability changes the relative influence of distinctions or where a Trajectory is constrained by a partial order rather than a single chronology.
 
@@ -2187,7 +2326,7 @@ x\preceq_{B,c,\Gamma}y.
 
 This may represent that \(x\) is no more established, no more relevant, or no later than \(y\) under particular conditions. The main limitation is that Difference need not always be orderable, and many Gyro relations may be incomparable without this indicating absence or failure. Order theory therefore provides a useful special case rather than a universal codomain for Difference or Stability.
 
-## 11.5 Topology and Neighborhood Structures
+## 13.5 Topology and Neighborhood Structures
 
 Topology is useful for representing locality, neighborhoods, persistence under small variation, and Boundary-like constructions. A Stability Scene may be interpreted through a neighborhood around a local articulation:
 
@@ -2201,7 +2340,7 @@ This interpretation supports the idea that Stability is not merely a point. It m
 
 The limitation is that Gyro Stability is not identical to topological stability, and Gyro Boundary is broader than the boundary of a topological set. Moreover, the theoretical “not-yet” of Structure cannot be identified with topological openness. Topology can model a local scene after suitable objects and neighborhoods have been specified, but it does not by itself explain their articulation through Slice.
 
-## 11.6 Dynamical Systems
+## 13.6 Dynamical Systems
 
 Dynamical systems are strong candidates for domain models involving temporal evolution, perturbation, convergence, oscillation, recovery, and divergence. They are particularly useful for GyroOS and GyroAuth implementations in which observable state variables and update laws have already been defined.
 
@@ -2213,7 +2352,7 @@ x_{t+1}=F(x_t,u_t).
 
 Such a model can implement Stability scores, convergence criteria, drift detection, and response dynamics. However, a dynamical-system trajectory is ordinarily the state evolution itself. In the present model, Trajectory is a readable construction produced by tracing admissible relations among local realizations. Similarly, Lyapunov stability, equilibrium, and attractors are possible implementations of stability under specific assumptions, but they do not exhaust the meaning of a Stability Scene.
 
-## 11.7 Transition Systems and Event Structures
+## 13.7 Transition Systems and Event Structures
 
 Transition systems can represent operational succession, branching choices, enabled actions, and state-dependent responses. Event structures add concurrency, causality, and conflict, making them useful for modeling processes that cannot be reduced to one linear execution order.
 
@@ -2221,7 +2360,7 @@ These fields are relevant to Gyro Process, Operator Response, Re-Slice, Jump, an
 
 Their limitation is similar to that of graphs and dynamical systems: states, events, and transitions are usually specified before execution. Slice, by contrast, concerns the process through which a local articulation becomes available. A transition system may implement a realized Gyro process, but it does not automatically formalize the pre-individuated Structure from which that articulation emerges.
 
-## 11.8 Category Theory
+## 13.8 Category Theory
 
 Category theory offers a powerful language for heterogeneous objects, transformations, composition, identity, and structure-preserving mappings. It is useful where continuity must be represented without requiring sameness of object type, and where local processes need to be composed across different domains.
 
@@ -2235,7 +2374,7 @@ or treat traceable relations as morphisms whose compositions form admissible pat
 
 The risk is that an ordinary morphism presupposes a specified domain and codomain. In Gyro Logic, the local articulation \(a_n\) is not assumed to exist as a fully determined codomain before Slice. Category-theoretic models may therefore become appropriate only after a domain-specific articulation space has been justified. Category theory is a strong candidate integration language, but not yet a universal ontology for Structure or Slice.
 
-## 11.9 Logic and Proof Theory
+## 13.9 Logic and Proof Theory
 
 Logic and proof theory provide a particularly strong partial model for Incorporated Readability. A proof context \(\Gamma_n\) can represent definitions, assumptions, lemmas, distinctions, and admissible inference rules made available to later reasoning:
 
@@ -2247,7 +2386,7 @@ Context extension, revision, non-monotonic inference, belief revision, and defea
 
 However, ordinary logical systems usually begin after propositions, predicates, and inference rules have been individuated. Gyro Slice may include the process through which a relevant proposition, distinction, or object of reasoning first becomes locally articulable. Logical consequence is therefore a useful model of later readability, but not a complete model of Slice.
 
-## 11.10 Constraint Satisfaction and Constraint Propagation
+## 13.10 Constraint Satisfaction and Constraint Propagation
 
 Constraint systems can model the gradual articulation of a local configuration from interacting conditions. Unlike a simple filtering model, constraint propagation can produce a locally coherent form through mutual restriction and propagation. This makes it a promising candidate for certain Slice implementations.
 
@@ -2255,7 +2394,7 @@ A domain-specific model may take variables \(V\), domains \(D_V\), and constrain
 
 The limitation is that conventional constraint models assume that variables, domains, and constraints are already specified. Gyro Structure may precede that level of individuation. Constraint propagation can therefore model how a local articulation forms after a problem representation has been established, but not necessarily the more general ontological status of Structure.
 
-## 11.11 Probability and Statistics
+## 13.11 Probability and Statistics
 
 Probability and statistics are useful where readability, Stability, Difference, or admissibility must be represented under uncertainty. They can support probabilistic Stability scores, distributions of Difference, confidence in Continuity Readability, and Bayesian revision of incorporated readability.
 
@@ -2269,7 +2408,7 @@ may provide an application-level measure of continuity confidence.
 
 The limitation is that probability requires an event space, sigma-algebra, or otherwise specified uncertainty model. The existence of such a model cannot be assumed universally. Probability quantifies uncertainty within an articulated model; it does not explain how the underlying distinctions become articulable through Slice.
 
-## 11.12 Sheaf-Like and Local-to-Global Structures
+## 13.12 Sheaf-Like and Local-to-Global Structures
 
 Sheaf-like structures are promising for representing locally readable data, compatibility across overlapping contexts, and the possible failure of local readings to combine into one global reading. They may provide a useful formal language for local Stability Scenes, context-dependent readability, and global non-closure.
 
@@ -2277,13 +2416,13 @@ A local family of sections may be individually readable while lacking a globally
 
 However, sheaf theory requires a specified base space, covering structure, and restriction maps. These may be justified in particular formal domains, but they should not be assumed as the universal pre-Slice structure of Gyro Logic.
 
-## 11.13 Process Algebra
+## 13.13 Process Algebra
 
 Process algebra can represent interaction, concurrency, communication, choice, interruption, and continuation. It is relevant to Gyro Process and Gyro Loop, especially where Operator Response selects Continue, Stop, Re-Slice, Defer, or Jump.
 
 Its strength lies in executable and compositional process descriptions. Its limitation is that process algebra generally assumes a defined action vocabulary and process syntax. It can model operational realizations of Gyro Logic after relevant actions and states have been articulated, but it does not by itself capture Structure as the mode in which such articulation becomes possible.
 
-## 11.14 Comparative Summary
+## 13.14 Comparative Summary
 
 The comparison can be summarized as follows.
 
@@ -2302,7 +2441,7 @@ The comparison can be summarized as follows.
 | Sheaf-like structures | Local-to-global compatibility and failure of gluing | Base space and coverings assumed |
 | Process algebra | Operational loops, interaction, response | Action vocabulary assumed articulated |
 
-## 11.15 A Heterogeneous Composite Model
+## 13.15 A Heterogeneous Composite Model
 
 The comparison suggests that the Minimal Formal Model is best understood not as a new competitor to all existing mathematical disciplines, but as a coordination schema for several partial models. A domain-specific implementation may combine:
 
@@ -2315,7 +2454,7 @@ The comparison suggests that the Minimal Formal Model is best understood not as 
 
 The admissibility of such a composite model depends on preserving the distinctions established in this paper. No component may be allowed to redefine the invariant Core merely because it provides a convenient implementation object.
 
-## 11.16 Result of the Comparison
+## 13.16 Result of the Comparison
 
 No examined mathematical field provides a complete universal model of Gyro Logic without introducing additional assumptions. At the same time, no wholly independent mathematics is required at the present stage. Existing fields provide strong partial models once their scope is made explicit.
 
@@ -2323,11 +2462,11 @@ The main formal contribution of the proposed schema is therefore not the replace
 
 The following section uses illustrative cases to test whether these distinctions remain operationally intelligible when the schema is applied to concrete examples.
 
-# 12 Illustrative Examples
+# 14 Illustrative Examples
 
 This section uses a small set of illustrative examples to test whether the proposed distinctions remain intelligible when applied to concrete situations. The purpose is not to provide empirical validation or to prove that the Minimal Formal Model is unique. The examples instead function as conceptual stress tests. Each example asks whether Structure, Slice process, local articulation, Stability, Incorporated Readability, Continuity Readability, Trajectory, Difference, and Boundary can be separated without contradiction.
 
-## 12.1 Example 1: Mathematical Problem Solving
+## 14.1 Example 1: Mathematical Problem Solving
 
 Consider a mathematical proof in which an intermediate definition is introduced before the final result is obtained. At a given stage, the surrounding problem, prior assumptions, available lemmas, notation, and unresolved obligations form a Structure \(S_n\). The Structure is not merely the written page or the current proposition. It is the organized mode in which a proof step may become established.
 
@@ -2355,7 +2494,7 @@ q_n=\operatorname{Inc}(g_n),
 
 This update is not equivalent to storing the sentence in a log. The definition may change which transformations are considered relevant, which sub-goals are visible, and which later statements can be interpreted as consequences. The example therefore illustrates why Incorporated Readability is closer to context extension than to passive history storage.
 
-## 12.2 Example 2: Batter Becoming Cake
+## 14.2 Example 2: Batter Becoming Cake
 
 Consider batter placed in an oven and transformed into a cake. The material process can be described through many physical state variables, but the Gyro Logic distinction concerns what becomes readable under a Slice.
 
@@ -2389,7 +2528,7 @@ continuity break
 
 The example also illustrates that a large Difference does not necessarily imply a Trajectory break. Texture, shape, temperature, and chemical organization may change substantially, while the transformation remains readable as one continuing process.
 
-## 12.3 Example 3: Authentication Across Changing Conditions
+## 14.3 Example 3: Authentication Across Changing Conditions
 
 Consider an authentication process involving device, behavior, network, time, and motion observations. A conventional model may compare current measurements with a stored profile and calculate an error score. The Minimal Formal Model permits a broader interpretation.
 
@@ -2419,7 +2558,7 @@ These components need not share units or metric properties. A Boundary may becom
 
 The example also shows how Incorporated Readability may change later authentication conditions. A previously accepted device, a recognized travel pattern, or a confirmed recovery process may alter the later readability context. This is more than saving past observations; it changes how later Difference is interpreted.
 
-## 12.4 Example 4: Historical Norm Formation
+## 14.4 Example 4: Historical Norm Formation
 
 Consider the social recognition of gender equality. Before such a norm becomes established, a society already contains institutions, practices, conflicts, language, and possible forms of recognition. These together may be treated as a Structure in which multiple establishments are possible.
 
@@ -2435,7 +2574,7 @@ Once incorporated, the readability of equality may alter later Structure conditi
 
 Trajectory in this example is not merely a chronological list of events. A readable historical Trajectory depends on which relations among movements, laws, decisions, institutions, and practices are treated as admissible and traceable under the current Context. Different Trajectory readings may emphasize legal continuity, conceptual inheritance, political struggle, or institutional implementation.
 
-## 12.5 Example 5: Missing Data and Trajectory Gaps
+## 14.5 Example 5: Missing Data and Trajectory Gaps
 
 Consider a sensor system with an interval in which no measurements were recorded. A chronological log contains a gap. The gap does not by itself establish a Trajectory break.
 
@@ -2462,7 +2601,7 @@ Trajectory continuity
 
 It also shows why the relation-bearing field \(\mathcal{G}_R=(G,E)\) is not itself the Trajectory. The same event field may support different contextual tracings, and some relations may remain unreadable under the current Slice.
 
-## 12.6 Example 6: Search for “All Prefectures Except Kyushu”
+## 14.6 Example 6: Search for “All Prefectures Except Kyushu”
 
 Consider the query “Japanese prefectures excluding Kyushu.” A database implementation may first identify the set of all prefectures, identify those belonging to Kyushu, and then compute a set difference. That implementation is valid in a domain where the objects, membership relation, and regional classification are already available.
 
@@ -2474,7 +2613,7 @@ prefectures that do not satisfy the current Kyushu-membership condition
 
 Difference may therefore be categorical rather than metric. Boundary is the readable regional distinction under the current Slice. “Not Kyushu,” “nothing,” “unknown,” “blank,” and “Void” must not be collapsed into one state. The example confirms that negation, absence, non-membership, and unreadability require separate formal treatment.
 
-## 12.7 Cross-Example Observations
+## 14.7 Cross-Example Observations
 
 Across these examples, the same distinctions recur.
 
@@ -2494,15 +2633,15 @@ Seventh, Difference may be heterogeneous and non-metric, and Boundary is a deriv
 
 These examples do not prove the formal model, but they show that its distinctions are usable across logical, material, computational, social, and observational domains without requiring one universal mathematical instantiation. The next section therefore examines the limitations of the model and identifies the claims that remain unresolved.
 
-# 13 Limitations and Open Problems
+# 15 Limitations and Open Problems
 
-## 13.1 Scope of the Present Model
+## 15.1 Scope of the Present Model
 
 The Minimal Formal Model proposed in this paper is intentionally limited. It is designed to preserve a set of distinctions that have emerged within Gyro Logic and to organize them in a compact, internally consistent schema. It does not claim to provide a complete axiomatization, a universal semantics, or a final mathematical foundation for the theory.
 
 The model therefore occupies an intermediate position between conceptual theory and domain-specific implementation. It is stronger than an informal metaphor because it introduces explicit objects, relations, update rules, and separation constraints. At the same time, it remains weaker than a fully specified formal system because several mathematical types, admissibility conditions, and composition laws are intentionally left open.
 
-## 13.2 Provisional Status of Mathematical Types
+## 15.2 Provisional Status of Mathematical Types
 
 The model does not determine one universal mathematical type for Structure. A Structure may admit state-like, relational, spatial, logical, organizational, or processual representations depending on the domain, but none of these is elevated into the universal ontology of Gyro Logic.
 
@@ -2520,7 +2659,7 @@ K_n=(a_n,L_n,U_n,C_n^{+})
 
 is a structured representation of a Stability Scene, not a claim that every Stability Scene is intrinsically a four-component tuple.
 
-## 13.3 No Proof of Strict Minimality
+## 15.3 No Proof of Strict Minimality
 
 The term “minimal” refers to the attempt to introduce no more formal commitments than are necessary to preserve the current theoretical distinctions. The present paper does not provide a formal proof that the schema is uniquely minimal, cardinally minimal, or minimal under a specified ordering of theories.
 
@@ -2533,7 +2672,7 @@ A stronger result would require at least:
 
 These tasks remain open.
 
-## 13.4 Incomplete Semantics of Readability
+## 15.4 Incomplete Semantics of Readability
 
 Readability is central to Stability, Incorporated Readability, Continuity Readability, Boundary, and Trajectory. However, the present model does not provide a complete semantics of readability.
 
@@ -2549,7 +2688,7 @@ It remains unresolved whether readability should be treated as:
 
 The current model permits these possibilities but does not select one universal interpretation. This is deliberate, but it also limits the predictive and computational precision of the theory.
 
-## 13.5 Orientation and Context Are Underspecified
+## 15.5 Orientation and Context Are Underspecified
 
 Operator Orientation and Context condition Slice, Difference, Continuity Readability, Boundary, and Trajectory. In the present model they are represented as formal parameters, but their internal structures are not fully specified.
 
@@ -2563,7 +2702,7 @@ Important open questions include:
 
 These questions must be resolved differently in theoretical, computational, and applied models.
 
-## 13.6 Admissibility and Traceability Require Domain Criteria
+## 15.6 Admissibility and Traceability Require Domain Criteria
 
 Continuity Readability is written provisionally as
 
@@ -2592,7 +2731,7 @@ A domain model must therefore specify:
 
 Without such criteria, contextual tracing remains a formal schema rather than an executable method.
 
-## 13.7 Trajectory Reconstruction Is Not Yet Algorithmic
+## 15.7 Trajectory Reconstruction Is Not Yet Algorithmic
 
 The model distinguishes a relation-bearing trace field
 
@@ -2621,7 +2760,7 @@ However, the tracing operator is not yet defined algorithmically. The present pa
 
 Future work should determine whether contextual tracing is best implemented through graph search, event-structure analysis, constraint propagation, probabilistic inference, category-like composition, or hybrid methods.
 
-## 13.8 Difference Lacks a Universal Codomain
+## 15.8 Difference Lacks a Universal Codomain
 
 The model deliberately allows
 
@@ -2639,7 +2778,7 @@ Open problems include:
 - relating Difference to Stability evidence without requiring zero Difference;
 - and formalizing how Difference becomes readable as Boundary.
 
-## 13.9 Stability Has No Universal Evaluation Rule
+## 15.9 Stability Has No Universal Evaluation Rule
 
 The model distinguishes Stability from a Stability score, but it does not provide a universal procedure for deciding whether a local articulation has become a readable and continuable establishment.
 
@@ -2647,7 +2786,7 @@ Domain-specific models may use thresholds, logical satisfaction, topological nei
 
 This preserves theoretical generality, but it means that the model cannot yet generate a universal Stability judgment independently of a domain-specific evaluation function.
 
-## 13.10 Incorporated Readability Is Not Yet Operationally Identified
+## 15.10 Incorporated Readability Is Not Yet Operationally Identified
 
 The update
 
@@ -2661,7 +2800,7 @@ allows addition, revision, integration, reweighting, invalidation, suppression, 
 
 Future work must establish observable criteria for Incorporated Readability and identify whether it can be operationalized consistently across domains.
 
-## 13.11 Empirical Validation Remains Limited
+## 15.11 Empirical Validation Remains Limited
 
 The illustrative examples demonstrate conceptual separability, not empirical validity. They show that the model can organize distinctions in mathematics, transformation, authentication, social norms, missing data, and negation-based search. They do not establish that the model yields better predictions, explanations, or implementations than competing frameworks.
 
@@ -2675,7 +2814,7 @@ Empirical validation will require:
 
 A proof-of-concept in GyroOS or GyroAuth may provide one validation path, but application success must not be treated as proof of the universal theory.
 
-## 13.12 Relationship to Existing Mathematics Requires Deeper Study
+## 15.12 Relationship to Existing Mathematics Requires Deeper Study
 
 The comparison chapter identifies useful partial correspondences with relational structures, graph theory, topology, dynamical systems, event structures, category theory, proof theory, constraint propagation, probability, sheaf-like structures, and process algebra. These comparisons remain preliminary.
 
@@ -2689,7 +2828,7 @@ More rigorous future work should examine whether:
 
 The objective should remain comparison and controlled specialization, not forced reduction.
 
-## 13.13 Open Problem: Formal Security and Adversarial Conditions
+## 15.13 Open Problem: Formal Security and Adversarial Conditions
 
 When the model is applied to authentication or vulnerability response, adversarial manipulation becomes central. An attacker may attempt to poison criteria, alter Context, fabricate continuity, suppress Difference, or induce false Stability.
 
@@ -2705,7 +2844,7 @@ A formal security extension should define:
 
 These concerns belong to a security specialization of the model and must not be silently imported into the universal Core.
 
-## 13.14 Open Problem: Formal Composition of Local Realizations
+## 15.14 Open Problem: Formal Composition of Local Realizations
 
 The model identifies local realizations
 
@@ -2721,7 +2860,7 @@ g_i \circ g_j.
 
 Composition may be temporal, causal, logical, semantic, material, or contextual. Different relation types may require different composition laws. A future formal theory should determine when local realizations can be composed, when composition is associative, when it is partial, and how Re-Slice and Jump affect composition.
 
-## 13.15 Open Problem: Criteria for Model Revision
+## 15.15 Open Problem: Criteria for Model Revision
 
 Because the model is explicitly provisional, it requires criteria for revision. A candidate component should be revised when it:
 
@@ -2734,7 +2873,7 @@ Because the model is explicitly provisional, it requires criteria for revision. 
 
 These revision criteria are important because the formal model must remain subordinate to the theory it is intended to clarify.
 
-## 13.16 Summary of Limitations
+## 15.16 Summary of Limitations
 
 The present model does not provide:
 
@@ -2752,7 +2891,7 @@ What it does provide is a disciplined formal boundary. It identifies which disti
 
 The final section therefore returns to the central claim of the paper: the value of the Minimal Formal Model lies not in closing Gyro Logic into one completed mathematical system, but in making its present commitments explicit enough to support systematic comparison, validation, revision, and implementation.
 
-# 14 Conclusion
+# 16 Conclusion
 
 This paper has proposed an exploratory Minimal Formal Model for Gyro Logic while preserving the invariant Core:
 
@@ -2865,3 +3004,5 @@ This paper should be read as a formalization companion to the introductory Gyro 
 Subsequent research must test the model more rigorously. Important next steps include defining domain-specific semantics for readability, admissibility, and traceability; examining composition among local realizations; constructing executable or simulation-based instantiations; evaluating non-monotonic Incorporated Readability; developing formal treatment of adversarial updates and criterion poisoning; and determining whether a stricter Minimal Formal Model v1.1 or later axiomatic model is justified.
 
 The present result is deliberately limited. It does not prove that the proposed schema is uniquely minimal, empirically valid across domains, computationally decidable, or complete. It establishes a more modest but necessary foundation: Gyro Logic can be given a disciplined formal organization without changing the invariant Core and without collapsing its central distinctions into narrower pre-existing mathematical forms.
+
+# References
