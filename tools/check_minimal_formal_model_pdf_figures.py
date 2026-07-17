@@ -15,8 +15,9 @@ PAPER = ROOT / "paper"
 FIGURES = PAPER / "figures"
 PDF_DIR = PAPER / "pdf"
 REPORT = PDF_DIR / "minimal_formal_model_figure_review.md"
-TEXT_WIDTH_MM = 210.0 - 2 * 25.0  # A4 width minus configured margins.
+TEXT_WIDTH_MM = 210.0 - 2 * 25.0
 PT_PER_MM = 72.0 / 25.4
+MIN_RENDERED_FONT_PT = 8.0
 
 
 @dataclass(frozen=True)
@@ -27,7 +28,7 @@ class FigureSpec:
 
 
 SPECS = (
-    FigureSpec(1, "fig1_invariant_core.svg", 88.0),
+    FigureSpec(1, "fig1_invariant_core.svg", 94.0),
     FigureSpec(2, "fig2_local_realization.svg", 96.0),
     FigureSpec(3, "fig3_contextual_trajectory.svg", 96.0),
 )
@@ -80,7 +81,7 @@ def parse_svg(spec: FigureSpec) -> dict[str, object]:
 
     if target_width_mm > TEXT_WIDTH_MM + 0.01:
         raise ValueError(f"Figure {spec.number} exceeds text width")
-    if min_rendered_font_pt < 8.0:
+    if min_rendered_font_pt < MIN_RENDERED_FONT_PT:
         raise ValueError(
             f"Figure {spec.number} minimum rendered font is too small: "
             f"{min_rendered_font_pt:.2f} pt"
@@ -175,10 +176,10 @@ def main() -> int:
         "",
         "## Layout Assumptions",
         "",
-        f"- Paper size: A4 (210 mm wide)",
-        f"- Left/right margins: 25 mm",
+        "- Paper size: A4 (210 mm wide)",
+        "- Left/right margins: 25 mm",
         f"- Available text width: {TEXT_WIDTH_MM:.1f} mm",
-        "- Minimum accepted rendered figure font: 8.0 pt",
+        f"- Minimum accepted rendered figure font: {MIN_RENDERED_FONT_PT:.1f} pt",
         "",
         "## SVG Size and Font Review",
         "",
@@ -201,7 +202,7 @@ def main() -> int:
                 "",
                 f"- PDF: `{path.relative_to(ROOT)}`",
                 f"- Total pages: {pages}",
-                f"- Figure pages: "
+                "- Figure pages: "
                 + ", ".join(
                     f"Figure {number} = page {page}"
                     for number, page in sorted(figure_pages.items())
