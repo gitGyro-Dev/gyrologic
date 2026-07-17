@@ -4,9 +4,12 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PAPER_DIR="${ROOT_DIR}/paper"
 OUTPUT_DIR="${PAPER_DIR}/pdf"
+LATEX_HEADER="${PAPER_DIR}/latex/pandoc_header.tex"
 
 mkdir -p "${OUTPUT_DIR}"
 cd "${PAPER_DIR}"
+
+test -s "${LATEX_HEADER}"
 
 COMMON_ARGS=(
   --from=markdown+tex_math_dollars
@@ -15,6 +18,7 @@ COMMON_ARGS=(
   --pdf-engine=lualatex
   --resource-path=".:figures"
   --metadata=bibliography:references.bib
+  --include-in-header="${LATEX_HEADER}"
   -V papersize=a4
   -V geometry:margin=25mm
   -V fontsize=11pt
