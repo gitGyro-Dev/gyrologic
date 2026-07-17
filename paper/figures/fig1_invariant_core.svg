@@ -16,5 +16,5 @@
   <line x1="730" y1="170" x2="870" y2="170" stroke="#222" stroke-width="4" marker-end="url(#arrow)"/>
   <text x="600" y="55" text-anchor="middle" font-family="Noto Sans CJK JP" font-size="25">Operator Orientation B and Context c condition Slice</text>
   <line x1="600" y1="70" x2="600" y2="113" stroke="#555" stroke-width="3" stroke-dasharray="8 7" marker-end="url(#arrow)"/>
-  <text x="600" y="310" text-anchor="middle" font-family="Noto Sans CJK JP" font-size="23">Invariant Core: no derivative concept is inserted as a fourth element</text>
+  <text x="600" y="310" text-anchor="middle" font-family="Noto Sans CJK JP" font-size="25">Invariant Core: no derivative concept is inserted as a fourth element</text>
 </svg>
