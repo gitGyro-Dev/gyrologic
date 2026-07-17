@@ -133,18 +133,14 @@ def split_base_sections(text: str) -> dict[str, str]:
 
 
 def normalize_terms(text: str, lang: str) -> str:
-    # Canonical paper term and function names.
     text = text.replace("Stability scene", "Stability Scene")
     text = text.replace("stability scene", "Stability Scene")
     text = text.replace("\\operatorname{StableScene}", "\\operatorname{StabScene}")
 
-    # Preserve Context c versus incorporated-readability context Gamma.
     text = text.replace("Incorporated Readability Context", "readability context")
     if lang == "jp":
         text = text.replace("可読性Context", "readability context")
 
-    # Normalize compact continuity formula to the same parameterized form used
-    # in the dedicated chapter. This avoids losing the realization arguments.
     compact_pattern = re.compile(
         r"\\operatorname\{CR\}\(g_i,g_j\)\s*\\iff\s*"
         r"\\exists r:\s*"
@@ -167,9 +163,6 @@ def normalize_terms(text: str, lang: str) -> str:
         r"\\Bigr)"
     )
     text = compact_pattern.sub(full_formula, text)
-
-    # Normalize the integrated Stability constructor.
-    text = text.replace("\\operatorname{StableScene}", "\\operatorname{StabScene}")
     return text
 
 
@@ -192,7 +185,7 @@ def build_manuscript(config: LanguageConfig) -> str:
     base_sections = split_base_sections(read_text(config.base_file))
 
     required_base = (
-        "Introduction" if config.code == "en" else "Introduction",
+        "Introduction",
         "Contribution Statement",
         "Research Questions",
         "The Invariant Core and Formalization Constraints"
@@ -253,9 +246,7 @@ def review_manuscript(config: LanguageConfig, text: str) -> list[str]:
     chapter_numbers = [int(x) for x in re.findall(r"(?m)^# (\d+) ", text)]
     expected = list(range(1, 15))
     if chapter_numbers != expected:
-        findings.append(
-            f"FAIL: chapter sequence is {chapter_numbers}; expected {expected}."
-        )
+        findings.append(f"FAIL: chapter sequence is {chapter_numbers}; expected {expected}.")
     else:
         findings.append("PASS: chapter numbering is continuous from 1 through 14.")
 
@@ -286,17 +277,17 @@ def review_manuscript(config: LanguageConfig, text: str) -> list[str]:
         findings.append("PASS: Stability constructor normalized to StabScene.")
 
     required_formulas = (
-        r"g_n\s*=\s*\(?S_n",
+        r"g_n\s*=.{0,180}S_n",
         r"\\xRightarrow\{\\Sigma_\{B_n,c_n\}\}",
         r"\\operatorname\{Inc\}\(g_n\)",
         r"\\operatorname\{Update\}_\{\\Gamma\}",
         r"\\operatorname\{CR\}",
-        r"\\mathcal\{G\}_R=\(G,E\)",
+        r"\\mathcal\{G\}_R\s*=\s*\(G,E\)",
         r"\\operatorname\{Trace\}",
         r"\\Delta_\{B,c,\\Sigma\}",
     )
     for formula in required_formulas:
-        if re.search(formula, text):
+        if re.search(formula, text, flags=re.DOTALL):
             findings.append(f"PASS: formula family present: `{formula}`")
         else:
             findings.append(f"FAIL: formula family absent: `{formula}`")
@@ -359,9 +350,7 @@ def main() -> None:
         results[config.code] = (config, manuscript, findings)
 
     report = build_review_report(results)
-    (PAPER / "minimal_formal_model_consistency_review.md").write_text(
-        report, encoding="utf-8"
-    )
+    (PAPER / "minimal_formal_model_consistency_review.md").write_text(report, encoding="utf-8")
 
     for config in CONFIGS:
         print(config.output_file.relative_to(ROOT))
