@@ -16,6 +16,7 @@ AUTHOR_AFFILIATION_EN = "Independent Researcher"
 AUTHOR_AFFILIATION_JP = "Independent Researcher（個人研究者）"
 AUTHOR_ORCID = "0009-0004-0091-1303"
 AUTHOR_EMAIL = "dev.jxiv@gyro-wedge.com"
+REPOSITORY_URL = "https://github.com/gitGyro-Dev/gyrologic"
 
 
 @dataclass(frozen=True)
@@ -171,6 +172,52 @@ def author_information(config: Config) -> str:
     )
 
 
+def declarations(config: Config) -> str:
+    if config.code == "en":
+        return "\n".join(
+            (
+                "# Declarations",
+                "",
+                "## Conflict of Interest",
+                "",
+                "The author declares no conflicts of interest relevant to this work.",
+                "",
+                "## Funding",
+                "",
+                "This research received no external funding.",
+                "",
+                "## Data Availability",
+                "",
+                "No new empirical datasets were generated or analyzed in this theoretical study.",
+                "",
+                "## Code and Materials Availability",
+                "",
+                f"The manuscript sources, figures, assembly scripts, PDF-generation workflow, and validation scripts are available in the Gyro Logic repository: [{REPOSITORY_URL}]({REPOSITORY_URL}).",
+            )
+        )
+    return "\n".join(
+        (
+            "# 利益相反・研究資金・データ／コードの利用可能性",
+            "",
+            "## 利益相反",
+            "",
+            "著者は、本研究に関連して申告すべき利益相反がないことを表明する。",
+            "",
+            "## 研究資金",
+            "",
+            "本研究は外部資金の提供を受けていない。",
+            "",
+            "## データの利用可能性",
+            "",
+            "本研究は理論研究であり、新たな実証データセットの生成または解析は行っていない。",
+            "",
+            "## コードおよび関連資料の利用可能性",
+            "",
+            f"論文原稿、図、統合スクリプト、PDF生成Workflow、および検証スクリプトは、Gyro Logicリポジトリで公開している：[{REPOSITORY_URL}]({REPOSITORY_URL})。",
+        )
+    )
+
+
 def assemble(config: Config) -> str:
     abstract_title, abstract_body = remove_h1(read(config.abstract))
     base = split_h1(read(config.base))
@@ -209,7 +256,7 @@ def assemble(config: Config) -> str:
         parts.extend(("", f"# {chapter} {title}", "", number_h2(body, chapter)))
         chapter += 1
 
-    parts.extend(("", "# References" if config.code == "en" else "# 参考文献", ""))
+    parts.extend(("", declarations(config), "", "# References" if config.code == "en" else "# 参考文献", ""))
     return normalize("\n".join(parts).strip() + "\n", config.code)
 
 
@@ -226,6 +273,10 @@ def review(config: Config, text: str) -> list[str]:
         "affiliation metadata": "affiliation:",
         "ORCID metadata": f'orcid: "{AUTHOR_ORCID}"',
         "correspondence metadata": f'email: "{AUTHOR_EMAIL}"',
+        "conflict of interest declaration": "The author declares no conflicts of interest" if config.code == "en" else "申告すべき利益相反がない",
+        "funding declaration": "This research received no external funding." if config.code == "en" else "本研究は外部資金の提供を受けていない。",
+        "data availability declaration": "No new empirical datasets were generated or analyzed" if config.code == "en" else "新たな実証データセットの生成または解析は行っていない。",
+        "code and materials availability declaration": REPOSITORY_URL,
         "Related Work chapter": "Related Work" if config.code == "en" else "Related Workと形式的位置づけ",
         "Figure 1": "fig1_invariant_core.svg",
         "Figure 2": "fig2_local_realization.svg",
@@ -252,7 +303,7 @@ def report(results: dict[str, tuple[Config, str, list[str]]]) -> str:
         "",
         "## Scope",
         "",
-        "This automated review covers bilingual chapter order, Canonical Definitions, author metadata, bibliography metadata, Related Work, figures, preferred notation, and submission-stage assembly.",
+        "This automated review covers bilingual chapter order, Canonical Definitions, author metadata, declarations, bibliography metadata, Related Work, figures, preferred notation, and submission-stage assembly.",
         "",
         "## Author Metadata",
         "",
@@ -261,9 +312,16 @@ def report(results: dict[str, tuple[Config, str, list[str]]]) -> str:
         f"- ORCID: {AUTHOR_ORCID}",
         f"- Correspondence: {AUTHOR_EMAIL}",
         "",
+        "## Submission Declarations",
+        "",
+        "- Conflict of Interest: none declared.",
+        "- Funding: no external funding.",
+        "- Data Availability: no new empirical datasets generated or analyzed.",
+        f"- Code and Materials Availability: {REPOSITORY_URL}",
+        "",
         "## Structural Decisions",
         "",
-        "- Abstract / 要旨 and References / 参考文献 remain unnumbered.",
+        "- Abstract / 要旨, Declarations / 利益相反・研究資金・データ／コードの利用可能性, and References / 参考文献 remain unnumbered.",
         "- Contribution Statement and Research Questions remain Sections 1.1 and 1.2.",
         "- Main chapters are numbered 1–16.",
         "- Chapter 11 provides the visual overview; Chapter 12 provides Related Work and formal positioning.",
@@ -295,7 +353,7 @@ def main() -> None:
         findings = review(config, text)
         results[config.code] = (config, text, findings)
     (PAPER / "minimal_formal_model_consistency_review.md").write_text(report(results), encoding="utf-8")
-    print("Assembled bilingual submission candidates with author metadata.")
+    print("Assembled bilingual submission candidates with author metadata and submission declarations.")
 
 
 if __name__ == "__main__":
