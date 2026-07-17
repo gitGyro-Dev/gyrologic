@@ -47,12 +47,23 @@ jobs:
             texlive-latex-extra \
             texlive-fonts-recommended \
             texlive-lang-japanese \
+            fonts-texgyre \
             fonts-noto-cjk \
             fonts-dejavu-core \
             librsvg2-bin \
             poppler-utils
+          sudo fc-cache -f -v >/dev/null
           pandoc --version
           lualatex --version | head -n 2
+
+      - name: Verify PDF fonts
+        run: |
+          fc-match "TeX Gyre Pagella"
+          fc-match "TeX Gyre Heros"
+          fc-match "DejaVu Sans Mono"
+          fc-match "Noto Serif CJK JP"
+          fc-match "Noto Sans CJK JP"
+          fc-match "Latin Modern Math"
 
       - name: Assemble and review submission candidates
         run: python tools/assemble_minimal_formal_model_paper_v2.py
