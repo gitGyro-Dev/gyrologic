@@ -162,7 +162,7 @@ def normalize_terms(text: str, lang: str) -> str:
         "\n"
         r"\\Bigr)"
     )
-    text = compact_pattern.sub(full_formula, text)
+    text = compact_pattern.sub(lambda _match: full_formula, text)
     return text
 
 
