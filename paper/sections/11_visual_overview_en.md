@@ -2,7 +2,7 @@
 
 ## Figure 1: Invariant Core
 
-![Figure 1. The invariant Core of Gyro Logic. Operator Orientation and Context condition Slice but do not become additional Core elements.](../figures/fig1_invariant_core.svg){width=88%}
+![Figure 1. The invariant Core of Gyro Logic. Operator Orientation and Context condition Slice but do not become additional Core elements.](../figures/fig1_invariant_core.svg){width=94%}
 
 Figure 1 presents the theoretical constraint that governs the entire paper. The invariant Core remains Structure → Slice → Stability. Operator Orientation and Context condition the Slice process, but the model does not insert them, local articulation, Trajectory, Difference, Boundary, or Operator Response as a fourth Core element.
 
