@@ -35,3 +35,21 @@ Stability
 ```
 
 The paper does not claim that Gyro Logic has been reduced to a single established mathematical field, nor that the proposed model is final or canonical. Its contribution is to identify the minimum formal commitments needed to preserve the current theoretical distinctions and to provide a basis for subsequent validation, comparison, and implementation studies.
+
+# Research Questions
+
+The central research question of this paper is: What is the smallest formal schema that can organize the current concepts of Gyro Logic while preserving the invariant Core and avoiding their premature reduction to pre-existing mathematical object types?
+
+**RQ1.** How can Structure, Slice, and Stability be assigned provisional mathematical types without redefining their canonical meanings, changing their order, or introducing additional Core elements? This question establishes the formalization boundary of the paper. The objective is not to replace the theoretical definitions with equations, but to determine the minimum formal commitments required to distinguish the three Core concepts consistently.
+
+**RQ2.** How can Slice be represented as a process through which a local articulation becomes available without assuming that the resulting object or path already exists in a fully individuated form before the Slice? This question addresses the distinction between Slice as an unfolding process and the Slice-relative articulation expressed by the local “this is how it has become.” It also tests whether extraction, filtering, projection, and ordinary total-function models impose stronger assumptions than Gyro Logic requires.
+
+**RQ3.** How can Stability represent a locally readable and continuable establishment while retaining unresolved local not-yet within the same scene? This question examines whether Stability can be modeled as a structured local scene rather than being reduced to a scalar score, equilibrium, fixed point, or terminal state. It further asks which minimal components are needed to represent the articulation, readable relations, residual not-yet, and available continuation conditions.
+
+**RQ4.** How can readability acquired through one local Gyro realization alter the conditions of later realizations without being reduced to stored history, passive memory, or monotonic accumulation? This question motivates the formal treatment of Incorporated Readability as a context update that may add, revise, integrate, reweight, invalidate, or make previously available readability inaccessible.
+
+**RQ5.** How can continuity and Trajectory be represented through contextual tracing of admissible relations rather than through identity, a predefined state sequence, or a chronological log? This question separates the existence of a relation, the possibility of tracing that relation, and its readability as continuity under a given Orientation, Context, and Slice. It also asks how branching, merging, gaps, retrospective reinterpretation, Re-Slice, and Jump can remain representable without forcing Trajectory into one linear path.
+
+**RQ6.** Which established mathematical fields provide useful partial models for the proposed schema, and at what point do their assumptions become too restrictive for Gyro Logic? This question compares relational structures, graphs and hypergraphs, order theory, topology, dynamical systems, transition systems, event structures, category theory, logic and proof theory, constraint propagation, probability and statistics, sheaf-like structures, and process algebra. The aim is not to select one field as the final foundation, but to clarify which parts of Gyro Logic each field can model and which distinctions would be lost through premature reduction.
+
+These questions jointly define the scope of the paper. They do not ask whether Gyro Logic can be completely axiomatized or reduced to a single mathematical discipline. Rather, they ask whether a minimal, internally consistent, and explicitly provisional formal organization can be constructed that preserves the distinctions developed in the current theory and supports subsequent validation, comparison, and implementation studies.
