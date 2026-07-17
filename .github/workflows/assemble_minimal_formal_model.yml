@@ -1,5 +1,6 @@
 name: Assemble Minimal Formal Model Paper
 
+# This workflow assembles the bilingual manuscript and commits generated outputs.
 on:
   workflow_dispatch:
   push:
