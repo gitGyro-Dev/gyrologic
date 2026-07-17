@@ -12,7 +12,7 @@ cd "${PAPER_DIR}"
 test -s "${LATEX_HEADER}"
 
 COMMON_ARGS=(
-  --from=markdown+tex_math_dollars
+  --from=markdown+tex_math_dollars+tex_math_single_backslash+tex_math_double_backslash
   --standalone
   --citeproc
   --pdf-engine=lualatex
