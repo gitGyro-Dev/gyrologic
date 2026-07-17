@@ -2,7 +2,14 @@
 
 ## Scope
 
-This automated review covers bilingual chapter order, Canonical Definitions, bibliography metadata, Related Work, figures, preferred notation, and submission-stage assembly.
+This automated review covers bilingual chapter order, Canonical Definitions, author metadata, bibliography metadata, Related Work, figures, preferred notation, and submission-stage assembly.
+
+## Author Metadata
+
+- Author: Shuntaro Kawakami
+- Affiliation: Independent Researcher
+- ORCID: 0009-0004-0091-1303
+- Correspondence: dev.jxiv@gyro-wedge.com
 
 ## Structural Decisions
 
@@ -23,6 +30,10 @@ This automated review covers bilingual chapter order, Canonical Definitions, bib
 - PASS: canonical definition: Slice is the process by which a path is opened through a Structure toward an establishment.
 - PASS: canonical definition: Stability is the state in which an opened path becomes readable as an establishment that can continue.
 - PASS: bibliography metadata present.
+- PASS: author metadata present.
+- PASS: affiliation metadata present.
+- PASS: ORCID metadata present.
+- PASS: correspondence metadata present.
 - PASS: Related Work chapter present.
 - PASS: Figure 1 present.
 - PASS: Figure 2 present.
@@ -33,7 +44,7 @@ This automated review covers bilingual chapter order, Canonical Definitions, bib
 - PASS: Trajectory present.
 - PASS: Difference present.
 - PASS: StabScene constructor normalized.
-- INFO: 20873 whitespace-delimited tokens.
+- INFO: 20893 whitespace-delimited tokens.
 
 ### Japanese
 
@@ -42,6 +53,10 @@ This automated review covers bilingual chapter order, Canonical Definitions, bib
 - PASS: canonical definition: Sliceとは、Structureの中に、一つの成立へ向かう道筋が開かれる過程である。
 - PASS: canonical definition: Stabilityとは、開かれた道筋が、一つの成立として継続可能な状態である。
 - PASS: bibliography metadata present.
+- PASS: author metadata present.
+- PASS: affiliation metadata present.
+- PASS: ORCID metadata present.
+- PASS: correspondence metadata present.
 - PASS: Related Work chapter present.
 - PASS: Figure 1 present.
 - PASS: Figure 2 present.
@@ -52,8 +67,8 @@ This automated review covers bilingual chapter order, Canonical Definitions, bib
 - PASS: Trajectory present.
 - PASS: Difference present.
 - PASS: StabScene constructor normalized.
-- INFO: 3701 whitespace-delimited tokens.
+- INFO: 3721 whitespace-delimited tokens.
 
 ## Submission Boundary
 
-The generated manuscripts are submission candidates, not final accepted versions. Remaining human checks include journal-specific metadata, author affiliation, citation style rendering, figure sizing after PDF conversion, and final native-language proofreading.
+The generated manuscripts are submission candidates, not final accepted versions. Remaining human checks include journal-specific metadata, citation style rendering, figure sizing after PDF conversion, and final native-language proofreading.

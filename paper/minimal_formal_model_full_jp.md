@@ -1,6 +1,10 @@
 ---
 title: "Gyro Logicの最小形式モデル：局所的表出・Stability Scene・文脈的Tracing"
 author: "Shuntaro Kawakami"
+affiliation: "Independent Researcher（個人研究者）"
+orcid: "0009-0004-0091-1303"
+corresponding-author: "Shuntaro Kawakami"
+email: "dev.jxiv@gyro-wedge.com"
 date: "2026"
 status: "Submission Candidate"
 paper_type: "Independent formalization paper"
@@ -9,6 +13,11 @@ canonical_core: "unchanged"
 bibliography: "references.bib"
 link-citations: true
 ---
+
+**著者:** Shuntaro Kawakami  
+**所属:** Independent Researcher（個人研究者）  
+**ORCID:** [0009-0004-0091-1303](https://orcid.org/0009-0004-0091-1303)  
+**連絡先:** [dev.jxiv@gyro-wedge.com](mailto:dev.jxiv@gyro-wedge.com)
 
 # 要旨
 
@@ -2191,13 +2200,13 @@ T
 
 ## 11.1 Figure 1：不変Core
 
-![Figure 1. Gyro Logicの不変Core。Operator OrientationとContextはSliceを条件づけるが、追加Core要素にはならない。](figures/fig1_invariant_core.svg)
+![Figure 1. Gyro Logicの不変Core。Operator OrientationとContextはSliceを条件づけるが、追加Core要素にはならない。](figures/fig1_invariant_core.svg){width=94%}
 
 Figure 1は、本論文全体を拘束する理論条件を示す。不変CoreはStructure → Slice → Stabilityのままである。Operator OrientationとContextはSlice processを条件づけるが、本モデルは、それら、local articulation、Trajectory、Difference、Boundary、Operator Responseを第四のCore要素として挿入しない。
 
 ## 11.2 Figure 2：局所的Gyro realizationとContext更新
 
-![Figure 2. 局所的Gyro realization、Stability Scene、後続readability contextの更新。](figures/fig2_local_realization.svg)
+![Figure 2. 局所的Gyro realization、Stability Scene、後続readability contextの更新。](figures/fig2_local_realization.svg){width=96%}
 
 Figure 2は、暫定的な局所realization
 
@@ -2209,7 +2218,7 @@ g_n=(S_n,B_n,c_n,\Sigma_n,a_n,K_n)
 
 ## 11.3 Figure 3：Contextual Trajectory
 
-![Figure 3. relation-bearing fieldから可読なTrajectoryへの文脈的Tracing。](figures/fig3_contextual_trajectory.svg)
+![Figure 3. relation-bearing fieldから可読なTrajectoryへの文脈的Tracing。](figures/fig3_contextual_trajectory.svg){width=96%}
 
 Figure 3は、relation-bearing trace field
 

@@ -1,6 +1,10 @@
 ---
 title: "A Minimal Formal Model for Gyro Logic: Local Articulation, Stability Scenes, and Contextual Tracing"
 author: "Shuntaro Kawakami"
+affiliation: "Independent Researcher"
+orcid: "0009-0004-0091-1303"
+corresponding-author: "Shuntaro Kawakami"
+email: "dev.jxiv@gyro-wedge.com"
 date: "2026"
 status: "Submission Candidate"
 paper_type: "Independent formalization paper"
@@ -9,6 +13,11 @@ canonical_core: "unchanged"
 bibliography: "references.bib"
 link-citations: true
 ---
+
+**Author:** Shuntaro Kawakami  
+**Affiliation:** Independent Researcher  
+**ORCID:** [0009-0004-0091-1303](https://orcid.org/0009-0004-0091-1303)  
+**Correspondence:** [dev.jxiv@gyro-wedge.com](mailto:dev.jxiv@gyro-wedge.com)
 
 # Abstract
 
@@ -2139,13 +2148,13 @@ The integrated schema therefore functions as a formal design boundary. It is suf
 
 ## 11.1 Figure 1: Invariant Core
 
-![Figure 1. The invariant Core of Gyro Logic. Operator Orientation and Context condition Slice but do not become additional Core elements.](figures/fig1_invariant_core.svg)
+![Figure 1. The invariant Core of Gyro Logic. Operator Orientation and Context condition Slice but do not become additional Core elements.](figures/fig1_invariant_core.svg){width=94%}
 
 Figure 1 presents the theoretical constraint that governs the entire paper. The invariant Core remains Structure → Slice → Stability. Operator Orientation and Context condition the Slice process, but the model does not insert them, local articulation, Trajectory, Difference, Boundary, or Operator Response as a fourth Core element.
 
 ## 11.2 Figure 2: Local Gyro Realization and Context Update
 
-![Figure 2. A local Gyro realization, the Stability Scene, and the update of later readability conditions.](figures/fig2_local_realization.svg)
+![Figure 2. A local Gyro realization, the Stability Scene, and the update of later readability conditions.](figures/fig2_local_realization.svg){width=96%}
 
 Figure 2 summarizes the provisional local realization
 
@@ -2157,7 +2166,7 @@ The figure separates the Slice process from the local articulation and separates
 
 ## 11.3 Figure 3: Contextual Trajectory
 
-![Figure 3. Contextual tracing from a relation-bearing field to a readable Trajectory.](figures/fig3_contextual_trajectory.svg)
+![Figure 3. Contextual tracing from a relation-bearing field to a readable Trajectory.](figures/fig3_contextual_trajectory.svg){width=96%}
 
 Figure 3 distinguishes the relation-bearing trace field
 
