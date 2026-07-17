@@ -1,0 +1,377 @@
+# Minimal Formal Model
+
+## Purpose of the Integrated Schema
+
+The preceding sections examined the principal components of the proposed formalization separately. This section integrates them into one minimal schema. The purpose is not to produce a complete axiomatization of Gyro Logic, nor to determine one final mathematical ontology for its concepts. The purpose is to identify the smallest set of distinguishable objects and relations required to preserve the current theoretical distinctions.
+
+The integrated model must retain the invariant Core:
+
+```text
+Structure
+↓
+Slice
+↓
+Stability
+```
+
+while also representing the conditions under which a local realization occurs, the articulation that becomes available through Slice, the readability incorporated into later contexts, and the relations through which continuity and Trajectory may become readable.
+
+## Local Gyro Realization
+
+A local Gyro realization is provisionally represented by:
+
+\[
+g_n
+=
+\bigl(
+S_n,
+B_n,
+c_n,
+\Sigma_n,
+a_n,
+K_n
+\bigr).
+\]
+
+The components have the following roles:
+
+\[
+\begin{aligned}
+S_n &:\ \text{Structure involved in the local realization},\\
+B_n &:\ \text{Operator Orientation conditioning the Slice},\\
+c_n &:\ \text{Context relevant to the realization},\\
+\Sigma_n &:\ \text{Slice process},\\
+a_n &:\ \text{local articulation made available through Slice},\\
+K_n &:\ \text{Stability Scene in which the articulation becomes readable and continuable}.
+\end{aligned}
+\]
+
+This tuple is a representational convenience. It does not define every local Gyro realization as an ontologically fixed tuple, nor does it insert Orientation, Context, or local articulation into the invariant Core. These terms refine the local formal description while the Core remains:
+
+\[
+S_n
+\xRightarrow{\Sigma_{B_n,c_n}}
+a_n
+\xRightarrow{\operatorname{Stab}}
+K_n.
+\]
+
+The first relation represents Slice as a process under Orientation and Context. The second represents the transition from a locally available articulation to a Stability Scene. Neither arrow is assumed to be a deterministic total function.
+
+## Structure
+
+Structure is represented by the identifier \(S_n\), but its mathematical type remains intentionally open. The model commits only to the possibility that locally relevant states, relations, distinctions, or articulations may become available relative to it.
+
+A weak relational notation is:
+
+\[
+x \triangleleft S_n,
+\]
+
+meaning that \(x\) is locally establishable or available relative to \(S_n\). This relation is not necessarily set membership, spatial containment, causal dependence, or logical entailment. Particular domain models may specialize it when appropriate.
+
+## Slice and Local Articulation
+
+Slice is represented as:
+
+\[
+S_n
+\xRightarrow{\Sigma_{B_n,c_n}}
+a_n.
+\]
+
+The expression preserves:
+
+```text
+Slice process
+≠
+local articulation
+```
+
+The model does not assume that \(a_n\) existed before Slice as a fully individuated result waiting to be extracted. Nor does it assume that \(a_n\) is already stable. The articulation is the local Slice-relative “this is how it has become” made available by the process.
+
+## Stability Scene
+
+A Stability Scene is provisionally represented by:
+
+\[
+K_n
+=
+\bigl(
+a_n,
+L_n,
+U_n,
+C_n^{+}
+\bigr),
+\]
+
+where:
+
+\[
+\begin{aligned}
+a_n &:\ \text{local articulation},\\
+L_n &:\ \text{currently readable relations and distinctions},\\
+U_n &:\ \text{residual local not-yet},\\
+C_n^{+} &:\ \text{available continuation conditions or continuations}.
+\end{aligned}
+\]
+
+This representation permits:
+
+\[
+U_n \neq \varnothing
+\]
+
+while \(K_n\) remains a Stability Scene. Stability therefore does not imply global closure, elimination of Difference, or termination of the wider Structure.
+
+A weak condition is:
+
+\[
+\operatorname{StableScene}
+\bigl(
+a_n;S_n,B_n,c_n
+\bigr)
+\]
+
+when the articulation is sufficiently readable as an establishment and sufficiently continuable under the relevant conditions. The model does not require readability or continuability to be binary.
+
+## Incorporated Readability
+
+The portion of a local realization that becomes available to later realizations is represented by:
+
+\[
+q_n
+=
+\operatorname{Inc}(g_n).
+\]
+
+The current readability context is represented by \(\Gamma_n\). Its update is:
+
+\[
+\Gamma_{n+1}
+=
+\operatorname{Update}_{\Gamma}
+\bigl(
+\Gamma_n,
+q_n,
+e_n
+\bigr),
+\]
+
+where \(e_n\) denotes external changes, interactions, or environmental effects not reducible to Slice.
+
+This update is not identified with append-only history:
+
+\[
+\Gamma_{n+1}
+\neq
+\Gamma_n \cup \{q_n\}
+\]
+
+in general. It may include addition, revision, integration, reweighting, invalidation, suppression, or loss of accessibility.
+
+A later Structure may then be related by:
+
+\[
+\bigl(
+S_n,
+\Gamma_{n+1},
+e_n
+\bigr)
+\rightsquigarrow
+S_{n+1}.
+\]
+
+This relation does not claim that all Structure change is generated by a preceding Gyro realization.
+
+## Continuity Readability
+
+Let \(g_i\) and \(g_j\) be local Gyro realizations. Continuity Readability is represented by:
+
+\[
+\operatorname{CR}
+\bigl(
+g_i,g_j;
+B,c,\Sigma,\Gamma
+\bigr)
+\]
+
+with the weak condition:
+
+\[
+\operatorname{CR}
+\bigl(
+g_i,g_j;
+B,c,\Sigma,\Gamma
+\bigr)
+\iff
+\exists r\,
+\Bigl(
+\operatorname{Adm}(r;B,c,\Sigma,\Gamma)
+\land
+\operatorname{Traceable}(g_i,g_j;r)
+\land
+\operatorname{Readable}(r;B,c,\Sigma,\Gamma)
+\Bigr).
+\]
+
+This separates:
+
+```text
+relation existence
+≠
+traceability
+≠
+continuity readability
+```
+
+Identity remains a separate relation:
+
+\[
+\operatorname{Id}_{q}(g_i,g_j).
+\]
+
+The model permits Continuity Readability without Identity and Identity claims without readable continuity.
+
+## Relation-Bearing Trace Field and Trajectory
+
+Let:
+
+\[
+G=\{g_i\}_{i\in I}
+\]
+
+be a family of local Gyro realizations, and let:
+
+\[
+E\subseteq G\times\mathcal{R}\times G
+\]
+
+be a heterogeneous family of retained relations. The relation-bearing trace field is:
+
+\[
+\mathcal{G}_R=(G,E).
+\]
+
+The trace field is not itself a Trajectory. A readable Trajectory is produced through contextual tracing:
+
+\[
+T_{B,c,\Sigma_T,\Gamma_T}
+=
+\operatorname{Trace}_{B,c,\Sigma_T,\Gamma_T}(G,E).
+\]
+
+The tracing operation may select, combine, suppress, reinterpret, or leave unread relations according to Orientation, Context, Trajectory-directed Slice, and Incorporated Readability. The resulting Trajectory may contain branching, merging, gaps, retrospective reinterpretation, Re-Slice, and Jump. It is not restricted to one chronological state sequence.
+
+## Difference
+
+Difference is provisionally typed as a partial heterogeneous mapping:
+
+\[
+\Delta_{B,c,\Sigma}
+:
+X
+\rightharpoonup
+D.
+\]
+
+The codomain \(D\) may be scalar, vectorial, ordered, relational, distributive, symbolic, partially ordered, or field-like. The model does not assume that Difference is metric, symmetric, total, or error-like.
+
+Difference may contribute to Stability, Continuity Readability, Trajectory interpretation, and Boundary formation, but:
+
+```text
+Difference
+≠
+Distance
+≠
+Error
+≠
+Boundary
+```
+
+A readable Boundary may be represented by:
+
+\[
+\operatorname{Bd}_{B,c,\Sigma,\Gamma}(d),
+\]
+
+meaning that a distinction \(d\) is readable as a Boundary under the current conditions. Boundary is therefore derivative from a readable distinction and is not introduced as an additional Core stage.
+
+## Compact Integrated Form
+
+The Minimal Formal Model can be summarized by the following expressions:
+
+\[
+g_n
+=
+(S_n,B_n,c_n,\Sigma_n,a_n,K_n),
+\]
+
+\[
+S_n
+\xRightarrow{\Sigma_{B_n,c_n}}
+a_n,
+\]
+
+\[
+K_n
+=
+\operatorname{StabScene}
+(a_n;S_n,B_n,c_n),
+\]
+
+\[
+q_n
+=
+\operatorname{Inc}(g_n),
+\]
+
+\[
+\Gamma_{n+1}
+=
+\operatorname{Update}_{\Gamma}
+(\Gamma_n,q_n,e_n),
+\]
+
+\[
+(S_n,\Gamma_{n+1},e_n)
+\rightsquigarrow
+S_{n+1},
+\]
+
+\[
+\operatorname{CR}(g_i,g_j)
+\iff
+\exists r:
+\operatorname{Adm}(r)
+\land
+\operatorname{Traceable}(r)
+\land
+\operatorname{Readable}(r),
+\]
+
+\[
+\mathcal{G}_R=(G,E),
+\]
+
+\[
+T
+=
+\operatorname{Trace}(G,E),
+\]
+
+\[
+\Delta_{B,c,\Sigma}:X\rightharpoonup D.
+\]
+
+The omitted parameters in the compact expressions remain available in the fuller forms above.
+
+## What the Model Guarantees
+
+At the current exploratory level, the model guarantees only conceptual and formal separation. It preserves the distinction between Structure, Slice process, local articulation, and Stability Scene. It separates history from Incorporated Readability, relation existence from Continuity Readability, Identity from continuity, trace fields from Trajectory, and Difference from metric distance, error, and Boundary. It also preserves the invariant Core and the separation between Gyro Logic, GyroOS, and GyroAuth.
+
+## What the Model Does Not Guarantee
+
+The model does not yet provide a complete axiomatization, a universal semantics, uniqueness of representation, decidability, computational complexity bounds, empirical validation, or a proof that the schema is minimal in a strict mathematical sense. It does not identify one final mathematical type for Structure, one universal Stability measure, one universal tracing algorithm, or one universal Difference codomain. These remain subjects for domain-specific instantiation and subsequent validation.
+
+The integrated schema therefore functions as a formal design boundary. It is sufficiently explicit to support comparison, examples, implementation studies, and later refinement, while remaining weak enough not to overwrite the theoretical distinctions it is intended to preserve.
