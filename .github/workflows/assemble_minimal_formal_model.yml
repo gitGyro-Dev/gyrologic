@@ -10,7 +10,7 @@ on:
       - "tools/assemble_minimal_formal_model_paper.py"
       - ".github/workflows/assemble_minimal_formal_model.yml"
   issues:
-    types: [opened]
+    types: [opened, edited, reopened]
 
 permissions:
   contents: write
