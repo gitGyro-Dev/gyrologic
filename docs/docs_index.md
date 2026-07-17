@@ -8,13 +8,13 @@ Gyro Logic is organized around the invariant Core principle:
 Structure → Slice → Stability
 ```
 
-All other concepts are auxiliary, derivative, temporal, relational, operational, or interpretive extensions. They do not replace the Core.
+All other concepts are auxiliary, derivative, temporal, relational, operational, interpretive, or formal extensions. They do not replace the Core.
 
 ---
 
-## 1. Core Definitions
+## 1. Primary Core Definitions
 
-The primary definition document is:
+The canonical definition document is:
 
 ```text
 01_Core_Definitions.md
@@ -23,56 +23,36 @@ The primary definition document is:
 The refined Core definitions are:
 
 ```text
-Structure = the mode in which something can be established.
+Structure is the mode in which something can be established.
 
-Slice = the process by which a path is opened through a Structure toward an establishment.
+Slice is the process by which a path is opened through a Structure toward an establishment.
 
-Stability = the state in which the opened path is established and can continue.
+Stability is the state in which an opened path becomes readable as an establishment that can continue.
 ```
 
-The Core does not describe a static sequence of beginning, middle, and end. It describes how an establishment emerges within a continuing Trajectory.
-
-Stability is not an evaluator. It is evaluated.
-
----
-
-## 2. Core Definition Reference Structure
-
-Boundary and Boundary State are read as derivative documents under the primary Core definition.
+Japanese:
 
 ```text
-01 Core Definitions
-├── 15 Boundary
-└── 16 Boundary State
+Structureとは、何かが成立し得る様式である。
+
+Sliceとは、Structureの中に、一つの成立へ向かう道筋が開かれる過程である。
+
+Stabilityとは、開かれた道筋が、一つの成立として継続可能な状態である。
 ```
 
-More precisely, their conceptual dependency is:
-
-```text
-01 Core Definitions
-└── 15 Boundary
-    └── 16 Boundary State
-```
-
-This structure means:
-
-- **01 Core Definitions** defines Structure, Slice, Stability, and their integrated interpretation.
-- **15 Boundary** explains how a Difference becomes readable as a Slice-relative distinction.
-- **16 Boundary State** explains how an object is provisionally positioned relative to that Boundary.
-
-Boundary and Boundary State are not additional stages inserted into:
+The invariant order is fixed only for the Core:
 
 ```text
 Structure → Slice → Stability
 ```
 
+Non-Core concepts may be dynamic, recursive, Context-relative, or mutually conditioning. Non-fixed does not mean arbitrary.
+
 ---
 
-## 3. Core Layer Documents
+## 2. Core and Process Documents
 
 ### 01. Core Definitions
-
-Primary definition document for the invariant Core.
 
 ```text
 01_Core_Definitions.md
@@ -84,15 +64,11 @@ Primary definition document for the invariant Core.
 Gyro Unit = Structure → Slice → Stability
 ```
 
-Gyro Unit is the minimal time-free theoretical structure of Gyro Logic.
-
 ```text
 01_GyroUnit_20260504.md
 ```
 
 ### 02. Gyro Process
-
-Gyro Process is the time-including operational unfolding of Gyro Unit.
 
 ```text
 Structure
@@ -109,8 +85,6 @@ Structure
 
 ### 03. Gyro Loop
 
-Gyro Loop is the iterative structure formed by repeated Gyro Processes.
-
 ```text
 Gyro Process_n
 → Operator Response_n
@@ -124,25 +98,10 @@ Gyro Process_n
 ### 04. Slice / slice-ing / slice-done
 
 ```text
-Slice = the general process by which a path is opened through Structure
-slice-ing = the time-including process in which Slice is progressing
-slice-done = the established result of Slice
-```
-
-```text
 04_Slice_20260504.md
 ```
 
 ### 05. Stability
-
-Gyro Logic distinguishes between:
-
-```text
-Stability as property
-Stability over time
-```
-
-Stability is a state quantity, not an evaluator or decision-maker.
 
 ```text
 05_Stability_20260504.md
@@ -151,7 +110,7 @@ Stability is a state quantity, not an evaluator or decision-maker.
 ### 06. Operator
 
 ```text
-Operator Orientation = directional condition at the entrance of Slice
+Operator Orientation = pre-Slice directional condition
 Operator Response = post-Stability reaction
 ```
 
@@ -159,31 +118,23 @@ Operator Response = post-Stability reaction
 06_Operator_20260504.md
 ```
 
----
-
-## 4. Context Extension
-
-The Context Extension introduces Context, Re-Slice, Context Loop, Loop Stop, Void, and Coincidence.
-
-These concepts are derived from the Core and extend the theory of Slice, Loop, and Operator Response.
-
-### 08. Context
+### 07. GyroOS Handover
 
 ```text
-Context = inferable surrounding Structure not explicitly represented by a Slice
+07_toGyroOS_handover_20260504.md
 ```
+
+---
+
+## 3. Context Extension
+
+### 08. Context
 
 ```text
 08_Context_20260513.md
 ```
 
 ### 09. Re-Slice
-
-```text
-Re-Slice = secondary Slice performed on a prior Slice result, especially Context
-```
-
-Core statement:
 
 ```text
 Reading Context is Re-Slice.
@@ -194,14 +145,6 @@ Reading Context is Re-Slice.
 ```
 
 ### 10. Context Loop
-
-```text
-Context
-→ Re-Slice
-→ New Context
-→ Re-Slice
-→ ...
-```
 
 ```text
 10_Context_Loop_20260513.md
@@ -221,21 +164,10 @@ Operator Response stops the Loop.
 ### 12. Context / Void / Coincidence
 
 ```text
-Context = inferable surrounding Structure
-Void = non-inferable region under the current Slice
-Coincidence = event whose relation, causality, or trajectory cannot be stably reconstructed under the current Slice
-```
-
-```text
 12_Context_Void_Coincidence_20260513.md
 ```
 
 ### 13. Context Integration
-
-```text
-Gyro Logic integrates Context as an internal structure of Slice results,
-while preserving Structure → Slice → Stability.
-```
 
 ```text
 13_Context_Integration_20260513.md
@@ -243,109 +175,360 @@ while preserving Structure → Slice → Stability.
 
 ---
 
-## 5. Dynamic Equivalence Extension
+## 4. Dynamic Equivalence and Boundary Extensions
 
 ### 14. Dynamic Equivalence
-
-Dynamic Equivalence is an equivalence relation defined over Trajectory.
-
-```text
-Dynamic Equivalence is not static equality.
-It is stability-bounded continuity over Trajectory.
-```
-
-Notation:
-
-```text
-A ≈_T B
-O_T(A) ≈_σ O_T(B)
-```
 
 ```text
 14_Dynamic_Equivalence_20260518.md
 ```
 
----
-
-## 6. Boundary Extension
-
-The Boundary Extension is a derivative interpretation of Slice results under the refined Core.
-
-```text
-01 Core Definitions
-├── 15 Boundary
-└── 16 Boundary State
-```
+Dynamic Equivalence is not static equality. It is stability-bounded continuity over Trajectory.
 
 ### 15. Boundary
-
-```text
-Boundary = a Slice-relative distinction that has become readable through Slice.
-```
-
-Boundary may be generated, revealed, or stabilized by Slice, relative to Operator Orientation and Context.
-
-Boundary is not a fixed line inherent in Structure and is not an additional Core stage.
 
 ```text
 15_Boundary_20260610.md
 ```
 
+Boundary is a Slice-relative distinction that has become readable through Slice. It is not a fixed line inherent in Structure and is not an additional Core stage.
+
 ### 16. Boundary State
-
-```text
-Boundary State = the provisional relational state of an object
-with respect to a Boundary that has become readable through Slice.
-```
-
-Boundary State is not an intrinsic attribute of the object and is not a stage between Slice and Stability.
-
-Candidate Boundary States:
-
-```text
-Normal
-Non
-Un
-Absence
-Blank
-Unknown
-Void
-```
 
 ```text
 16_Boundary_State_20260610.md
 ```
 
----
-
-## 7. Layer Boundary
-
-Gyro Logic is the theoretical layer.
-
-```text
-Gyro Logic
-↓
-GyroOS
-↓
-GyroAuth
-```
-
-- **Gyro Logic** defines the theory.
-- **GyroOS** implements the theory.
-- **GyroAuth** applies the theory.
-
-Implementation concerns from GyroOS must not redefine Gyro Logic.
-Application concerns from GyroAuth must not be mixed into the theory layer.
-
-```text
-07_toGyroOS_handover_20260504.md
-```
+Boundary State is the provisional relational state of an object with respect to a Boundary that has become readable through Slice.
 
 ---
 
-## 8. Suggested Reading Order
+## 5. Mathematical Object and Core Reconsideration Studies
 
-For the Core and its primary interpretation:
+The following documents are exploratory studies. They do not redefine the Core unless a later canonical decision explicitly says so.
+
+### 17. Mathematical Object Candidate Table
+
+```text
+17_Mathematical_Object_Candidate_Table_20260713.md
+```
+
+### 18. Structure Identity Case Study
+
+```text
+18_Structure_Identity_Case_Study_20260713.md
+```
+
+### 19. Slice Formalization Study
+
+```text
+19_Slice_Formalization_Study_20260713.md
+```
+
+### 20. Operator Orientation Content Study
+
+```text
+20_Operator_Orientation_Content_Study_20260713.md
+```
+
+### 21. Structure Reconsideration Study
+
+```text
+21_Structure_Reconsideration_Study_20260713.md
+```
+
+### 22. Structure–Operator Relativity Study
+
+```text
+22_Structure_Operator_Relativity_Study_20260713.md
+```
+
+### 23. Slice / Not-Yet / Openness Study
+
+```text
+23_Slice_Not_Yet_Openness_Study_20260713.md
+```
+
+### 24. Stability / Not-Yet / Continuity Study
+
+```text
+24_Stability_Not_Yet_Continuity_Study_20260713.md
+```
+
+### 25. Trajectory as Retrospective Tracing
+
+```text
+25_Trajectory_Tracing_Study_20260713.md
+```
+
+Trajectory is not a pre-existing road, a simple continuation, or accumulated history itself. It becomes readable by tracing admissible relations among accumulated and folded local realizations.
+
+---
+
+## 6. Core and Derivative Concept Consolidation
+
+### 26. Core and Derivative Concepts — Light Summary
+
+```text
+26_Core_and_Derivative_Concepts_Light_Summary_20260714.md
+```
+
+### 27. Incorporated Readability Study
+
+```text
+27_Incorporated_Readability_Study_20260714.md
+```
+
+Once readability is acquired, it may become incorporated into later Structure and alter subsequent Slice conditions.
+
+### 28. Continuity Readability Study
+
+```text
+28_Continuity_Readability_Study_20260714.md
+```
+
+### 29. Continuity Readability — Current Decision
+
+```text
+29_Continuity_Readability_Current_Decision_20260714.md
+```
+
+Identity and Continuity Readability are distinct. A connection may remain traceable even across an identity break.
+
+### 30. Minimal Formal Model v0
+
+```text
+30_Minimal_Formal_Model_v0_20260714.md
+```
+
+### 31. Weighted Incorporated Readability Study
+
+```text
+31_Weighted_Incorporated_Readability_Study_20260714.md
+```
+
+### 32. Relative Influence Formalization Study
+
+```text
+32_Relative_Influence_Formalization_Study_20260714.md
+```
+
+### 33. Pre-Slice Directional Cue Study
+
+```text
+33_PreSlice_Directional_Cue_Study_20260714.md
+```
+
+### 34. Foregroundability and Slice Distinction
+
+```text
+34_Foregroundability_and_Slice_Distinction_20260714.md
+```
+
+### 35. Non-Fixed Relational Order and Gyroscopic Principles
+
+```text
+35_NonFixed_Relational_Order_and_Gyroscopic_Principles_20260714.md
+```
+
+### 36. Theory Review Position and Non-Universal Scope
+
+```text
+36_Theory_Review_Position_and_NonUniversal_Scope_20260716.md
+```
+
+Gyro Logic does not claim universal replacement of existing theories. It proposes an alternative viewpoint and uses existing theories where they work.
+
+---
+
+## 7. Grade S — Core Mathematical Type Studies
+
+Grade S examines the mathematical character of the invariant Core without reducing each Core concept to one existing mathematical object.
+
+### S-1. Structure
+
+```text
+37_Structure_Ontological_Type_Study_20260716.md
+```
+
+Structure is not identical to a state, object, space, or relational structure. It may support readings with those aspects while remaining the mode in which something can be established.
+
+### S-2. Slice
+
+```text
+38_Slice_Mathematical_Type_Study_20260716.md
+39_Slice_As_Provisional_Becoming_Study_20260716.md
+40_Slice_Provisional_Mathematical_Expression_20260716.md
+```
+
+Current mathematical image:
+
+```text
+S \xRightarrow{Σ_{B,c}} a_Σ
+```
+
+Slice does not merely extract, filter, partition, discover, or generate a pre-existing path object. Through Slice, a local “this is how it has become” appears.
+
+### S-3. Stability
+
+```text
+41_Stability_Mathematical_Type_Study_20260716.md
+```
+
+Current image:
+
+```text
+K_Σ = (a_Σ, L_Σ, U_Σ, C_Σ)
+```
+
+Stability is a locally readable and continuable scene. Local establishment and residual not-yet may coexist within it.
+
+---
+
+## 8. Grade A — Readability, Continuity, Trajectory, and Difference
+
+### A-1. Incorporated Readability
+
+```text
+42_Priority_A_Study_Plan_20260717.md
+43_Incorporated_Readability_As_Context_Extension_Study_20260717.md
+```
+
+Incorporated Readability is modeled as a local establishment, definition, distinction, or derivation that becomes available to later reasoning and changes the conditions from which later Slice begins.
+
+### A-2. Continuity Readability
+
+```text
+44_Continuity_Readability_Mathematical_Type_Study_20260717.md
+```
+
+Current candidate:
+
+```text
+CR(g_i,g_j ; B,c,Σ)
+⇔
+∃r : Adm(r) ∧ Traceable(r) ∧ Readable(r)
+```
+
+### A-3. Trajectory
+
+```text
+45_Trajectory_Mathematical_Type_Study_20260717.md
+```
+
+Current layered model:
+
+```text
+local realizations
++ retained relations
++ tracing conditions
+→ readable Trajectory
+```
+
+The trace-bearing graph is not itself the Trajectory.
+
+### Difference
+
+```text
+46_Difference_Mathematical_Type_Study_20260717.md
+```
+
+Current candidate:
+
+```text
+Δ_{B,c,Σ} : X ⇀ D
+```
+
+Difference is not automatically a distance, error, Boundary, or scalar quantity.
+
+---
+
+## 9. Integrated Formalization and Mathematical Comparison
+
+### 47. Minimal Formal Model v1
+
+```text
+47_Minimal_Formal_Model_v1_20260717.md
+```
+
+Compact form:
+
+```text
+g_n = (S_n,B_n,c_n,Σ_n,a_n,K_n)
+
+S_n \xRightarrow{Σ_{B_n,c_n}} a_n
+
+K_n = StabScene(a_n ; S_n,B_n,c_n)
+
+q_n = Inc(g_n)
+
+Γ_{n+1} = Update_Γ(Γ_n,q_n)
+
+(S_n,Γ_{n+1},e_n) ↝ S_{n+1}
+
+CR(g_i,g_j)
+⇔
+∃r : Adm(r) ∧ Traceable(r) ∧ Readable(r)
+
+𝒢_R = (G,E)
+
+T = Trace(G,E)
+
+Δ_{B,c,Σ} : X ⇀ D
+```
+
+### 48. Mathematical Field Comparison
+
+```text
+48_Mathematical_Field_Comparison_20260717.md
+```
+
+The current model may use multiple mathematical families as partial models:
+
+```text
+relational structures / hypergraphs
+local and topological structures
+transition and event structures
+contextual and non-monotonic logics
+constraint propagation
+category-like transformations
+probability and statistics
+```
+
+No single existing field is currently adopted as the complete mathematical identity of Gyro Logic.
+
+---
+
+## 10. Conceptual Dependency Overview
+
+```text
+01 Core Definitions
+├── Gyro Unit / Process / Loop
+├── Context / Re-Slice / Void
+├── Dynamic Equivalence
+├── Boundary / Boundary State
+├── Grade S Core Mathematical Studies
+│   ├── Structure
+│   ├── Slice
+│   └── Stability
+└── Grade A Derivative Mathematical Studies
+    ├── Incorporated Readability
+    ├── Continuity Readability
+    ├── Trajectory
+    └── Difference
+        ↓
+    Minimal Formal Model v1
+        ↓
+    Mathematical Field Comparison
+```
+
+Boundary, Trajectory, Difference, Context, Operator, and other derivative concepts are not additional stages inserted into the invariant Core.
+
+---
+
+## 11. Suggested Reading Order
+
+### Core theory
 
 ```text
 01_Core_Definitions.md
@@ -357,7 +540,7 @@ For the Core and its primary interpretation:
 06_Operator_20260504.md
 ```
 
-For Context Extension:
+### Context, Boundary, and earlier extensions
 
 ```text
 08_Context_20260513.md
@@ -366,73 +549,106 @@ For Context Extension:
 11_Loop_Stop_20260513.md
 12_Context_Void_Coincidence_20260513.md
 13_Context_Integration_20260513.md
-```
-
-For Dynamic Equivalence:
-
-```text
 14_Dynamic_Equivalence_20260518.md
-```
-
-For Boundary Extension:
-
-```text
-01_Core_Definitions.md
 15_Boundary_20260610.md
 16_Boundary_State_20260610.md
 ```
 
-For implementation handover:
+### Core reconsideration
 
 ```text
-07_toGyroOS_handover_20260504.md
+17_Mathematical_Object_Candidate_Table_20260713.md
+18_Structure_Identity_Case_Study_20260713.md
+19_Slice_Formalization_Study_20260713.md
+20_Operator_Orientation_Content_Study_20260713.md
+21_Structure_Reconsideration_Study_20260713.md
+22_Structure_Operator_Relativity_Study_20260713.md
+23_Slice_Not_Yet_Openness_Study_20260713.md
+24_Stability_Not_Yet_Continuity_Study_20260713.md
+25_Trajectory_Tracing_Study_20260713.md
+26_Core_and_Derivative_Concepts_Light_Summary_20260714.md
+```
+
+### Readability and formalization
+
+```text
+27_Incorporated_Readability_Study_20260714.md
+28_Continuity_Readability_Study_20260714.md
+29_Continuity_Readability_Current_Decision_20260714.md
+30_Minimal_Formal_Model_v0_20260714.md
+31_Weighted_Incorporated_Readability_Study_20260714.md
+32_Relative_Influence_Formalization_Study_20260714.md
+33_PreSlice_Directional_Cue_Study_20260714.md
+34_Foregroundability_and_Slice_Distinction_20260714.md
+35_NonFixed_Relational_Order_and_Gyroscopic_Principles_20260714.md
+36_Theory_Review_Position_and_NonUniversal_Scope_20260716.md
+```
+
+### Current mathematical study sequence
+
+```text
+37_Structure_Ontological_Type_Study_20260716.md
+38_Slice_Mathematical_Type_Study_20260716.md
+39_Slice_As_Provisional_Becoming_Study_20260716.md
+40_Slice_Provisional_Mathematical_Expression_20260716.md
+41_Stability_Mathematical_Type_Study_20260716.md
+42_Priority_A_Study_Plan_20260717.md
+43_Incorporated_Readability_As_Context_Extension_Study_20260717.md
+44_Continuity_Readability_Mathematical_Type_Study_20260717.md
+45_Trajectory_Mathematical_Type_Study_20260717.md
+46_Difference_Mathematical_Type_Study_20260717.md
+47_Minimal_Formal_Model_v1_20260717.md
+48_Mathematical_Field_Comparison_20260717.md
 ```
 
 ---
 
-## 9. Current Status
+## 12. Current Status
 
-Current theoretical focus:
+Current theoretical status:
 
 ```text
-Core:
+Invariant Core retained:
 Structure → Slice → Stability
 
-Primary definition:
-01 Core Definitions
+Core mathematical type studies completed at exploratory v0 level:
+Structure / Slice / Stability
 
-Extensions:
-Gyro Unit / Gyro Process / Gyro Loop
-Context / Re-Slice / Context Loop
-Loop Stop / Void / Coincidence
-Dynamic Equivalence / Trajectory
-Boundary / Boundary State
+Derivative mathematical studies completed at exploratory v0 level:
+Incorporated Readability / Continuity Readability / Trajectory / Difference
+
+Integrated formalization:
+Minimal Formal Model v1 completed
+
+Comparative review:
+Mathematical field comparison completed
+
+Next major phase:
+Paper architecture, terminology review, consistency review,
+and formal-model validation through selected examples
 ```
 
-These documents belong to the Gyro Logic layer.
+Core definitions remain unchanged. Mathematical expressions remain exploratory unless explicitly promoted into a canonical definition document.
 
 ---
 
-## 10. Minimal Summary
+## 13. Minimal Summary
 
 ```text
 Gyro Logic begins from Structure → Slice → Stability.
 
 Structure is the mode in which something can be established.
-Slice opens a path through Structure toward an establishment.
-Stability is the state in which that path is established and can continue.
+Slice is the process by which a path is opened through Structure toward an establishment.
+Stability is the state in which the opened path becomes readable as an establishment that can continue.
 
-Gyro Unit defines the time-free minimal structure.
-Gyro Process unfolds it into a time-including cycle.
-Gyro Loop connects Processes through Operator Response.
+Slice produces a local “this is how it has become,” not a globally closed result.
+Stability makes that local articulation readable and continuable while residual not-yet may remain.
 
-Context is the inferable surrounding Structure produced with a Slice result.
-Reading Context is Re-Slice.
-Repeated Re-Slice forms a Context Loop.
-Loop Stop is selected by Operator Response.
+Readability acquired through a local realization may be incorporated into later Structure.
+Continuity Readability concerns whether separated local realizations can be traceably connected.
+Trajectory is read by tracing admissible relations among accumulated and folded local realizations.
+Difference is a Slice-relative structured relation and is not limited to scalar distance or error.
 
-Dynamic Equivalence is stability-bounded continuity over Trajectory.
-
-Boundary is a Slice-relative distinction that has become readable through Slice.
-Boundary State is the provisional relational state of an object with respect to that Boundary.
+Minimal Formal Model v1 integrates these distinctions without changing the Core.
+Existing mathematical fields are treated as partial modeling resources rather than as a complete reduction of Gyro Logic.
 ```
