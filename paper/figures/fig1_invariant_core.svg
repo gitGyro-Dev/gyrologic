@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Invariant Core of Gyro Logic</title>
+  <desc id="desc">Structure leads to Slice, which leads to Stability. Orientation and Context condition Slice without becoming Core elements.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#222"/>
+    </marker>
+  </defs>
+  <rect x="70" y="115" width="260" height="110" rx="18" fill="white" stroke="#222" stroke-width="3"/>
+  <rect x="470" y="115" width="260" height="110" rx="18" fill="white" stroke="#222" stroke-width="3"/>
+  <rect x="870" y="115" width="260" height="110" rx="18" fill="white" stroke="#222" stroke-width="3"/>
+  <text x="200" y="180" text-anchor="middle" font-family="sans-serif" font-size="34">Structure</text>
+  <text x="600" y="180" text-anchor="middle" font-family="sans-serif" font-size="34">Slice</text>
+  <text x="1000" y="180" text-anchor="middle" font-family="sans-serif" font-size="34">Stability</text>
+  <line x1="330" y1="170" x2="470" y2="170" stroke="#222" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="730" y1="170" x2="870" y2="170" stroke="#222" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="600" y="55" text-anchor="middle" font-family="sans-serif" font-size="25">Operator Orientation B and Context c condition Slice</text>
+  <line x1="600" y1="70" x2="600" y2="113" stroke="#555" stroke-width="3" stroke-dasharray="8 7" marker-end="url(#arrow)"/>
+  <text x="600" y="310" text-anchor="middle" font-family="sans-serif" font-size="23">Invariant Core: no derivative concept is inserted as a fourth element</text>
+</svg>
