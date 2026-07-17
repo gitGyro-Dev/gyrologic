@@ -6,6 +6,34 @@ status: "Draft"
 paper_type: "Independent formalization paper"
 ---
 
+# Introduction
+
+Gyro Logicは、次の不変Coreを中心に構成される理論的枠組みである。
+
+```text
+Structure
+↓
+Slice
+↓
+Stability
+```
+
+既存のGyro Logic基礎論文は、このCoreの概念的役割を示し、Structure・Slice・Stabilityを通じて一つの成立がどのように利用可能になるかを説明した。そこでは主として、「Gyro Logicとは何か」という問いが扱われた。本論文が扱うのは、それとは異なる問題である。すなわち、Canonical Definitionを置き換えず、またGyro Logicを既存の単一数学分野へ早期に還元することなく、現在までに形成された理論的区別をどのように最小限の形式構成として整理できるか、という問題である。
+
+この問題が生じるのは、既存の数学的形式が、現在のGyro Logicに必要な条件よりも強い前提から出発する場合が多いためである。状態空間モデルは通常、状態とその空間が事前に与えられていることを仮定する。関数は、識別可能な定義域と終域を前提とする。グラフは、ノードと辺がすでに表現可能であることを前提とする。力学系のTrajectoryは、一般に順序づけられた状態列として表される。Stabilityは、平衡、収束、固定点、摂動に対する頑健性、またはスカラー値として表現されることが多い。Differenceも、距離、偏差、または誤差として扱われやすい。これらはいずれも有効な部分モデルとなり得るが、どの区別が保持され、どの区別が失われるかを確認しないまま、Gyro Logic全体の普遍的形式として採用することはできない。
+
+この困難は、とりわけSliceにおいて明確になる。Canonical Definitionでは、Sliceは、Structureの中に一つの成立へ向かう道筋が開かれる過程である。この定義は、Sliceの結果が、あらかじめ完全に個体化された対象として存在し、抽出されるのを待っていることを要求しない。したがってSliceは、ろ過、射影、選択、通常の検索や取り出しから区別されなければならない。本論文では、Sliceの過程と、その過程を通じて利用可能になる局所的表出とを暫定的に分離する。局所的表出は、局所的な「こうなった」を表すが、それ自体はまだStabilityと同一ではない。
+
+第二の困難はStabilityに関するものである。Gyro LogicにおけるStabilityは、評価者でも、意思決定者でも、最終的完了でもない。また、その理論的意味は、数値スコアや固定点だけでは尽くされない。本論文では、Stabilityを、一つの表出が継続可能な成立として読めるようになる構造化された局所場面として検討する。その場面は、確認と継続を支えられる程度に局所的には落ち着いていながら、なお未解決の局所的な未を含み得る。局所的成立と残存する未が共存することは重要である。Stability Sceneは、Structure全体の閉包を意味しない。
+
+第三の困難は、複数の局所的realizationをまたぐ継続に関係する。一つのrealizationで読めるようになったものは、後続のrealizationが生じる条件を変化させ得る。この作用は、過去の出来事を単なる保存履歴や追記型ログとして扱うだけでは十分に表現できない。そこで本論文は、成立した区別、関係、基準、関連性条件が後続の文脈で利用可能になる仕方を表す暫定概念として、Incorporated Readabilityを導入する。同様に、Continuity ReadabilityをIdentityから分離し、Trajectoryを時系列イベント一覧および事前定義された状態列の双方から分離する。Trajectoryは、局所的Gyro realization間の許容可能な関係を文脈的に辿ることで読めるようになるものとして扱われる。
+
+Differenceも関連する形式的問題をもつ。Gyro LogicにおけるDifferenceは、スカラー、距離的、対称的、または誤差的であるとは限らない。Orientation・Context・Sliceに応じて、部分的に定義された関係、順序構造、分布、または場に類する対象となり得る。したがってBoundaryは、Differenceそのものとは同一視されない。Boundaryは、特定のSliceのもとでDifferenceが表出し、安定化されることによって利用可能になる、派生的な可読区別として扱われる。
+
+以上を踏まえ、本論文は最終的な公理化ではなく、探索的なMinimal Formal Modelを提示する。その目的は、Structure、Slice、local articulation、Stability、Incorporated Readability、Continuity Readability、Trajectory、Difference、Boundaryの区別を保持するために必要な、最小限の形式的コミットメントを明らかにすることにある。導入する記法は、Canonical Definitionを支える候補であり、Canonical Definitionそのものではない。本論文は不変Coreを変更せず、Gyro Logicがすでに関係構造、グラフ理論、位相空間、力学系、圏論、証明論、またはその他の一分野へ還元されたとも主張しない。
+
+本論文は、まずContribution StatementとResearch Questionsを示す。続いて、不変Coreが形式化に課す制約を明確にし、Structure・Slice・Stabilityを順に検討する。その後、Incorporated Readability、Continuity Readability、文脈的Trajectory、Difference、Boundaryを扱い、これらを簡潔な形式スキーマへ統合する。さらに関連する数学分野との比較を行い、例示および限界の検討を通じて、本モデルが何を主張し、何を主張しないかを明確にする。
+
 # Contribution Statement
 
 本論文は、Gyro Logicの最小形式モデルに向けて、主に八つの貢献を提示する。第一に、不変CoreであるStructure・Slice・Stabilityについて、Canonical Definitionを変更せず、その順序を入れ替えず、新たなCore要素も追加しないまま、暫定的な数学的型付けを与える。本論文で導入する数式表現は、Canonical Definitionを置き換える定義ではなく、それを支える形式化候補として位置づけられる。
