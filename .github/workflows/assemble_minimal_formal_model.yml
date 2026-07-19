@@ -12,6 +12,7 @@ on:
       - "paper/sections/**"
       - "paper/figures/**"
       - "tools/assemble_minimal_formal_model_paper_v2.py"
+      - "tools/inject_ai_assistance_disclosure.py"
       - "tools/build_minimal_formal_model_pdfs.sh"
       - "tools/check_minimal_formal_model_pdf_figures.py"
       - ".github/workflows/assemble_minimal_formal_model.yml"
@@ -76,6 +77,9 @@ jobs:
 
       - name: Assemble and review submission candidates
         run: python tools/assemble_minimal_formal_model_paper_v2.py
+
+      - name: Insert bilingual AI assistance disclosure
+        run: python tools/inject_ai_assistance_disclosure.py
 
       - name: Generate and validate PDFs
         run: bash tools/build_minimal_formal_model_pdfs.sh
