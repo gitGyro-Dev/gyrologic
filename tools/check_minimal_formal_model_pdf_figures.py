@@ -113,6 +113,8 @@ def pdf_page_count(path: Path) -> int:
 
 def find_figure_pages(path: Path, pages: int) -> dict[int, int]:
     found: dict[int, int] = {}
+    duplicate_captions: list[str] = []
+
     for page in range(1, pages + 1):
         text = run(
             "pdftotext",
@@ -124,9 +126,28 @@ def find_figure_pages(path: Path, pages: int) -> dict[int, int]:
             str(path),
             "-",
         )
+        normalized = re.sub(r"\s+", " ", text)
+
         for spec in SPECS:
-            if spec.number not in found and f"Figure {spec.number}." in text:
+            caption_pattern = re.compile(
+                rf"\bFigure\s+{spec.number}\s*[:.]",
+                flags=re.IGNORECASE,
+            )
+            duplicate_pattern = re.compile(
+                rf"\bFigure\s+{spec.number}\s*:\s*Figure\s+{spec.number}\b",
+                flags=re.IGNORECASE,
+            )
+
+            if duplicate_pattern.search(normalized):
+                duplicate_captions.append(f"Figure {spec.number} on page {page}")
+            if spec.number not in found and caption_pattern.search(normalized):
                 found[spec.number] = page
+
+    if duplicate_captions:
+        raise ValueError(
+            f"Duplicated PDF figure captions in {path}: {sorted(set(duplicate_captions))}"
+        )
+
     missing = [spec.number for spec in SPECS if spec.number not in found]
     if missing:
         raise ValueError(f"Figure captions not found in {path}: {missing}")
@@ -226,7 +247,7 @@ def main() -> int:
         [
             "## Review Boundary",
             "",
-            "This check verifies deterministic figure sizing, estimated rendered text size, explicit SVG font selection, A4 placement, caption presence, and PDF font embedding. It does not replace a final human visual inspection for aesthetic balance, line weight, or journal-specific figure preferences.",
+            "This check verifies deterministic figure sizing, estimated rendered text size, explicit SVG font selection, A4 placement, caption presence, duplicate-caption absence, and PDF font embedding. It does not replace a final human visual inspection for aesthetic balance, line weight, or journal-specific figure preferences.",
             "",
         ]
     )
