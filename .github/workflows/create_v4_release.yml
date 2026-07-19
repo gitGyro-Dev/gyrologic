@@ -1,0 +1,73 @@
+name: Create Gyro Logic v4.0 Draft Release
+
+on:
+  workflow_dispatch:
+  issues:
+    types: [opened, edited, reopened]
+
+permissions:
+  contents: write
+  issues: read
+
+concurrency:
+  group: gyro-logic-v4-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.issue.title == '[release] Gyro Logic v4.0'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current default branch
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Validate release inputs
+        run: |
+          set -euo pipefail
+          test -f releases/v4.0.md
+          test -f paper/pdf/minimal_formal_model_full_en.pdf
+          test -f paper/pdf/minimal_formal_model_full_jp.pdf
+          test -f paper/minimal_formal_model_consistency_review.md
+          test -f paper/pdf/minimal_formal_model_figure_review.md
+
+      - name: Create or refresh v4.0 draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          if git rev-parse "refs/tags/v4.0" >/dev/null 2>&1; then
+            echo "Local tag v4.0 already exists."
+          elif git ls-remote --exit-code --tags origin "refs/tags/v4.0" >/dev/null 2>&1; then
+            echo "Remote tag v4.0 already exists."
+          else
+            git tag -a v4.0 -m "Gyro Logic v4.0"
+            git push origin v4.0
+          fi
+
+          if gh release view v4.0 >/dev/null 2>&1; then
+            gh release edit v4.0 \
+              --title "Gyro Logic v4.0 — Minimal Formal Model and Jxiv Submission" \
+              --notes-file releases/v4.0.md \
+              --draft
+          else
+            gh release create v4.0 \
+              --title "Gyro Logic v4.0 — Minimal Formal Model and Jxiv Submission" \
+              --notes-file releases/v4.0.md \
+              --draft \
+              paper/pdf/minimal_formal_model_full_en.pdf \
+              paper/pdf/minimal_formal_model_full_jp.pdf \
+              paper/minimal_formal_model_consistency_review.md \
+              paper/pdf/minimal_formal_model_figure_review.md
+          fi
+
+          gh release upload v4.0 \
+            paper/pdf/minimal_formal_model_full_en.pdf \
+            paper/pdf/minimal_formal_model_full_jp.pdf \
+            paper/minimal_formal_model_consistency_review.md \
+            paper/pdf/minimal_formal_model_figure_review.md \
+            --clobber
