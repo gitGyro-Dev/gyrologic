@@ -3028,9 +3028,9 @@ This research received no external funding.
 
 No new empirical datasets were generated or analyzed in this theoretical study.
 
-## Use of AI-Assisted Tools
+## Use of Generative AI and AI-Assisted Tools
 
-AI-assisted tools were used in preparing this manuscript to support structural organization, drafting, language refinement, and consistency checking. The author reviewed and edited the content, claims, references, and final manuscript and assumes full responsibility for them.
+Generative AI and other AI-assisted tools were used in preparing this manuscript for structural organization, drafting assistance, language refinement, and consistency checking. The author reviewed, verified, and edited the manuscript content, theoretical claims, citations, references, and final text, and assumes full responsibility for all aspects of the work.
 
 ## Code and Materials Availability
 

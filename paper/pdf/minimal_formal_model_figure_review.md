@@ -28,7 +28,7 @@ The SVG figures fit within the configured A4 text area, use explicit font famili
 ### English
 
 - PDF: `paper/pdf/minimal_formal_model_full_en.pdf`
-- Total pages: 65
+- Total pages: 66
 - Figure pages: Figure 1 = page 43, Figure 2 = page 44, Figure 3 = page 44
 - Embedded font programs reported: 17
 - Font names: `AVAPJL+TeXGyrePagella-Regular`, `CPHUYV+LatinModernMath-Regular`, `DQSSQI+DejaVuSans`, `GBGNAT+DejaVuMathTeXGyre-Regular`, `GVZHTD+LatinModernMath-Regular`, `GWJQAP+MSAM10`, `HTUTBN+TeXGyreHeros-Regular`, `IPIBCK+NotoSansCJKjp-Regular`, `ITGIMR+DejaVuSansMono`, `OJLQTF+NotoSansCJKjp-Regular`, `SSWGJM+NotoSerifCJKjp-Regular`, `TPFSGP+TeXGyrePagella-Bold`, `TUIUYI+DejaVuSans`, `VVEUAL+NotoSansCJKjp-Regular`, `WYMHDN+LatinModernMath-Regular`, `YWZBGJ+TeXGyrePagella-Italic`, `ZFNJQW+TeXGyrePagella-Regular`
@@ -39,7 +39,7 @@ The SVG figures fit within the configured A4 text area, use explicit font famili
 - Total pages: 61
 - Figure pages: Figure 1 = page 41, Figure 2 = page 42, Figure 3 = page 42
 - Embedded font programs reported: 19
-- Font names: `AVAPJL+TeXGyrePagella-Regular`, `CPHUYV+LatinModernMath-Regular`, `DQSSQI+DejaVuSans`, `GBGNAT+DejaVuMathTeXGyre-Regular`, `GOEBAI+TeXGyrePagella-Bold`, `GWJQAP+MSAM10`, `HNBHJG+LatinModernMath-Regular`, `HTUTBN+TeXGyreHeros-Regular`, `IPIBCK+NotoSansCJKjp-Regular`, `LJXSHK+TeXGyrePagella-Regular`, `LMGHPT+DejaVuSansMono`, `OIKNVV+NotoSerifCJKjp-Bold`, `OJLQTF+NotoSansCJKjp-Regular`, `SJMAQY+NotoSerifCJKjp-Regular`, `SSWGJM+NotoSerifCJKjp-Regular`, `TUIUYI+DejaVuSans`, `VVEUAL+NotoSansCJKjp-Regular`, `WYMHDN+LatinModernMath-Regular`, `YWZBGJ+TeXGyrePagella-Italic`
+- Font names: `AVAPJL+TeXGyrePagella-Regular`, `CPHUYV+LatinModernMath-Regular`, `DBRGKP+NotoSerifCJKjp-Bold`, `DQSSQI+DejaVuSans`, `GBGNAT+DejaVuMathTeXGyre-Regular`, `GOEBAI+TeXGyrePagella-Bold`, `GWJQAP+MSAM10`, `HNBHJG+LatinModernMath-Regular`, `HTUTBN+TeXGyreHeros-Regular`, `IPIBCK+NotoSansCJKjp-Regular`, `LJXSHK+TeXGyrePagella-Regular`, `LMGHPT+DejaVuSansMono`, `OJLQTF+NotoSansCJKjp-Regular`, `SJMAQY+NotoSerifCJKjp-Regular`, `SSWGJM+NotoSerifCJKjp-Regular`, `TUIUYI+DejaVuSans`, `VVEUAL+NotoSansCJKjp-Regular`, `WYMHDN+LatinModernMath-Regular`, `YWZBGJ+TeXGyrePagella-Italic`
 
 ## Review Boundary
 
