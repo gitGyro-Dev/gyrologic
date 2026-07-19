@@ -3028,6 +3028,10 @@ This research received no external funding.
 
 No new empirical datasets were generated or analyzed in this theoretical study.
 
+## Use of AI-Assisted Tools
+
+AI-assisted tools were used in preparing this manuscript to support structural organization, drafting, language refinement, and consistency checking. The author reviewed and edited the content, claims, references, and final manuscript and assumes full responsibility for them.
+
 ## Code and Materials Availability
 
 The manuscript sources, figures, assembly scripts, PDF-generation workflow, and validation scripts are available in the Gyro Logic repository: [https://github.com/gitGyro-Dev/gyrologic](https://github.com/gitGyro-Dev/gyrologic).
