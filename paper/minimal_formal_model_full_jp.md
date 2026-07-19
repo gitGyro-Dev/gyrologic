@@ -2200,13 +2200,13 @@ T
 
 ## 11.1 Figure 1：不変Core
 
-![Figure 1. Gyro Logicの不変Core。Operator OrientationとContextはSliceを条件づけるが、追加Core要素にはならない。](figures/fig1_invariant_core.svg){width=94%}
+![Gyro Logicの不変Core。Operator OrientationとContextはSliceを条件づけるが、追加Core要素にはならない。](figures/fig1_invariant_core.svg){width=94%}
 
 Figure 1は、本論文全体を拘束する理論条件を示す。不変CoreはStructure → Slice → Stabilityのままである。Operator OrientationとContextはSlice processを条件づけるが、本モデルは、それら、local articulation、Trajectory、Difference、Boundary、Operator Responseを第四のCore要素として挿入しない。
 
 ## 11.2 Figure 2：局所的Gyro realizationとContext更新
 
-![Figure 2. 局所的Gyro realization、Stability Scene、後続readability contextの更新。](figures/fig2_local_realization.svg){width=96%}
+![局所的Gyro realization、Stability Scene、後続readability contextの更新。](figures/fig2_local_realization.svg){width=96%}
 
 Figure 2は、暫定的な局所realization
 
@@ -2218,7 +2218,7 @@ g_n=(S_n,B_n,c_n,\Sigma_n,a_n,K_n)
 
 ## 11.3 Figure 3：Contextual Trajectory
 
-![Figure 3. relation-bearing fieldから可読なTrajectoryへの文脈的Tracing。](figures/fig3_contextual_trajectory.svg){width=96%}
+![relation-bearing fieldから可読なTrajectoryへの文脈的Tracing。](figures/fig3_contextual_trajectory.svg){width=96%}
 
 Figure 3は、relation-bearing trace field
 

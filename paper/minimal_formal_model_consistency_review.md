@@ -55,7 +55,7 @@ This automated review covers bilingual chapter order, Canonical Definitions, aut
 - PASS: Trajectory present.
 - PASS: Difference present.
 - PASS: StabScene constructor normalized.
-- INFO: 20957 whitespace-delimited tokens.
+- INFO: 20951 whitespace-delimited tokens.
 
 ### Japanese
 
@@ -82,7 +82,7 @@ This automated review covers bilingual chapter order, Canonical Definitions, aut
 - PASS: Trajectory present.
 - PASS: Difference present.
 - PASS: StabScene constructor normalized.
-- INFO: 3736 whitespace-delimited tokens.
+- INFO: 3730 whitespace-delimited tokens.
 
 ## Submission Boundary
 
