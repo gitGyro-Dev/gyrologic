@@ -4,6 +4,12 @@
 
 ---
 
+![Gyro Logic Core Establishment Model](./figures/gyro_logic_core_establishment_model.svg)
+
+*How a local establishment emerges without exhausting the Structure.*
+
+---
+
 ## What is Gyro Logic?
 
 Gyro Logic is a theoretical framework for modeling representation, meaning, and identity through the relation between **Structure**, **Slice**, and **Stability**.
@@ -300,7 +306,6 @@ Jump is selected through Operator Response.
 ## Boundary Extension
 
 Boundary and Boundary State are auxiliary concepts for describing how distinctions become readable through Slice.
-
 They do not replace the core principle:
 
 ```text
@@ -421,6 +426,14 @@ while clarifying how establishment appears and continues within Trajectory, Flow
 ---
 
 ## Figures
+
+### Canonical Core Establishment Model
+
+![Gyro Logic Core Establishment Model](./figures/gyro_logic_core_establishment_model.svg)
+
+This figure visualizes how a local articulation becomes readable as a continuable Stability Scene without exhausting the surrounding Structure. It is the canonical public concept image for Gyro Logic v4.0.
+
+### Earlier overview figures
 
 ![Gyro Logic Overview](./figures/v2.6/gyro_logic_overview.png)
 
