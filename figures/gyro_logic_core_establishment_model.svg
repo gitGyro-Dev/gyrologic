@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">How a local establishment emerges without exhausting the Structure</title>
+  <desc id="desc">Gyro Logic concept image showing the invariant Core Structure to Slice to Stability, a local articulation, a Stability Scene with residual not-yet, incorporated readability, and continuation to further Structure or Slice.</desc>
+
+  <defs>
+    <marker id="arrow-core" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1F2937"/>
+    </marker>
+    <marker id="arrow-slice" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563EB"/>
+    </marker>
+    <marker id="arrow-continuation" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7C3AED"/>
+    </marker>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="9" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      .sans { font-family: Inter, "Noto Sans", "Helvetica Neue", Arial, sans-serif; fill: #1F2937; }
+      .serif { font-family: "STIX Two Math", "Times New Roman", serif; fill: #334155; }
+      .label { font-size: 25px; font-weight: 700; }
+      .sub { font-size: 16px; font-weight: 400; fill: #475569; }
+      .small { font-size: 15px; fill: #64748B; }
+      .micro { font-size: 13px; fill: #64748B; }
+    </style>
+  </defs>
+
+  <g id="background">
+    <rect x="0" y="0" width="1600" height="900" fill="#F8FAFC"/>
+  </g>
+
+  <g id="title" class="sans">
+    <text x="800" y="62" text-anchor="middle" font-size="36" font-weight="700">
+      <tspan x="800" dy="0">How a local establishment emerges</tspan>
+      <tspan x="800" dy="44">without exhausting the Structure</tspan>
+    </text>
+    <text x="800" y="135" text-anchor="middle" font-size="18" fill="#475569">
+      Gyro Logic preserves the invariant Core while allowing continuation and residual not-yet.
+    </text>
+  </g>
+
+  <g id="core" class="sans">
+    <text x="800" y="184" text-anchor="middle" font-size="25" font-weight="750" letter-spacing="1.3">
+      STRUCTURE
+      <tspan dx="24">→</tspan>
+      <tspan dx="24">SLICE</tspan>
+      <tspan dx="24">→</tspan>
+      <tspan dx="24">STABILITY</tspan>
+    </text>
+    <line x1="570" y1="199" x2="1030" y2="199" stroke="#CBD5E1" stroke-width="1.5"/>
+  </g>
+
+  <g id="structure-field">
+    <path d="M 115 266
+             C 230 224, 420 232, 592 244
+             C 780 256, 970 238, 1175 252
+             C 1245 257, 1280 277, 1303 310
+             M 1303 310
+             C 1323 345, 1321 382, 1300 418
+             M 1297 538
+             C 1290 603, 1250 647, 1180 671
+             C 997 733, 792 702, 603 710
+             C 424 717, 250 707, 132 667
+             C 90 617, 85 545, 94 463
+             C 101 382, 88 316, 115 266"
+          fill="#FFFFFF" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
+
+    <path d="M 1303 310 C 1344 342, 1348 386, 1322 420" fill="none" stroke="#94A3B8" stroke-width="2" stroke-dasharray="8 9"/>
+    <path d="M 1297 538 C 1323 564, 1328 596, 1315 625" fill="none" stroke="#94A3B8" stroke-width="2" stroke-dasharray="8 9"/>
+
+    <text class="sans label" x="154" y="304">Structure</text>
+    <text class="sans sub" x="154" y="330">the mode in which something can be established</text>
+
+    <g opacity="0.78" stroke="#94A3B8" stroke-width="2" fill="none">
+      <path d="M 178 398 C 238 345, 303 356, 349 408"/>
+      <path d="M 222 535 C 286 487, 348 501, 400 552"/>
+      <path d="M 341 320 C 410 286, 465 310, 505 353"/>
+      <path d="M 461 594 C 522 552, 579 555, 624 595"/>
+      <path d="M 692 304 C 748 281, 797 293, 842 326"/>
+      <path d="M 746 600 C 800 574, 848 582, 893 615"/>
+      <path d="M 1075 292 C 1120 276, 1160 283, 1199 311"/>
+      <path d="M 1097 633 C 1140 609, 1188 610, 1228 639"/>
+    </g>
+
+    <g fill="#64748B">
+      <circle cx="181" cy="401" r="6"/>
+      <circle cx="282" cy="372" r="5"/>
+      <circle cx="351" cy="410" r="6"/>
+      <circle cx="227" cy="536" r="5"/>
+      <circle cx="321" cy="505" r="6"/>
+      <circle cx="398" cy="552" r="5"/>
+      <circle cx="344" cy="321" r="5"/>
+      <circle cx="423" cy="302" r="6"/>
+      <circle cx="504" cy="353" r="5"/>
+      <circle cx="465" cy="594" r="6"/>
+      <circle cx="548" cy="566" r="5"/>
+      <circle cx="624" cy="595" r="6"/>
+      <circle cx="696" cy="305" r="5"/>
+      <circle cx="769" cy="292" r="6"/>
+      <circle cx="840" cy="326" r="5"/>
+      <circle cx="748" cy="600" r="5"/>
+      <circle cx="819" cy="580" r="6"/>
+      <circle cx="892" cy="615" r="5"/>
+      <circle cx="1077" cy="292" r="5"/>
+      <circle cx="1138" cy="280" r="6"/>
+      <circle cx="1200" cy="311" r="5"/>
+      <circle cx="1098" cy="633" r="5"/>
+      <circle cx="1165" cy="610" r="6"/>
+      <circle cx="1228" cy="639" r="5"/>
+    </g>
+
+    <g stroke="#CBD5E1" stroke-width="2" stroke-dasharray="7 9" fill="none" opacity="0.9">
+      <path d="M 273 444 C 331 419, 379 428, 435 456"/>
+      <path d="M 529 364 C 585 337, 639 347, 690 374"/>
+      <path d="M 920 302 C 971 280, 1026 288, 1069 320"/>
+      <path d="M 1012 663 C 1057 644, 1095 650, 1131 670"/>
+    </g>
+  </g>
+
+  <g id="orientation-context" class="sans">
+    <rect x="398" y="334" width="192" height="48" rx="24" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/>
+    <text x="494" y="364" text-anchor="middle" font-size="16" font-weight="600" fill="#475569">Operator Orientation</text>
+
+    <rect x="617" y="334" width="126" height="48" rx="24" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/>
+    <text x="680" y="364" text-anchor="middle" font-size="16" font-weight="600" fill="#475569">Context</text>
+
+    <path d="M 494 382 C 516 404, 530 416, 552 431" fill="none" stroke="#64748B" stroke-width="1.6" stroke-dasharray="7 6"/>
+    <path d="M 680 382 C 659 402, 644 416, 621 431" fill="none" stroke="#64748B" stroke-width="1.6" stroke-dasharray="7 6"/>
+  </g>
+
+  <g id="slice-process" class="sans">
+    <path d="M 416 466
+             C 520 414, 637 455, 744 447
+             C 818 441, 864 422, 913 420"
+          fill="none" stroke="#2563EB" stroke-width="8" stroke-linecap="round" opacity="0.16"/>
+    <path d="M 416 466
+             C 520 414, 637 455, 744 447
+             C 818 441, 864 422, 913 420"
+          fill="none" stroke="#2563EB" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrow-slice)"/>
+
+    <g fill="#2563EB" opacity="0.9">
+      <circle cx="487" cy="441" r="4.5"/>
+      <circle cx="570" cy="439" r="4"/>
+      <circle cx="660" cy="451" r="4.5"/>
+      <circle cx="759" cy="444" r="4"/>
+      <circle cx="835" cy="431" r="4.5"/>
+    </g>
+
+    <text x="655" y="406" text-anchor="middle" font-size="24" font-weight="700" fill="#1D4ED8">Slice Process</text>
+    <text x="655" y="429" text-anchor="middle" class="small">a path opens under Orientation and Context</text>
+  </g>
+
+  <g id="local-articulation" filter="url(#soft-shadow)">
+    <path d="M 905 416 C 932 385, 989 380, 1027 405 C 1057 425, 1069 465, 1056 498"
+          fill="none" stroke="#0F766E" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 1056 498 C 1035 530, 979 540, 940 519 C 916 506, 901 482, 900 454"
+          fill="none" stroke="#0F766E" stroke-width="3" stroke-linecap="round"/>
+
+    <g stroke="#0F766E" stroke-width="2.4" fill="none">
+      <line x1="935" y1="449" x2="975" y2="421"/>
+      <line x1="975" y1="421" x2="1018" y2="451"/>
+      <line x1="935" y1="449" x2="963" y2="493"/>
+      <line x1="963" y1="493" x2="1018" y2="451"/>
+      <line x1="963" y1="493" x2="1027" y2="500"/>
+    </g>
+    <g fill="#0F766E">
+      <circle cx="935" cy="449" r="7"/>
+      <circle cx="975" cy="421" r="7"/>
+      <circle cx="1018" cy="451" r="7"/>
+      <circle cx="963" cy="493" r="7"/>
+      <circle cx="1027" cy="500" r="7"/>
+    </g>
+
+    <text class="sans" x="971" y="350" text-anchor="middle" font-size="24" font-weight="700" fill="#0F766E">Local Articulation</text>
+    <text class="serif" x="971" y="376" text-anchor="middle" font-size="21" font-style="italic">aₙ</text>
+    <text class="sans small" x="971" y="551" text-anchor="middle">a local “this is how it has become”</text>
+  </g>
+
+  <g id="stability-scene">
+    <path d="M 842 420
+             C 874 333, 1016 310, 1154 345
+             C 1258 372, 1300 460, 1265 545
+             C 1238 611, 1147 648, 1040 640
+             C 941 633, 864 595, 835 534
+             C 818 498, 818 455, 842 420"
+          fill="#DDEFEA" fill-opacity="0.72" stroke="#0F766E" stroke-width="2.5"/>
+
+    <path d="M 1265 545 C 1298 568, 1312 595, 1306 625" fill="none" stroke="#0F766E" stroke-width="2.5" stroke-dasharray="9 8"/>
+
+    <text class="sans" x="1110" y="378" text-anchor="middle" font-size="25" font-weight="700" fill="#0F766E">Stability Scene</text>
+    <text class="serif" x="1110" y="402" text-anchor="middle" font-size="20" font-style="italic">Kₙ</text>
+
+    <g class="sans">
+      <rect x="1078" y="432" width="164" height="42" rx="12" fill="#FFFFFF" fill-opacity="0.82" stroke="#94A3B8" stroke-width="1.3"/>
+      <text x="1160" y="459" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Readable Relations</text>
+
+      <rect x="857" y="566" width="180" height="44" rx="12" fill="#FFFFFF" fill-opacity="0.82" stroke="#94A3B8" stroke-width="1.3"/>
+      <text x="947" y="594" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Local Establishment</text>
+
+      <rect x="1028" y="568" width="210" height="44" rx="12" fill="#FFFFFF" fill-opacity="0.82" stroke="#94A3B8" stroke-width="1.3"/>
+      <text x="1133" y="596" text-anchor="middle" font-size="15" font-weight="600" fill="#334155">Continuation Conditions</text>
+    </g>
+  </g>
+
+  <g id="residual-not-yet" class="sans">
+    <path d="M 1090 485 C 1132 465, 1200 474, 1234 513 C 1258 541, 1243 570, 1211 582 C 1169 598, 1117 579, 1091 548 C 1072 526, 1071 500, 1090 485"
+          fill="none" stroke="#64748B" stroke-width="2" stroke-dasharray="6 6"/>
+    <g fill="#64748B">
+      <circle cx="1120" cy="514" r="4.5"/>
+      <circle cx="1166" cy="499" r="4"/>
+      <circle cx="1204" cy="528" r="4.5"/>
+      <circle cx="1155" cy="553" r="4"/>
+    </g>
+    <text x="1162" y="542" text-anchor="middle" font-size="15" font-weight="700" fill="#475569">Residual Not-Yet</text>
+  </g>
+
+  <g id="incorporated-readability" class="sans">
+    <path d="M 1276 575 C 1342 611, 1370 662, 1388 719"
+          fill="none" stroke="#7C3AED" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-continuation)"/>
+    <circle cx="1348" cy="649" r="16" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+    <text class="serif" x="1348" y="655" text-anchor="middle" font-size="16">Γ</text>
+
+    <text x="1250" y="674" text-anchor="middle" font-size="20" font-weight="700" fill="#6D28D9">Incorporated Readability</text>
+    <text x="1250" y="698" text-anchor="middle" class="small">what became readable can alter later Slice conditions</text>
+    <text class="serif" x="1348" y="691" text-anchor="middle" font-size="16">Γₙ → Γₙ₊₁</text>
+  </g>
+
+  <g id="further-structure">
+    <path d="M 1362 732
+             C 1402 698, 1462 690, 1520 713
+             C 1560 729, 1578 759, 1582 793
+             M 1582 793
+             C 1581 827, 1565 849, 1534 861
+             C 1486 879, 1420 868, 1374 839"
+          fill="#FFFFFF" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 1374 839 C 1357 823, 1350 805, 1352 786" fill="none" stroke="#94A3B8" stroke-width="2" stroke-dasharray="8 9"/>
+
+    <text class="sans" x="1464" y="760" text-anchor="middle" font-size="22" font-weight="700" fill="#334155">Further Structure / Slice</text>
+    <text class="sans small" x="1464" y="786" text-anchor="middle">continuation, re-articulation, or re-Slice</text>
+  </g>
+
+  <g id="notes" class="sans">
+    <rect x="790" y="682" width="486" height="52" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.4"/>
+    <text x="1033" y="715" text-anchor="middle" font-size="20" font-weight="700" fill="#1F2937">Stability is not final completion.</text>
+  </g>
+
+  <g id="minimal-formal-model">
+    <text class="sans micro" x="130" y="824">Minimal Formal Model v1</text>
+    <text class="serif" x="130" y="851" font-size="19">gₙ = (Sₙ, Bₙ, cₙ, Σₙ, aₙ, Kₙ)</text>
+  </g>
+</svg>
