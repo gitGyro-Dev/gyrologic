@@ -28,14 +28,16 @@ The present question is:
 The current safest working statement is:
 
 ```text
-Readable is a local and condition-relative judgment that a particular articulation or relation has become available in a sufficiently distinguished form to be selectively addressed and admitted as an input or condition for at least one downstream judgment, relation, evaluation, or operation.
+Readable is a local and condition-relative judgment that a particular articulation or relation has become available in a sufficiently distinguished form to be selectively addressed within the current realization.
 ```
 
 Japanese working reading:
 
 ```text
-Readableとは、特定のarticulationまたはrelationが、現在のStructure・Orientation・Context・Slice・readability contextのもとで局所的に利用可能となり、他と区別して参照でき、少なくとも一つの許容された後続の判断・関係づけ・評価・作用に入力または条件として渡せる状態になった、という条件相対的な判断である。
+Readableとは、特定のarticulationまたはrelationが、現在のStructure・Orientation・Context・Slice・readability contextのもとで局所的に利用可能となり、現在のrealizationの中で他と区別して参照可能な形として成立した、という条件相対的な判断である。
 ```
+
+A previous candidate additionally required availability to a downstream judgment or operation. The pressure tests below suggest that this downstream requirement should not be part of the minimum definition of Readable itself.
 
 This is a working hypothesis only.
 
@@ -56,7 +58,7 @@ moving signal
 → collision risk
 ```
 
-Each can become readable at a different point, under a different Orientation, Context, Slice, or downstream criterion.
+Each can become readable at a different point, under a different Orientation, Context, Slice, or criterion.
 
 Therefore the preferred form is:
 
@@ -76,7 +78,7 @@ should be treated as underspecified unless the articulation level is explicit.
 
 ---
 
-## 4. Readable is not existence, detection, or truth
+## 4. Readable is not existence, detection, truth, or successful use
 
 The current study preserves the following separations.
 
@@ -98,14 +100,13 @@ Detected(x) ⇏ Readable(x)
 
 ### 4.3 Truth and correctness
 
-A mistaken articulation may still become locally available, selectively addressable, and used by later processing.
+A mistaken articulation may still become locally available and selectively addressable.
 
 Example:
 
 ```text
 plastic bag
 → articulated as "ball"
-→ avoidance action
 → later Re-Slice
 → corrected to "plastic bag"
 ```
@@ -121,11 +122,29 @@ unless a domain-specific admissibility rule explicitly incorporates truth or cor
 
 This prevents Readable from silently becoming an epistemic truth predicate.
 
+### 4.4 Successful downstream use
+
+A readable articulation need not produce a successful later action.
+
+For example, an automatic-door controller may read:
+
+```text
+opening-relevant presence
+```
+
+while the actuator is broken.
+
+Therefore:
+
+```text
+Readable(a) ⇏ SuccessfulDownstreamExecution(a)
+```
+
 ---
 
-## 5. Candidate minimum conditions
+## 5. Candidate minimum conditions v0.1
 
-A second candidate decomposition is:
+The current refinement reduces the candidate minimum conditions to three.
 
 ```text
 Readable(a; S,B,c,Σ,Γ)
@@ -136,11 +155,10 @@ requires at least:
 ```text
 Available(a; S,B,c,Σ,Γ)
 ∧ Articulated(a; S,B,c,Σ,Γ)
-∧ SelectivelyAddressable(a; B,c,Γ)
-∧ AdmissiblyReferableNext(a; S,B,c,Σ,Γ)
+∧ SelectivelyAddressable(a; S,B,c,Σ,Γ)
 ```
 
-The four conditions are not yet proven jointly sufficient.
+These conditions are not yet proven jointly sufficient.
 
 ### R1. Available
 
@@ -164,64 +182,116 @@ may be sufficient even when neither `person` nor identity is readable.
 
 ### R3. SelectivelyAddressable
 
-The articulation must be distinguishable enough that at least one admissible relation, comparison, judgment, or operation can refer to that articulation rather than to everything else indiscriminately.
+The articulation must be distinguishable enough within the current realization that it can be referred to as that articulation rather than as an undifferentiated remainder.
+
+A working characterization is:
+
+```text
+SelectivelyAddressable(a; ρ)
+```
+
+where `ρ` denotes the current realization or reading scope.
 
 This does not require:
 
 - a human observer;
 - natural-language naming;
 - symbolic representation;
-- full object identity.
+- full object identity;
+- an already existing downstream consumer;
+- successful later action.
 
-### R4. AdmissiblyReferableNext
-
-At least one admissible downstream judgment, relation, evaluation, or operation must be able to take the articulation as an input, condition, distinction, or reference.
-
-This does **not** require successful downstream execution.
-
-Example:
-
-```text
-opening-relevant presence
-```
-
-may be readable even if the door actuator is physically broken.
-
-Thus:
-
-```text
-Readable(a)
-```
-
-should not depend on whether every downstream process succeeds.
+The role of downstream participation is retained as a separate question for Stability, Operator Response, later Slice, or Incorporated Readability.
 
 ---
 
-## 6. Why `Usable` was revised
+## 6. Pressure point 1: no downstream consumer
 
-The first candidate used:
-
-```text
-Usable(a)
-```
-
-as a readability condition.
-
-The automatic-door counterexample showed this term was too ambiguous.
-
-If `Usable` means that the later action must actually succeed, then a correctly read door-opening condition would become unreadable merely because the actuator failed.
-
-That is undesirable.
-
-The revised concept is therefore closer to:
+The earlier candidate required:
 
 ```text
 AdmissiblyReferableNext(a)
 ```
 
-which concerns availability to a legitimate next relation or operation, not success of that later operation.
+meaning that at least one admissible downstream judgment or operation could take `a` as an input or condition.
 
-The exact name remains provisional and should be challenged in external review.
+This initially appeared useful because it distinguished a merely present signal from something that could participate in later processing.
+
+However, consider:
+
+```text
+a local articulation is produced,
+it is available,
+it is distinguished,
+it can be selectively referenced in the present realization,
+but no later process currently consumes it.
+```
+
+Examples include:
+
+- a diagnostic result generated just before a program terminates;
+- a measurement displayed but never logged or acted upon;
+- a mathematical intermediate result at the end of an abandoned proof attempt;
+- an observation made by a human immediately before the task is stopped.
+
+It is difficult to justify calling such an articulation unreadable merely because no later consumer happens to exist.
+
+The key distinction appears to be:
+
+```text
+Readable
+≠
+ActuallyConsumedLater
+```
+
+and likely also:
+
+```text
+Readable
+≠
+PotentiallyConsumableBySomeHypotheticalFutureProcess
+```
+
+because hypothetical future consumers can always be invented, making the condition vacuous.
+
+### Interim conclusion P1
+
+`AdmissiblyReferableNext` should not currently be retained as a minimum condition of Readable.
+
+Instead, the present model separates:
+
+```text
+Readable(a)
+```
+
+from:
+
+```text
+ParticipatesDownstream(a)
+```
+
+and from:
+
+```text
+SupportsContinuation(a)
+```
+
+This also sharpens the distinction with Stability:
+
+```text
+Readable(a)
+⇏
+Continuable(a)
+```
+
+while the current Stability interpretation remains:
+
+```text
+Stable(a)
+⇒ Readable(a) ∧ Continuable(a)
+```
+
+This refinement removes an implementation-topology assumption from the theory-level Readable relation.
 
 ---
 
@@ -422,7 +492,7 @@ means support exists for following the relation.
 Readable(r; B,c,Σ,Γ)
 ```
 
-means the relation has become locally available in a selectively addressable and admissibly referable form under the present conditions.
+means the relation has become locally available in an articulated and selectively addressable form under the present conditions.
 
 Thus:
 
@@ -435,7 +505,172 @@ remain candidate separations.
 
 ---
 
-## 13. Candidate judgment notation
+## 13. Pressure point 2: human-readable display versus machine unreadability
+
+Consider:
+
+```text
+A machine generates an internal result a.
+The result is rendered to a display.
+A human reads the displayed result.
+The generating machine itself has no path to reference a again.
+```
+
+At first glance, this seems to create two contradictory judgments:
+
+```text
+Readable_human(a) = true
+Readable_machine(a) = false
+```
+
+The contradiction disappears once the reading scope is made explicit.
+
+The display does not make one global predicate `Readable(a)` true for every participant. Instead, the result participates in different local realizations.
+
+A useful notation is:
+
+```text
+Readable(a; ρ)
+```
+
+where `ρ` denotes a local reading realization or scope.
+
+For example:
+
+```text
+ρ_m = machine-internal realization before display output
+ρ_h = human-display realization
+```
+
+Then it is coherent for:
+
+```text
+Readable(a; ρ_h)
+```
+
+and:
+
+```text
+¬Readable(a; ρ_m')
+```
+
+where `ρ_m'` is a later machine realization in which the generated result is no longer internally addressable.
+
+### Important refinement: representation versus articulation identity
+
+The human may not literally read the same internal object `a` that existed inside the machine. The display may produce a representation:
+
+```text
+π(a) = d
+```
+
+where `d` is the displayed articulation or representation available to the human.
+
+The safer description may therefore be:
+
+```text
+Readable(d; ρ_h)
+```
+
+rather than automatically:
+
+```text
+Readable(a; ρ_h)
+```
+
+A relation between `a` and `d` must itself be justified if one wants to say the human read the machine's internal result rather than merely a derived display representation.
+
+This prevents a silent collapse of:
+
+```text
+internal result
+=
+displayed representation
+=
+human articulation
+```
+
+### Interim conclusion P2
+
+Readable should be treated as realization-relative, but an additional primitive `Reader` parameter is not yet required.
+
+The existing conditioning terms may already identify the reading scope:
+
+```text
+Readable(a; S,B,c,Σ,Γ)
+```
+
+provided the realization to which those parameters belong is explicit.
+
+A compact notation may be used analytically:
+
+```text
+ρ = (S,B,c,Σ,Γ)
+Readable(a; ρ)
+```
+
+This is preferable, for now, to introducing:
+
+```text
+Readable(a; reader, S,B,c,Σ,Γ)
+```
+
+because `reader` risks reifying a human-like observer where none is required.
+
+---
+
+## 14. Selective addressability after the two pressure tests
+
+The pressure tests make `SelectivelyAddressable` more central, but also expose a possible circularity.
+
+It cannot be defined as:
+
+```text
+SelectivelyAddressable(a)
+= a can be read
+```
+
+because that merely renames Readable.
+
+A safer provisional characterization is structural:
+
+```text
+SelectivelyAddressable(a; ρ)
+```
+
+holds when, within realization `ρ`, there exists at least one distinction or reference relation that can pick out `a` as the articulation at issue rather than leaving it merged with undifferentiated alternatives.
+
+This reference relation may be:
+
+- symbolic;
+- perceptual;
+- relational;
+- positional;
+- causal;
+- indexical;
+- procedural;
+- domain-specific.
+
+It does not need to be linguistic and does not need to lead to a later operation.
+
+This suggests the following separation:
+
+```text
+Articulated(a)
+= a local distinction has formed
+
+SelectivelyAddressable(a; ρ)
+= that local distinction can be picked out as this distinction within ρ
+
+Readable(a; ρ)
+= the articulation is locally available as an addressable establishment under ρ
+```
+
+Whether `Articulated` and `SelectivelyAddressable` are genuinely independent remains an external-review target.
+
+---
+
+## 15. Candidate judgment notation v0.1
 
 A useful notation remains:
 
@@ -447,14 +682,23 @@ read as:
 
 > under Structure `S`, Orientation `B`, Context `c`, Slice `Σ`, and readability context `Γ`, articulation `a` counts as readable.
 
+For compact analysis:
+
+```text
+ρ := (S,B,c,Σ,Γ)
+ρ ⊢_R a
+```
+
+may be used.
+
 Working equivalence:
 
 ```text
-S,B,c,Σ,Γ ⊢_R a
+ρ ⊢_R a
 
 iff
 
-Readable(a; S,B,c,Σ,Γ)
+Readable(a; ρ)
 ```
 
 This is not yet a proof-theoretic commitment.
@@ -463,113 +707,49 @@ No introduction or elimination rule is fixed at this stage.
 
 ---
 
-## 14. Candidate introduction rule v0
+## 16. Candidate introduction rule v0.1
 
-The current candidate is:
+After the two pressure tests, the current candidate is reduced to:
 
 ```text
-Available(a; S,B,c,Σ,Γ)
-Articulated(a; S,B,c,Σ,Γ)
-SelectivelyAddressable(a; B,c,Γ)
-AdmissiblyReferableNext(a; S,B,c,Σ,Γ)
--------------------------------------------------
-S,B,c,Σ,Γ ⊢_R a
+Available(a; ρ)
+Articulated(a; ρ)
+SelectivelyAddressable(a; ρ)
+---------------------------------
+ρ ⊢_R a
 ```
 
 This should be treated as a hypothesis to attack, not as a theorem.
 
-The following questions remain open:
+Open questions now become sharper:
 
-1. Can all four premises hold while `a` still should not count as readable?
-2. Is `AdmissiblyReferableNext` still too strong?
-3. Could something be readable even if no downstream process currently exists?
-4. Does `SelectivelyAddressable` already include some form of downstream referability?
-5. Is `Articulated` distinct enough from `SelectivelyAddressable` to justify both?
-6. Is `Γ` required for every local readability judgment, or only for context-dependent later readability?
-7. Must `S` be explicit in the judgment, or can it be reconstructed from the Slice realization?
-8. Does the rule accidentally make Readable implementation-centric rather than theory-level?
-
----
-
-## 15. Important unresolved pressure point: no downstream consumer
-
-The strongest unresolved counterexample is this case:
-
-```text
-an articulation is locally available,
-distinguished,
-and selectively addressable,
-but no actual downstream process currently consumes it.
-```
-
-Question:
-
-> Is it still Readable?
-
-Two candidate answers remain open.
-
-### Candidate A — yes
-
-Readable requires only that the articulation **could** be admitted by at least one compatible downstream relation if such a relation were present.
-
-This weakens `AdmissiblyReferableNext` toward potential admissibility.
-
-### Candidate B — no
-
-Readable requires participation in the current relational scene, so an articulation with no admissible downstream relation remains only articulated, not yet readable.
-
-This makes Readable more relational but risks coupling it too strongly to implementation or current process topology.
-
-This issue should be tested before external review is considered complete.
+1. Can all three premises hold while `a` still should not count as readable?
+2. Is `Available` already implied by `SelectivelyAddressable`?
+3. Is `Articulated` already implied by `SelectivelyAddressable`?
+4. Is selective addressability actually the decisive criterion, making the other premises explanatory rather than logically independent?
+5. Does this formulation still depend too strongly on an implicit notion of reference?
+6. Can `SelectivelyAddressable` be given non-circular formal semantics?
+7. Is `Γ` required in an initial local realization with no incorporated readability?
+8. Must `S` be explicit or can it be recovered from `ρ` or the Slice relation?
+9. Are there domains where an articulation is readable without being individually addressable, for example distributed or holistic pattern recognition?
 
 ---
 
-## 16. Important unresolved pressure point: human-readable display versus machine unreadability
-
-Another useful case is:
-
-```text
-A machine generates an internal result.
-The result is rendered to a display.
-A human can read the displayed result.
-The generating machine itself has no path to reference that result again.
-```
-
-There may be at least two different readability judgments:
-
-```text
-Readable_human(a)
-Readable_machine(a)
-```
-
-The first may hold while the second does not.
-
-This suggests Readable may need an explicit **reading relation or realization scope**, rather than being interpreted globally.
-
-It also warns against assuming:
-
-```text
-visible somewhere
-⇒ readable everywhere
-```
-
----
-
-## 17. Candidate propositions for review
+## 17. Candidate propositions for external review
 
 The following are candidate propositions, not established theorems.
 
 ### P-R1 Context relativity
 
 ```text
-Readable(a; S,B1,c1,Σ1,Γ1)
-⇏ Readable(a; S,B2,c2,Σ2,Γ2)
+Readable(a; ρ1)
+⇏ Readable(a; ρ2)
 ```
 
 ### P-R2 Locality
 
 ```text
-Readable(a; S,B,c,Σ,Γ)
+Readable(a; ρ)
 ⇏ global readability of S
 ```
 
@@ -577,50 +757,72 @@ Readable(a; S,B,c,Σ,Γ)
 
 ```text
 Exists(a)
-⇏ Readable(a; ...)
+⇏ Readable(a; ρ)
 ```
 
 ### P-R4 Detection separation
 
 ```text
 Detected(a)
-⇏ Readable(a; ...)
+⇏ Readable(a; ρ)
 ```
 
 ### P-R5 Truth separation
 
 ```text
-Readable(a)
+Readable(a; ρ)
 ⇏ True(a)
 ```
 
 ### P-R6 Correctness separation
 
 ```text
-Readable(a)
+Readable(a; ρ)
 ⇏ Correct(a)
 ```
 
 ### P-R7 Stability implication
 
 ```text
-Stable(a)
-⇒ Readable(a)
+Stable(a; ρ)
+⇒ Readable(a; ρ)
 ```
 
 while generally:
 
 ```text
-Readable(a)
-⇏ Stable(a)
+Readable(a; ρ)
+⇏ Stable(a; ρ)
 ```
 
 ### P-R8 Non-persistence
 
 ```text
-Readable_n(a)
-⇏ Readable_{n+1}(a)
+Readable(a; ρ_n)
+⇏ Readable(a; ρ_{n+1})
 ```
+
+### P-R9 Downstream-consumer independence
+
+```text
+Readable(a; ρ)
+```
+
+does not require that an actual later process consume `a`.
+
+### P-R10 Scope separation
+
+```text
+Readable(a; ρ_1)
+```
+
+does not imply:
+
+```text
+Readable(a; ρ_2)
+```
+
+merely because `ρ_1` and `ρ_2` concern the same underlying bearer or system.
 
 These propositions should be challenged by external review and explicit countermodels.
 
@@ -628,11 +830,11 @@ These propositions should be challenged by external review and explicit counterm
 
 ## 18. What appears relatively stable enough to preserve for review
 
-The following points currently survive the available examples and should be preserved unless counterexamples overturn them:
+The following points currently survive the available examples and pressure tests and should be preserved unless counterexamples overturn them:
 
 1. Readable is not a fourth Core element.
 2. Readable is local rather than global.
-3. Readable is condition-relative.
+3. Readable is condition-relative and realization-relative.
 4. Readable should normally apply to an articulation or relation, not to an underlying object without specifying granularity.
 5. Existence does not imply Readable.
 6. Detection does not necessarily imply Readable.
@@ -641,7 +843,11 @@ The following points currently survive the available examples and should be pres
 9. Stability appears to require Readable under the current Core interpretation.
 10. Readability may later be revised, lost, superseded, or become inaccessible.
 11. Readability does not exhaust Structure and is compatible with residual not-yet.
-12. The mechanism used to establish a Readable judgment belongs to domain instantiation and should not redefine the Gyro Logic relation universally.
+12. Readable does not require successful downstream execution.
+13. Readable probably does not require an actual downstream consumer.
+14. A displayed representation and the internal articulation from which it was produced must not automatically be identified.
+15. An explicit human-like `Reader` primitive is not yet justified; realization scope may be sufficient.
+16. The mechanism used to establish a Readable judgment belongs to domain instantiation and should not redefine the Gyro Logic relation universally.
 
 These points are still reviewable; `relatively stable` does not mean canonical.
 
@@ -652,17 +858,19 @@ These points are still reviewable; `relatively stable` does not mean canonical.
 The following points should remain open before Paper Candidate status:
 
 1. whether Readable is fundamentally a predicate, judgment, relation, accessibility condition, or heterogeneous family;
-2. whether the four candidate conditions are individually necessary;
-3. whether the four candidate conditions are jointly sufficient;
-4. the exact meaning and name of `AdmissiblyReferableNext`;
-5. whether potential downstream referability is sufficient without an actual downstream consumer;
-6. whether `SelectivelyAddressable` and `Articulated` are genuinely separate conditions;
+2. whether `Available`, `Articulated`, and `SelectivelyAddressable` are individually necessary;
+3. whether the three candidate conditions are jointly sufficient;
+4. whether `SelectivelyAddressable` can be defined non-circularly;
+5. whether `Available` and `Articulated` are redundant once selective addressability is given;
+6. whether distributed or holistic readability can occur without individually addressable articulation;
 7. whether `Γ` belongs in all readability judgments;
-8. whether Readable requires an explicit reader/realization parameter;
-9. whether readability composes transitively;
-10. whether readability is monotonic under any restricted class of Context expansion;
-11. how Readable relates formally to Unknown, Blank, None, Absence, Void, inaccessible, and unresolved states;
-12. whether the turnstile notation should eventually receive formal introduction/elimination rules.
+8. whether a formal realization parameter `ρ` should become part of the model or remain shorthand;
+9. whether Readable ever requires an explicit reader/agent parameter in specialized domains;
+10. whether readability composes transitively;
+11. whether readability is monotonic under any restricted class of Context expansion;
+12. how Readable relates formally to Unknown, Blank, None, Absence, Void, inaccessible, and unresolved states;
+13. whether the turnstile notation should eventually receive formal introduction/elimination rules;
+14. what formal relation connects an internal articulation `a` to an external representation `π(a)` and whether readability transfers across that relation.
 
 ---
 
@@ -670,16 +878,19 @@ The following points should remain open before Paper Candidate status:
 
 When this file is sent to Claude and Gemini, reviewers should pay particular attention to:
 
-1. whether `AdmissiblyReferableNext` is circular or unnecessary;
-2. whether the model confuses readability with operational accessibility;
-3. whether the truth/correctness separation is logically coherent;
-4. whether the distinction among Available, Articulated, SelectivelyAddressable, and Readable is non-redundant;
-5. whether a known formal framework already captures the same relation more cleanly;
-6. counterexamples where all current candidate conditions hold but readability should fail;
-7. counterexamples where Readable intuitively holds despite one candidate condition failing;
-8. whether the relation is still too dependent on an implicit Operator or observer;
-9. whether the candidate semantics can be expressed without introducing implementation assumptions;
-10. which claims are mature enough to preserve and which should remain provisional.
+1. whether removing `AdmissiblyReferableNext` makes Readable too weak;
+2. whether requiring an actual or potential downstream consumer was in fact necessary;
+3. whether the three remaining conditions are redundant or circular;
+4. whether `SelectivelyAddressable` is simply Readable under another name;
+5. whether the truth/correctness separation is logically coherent;
+6. whether realization-relative readability can be expressed more cleanly using an established formal framework;
+7. whether an explicit reader/agent parameter is unavoidable;
+8. whether the distinction between internal articulation and displayed representation is adequate;
+9. counterexamples where all current candidate conditions hold but readability should fail;
+10. counterexamples where Readable intuitively holds despite one candidate condition failing;
+11. whether holistic or distributed patterns defeat selective addressability;
+12. whether the candidate semantics can be expressed without introducing implementation assumptions;
+13. which claims are mature enough to preserve and which should remain provisional.
 
 Use the repository review prompt:
 
@@ -700,11 +911,29 @@ Status:
 DRAFT_FOR_EXTERNAL_REVIEW
 ```
 
+Internal ChatGPT pressure tests completed in this revision:
+
+```text
+1. no downstream consumer
+2. human-readable display versus machine unreadability
+```
+
+Current direction:
+
+```text
+Readable
+≈ local availability
++ articulation
++ selective addressability
+within an explicit realization scope
+```
+
+but this remains provisional and is now ready for external critical attack.
+
 Next sequence:
 
 ```text
-ChatGPT internal refinement
-→ Claude critical review
+Claude critical review
 → Gemini critical review
 → record reviews in reviews/
 → classify findings: accept / partial / reject / verify / defer
