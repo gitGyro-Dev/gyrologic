@@ -16,14 +16,18 @@ The goal is not to define `Readable` and not to modify the invariant Core:
 Structure → Slice → Stability
 ```
 
-The current working baseline is:
+The current working baseline is intentionally simple:
 
 - events / phenomena may continue independently of where an Operator places a local boundary;
 - `slice-done` is primarily an Operator-side unitization under Orientation and Context;
-- however, the Operator is not assumed to be free to place a boundary arbitrarily anywhere;
-- event-side changes may strongly constrain plausible boundary placement.
+- the Operator itself, its Orientation, its Context, and its criteria may also continue to change;
+- therefore a `done` judgment should not be treated as a timeless or globally fixed boundary by default.
 
-The immediate test is whether apparently strong event-side endings uniquely determine `done`, or instead provide strong candidate regions that remain Operator-relative.
+The immediate question is no longer whether event-side changes uniquely determine `done`.
+
+A simpler question is:
+
+> How does a changing Operator, under changing Orientation and Context, temporarily treat some part of continuing change as one local establishment?
 
 ---
 
@@ -32,500 +36,439 @@ The immediate test is whether apparently strong event-side endings uniquely dete
 The present working picture is:
 
 ```text
-Event side
+Event / phenomenon side
 ────────────────────────────────────→
-continuous / ongoing change
+change continues
 
 Operator side
         [ local establishment ]
                 ↑
-         `done` boundary
+         local `done`
 ```
 
-The Operator-side boundary is not assumed to create the event-side change.
+But the Operator side is also not fixed:
 
-Likewise, the event-side change is not yet assumed to determine one unique Operator-side boundary.
+```text
+Operator / Orientation / Context
+──────────────→ also changing
+```
 
-A safer working statement is:
+Therefore the current picture is better understood as:
 
-> Event-side changes may constrain where a local establishment can reasonably be placed, while Orientation and Context determine which constrained boundary is relevant to the current Slice.
+```text
+continuing event
++
+changing Operator-side conditions
+↓
+local unitization at that time
+↓
+`slice-done`
+```
 
-This statement is provisional and must survive examples.
+This does not mean the Operator creates the event-side change.
+
+It also does not mean the event side supplies one timeless, unique boundary that every Operator must discover.
 
 ---
 
-## 3. Case 1 — A glass falls and breaks
+## 3. Strong event-side examples revisited
 
-A simplified event sequence is:
+Examples such as:
 
-```text
-fall
-→ impact
-→ first crack
-→ structural fracture
-→ fragmentation
-→ fragment motion
-→ settling
-→ later physical change
-→ ...
-```
+- a glass breaks;
+- a person dies;
+- water freezes;
+- a file transfer completes;
+- hardware fails;
 
-At first glance, `the glass broke` appears to have a natural event-side completion.
+can all look as if the event side itself contains an obvious `done`.
 
-But several candidate boundaries remain available:
+However, each expression already includes a way of looking at the event.
 
-- first irreversible crack;
-- loss of structural integrity;
-- fragmentation into separate pieces;
-- end of fragment motion.
+### Glass breaking
 
-These are not equally useful under every Orientation.
-
-Examples:
-
-- a materials researcher may care about crack initiation;
-- a safety controller may care about structural integrity loss;
-- an insurance report may care about functional destruction;
-- a cleanup task may care about fragments becoming stationary.
-
-### Observation G1
-
-The event side supplies strong irreversible transitions.
-
-However, the expression `the glass broke` still depends on which relation counts as the establishment at issue.
-
-Candidate conclusion:
+Possible ways of treating the event include:
 
 ```text
-strong event-side transition
-⇏ unique `done` boundary
+first crack
+loss of structural integrity
+fragmentation
+end of fragment motion
 ```
 
-Instead:
+The physical changes continue beyond each one.
+
+### Death
+
+Possible markers include:
 
 ```text
-strong event-side transition
-⇒ constrained boundary candidates
+circulation stops
+brain function is irreversibly lost
+legal death is declared
+cellular processes stop later
 ```
 
-is more plausible.
+The event is strongly constrained by biological reality, but what is being treated as the relevant `done` still depends on the relation being established.
 
----
+### Phase transition
 
-## 4. Case 2 — A person dies
-
-This is a deliberately strong case because `death` appears more naturally final than many ordinary transitions.
-
-Possible event-side markers include:
-
-- cessation of heartbeat;
-- cessation of circulation;
-- irreversible loss of whole-brain function;
-- irreversible loss of brainstem function;
-- irreversible cellular failure;
-- legal declaration of death.
-
-The underlying biological processes do not all stop at one instant.
-
-After one criterion is satisfied:
-
-- cellular processes continue;
-- chemical reactions continue;
-- decomposition begins;
-- organ viability may differ by tissue;
-- legal and medical consequences continue.
-
-### Observation D1
-
-Even in a case with strong practical and legal boundary conventions, the event side does not obviously provide one universally privileged physical instant that satisfies every Orientation.
-
-The boundary is highly constrained, but its admissible placement depends on what is being established:
+Possible boundaries include:
 
 ```text
-medical death
-legal death
-organ viability loss
-cellular death
+nucleation
+macroscopic solidification
+complete solidification
+thermal equilibrium
 ```
 
-### Important caution
+A sharp physical change may strongly influence where an Operator places a boundary, but the word `done` still belongs to the local establishment being made.
 
-This does **not** imply that an Operator may freely declare death at any arbitrary point.
+### File transfer
 
-The available boundary candidates are strongly restricted by biological, medical, legal, and operational relations.
-
-This case therefore suggests the useful distinction:
-
-```text
-Operator-relative
-≠ arbitrary
-```
-
----
-
-## 5. Case 3 — Phase transition
-
-Consider water freezing.
-
-A naive description is:
-
-```text
-liquid
-→ freezing point
-→ solid
-```
-
-But real systems may contain:
-
-- supercooling;
-- nucleation;
-- coexistence of phases;
-- latent heat release;
-- spatially nonuniform freezing;
-- delayed equilibrium.
-
-Possible `done` boundaries include:
-
-- first nucleation event;
-- first macroscopic solid region;
-- majority solidification;
-- complete macroscopic solidification;
-- thermal equilibrium after solidification.
-
-### Observation P1
-
-A phase transition can provide a strong event-side structural change, but the exact `done` boundary still depends on what the Operator is establishing.
-
-A microscopic Orientation and a macroscopic operational Orientation may legitimately place different local boundaries.
-
-Again:
-
-```text
-salient physical transition
-⇏ unique universal local establishment boundary
-```
-
----
-
-## 6. Case 4 — File transfer completes
-
-This case appears more discrete and protocol-defined than physical examples.
-
-Possible event sequence:
+Possible local completions include:
 
 ```text
 last byte sent
-→ last byte received
-→ transport acknowledgement
-→ checksum verification
-→ buffer flush
-→ file close
-→ application-level acceptance
+last byte received
+ACK received
+checksum verified
+application accepted
 ```
 
-One might think the protocol itself determines a unique `done`.
+Here the boundary rules are explicitly designed by Operators and protocol layers.
 
-But the protocol contains multiple layers, each with its own completion condition.
+### Hardware failure
 
-Examples:
+Possible boundaries include:
 
 ```text
-network-layer done
-transport-layer done
-storage-layer done
-application-layer done
-user-visible done
+degradation begins
+parameter exceeds tolerance
+function drops below specification
+protection trips
+replacement is declared necessary
 ```
 
-### Observation F1
-
-This is an important case because the candidate boundaries are not merely subjective interpretations.
-
-They are explicitly encoded by different Operators / mechanisms / protocol layers.
-
-Therefore `done` can be strongly rule-constrained without being globally unique.
-
-This supports:
-
-```text
-local rule-determined `done`
-≠ global event completion
-```
-
-and:
-
-```text
-multiple constrained `done` boundaries
-```
-
-can coexist over one continuing computational process.
+Again, the physical change and the local failure judgment are related but not identical.
 
 ---
 
-## 7. Case 5 — Hardware failure
+## 4. Current simpler understanding
 
-Consider a light bulb or hardware component `failing`.
-
-Possible candidate transitions include:
-
-- material defect begins;
-- electrical parameter exceeds tolerance;
-- output drops below specification;
-- protection circuit trips;
-- component ceases operation;
-- monitoring system raises failure state;
-- operator declares replacement required.
-
-The physical degradation may begin long before operational failure is declared.
-
-Likewise, after the failure state is declared, physical changes continue.
-
-### Observation H1
-
-`failure` is usually not a single event-side primitive.
-
-It is a relation between the changing system and a criterion of acceptable continuation or function.
-
-This case makes the Operator / Orientation contribution particularly explicit.
-
-The hardware side constrains the possible judgment through measurable change, but the `failed` establishment depends on which functional or operational criterion is active.
-
----
-
-## 8. Comparison across the five cases
-
-The examples differ strongly:
-
-```text
-glass breaking     — physical irreversible transition
-death              — biological / medical / legal boundary
-phase transition   — physical state change
-file transfer      — protocol-defined computational completion
-hardware failure   — functional / operational threshold
-```
-
-Yet a common structure appears.
-
-### Common pattern
-
-1. The event side contains changes that are not invented by the Operator.
-2. Some changes are much more salient or constraining than others.
-3. These changes reduce the plausible region in which a local `done` can be placed.
-4. Orientation and Context determine which event-side relation matters for the current establishment.
-5. Different Operators can therefore place different boundaries without every boundary being equally admissible.
-6. The underlying event or process may continue after any one local `done` establishment.
-
-This suggests a distinction between:
+The previous version of this note tried to separate:
 
 ```text
 boundary freedom
 ```
 
-and:
+from:
 
 ```text
 boundary admissibility
 ```
 
-The Operator has some freedom of unitization, but not unlimited freedom.
+and then searched for candidate constraints.
+
+That may already have been one step too far.
+
+A simpler current understanding is:
+
+> The Operator does not usually place a local `done` without relation to what is happening, but what counts as relevant, coherent, acceptable, mistaken, or preferable is itself judged from an Operator-side position that can change.
+
+Therefore:
+
+```text
+Operator-relative
+≠ completely arbitrary
+```
+
+may still be a useful reminder, but it should not be turned too quickly into a fixed list of universal admissibility conditions.
+
+The event side matters.
+
+The Operator side matters.
+
+And the Operator-side basis of judgment also moves.
 
 ---
 
-## 9. First candidate constraints on Operator-side boundary placement
+## 5. Reconsidering the earlier pressure tests
 
-These are not definitions or axioms. They are only candidate constraint families suggested by the examples.
+The earlier pressure tests can now be answered more simply.
 
-### C1. Event-side support
+### PT1. Can `done` occur without a sharp boundary?
 
-A `done` boundary should correspond to some identifiable change, relation, threshold crossing, transition, loss, gain, or structural difference in the event/process being sliced.
+Yes.
 
-This prevents a purely arbitrary boundary with no relation to the event-side Structure.
+A sharp boundary is not obviously required.
 
-### C2. Orientation relevance
-
-The event-side change used as a boundary must be relevant to what the current Orientation is trying to establish.
-
-Example:
+Even the distinction between:
 
 ```text
-last byte sent
+sharp boundary
 ```
 
-may be relevant to a sender-side transfer question but insufficient for an application-level completion question.
-
-### C3. Context compatibility
-
-The boundary must remain interpretable under the current Context.
-
-A criterion that is valid under one protocol, medical definition, sensor mode, or operating regime may not transfer unchanged to another.
-
-### C4. Local coherence
-
-The boundary should allow the resulting unit to be treated coherently as the establishment at issue.
-
-This does not require global truth or total closure.
-
-It only excludes boundaries that destroy the very distinction the Slice is attempting to establish.
-
-### C5. Non-arbitrariness under comparison
-
-If two boundary placements are compared under the same Orientation and Context, there should be a reason grounded in event-side relations for preferring, allowing, or rejecting each one.
-
-This is a minimal defense against the claim:
+and:
 
 ```text
-"any Operator boundary is equally valid"
+gradual change
 ```
 
-The current study explicitly rejects that unrestricted reading.
+is already partly dependent on scale, observation, Orientation, and Context.
+
+Therefore a clear event-side discontinuity should not be treated as a universal prerequisite for `slice-done`.
+
+### PT2. Can multiple `done` boundaries be equally admissible under the same Orientation / Context?
+
+The word `equally admissible` already introduces another judgment layer.
+
+The safer statement is:
+
+> An Operator may treat more than one boundary as acceptable, and the judgment that they are equally acceptable is itself an Operator-side establishment.
+
+This does not prove that all boundaries are interchangeable.
+
+It only prevents `admissibility` from silently becoming an external, timeless judge.
+
+### PT3. Can a later Operator place a better boundary than the original Operator?
+
+Not universally answerable.
+
+A later Operator may have access to more remaining relations, traces, consequences, or later establishments.
+
+But later does not automatically mean better.
+
+What can be established later depends on what remains and what can still be related.
+
+Therefore:
+
+```text
+later
+⇏ better
+```
+
+and:
+
+```text
+retrospective boundary / establishment
+```
+
+must depend on what remains available in later Structure.
+
+### PT4. Can a once-accepted `done` later be judged wrong?
+
+Yes.
+
+But the important point is not merely that the earlier judgment was wrong.
+
+The later judgment is also made by a changing Operator under a later Orientation and Context.
+
+Thus:
+
+```text
+accepted then
+→ revised later
+```
+
+is not exceptional.
+
+It is a normal consequence of continuing Slice, Re-Slice, changed Context, and changed Operator-side criteria.
+
+This reinforces:
+
+```text
+local establishment
+≠ timeless correctness
+```
+
+### PT5. Do fixed Orientation / Context force all Operators to converge on one boundary?
+
+The wording `converge on` may itself be misleading.
+
+A more useful possibility is:
+
+> Under some conditions, there may be strong pressure or direction toward placing a boundary in the same region.
+
+That pressure may arise from:
+
+- event-side change;
+- shared rules;
+- shared measurement scale;
+- shared protocol;
+- shared practical constraints;
+- shared Orientation / Context.
+
+But even apparent convergence should not immediately be interpreted as discovery of one intrinsic, timeless `done` point.
+
+It may instead be:
+
+```text
+many Operators are being directed toward similar unitization
+```
+
+under sufficiently similar conditions.
 
 ---
 
-## 10. Stronger provisional statement
+## 6. The missing point: repetition and movement
 
-A more precise plain-language statement now appears possible:
-
-> `slice-done` is primarily an Operator-side unitization, but it is not an arbitrary one. The Operator places a local boundary under Orientation and Context by using event-side changes, relations, thresholds, or structural differences as constraints. Event-side structure can strongly restrict plausible boundaries without necessarily determining one unique global `done` point.
-
-This is stronger than the earlier statement:
-
-> the Operator simply decides where to stop.
-
-The latter is too permissive.
-
-The current interpretation is instead:
+A recurring source of confusion is treating any of the following as fixed:
 
 ```text
-continuing event
-+
-event-side constraints
-+
-Operator Orientation / Context
+Operator
+Orientation
+Context
+criterion
+boundary
+judgment
+```
+
+In practice, all may change.
+
+Therefore the more natural Gyro picture is not:
+
+```text
+one event
+→ one Operator judgment
+→ fixed done
+```
+
+but something closer to:
+
+```text
+continuing change
 ↓
-constrained local unitization
+Operator-side local unitization
 ↓
-`slice-done`
+local establishment
+↓
+continued change
+↓
+changed Operator / Orientation / Context
+↓
+new Slice / Re-Slice
+↓
+new local establishment
+↓
+...
 ```
 
-This is an explanatory sketch only; it does not replace the Core.
+The important feature is repetition.
+
+A `done` is local.
+
+It does not stop the event.
+
+It does not stop the Operator.
+
+It does not freeze the criteria by which later establishments are made.
 
 ---
 
-## 11. What this says about apparent natural `done`
+## 7. What becomes simpler from this view
 
-The five cases suggest that what appears to be a natural event-side `done` may usually be one of the following:
-
-- an irreversible change;
-- a sharp transition;
-- a threshold crossing;
-- a protocol marker;
-- a loss of function;
-- a conventionally privileged relation;
-- a strongly salient boundary candidate.
-
-These can make one boundary overwhelmingly natural for a given Orientation and Context.
-
-But the current examples do not yet establish:
+The question:
 
 ```text
-there exists one Operator-independent universal `done`
+What universally constrains every Operator-side boundary?
 ```
 
-for the underlying continuing event.
+may be too large at this stage.
 
-The safer hypothesis is:
+A more modest and useful question is:
 
-> Some event-side changes are so constraining that many Operators converge on nearby `done` boundaries, but convergence of boundary placement should not yet be confused with proof of one intrinsic universal event boundary.
+> At this particular Slice, under this Operator-side situation, why was this range treated as one local establishment?
+
+Then, after another Slice:
+
+> Is that earlier establishment still being treated the same way, revised, connected to something else, or abandoned?
+
+This preserves the possibility of critique and comparison without pretending there is a timeless external admissibility rule already available.
 
 ---
 
-## 12. Relation to `Readable`
+## 8. Relation to past reconstruction
 
-This study does not attempt to define `Readable`.
+The same simplification helps with retrospective establishment.
 
-However, it clarifies the role that the word was trying to explain.
+A later Operator does not directly recover the original event.
 
-Instead of asking:
-
-```text
-What universal predicate makes a result Readable?
-```
-
-we can now ask:
+Instead:
 
 ```text
-What constrains an Operator to treat this range of slice-ing
-as one local establishment rather than another?
+past event / establishment
+↓
+relations, consequences, traces remain or disappear
+↓
+later Structure
+↓
+later Operator performs Slice
+↓
+present local establishments
+↓
+possible retrospective establishment
 ```
 
-`Readable` may remain only a provisional explanatory word for the condition in which this constrained local establishment can be treated as established.
+What can be established later depends on what remains.
 
-No additional formal semantics are introduced here.
+Therefore:
+
+```text
+past event itself
+≠
+present establishment about the past
+```
+
+and:
+
+```text
+more elapsed time
+```
+
+does not automatically imply either better or worse reconstruction.
+
+It depends on the surviving relations and on the later Operator-side conditions.
 
 ---
 
-## 13. New pressure tests
+## 9. Current plain-language understanding
 
-The next examples should target the current provisional statement rather than `Readable` itself.
+The current simplest wording is:
 
-### PT1. Boundary with no sharp event-side change
+> Events and phenomena continue. An Operator also continues and changes. Under the current Orientation and Context, the Operator may temporarily treat some range of ongoing change as one local establishment (`slice-done`). There may be strong event-side reasons for placing a boundary around one region rather than another, but the relevance, adequacy, correctness, or later revision of that boundary are themselves established from changing Operator-side conditions. The local `done` therefore should not be mistaken for either the objective end of the event or a timeless final judgment.
 
-Can a valid `slice-done` occur when the event side changes only gradually, with no identifiable threshold or discontinuity?
+Japanese working reading:
 
-If yes, `event-side support` must be broader than sharp transitions.
-
-### PT2. Multiple equally supported boundaries
-
-Can two different boundaries be equally supported by the same event-side relations under the same Orientation and Context?
-
-If yes, admissibility may be non-unique even after Orientation and Context are fixed.
-
-### PT3. Retrospective boundary placement
-
-Can a later Operator place a better-supported `done` boundary than the Operator present during the original event?
-
-This directly connects to retrospective establishment without assuming they are the same concept.
-
-### PT4. False but locally coherent boundary
-
-Can an Operator place a boundary that is coherent under Orientation and Context but later evidence shows that the underlying event-side interpretation was wrong?
-
-If yes:
-
-```text
-admissible local unitization
-```
-
-must remain separate from:
-
-```text
-truth / correctness
-```
-
-### PT5. Forced local boundary
-
-Can we construct a case where, under fixed Orientation and Context, every admissible Operator must place the boundary at the same event-side transition?
-
-This is the strongest test for whether event-side structure can sometimes determine a unique local `done` even if it does not determine a universal event boundary.
+> 事象・現象は続く。Operator自身も、そのOrientationやContext、判断の基準も変化し続ける。その時点のOperatorは、進行している変化のある範囲を一つの局所的成立として一旦区切ることができる。事象側の変化がその区切りを強く促すことはあっても、その区切りの妥当性・誤り・より良い区切りといった評価もまた、変化しているOperator側から行われる。したがって `slice-done` は、事象そのものの客観的終了でも、時間を超えて固定された最終判断でもない。
 
 ---
 
-## 14. Current conclusion
+## 10. Current working guidance
 
-The examples do not support either extreme:
+The following is intentionally modest and non-canonical:
 
-```text
-Event side alone uniquely determines every `done`.
-```
+1. Event / phenomenon continuation and Operator-side `done` should remain separate.
+2. `slice-done` is local unitization, not global completion.
+3. A sharp event-side boundary is not required.
+4. Event-side change may strongly influence local unitization without necessarily fixing one timeless boundary.
+5. `admissible`, `better`, `wrong`, and `converged` are themselves judgments and should not be treated as view-from-nowhere criteria.
+6. Later Operators may revise earlier establishments, but later does not automatically mean better.
+7. Retrospective establishment depends on what relations / traces / consequences remain.
+8. Operator, Orientation, Context, and judgment criteria should be treated as potentially changing rather than silently fixed.
+9. Repetition, Re-Slice, and revision are not exceptions; they are part of the normal picture.
+10. `Readable` should remain secondary until this simpler structure is clearer.
 
-or:
+---
 
-```text
-Operator may place `done` anywhere it wants.
-```
+## 11. Next questions
 
-The current middle position is:
+The next questions should stay simple:
 
-> The event/process continues, but contains changes and relations that constrain possible local unit boundaries. The Operator, under Orientation and Context, uses those constraints to treat some range as one local establishment. Different boundaries may be admissible for different establishments, while arbitrary boundaries remain rejectable.
+1. When an Operator says "ここまでを一つとして扱う", what exactly is being kept together?
+2. After that local `done`, what remains in later Structure?
+3. When later Slice revises an earlier establishment, what relation remains between the earlier and later establishments?
+4. Can multiple local establishments overlap without contradiction?
+5. Does repeated unitization naturally explain part of what Gyro currently calls Trajectory, or is another distinction required?
 
-This is the current best plain-language understanding and should remain non-canonical until the pressure tests above are worked through.
+These questions should be tested with ordinary examples before introducing new formal terminology.
