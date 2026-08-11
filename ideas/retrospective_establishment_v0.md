@@ -1,9 +1,9 @@
 # Retrospective Establishment v0
 
 Date: 2026-08-11
-Status: Exploratory idea draft / non-canonical
+Status: Revised exploratory idea draft / non-canonical
 Target layer: Gyro Logic
-Review state: DRAFT / EXTERNAL_REVIEW_PENDING
+Review state: REVISION_REQUIRED / POST-CLAUDE-ROUND-1-DISPOSITION
 
 ## 1. Purpose
 
@@ -79,6 +79,19 @@ This remains a present establishment about the past.
 
 It is not the original earthquake itself.
 
+This example is deliberately simplified. Historical geology already has mature evidentiary methods for evaluating such claims. Comparison with those methods is a **future verification task**, not something this note currently claims to replace or improve upon.
+
+Specific comparison targets for later work include:
+
+- stratigraphic correlation;
+- relative and radiometric dating;
+- multiple independent lines of evidence;
+- preservation and taphonomic bias;
+- inference to the best explanation / abductive reasoning;
+- related forensic and historiographical methods.
+
+No conclusion about overlap or novelty is claimed here yet.
+
 ---
 
 ## 4. Working pattern
@@ -134,9 +147,46 @@ The current working hypothesis is:
 
 What matters is not whether the later Operator was present at the event, but whether currently available relations, traces, consequences, or later establishments support some retrospective local establishment.
 
+However:
+
+```text
+a trace may support retrospective establishment
+≠
+a single trace is sufficient to determine the past event
+```
+
+The existence of a remaining trace therefore does not by itself establish a unique past cause.
+
+### 6.1 Pressure test — multiple causes, one trace
+
+Consider a present scorch mark.
+
+Possible earlier causes may include:
+
+```text
+lightning strike
+arson
+electrical fault
+other heat source
+```
+
+The scorch mark can support the claim that some heat-producing event probably occurred, but the mark alone may not distinguish among several mutually exclusive causes.
+
+Therefore the present note should not be read as claiming:
+
+```text
+one trace
+⇒
+one uniquely recoverable past event
+```
+
+A later Operator may need multiple relations, independent traces, constraints, exclusions, or other establishments before a more specific retrospective establishment is supportable.
+
+This counterexample does **not** refute the narrower claim that direct observation is unnecessary. It shows instead that absence of direct observation increases the importance of evidentiary multiplicity and discriminating relations.
+
 This does **not** imply that every story about the past is admissible.
 
-That distinction remains unresolved.
+The general reliability condition remains unresolved.
 
 ---
 
@@ -214,7 +264,9 @@ Possible pressure points include:
 - changed Orientation / Context;
 - inherited rules or classifications that later prove unsuitable.
 
-The purpose of the next review round should be to attack this distinction with concrete counterexamples before any formal criterion is introduced.
+The multiple-cause single-trace example in Section 6.1 should be treated as the first explicit counterexample test, not as a complete solution to this reliability problem.
+
+The purpose of the next review round should be to attack this distinction with additional concrete counterexamples before any formal criterion is introduced.
 
 ---
 
@@ -237,7 +289,8 @@ The safer order is:
 2. test concrete examples and counterexamples;
 3. identify what must remain for later reconstruction;
 4. distinguish reconstruction from mere story;
-5. only then compare with existing Gyro terms.
+5. compare with relevant existing methodologies and theories;
+6. only then compare with existing Gyro terms.
 
 ---
 
@@ -262,22 +315,42 @@ A simpler current description is sufficient:
 
 ## 12. Initial review targets
 
-The first external review should focus on the following questions:
+The next external review should focus on the following questions:
 
 1. Is this genuinely a distinct phenomenon, or only ordinary inference / abduction described in Gyro vocabulary?
-2. What is the strongest counterexample to the claim that direct observation is unnecessary?
-3. What minimum relation, trace, or continuity must remain for retrospective establishment to be more than speculation?
+2. Does the multiple-cause single-trace counterexample expose any stronger hidden claim that should be removed?
+3. What minimum combination of relations, traces, exclusions, or continuity must remain for retrospective establishment to be more than speculation?
 4. Can gaps in a relation chain be bridged without making the concept unfalsifiable?
 5. How should retrospective establishment differ from retrospective verification and retrospective boundary placement?
 6. Is the earthquake example too favorable, and what hostile example should replace or supplement it?
-7. Does existing theory already cover this structure more directly?
+7. How much of this structure is already covered by historical geology, IBE/abduction, forensic reasoning, or historiographical method?
 
 ---
 
-## 13. Current status
+## 13. Review disposition and revision note
 
-The current position is intentionally weak:
+This revision follows:
 
-> A later Operator may sometimes form a present local establishment about an earlier event from what remains, without having directly observed the original event. This present establishment is not the earlier event itself. The reliability conditions and relation to existing Gyro concepts remain open.
+```text
+reviews/retrospective_establishment_v0_claude_round1_disposition_20260811.md
+```
 
-This is sufficient for an idea-stage document and should be challenged before any stronger formalization is attempted.
+The Round 1 findings were classified before revision rather than adopted automatically.
+
+This revision therefore:
+
+- adds a worked multiple-cause single-trace counterexample;
+- states explicitly that a trace may support a retrospective establishment without being sufficient to uniquely determine the past event;
+- identifies historical geology and IBE/abduction as concrete future comparison targets;
+- does **not** claim novelty or theoretical superiority over those existing methods;
+- leaves the general reliability/falsifiability criterion open.
+
+---
+
+## 14. Current status
+
+The current position remains intentionally weak:
+
+> A later Operator may sometimes form a present local establishment about an earlier event from what remains, without having directly observed the original event. A trace may support such an establishment without uniquely determining the past event. This present establishment is not the earlier event itself. The reliability conditions, existing-theory overlap, and relation to existing Gyro concepts remain open.
+
+This is sufficient for an idea-stage document and should continue to be challenged before any stronger formalization is attempted.
