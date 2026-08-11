@@ -3,7 +3,7 @@
 Date: 2026-08-11
 Status: Revised idea draft / focused clarification
 Target layer: Gyro Logic
-Review state: REVISION_REQUIRED / POST-CLAUDE-FINAL-GATE-DISPOSITION
+Review state: REVISION_REQUIRED / POST-CLAUDE-ROUND-5-DISPOSITION
 
 ## 1. Purpose
 
@@ -23,7 +23,7 @@ Earlier attempts became too focused on decomposing `Readable` itself. Its origin
 
 This revision therefore narrows the document to that problem only.
 
-The separate question of how later Operators may form present establishments about earlier events has been moved to:
+The separate question of how later Operators may form present establishments about earlier events is maintained in:
 
 ```text
 ideas/retrospective_establishment_v0.md
@@ -189,7 +189,24 @@ session ends after event class X
 
 and `E5` is the first matching `X`, then the boundary may be locally fixed by an inherited rule. The relevant issue is no longer arbitrary post-hoc justification, but the source and application of that rule.
 
-This test does not solve all admissibility questions. It only demonstrates the type of circular rescue the current discipline is intended to block.
+Round 5 review exposed an additional loophole: **being prior is not enough if the prior statement is too vague to constrain anything**.
+
+For example, an Operator could declare before seeing the stream:
+
+> "Place the session boundary wherever seems most natural as the stream unfolds."
+
+This declaration is genuinely prior, but it may still be compatible with boundaries after `E3`, `E5`, or `E7` alike. It therefore does little admissibility work.
+
+The current stronger pressure-test requirement is:
+
+> A prior Orientation / Context statement should be specific enough to exclude at least one plausible candidate boundary in the comparison at issue. Temporal priority alone is not sufficient.
+
+This does **not** establish a universal specificity metric. It only blocks vacuous precommitments that predate the decision while leaving every candidate boundary effectively available.
+
+This test still does not solve all admissibility questions. It demonstrates two failure modes that the current discipline is intended to expose:
+
+1. post-hoc redescription after the boundary is chosen;
+2. vague precommitment that predates the choice but constrains no meaningful alternative.
 
 ---
 
@@ -299,11 +316,11 @@ A fixed local criterion may make one boundary determinate inside a protocol, rul
 
 At present, the following wording is intentionally preferred over a mathematical definition:
 
-> Slice unfolds as `slice-ing`. The underlying event or phenomenon may continue independently of where a local boundary is placed. Under the current Orientation and Context, an Operator may treat some range of that unfolding process as one local establishment; this is the role currently associated with `slice-done`. The boundary may be influenced or locally fixed by event-side changes, inherited protocols, rules, or institutional criteria. Orientation and Context should not be redescribed only after the fact merely to rescue a chosen boundary. `Readable` is retained only as provisional explanatory wording for the condition associated with treating the local Slice result as established; no independent operational distinction from `slice-done` is currently claimed.
+> Slice unfolds as `slice-ing`. The underlying event or phenomenon may continue independently of where a local boundary is placed. Under the current Orientation and Context, an Operator may treat some range of that unfolding process as one local establishment; this is the role currently associated with `slice-done`. The boundary may be influenced or locally fixed by event-side changes, inherited protocols, rules, or institutional criteria. Orientation and Context should not be redescribed only after the fact merely to rescue a chosen boundary, and a prior frame does not meaningfully constrain the comparison if it is so vague that it excludes no plausible candidate boundary. `Readable` is retained only as provisional explanatory wording for the condition associated with treating the local Slice result as established; no independent operational distinction from `slice-done` is currently claimed.
 
 Japanese working reading:
 
-> Sliceは `slice-ing` として進行する。事象・現象そのものは、局所的な境界がどこに置かれるかとは独立に、その後も続き得る。Operatorは現在のOrientationやContextのもとで、その進行のある範囲を「ここまでを一つの局所的成立として扱ってよい」と区切ることができ、この位置づけが現在の `slice-done` の理解に近い。境界は、事象側の変化だけでなく、継承されたprotocol、rule、制度的criterionなどによって局所的に強く拘束・固定される場合もある。ただしOrientationやContextを、選んだ境界を正当化するためだけに後付けで書き換えることはしない。`Readable` は現時点では、このlocal Slice resultを成立として扱える状態を説明するための暫定的な言い換えに留め、`slice-done` とは別の独立したoperational概念としては扱わない。
+> Sliceは `slice-ing` として進行する。事象・現象そのものは、局所的な境界がどこに置かれるかとは独立に、その後も続き得る。Operatorは現在のOrientationやContextのもとで、その進行のある範囲を「ここまでを一つの局所的成立として扱ってよい」と区切ることができ、この位置づけが現在の `slice-done` の理解に近い。境界は、事象側の変化だけでなく、継承されたprotocol、rule、制度的criterionなどによって局所的に強く拘束・固定される場合もある。ただしOrientationやContextを、選んだ境界を正当化するためだけに後付けで書き換えることはしない。また、事前に述べられていても、候補boundaryを一つも排除できないほど曖昧なOrientationやContextは、比較を実質的には拘束しない。`Readable` は現時点では、このlocal Slice resultを成立として扱える状態を説明するための暫定的な言い換えに留め、`slice-done` とは別の独立したoperational概念としては扱わない。
 
 ---
 
@@ -318,9 +335,10 @@ The following points currently appear useful enough to preserve as working guida
 5. Local establishment is primarily an Operator-side unitization under Orientation and Context.
 6. Operator-side does not mean arbitrary: boundaries may be strongly constrained or locally fixed by event-side change, inherited rules, protocols, or institutional criteria.
 7. Operator-relativity does not license post-hoc redefinition of Orientation / Context solely to rescue a boundary judgment.
-8. The underlying event may continue after a local establishment has been treated as `done`.
-9. Fixed local evaluation does not by itself imply one universal completion point for the larger continuing event.
-10. Formal Readable semantics and stronger boundary admissibility semantics remain open.
+8. Mere temporal priority of Orientation / Context is not enough if the prior statement constrains no plausible alternative boundary.
+9. The underlying event may continue after a local establishment has been treated as `done`.
+10. Fixed local evaluation does not by itself imply one universal completion point for the larger continuing event.
+11. Formal Readable semantics and stronger boundary admissibility semantics remain open.
 
 ---
 
@@ -332,11 +350,11 @@ The next questions should remain focused and example-driven:
 2. What kinds of event-side changes strongly constrain where local establishment boundaries are placed?
 3. How should boundaries inherited from protocol, institution, or prior establishment be represented relative to boundaries introduced in the current Slice?
 4. When two boundary placements differ, what minimal comparison discipline is possible without returning immediately to circular necessary-and-sufficient definitions?
-5. Can the anti-post-hoc discipline be made operationally checkable in a domain-neutral way, or only through domain-specific evidence such as prior rules, logs, timestamps, or declared criteria?
+5. Can a domain-neutral notion of "specific enough to constrain at least one candidate boundary" be stated, or must specificity remain domain-dependent?
 6. Is `Readable` still useful as explanatory language, or should the term eventually be removed entirely from this line of analysis?
 7. Does existing work on event boundedness, telicity, aspect, process theory, or related frameworks already cover part or all of the continuing-event / local-establishment distinction?
 
-Questions about later reconstruction of past events are now maintained separately in:
+Questions about later reconstruction of past events are maintained separately in:
 
 ```text
 ideas/retrospective_establishment_v0.md
@@ -349,21 +367,25 @@ ideas/retrospective_establishment_v0.md
 This revision follows:
 
 ```text
-reviews/readable_semantics_v1_claude_final_gate_disposition_20260811.md
+reviews/readable_semantics_v1_claude_round5_disposition_20260811.md
 ```
 
-The final-gate criticisms were classified before revision rather than adopted wholesale.
+The Round 5 finding was classified before revision rather than adopted automatically.
 
-This revision therefore:
+This revision therefore makes one narrow change to the anti-post-hoc pressure test:
 
-- makes the v0 → v1 supersession status explicit;
-- narrows `Readable` to an explanatory paraphrase around `slice-done` rather than preserving an unsupported independent semantic object;
-- adds a concrete pressure test for the anti-post-hoc discipline;
-- links boundary-origin companion notes rather than silently treating all boundaries as immediate Operator choices;
-- removes retrospective-establishment material from this document and places it in a focused reviewable note;
-- keeps stronger admissibility semantics and literature comparison as open verification tasks.
+- prior Orientation / Context is not treated as constraining merely because it was stated earlier;
+- it must be specific enough to exclude at least one plausible candidate boundary in the comparison at issue;
+- no universal metric of specificity is introduced yet.
 
-The immediate research question is now intentionally narrow:
+All earlier scope decisions remain unchanged:
+
+- v0 formal decomposition remains superseded as the active model;
+- `Readable` remains explanatory wording around `slice-done` rather than an independent operational concept;
+- retrospective-establishment material remains in its separate note;
+- stronger admissibility semantics and literature comparison remain open verification tasks.
+
+The immediate research question remains intentionally narrow:
 
 ```text
 How does an unfolding Slice become locally unitized as slice-done,
