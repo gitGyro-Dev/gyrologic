@@ -1,13 +1,13 @@
 # Readable Semantics v1
 
-Date: 2026-08-10
+Date: 2026-08-11
 Status: Revised idea draft / exploratory clarification
 Target layer: Gyro Logic
-Review state: INTERNAL_REFRAMING
+Review state: REVISION_REQUIRED / POST-ROUND-3-DISPOSITION
 
 ## 1. Purpose
 
-This document records the current understanding of `Readable` after external reviews and subsequent internal reconsideration.
+This document records the current understanding of `Readable` after external reviews, internal reconsideration, and the first explicit review-disposition cycle.
 
 It remains exploratory and non-canonical. It does not modify the invariant Core:
 
@@ -15,13 +15,18 @@ It remains exploratory and non-canonical. It does not modify the invariant Core:
 Structure → Slice → Stability
 ```
 
-The central correction in this revision is methodological:
+The central methodological correction remains:
 
 > `Readable` should not currently be forced into a universal mathematical predicate with necessary and sufficient subconditions.
 
-The earlier v0/v1 attempts became too focused on defining `Readable` itself. The original role of the word was more modest: to help explain when an unfolding Slice may be treated, from the Operator side, as one local establishment (`slice-done`) rather than as continuing `slice-ing`.
+The earlier attempts became too focused on defining `Readable` itself. Its original role was more modest: to help explain when an unfolding Slice may be treated, from the Operator side, as one local establishment (`slice-done`) rather than as continuing `slice-ing`.
 
-This note therefore returns to that simpler role and separates it from a different question that became mixed into the discussion: how later Operators can retrospectively establish that some earlier event or establishment probably occurred.
+The current note therefore keeps two questions separate:
+
+1. how an Operator treats part of a continuing Slice/event as one local establishment;
+2. how a later Operator may form a present establishment about an earlier event from what remains.
+
+The second question is treated here only as a phenomenon to investigate. It is not yet introduced as an independent Gyro Logic construct.
 
 ---
 
@@ -105,6 +110,18 @@ global completion of Structure
 
 The event side may contain strong transitions, boundaries, interruptions, irreversible changes, or apparent endings. These may strongly constrain or motivate where an Operator places a local unit boundary, but they do not by themselves prove that there is one unique natural `done` point independent of all Orientation and Context.
 
+### 3.1 Minimal anti-post-hoc discipline
+
+Operator-relativity must not be used as an unrestricted after-the-fact escape hatch.
+
+The current minimal methodological rule is:
+
+> Orientation and Context may participate in boundary placement, but they should not be introduced or redescribed only after a boundary has been chosen in order to justify that boundary.
+
+When two boundary placements are compared, the relevant Orientation and Context should be stated independently enough that the comparison can expose disagreement rather than absorb every disagreement by redefining the frame.
+
+This is deliberately weaker than a universal admissibility criterion. It is only a discipline against post-hoc rescue.
+
 ---
 
 ## 4. Current modest use of `Readable`
@@ -125,7 +142,29 @@ PresentTo ∧ LocallyDiscriminable ∧ ...
 
 unless later study demonstrates that such decomposition is genuinely useful and non-circular.
 
-The word is therefore subordinate to the more important question:
+### 4.1 Relation between `Readable` and `slice-done`
+
+This note does **not** currently claim a demonstrated operational distinction between `Readable` and `slice-done`.
+
+The working relationship is intentionally modest:
+
+```text
+Readable
+```
+
+is explanatory language for the condition under which the Operator can treat a local Slice result as established, while:
+
+```text
+slice-done
+```
+
+names the resulting local Slice status / unitization in the current process description.
+
+No worked example is currently known in this note where one clearly holds and the other clearly fails.
+
+Therefore the difference is presently terminological and role-based rather than a separately validated semantic distinction.
+
+The word `Readable` remains subordinate to the more important question:
 
 > Where and why does an Operator treat continuing `slice-ing` as one `slice-done` unit?
 
@@ -177,7 +216,9 @@ Possible candidate boundaries include:
 - buffer flushed;
 - file closed.
 
-These examples suggest that the event side can supply strong changes, but the unit called `done` depends on what the Operator is treating as the establishment at issue.
+These examples suggest that the event side can supply strong changes, while the unit called `done` still depends on what is being treated as the establishment at issue.
+
+A fixed local criterion may make one boundary determinate inside a chosen protocol, rule set, or evaluation frame. That does not by itself establish one universal completion point for the larger continuing event.
 
 ---
 
@@ -225,9 +266,9 @@ This is a present local establishment about a past event, not a direct replay or
 
 ---
 
-## 7. Retrospective establishment
+## 7. Retrospective establishment — phenomenon under investigation
 
-The earthquake example suggests a useful distinction that should be studied without prematurely assigning it to an existing Gyro term.
+The earthquake example suggests a useful phenomenon that should be studied without prematurely assigning it to an existing Gyro term or promoting it to a new formal construct.
 
 ```text
 past event
@@ -245,7 +286,7 @@ relations among them are followed backward
 a present establishment about the past is formed
 ```
 
-The important statement is:
+The important distinction is:
 
 ```text
 present establishment about a past event
@@ -261,7 +302,19 @@ than:
 
 > "I directly possess the original event."
 
-This distinction prevents retrospective reasoning from being confused with direct observation.
+At present, `retrospective establishment` is only a working descriptive label for this pattern.
+
+It is **not yet claimed** to be:
+
+- an independent Gyro Logic primitive;
+- a new Core element;
+- a formally distinct mechanism from Re-Slice, Context-relative revision, Trajectory, or other already-existing structures.
+
+A central open test remains:
+
+> What distinguishes a well-supported present establishment about the past from a merely plausible story?
+
+No universal criterion is proposed here yet.
 
 ---
 
@@ -271,7 +324,7 @@ The earlier expression "Readable accumulates" should now be avoided because it a
 
 A simpler description is:
 
-> One local establishment may leave relations, consequences, traces, or constraints that participate in later Structure. Later local establishments may be formed from these. By following relations among multiple establishments, an Operator may retrospectively form another local establishment about an earlier event.
+> One local establishment may leave relations, consequences, traces, or constraints that participate in later Structure. Later local establishments may be formed from these. By following relations among multiple establishments, an Operator may form another present local establishment about an earlier event.
 
 This allows accumulation and retrospection without assuming that:
 
@@ -284,14 +337,14 @@ This allows accumulation and retrospection without assuming that:
 
 ## 9. Relation to Trajectory — intentionally not fixed yet
 
-This retrospective structure appears related to existing Gyro discussions of Trajectory, continuity, and incorporated readability.
+This retrospective pattern appears related to existing Gyro discussions of Trajectory, continuity, and incorporated readability.
 
 However, this note deliberately does **not** identify them.
 
 At this stage the safer order is:
 
 1. describe the phenomenon in ordinary language;
-2. distinguish continuing event, local establishment, remaining traces/relations, and retrospective establishment;
+2. distinguish continuing event, local establishment, remaining traces/relations, and present establishment about the past;
 3. test concrete examples;
 4. only then decide whether an existing Gyro term already covers the relation.
 
@@ -336,11 +389,11 @@ This picture is analytical only. It does not replace the Core.
 
 At present, the following wording is intentionally preferred over a mathematical definition:
 
-> Slice unfolds as `slice-ing`. The underlying event or phenomenon may continue independently of where an Operator places a local boundary. Under the current Orientation and Context, the Operator may treat some range of the unfolding process as one local establishment; that is the role currently associated with `slice-done`. `Readable` is only a provisional explanatory word for the condition in which such a local establishment can be treated as established. The Operator need not have observed the original event directly: later relations and local establishments may support a retrospective present establishment that something of that kind probably occurred.
+> Slice unfolds as `slice-ing`. The underlying event or phenomenon may continue independently of where an Operator places a local boundary. Under the current Orientation and Context, the Operator may treat some range of the unfolding process as one local establishment; that is the role currently associated with `slice-done`. Orientation and Context should not be redescribed only after the fact to rescue an arbitrary boundary. `Readable` is only a provisional explanatory word for the condition in which such a local establishment can be treated as established, and no independent operational distinction from `slice-done` is currently claimed. The Operator need not have observed the original event directly: later relations and local establishments may support a present establishment that something of that kind probably occurred, but this retrospective pattern is not yet treated as an independent Gyro Logic construct.
 
 Japanese working reading:
 
-> Sliceは `slice-ing` として進行する。事象・現象そのものは、Operatorがどこで区切るかとは独立に、その後も続き得る。Operatorは現在のOrientationやContextのもとで、その進行のある範囲を「ここまでを一つの局所的成立として扱ってよい」と区切ることができ、その位置づけが現在の `slice-done` の理解に近い。`Readable` は、現時点ではその「一つの成立として扱える状態」を説明するための暫定的な言葉に留める。またOperatorは元の事象をその場で直接観測している必要はなく、後に残った関係や複数の局所的成立を辿ることで、「過去にそのような事象・成立があったと考えられる」という現在の成立を作ることができる。
+> Sliceは `slice-ing` として進行する。事象・現象そのものは、Operatorがどこで区切るかとは独立に、その後も続き得る。Operatorは現在のOrientationやContextのもとで、その進行のある範囲を「ここまでを一つの局所的成立として扱ってよい」と区切ることができ、その位置づけが現在の `slice-done` の理解に近い。ただしOrientationやContextは、境界を置いた後にその境界を正当化するためだけに後付けで書き換えるべきではない。`Readable` は現時点ではその「一つの成立として扱える状態」を説明するための暫定的な言葉に留め、`slice-done` との独立したoperationalな差はまだ主張しない。またOperatorは元の事象をその場で直接観測している必要はなく、後に残った関係や複数の局所的成立を辿ることで、「過去にそのような事象・成立があったと考えられる」という現在の成立を作ることができる。ただし、この遡及的なパターンはまだ独立したGyro Logic概念とはしない。
 
 ---
 
@@ -352,12 +405,14 @@ The following points currently appear useful enough to preserve as working guida
 2. `Readable` should not currently be forced into a universal necessary-and-sufficient definition.
 3. `slice-done` should not be confused with the objective end of an underlying event.
 4. Local establishment is primarily an Operator-side unitization under Orientation and Context.
-5. Event-side transitions may constrain a unit boundary without uniquely determining it.
-6. The underlying event may continue after a local establishment has been treated as `done`.
-7. Direct contemporaneous observation is not required for a later Operator to establish something about a past event.
-8. Retrospective establishment is a present establishment supported by later traces/relations; it is not the past event itself.
-9. Multiple local establishments and their relations may support retrospective reconstruction.
-10. The relation to Trajectory, Incorporated Readability, and formal Readable semantics should remain open until this simpler distinction is tested further.
+5. Operator-relativity does not license post-hoc redefinition of Orientation / Context solely to rescue a boundary judgment.
+6. Event-side transitions may constrain a unit boundary without necessarily determining one universal boundary.
+7. The underlying event may continue after a local establishment has been treated as `done`.
+8. No independently validated operational distinction between `Readable` and `slice-done` is currently claimed.
+9. Direct contemporaneous observation is not required for a later Operator to establish something about a past event.
+10. A present establishment about a past event is not the past event itself.
+11. `retrospective establishment` is currently a working description of a phenomenon, not a new formal Gyro Logic construct.
+12. The relation to Trajectory, Incorporated Readability, formal Readable semantics, and existing event/process theories should remain open until separately verified.
 
 ---
 
@@ -367,31 +422,42 @@ The next questions should remain simple and example-driven:
 
 1. Are there cases where an event side itself appears to force exactly one `done` boundary independent of Operator Orientation and Context?
 2. What kinds of event-side changes strongly constrain where Operators tend to place local establishment boundaries?
-3. When two Operators place different `done` boundaries over the same continuing event, what makes both admissible or one inadmissible?
-4. What exactly remains after a local establishment such that later Operators can use it?
-5. What distinguishes a reliable retrospective establishment from a merely possible story about the past?
-6. How much can be lost while retrospective establishment remains possible?
-7. Does retrospective establishment require a continuous relation chain, or can gaps be bridged?
-8. When should this structure be identified with Trajectory, if ever?
-9. Is `Readable` still the best explanatory word, or should the theory eventually use a different expression?
+3. When two Operators place different `done` boundaries over the same continuing event, what minimal non-post-hoc discipline allows them to be compared?
+4. Can a stronger admissibility criterion be stated without returning immediately to circular necessary-and-sufficient definitions?
+5. What exactly remains after a local establishment such that later Operators can use it?
+6. What distinguishes a well-supported present establishment about the past from a merely possible story?
+7. How much can be lost while such retrospective establishment remains possible?
+8. Does retrospective reasoning require a continuous relation chain, or can gaps be bridged?
+9. When should this structure be identified with Trajectory, if ever?
+10. Is `Readable` still useful as explanatory language, or should it eventually be removed or replaced?
+11. Does existing work on event boundedness, telicity, aspect, process theory, or related frameworks already cover part or all of the continuing-event / local-establishment distinction?
 
 ---
 
-## 14. Review note
+## 14. Review disposition and revision note
 
-The previous external reviews from Gemini and Claude remain valuable records because they exposed the danger of over-formalizing the word `Readable` before its role had been conceptually stabilized.
+The previous external reviews remain valuable records because they exposed the danger of over-formalizing `Readable` before its role had been conceptually stabilized.
 
-The present revision does not reject those reviews. Instead, it changes the immediate research question from:
+The current revision follows the explicit disposition record:
 
 ```text
-What are the universal necessary and sufficient conditions of Readable?
+reviews/readable_semantics_v1_claude_round3_disposition_20260811.md
 ```
 
-to:
+The Round 3 findings were not adopted wholesale. They were classified before revision, including checks for repetition of already-known concerns.
+
+The present revision therefore makes only the changes judged appropriate now:
+
+- adds a minimal anti-post-hoc discipline for Orientation / Context;
+- states plainly that no independent operational distinction between `Readable` and `slice-done` is currently demonstrated;
+- keeps retrospective establishment as a phenomenon under investigation rather than promoting it to a new formal construct;
+- preserves literature comparison and stronger admissibility semantics as verification / future-work tasks rather than importing them prematurely.
+
+The immediate research question remains:
 
 ```text
 How does an Operator treat part of a continuing Slice/event as one local establishment,
-and how can later Operators form retrospective establishments from what remains?
+and what can later Operators establish from what remains?
 ```
 
-Only after this simpler structure becomes stable should formal semantics be reconsidered.
+Only after this simpler structure becomes more stable should formal semantics be reconsidered.
