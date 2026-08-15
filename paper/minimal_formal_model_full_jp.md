@@ -6,9 +6,9 @@ orcid: "0009-0004-0091-1303"
 corresponding-author: "Shuntaro Kawakami"
 email: "dev.jxiv@gyro-wedge.com"
 date: "2026"
-status: "Human Review Candidate"
+status: "Human Review Approved"
 paper_type: "Independent formalization paper"
-formal_model: "Minimal Formal Model v1 revised"
+formal_model: "Minimal Formal Model v2"
 canonical_core: "unchanged"
 bibliography: "references.bib"
 link-citations: true
@@ -151,9 +151,9 @@ Stability
 
 今回のレビューでは、local establishment のboundaryについても整理が進みました。
 
-boundaryは必ずしも現在のOperatorがその場で自由に決めるわけではありません。
+boundaryは必ずしも現在のOperatorがその場で自由に決めるわけではありません。一方で、すべてのboundaryが必ずinherited ruleや事象側の制約を受けるわけでもありません。
 
-例えば、
+局所的なboundaryは、例えば、
 
 - current Operator judgment
 - Orientation / Context
@@ -161,7 +161,7 @@ boundaryは必ずしも現在のOperatorがその場で自由に決めるわけ�
 - institutional criteria
 - strong event-side transition
 
-などによって、boundaryが供給または強く制約される場合があります。
+などによって、**供給されたり、影響を受けたり、制約されたりする可能性があります**。
 
 重要なのは、
 
@@ -171,7 +171,15 @@ Operator-relative
 arbitrary
 ```
 
-ということです。
+であり、同時に、
+
+```text
+boundary
+≠
+必ず外部制約を受けるもの
+```
+
+でもある、という点です。
 
 さらに今回、anti-post-hocの考え方も補強されています。
 
@@ -553,7 +561,7 @@ Differenceのpatternが、あるSlice・Context・Orientationの下で局所的�
 
 ### 17.3 boundary source の明確化
 
-boundaryはcurrent Operatorだけでなく、inherited protocol、institutional rule、event-side transitionなどから供給・制約され得る。
+boundaryはcurrent Operatorだけでなく、inherited protocol、institutional rule、event-side transitionなどから**供給・影響・制約を受ける可能性がある**。ただし、すべてのboundaryが必ずこれらの影響や制約を受けるという意味ではない。
 
 ### 17.4 anti-post-hocの補強
 
@@ -592,57 +600,26 @@ REVIEW_ACCEPTABLE
 
 Geminiによる独立レビューについても、今回のプロジェクトオーナー確認では「OK」とされています。
 
-したがって、現時点で残っているのは、プロジェクト運用上の **Human Checkpoint** です。
+Human Checkpointでは、boundaryの表現について「必ず影響・制約を受ける」のではなく「供給・影響・制約を受ける可能性がある」と確認され、それ以外の主要内容は承認されました。
+
+したがって、現時点ではHuman Checkpointも完了し、公開用v2候補へ進める状態です。
 
 ---
 
-# Human Checkpoint 用の確認ポイント
+# Human Checkpoint 最終結果
 
-最終的な人間確認では、数式を一つずつ再証明するというより、主に次を確認すれば十分です。
+1. Core `Structure → Slice → Stability`：承認
+2. `slice-done = local unitization`：承認
+3. `Operator-relative ≠ arbitrary`：承認
+4. boundary source：**inherited ruleや事象側等から影響・制約を受ける可能性があるが、必須ではない**という整理で承認
+5. `Readable(...)` のuniversal primitive化を避ける：承認
+6. strict minimalityを主張しない：承認
+7. 既存版の図・比較・worked examplesを維持：承認
+8. remaining issuesはFuture Workとして保持：承認
 
-1. **Coreが変わっていないか**
-   - `Structure → Slice → Stability` を維持しているか。
+```text
+HUMAN_CHECKPOINT: PASS
+PUBLICATION_CANDIDATE: YES
+```
 
-2. **今回の改訂が自分の意図と合っているか**
-   - `slice-done` をeventの終了ではなくlocal unitizationとして扱う。
-   - Operator-relativeをarbitraryとしない。
-   - inherited boundaryを認める。
-   - `Readable(...)` を無理にformal primitive化しない。
-
-3. **論文が言いすぎていないか**
-   - universal truth、complete axiomatization、strict minimality proofなどを主張していないか。
-
-4. **既存版から必要以上に内容が失われていないか**
-   - 図、比較、worked examples、数学的説明が維持されているか。
-
-5. **Future Workとして残してよい問題が明示されているか**
-   - readability semantics
-   - boundary admissibility
-   - retrospective reliability
-   - algorithmic tracing
-   - empirical validation
-   など。
-
-6. **今の版として進められるか**
-   - unresolvedなblockingが残っていないか。
-   - recommended / optional / future workは、今後の研究として残してよいか。
-
----
-
-# Human Checkpoint 時点の要約
-
-現時点のrevisionは、Gyro LogicのCoreを変更するものではありません。
-
-むしろ、公開済みのMinimal Formal Modelで曖昧さが残っていた `slice-done`、`Readable(...)`、local boundary、retrospective establishment 周辺を、その後のレビューと検討結果に合わせて狭く・慎重に修正したものです。
-
-一度は改訂範囲を広げすぎて論文全体を圧縮してしまいましたが、その問題は解消され、現在は元論文のsupporting argumentを維持したtargeted revisionになっています。
-
-Claude Code Round 2は `REVIEW_ACCEPTABLE`、Geminiも独立チェックでOKとの確認です。
-
-したがって、Human Checkpointで確認する中心は、
-
-> **この改訂内容が、現在のGyro Logicに対するプロジェクトオーナー自身の理解と意図に合っているか**
-
-です。
-
-ここでOKなら、次のステップとして `main` への反映、publication candidate化、日本語版正式改訂・Jxiv改訂／投稿手順へ進める状態です。
+このHuman Checkpointにより、review workflow上のblockingは解消済みと判断し、次のステップとしてmainへの反映、v2 publication candidate化、英語版・日本語版の投稿用生成へ進めます。
