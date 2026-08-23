@@ -1,0 +1,107 @@
+name: Build Minimal Formal Model v2 English Jxiv PDF
+
+on:
+  workflow_dispatch:
+  issues:
+    types: [opened, edited, reopened]
+
+permissions:
+  contents: write
+  issues: read
+
+concurrency:
+  group: minimal-formal-model-v2-en-pdf
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: >-
+      github.event_name != 'issues' ||
+      github.event.issue.title == '[automation] Build Minimal Formal Model v2 English PDF'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Install PDF dependencies
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            pandoc \
+            texlive-luatex \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            fonts-texgyre \
+            fonts-dejavu-core \
+            librsvg2-bin \
+            poppler-utils
+          sudo fc-cache -f -v >/dev/null
+
+      - name: Build English Jxiv revision PDF from reviewed v2 manuscript
+        run: |
+          set -euo pipefail
+          mkdir -p paper/pdf
+          cd paper
+          pandoc \
+            minimal_formal_model_full_en.md \
+            --from=markdown+tex_math_dollars+tex_math_single_backslash+tex_math_double_backslash \
+            --standalone \
+            --citeproc \
+            --pdf-engine=lualatex \
+            --resource-path=".:figures" \
+            --metadata=bibliography:references.bib \
+            --include-in-header="latex/pandoc_header.tex" \
+            -V papersize=a4 \
+            -V geometry:margin=25mm \
+            -V fontsize=11pt \
+            -V mainfont="TeX Gyre Pagella" \
+            -V sansfont="TeX Gyre Heros" \
+            -V monofont="DejaVu Sans Mono" \
+            -V mathfont="Latin Modern Math" \
+            -V colorlinks=true \
+            -V linkcolor=blue \
+            -V urlcolor=blue \
+            -V citecolor=blue \
+            -o pdf/minimal_formal_model_v2_en_jxiv.pdf
+
+      - name: Validate PDF
+        run: |
+          set -euo pipefail
+          PDF=paper/pdf/minimal_formal_model_v2_en_jxiv.pdf
+          test -s "$PDF"
+          pdfinfo "$PDF" | tee /tmp/pdfinfo.txt
+          grep -q '^Pages:' /tmp/pdfinfo.txt
+          grep -q '^Page size:.*A4' /tmp/pdfinfo.txt
+          pdftotext "$PDF" /tmp/minimal_formal_model_v2_en.txt
+          grep -q 'A Minimal Formal Model for Gyro Logic' /tmp/minimal_formal_model_v2_en.txt
+          grep -q 'slice-done' /tmp/minimal_formal_model_v2_en.txt
+          grep -q 'local unitization' /tmp/minimal_formal_model_v2_en.txt
+          grep -q 'Use of Generative AI and AI-Assisted Tools' /tmp/minimal_formal_model_v2_en.txt
+          echo 'Validated English v2 Jxiv revision PDF.'
+
+      - name: Commit generated PDF
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f paper/pdf/minimal_formal_model_v2_en_jxiv.pdf
+          if git diff --cached --quiet; then
+            echo 'No PDF changes to commit.'
+            exit 0
+          fi
+          git commit -m 'Build Minimal Formal Model v2 English Jxiv PDF'
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if git rebase origin/main && git push origin HEAD:main; then
+              exit 0
+            fi
+            git rebase --abort || true
+            sleep $((attempt * 2))
+          done
+          echo 'Unable to push PDF after three attempts.'
+          exit 1
