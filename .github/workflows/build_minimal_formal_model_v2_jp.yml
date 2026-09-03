@@ -76,15 +76,16 @@ jobs:
         run: |
           set -euo pipefail
           PDF=paper/pdf/minimal_formal_model_v2_jp_jxiv.pdf
+          TXT=/tmp/minimal_formal_model_v2_jp.txt
           test -s "$PDF"
           pdfinfo "$PDF" | tee /tmp/pdfinfo.txt
           grep -q '^Pages:' /tmp/pdfinfo.txt
           grep -q '^Page size:.*A4' /tmp/pdfinfo.txt
-          pdftotext "$PDF" /tmp/minimal_formal_model_v2_jp.txt
-          grep -q 'Gyro Logic' /tmp/minimal_formal_model_v2_jp.txt
-          grep -q 'slice-done' /tmp/minimal_formal_model_v2_jp.txt
-          grep -q 'local unitization' /tmp/minimal_formal_model_v2_jp.txt
-          grep -q '生成AI' /tmp/minimal_formal_model_v2_jp.txt
+          pdftotext -layout "$PDF" "$TXT"
+          grep -Fq 'Gyro Logic' "$TXT"
+          grep -Fq 'slice-done' "$TXT"
+          grep -Fq 'local unitization' "$TXT"
+          grep -Fq 'Use of Generative AI and AI-Assisted Tools' "$TXT"
           echo 'Validated Japanese v2 Jxiv PDF.'
 
       - name: Commit generated PDF
