@@ -1,0 +1,110 @@
+name: Build Minimal Formal Model v2 Japanese Jxiv PDF
+
+on:
+  workflow_dispatch:
+  issues:
+    types: [opened, edited, reopened]
+
+permissions:
+  contents: write
+  issues: read
+
+concurrency:
+  group: minimal-formal-model-v2-jp-pdf
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: >-
+      github.event_name != 'issues' ||
+      github.event.issue.title == '[automation] Build Minimal Formal Model v2 Japanese PDF'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Install PDF dependencies
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            pandoc \
+            texlive-luatex \
+            texlive-latex-extra \
+            texlive-lang-japanese \
+            texlive-fonts-recommended \
+            fonts-texgyre \
+            fonts-noto-cjk \
+            fonts-dejavu-core \
+            librsvg2-bin \
+            poppler-utils
+          sudo fc-cache -f -v >/dev/null
+
+      - name: Build Japanese Jxiv v2 PDF
+        run: |
+          set -euo pipefail
+          mkdir -p paper/pdf
+          cd paper
+          pandoc \
+            minimal_formal_model_submission_jp_v2.md \
+            --from=markdown+tex_math_dollars+tex_math_single_backslash+tex_math_double_backslash \
+            --standalone \
+            --citeproc \
+            --pdf-engine=lualatex \
+            --resource-path=".:figures" \
+            --metadata=bibliography:references.bib \
+            --include-in-header="latex/pandoc_header.tex" \
+            -V papersize=a4 \
+            -V geometry:margin=25mm \
+            -V fontsize=11pt \
+            -V mainfont="Noto Serif CJK JP" \
+            -V sansfont="Noto Sans CJK JP" \
+            -V monofont="DejaVu Sans Mono" \
+            -V mathfont="Latin Modern Math" \
+            -V CJKmainfont="Noto Serif CJK JP" \
+            -V colorlinks=true \
+            -V linkcolor=blue \
+            -V urlcolor=blue \
+            -V citecolor=blue \
+            -o pdf/minimal_formal_model_v2_jp_jxiv.pdf
+
+      - name: Validate PDF
+        run: |
+          set -euo pipefail
+          PDF=paper/pdf/minimal_formal_model_v2_jp_jxiv.pdf
+          test -s "$PDF"
+          pdfinfo "$PDF" | tee /tmp/pdfinfo.txt
+          grep -q '^Pages:' /tmp/pdfinfo.txt
+          grep -q '^Page size:.*A4' /tmp/pdfinfo.txt
+          pdftotext "$PDF" /tmp/minimal_formal_model_v2_jp.txt
+          grep -q 'Gyro Logic' /tmp/minimal_formal_model_v2_jp.txt
+          grep -q 'slice-done' /tmp/minimal_formal_model_v2_jp.txt
+          grep -q 'local unitization' /tmp/minimal_formal_model_v2_jp.txt
+          grep -q '生成AI' /tmp/minimal_formal_model_v2_jp.txt
+          echo 'Validated Japanese v2 Jxiv PDF.'
+
+      - name: Commit generated PDF
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f paper/pdf/minimal_formal_model_v2_jp_jxiv.pdf
+          if git diff --cached --quiet; then
+            echo 'No PDF changes to commit.'
+            exit 0
+          fi
+          git commit -m 'Build Minimal Formal Model v2 Japanese Jxiv PDF'
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if git rebase origin/main && git push origin HEAD:main; then
+              exit 0
+            fi
+            git rebase --abort || true
+            sleep $((attempt * 2))
+          done
+          echo 'Unable to push PDF after three attempts.'
+          exit 1
