@@ -2,6 +2,9 @@ name: Build Minimal Formal Model v2 Japanese Jxiv PDF
 
 on:
   workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main]
   issues:
     types: [opened, edited, reopened]
 
@@ -25,6 +28,7 @@ jobs:
         uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
         with:
           fetch-depth: 0
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref_name }}
 
       - name: Install PDF dependencies
         env:
@@ -100,8 +104,8 @@ jobs:
           fi
           git commit -m 'Build Minimal Formal Model v2 Japanese Jxiv PDF'
           for attempt in 1 2 3; do
-            git fetch origin main
-            if git rebase origin/main && git push origin HEAD:main; then
+            git fetch origin "${GITHUB_HEAD_REF:-main}"
+            if git rebase "origin/${GITHUB_HEAD_REF:-main}" && git push origin "HEAD:${GITHUB_HEAD_REF:-main}"; then
               exit 0
             fi
             git rebase --abort || true
