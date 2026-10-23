@@ -31,7 +31,7 @@ The SVG figures fit within the configured A4 text area, use explicit font famili
 - Total pages: 66
 - Figure pages: Figure 1 = page 43, Figure 2 = page 44, Figure 3 = page 44
 - Embedded font programs reported: 17
-- Font names: `AVAPJL+TeXGyrePagella-Regular`, `CPHUYV+LatinModernMath-Regular`, `DQSSQI+DejaVuSans`, `GBGNAT+DejaVuMathTeXGyre-Regular`, `GVZHTD+LatinModernMath-Regular`, `GWJQAP+MSAM10`, `HTUTBN+TeXGyreHeros-Regular`, `IPIBCK+NotoSansCJKjp-Regular`, `ITGIMR+DejaVuSansMono`, `OJLQTF+NotoSansCJKjp-Regular`, `SSWGJM+NotoSerifCJKjp-Regular`, `TPFSGP+TeXGyrePagella-Bold`, `TUIUYI+DejaVuSans`, `VVEUAL+NotoSansCJKjp-Regular`, `WYMHDN+LatinModernMath-Regular`, `YWZBGJ+TeXGyrePagella-Italic`, `ZFNJQW+TeXGyrePagella-Regular`
+- Font names: `AVAPJL+TeXGyrePagella-Regular`, `CPHUYV+LatinModernMath-Regular`, `DQSSQI+DejaVuSans`, `GBGNAT+DejaVuMathTeXGyre-Regular`, `GVZHTD+LatinModernMath-Regular`, `GWJQAP+MSAM10`, `HTUTBN+TeXGyreHeros-Regular`, `IPIBCK+NotoSansCJKjp-Regular`, `ITGIMR+DejaVuSansMono`, `OJLQTF+NotoSansCJKjp-Regular`, `SSWGJM+NotoSerifCJKjp-Regular`, `TPFSGP+TeXGyrePagella-Bold`, `TUIUYI+DejaVuSans`, `VVEUAL+NotoSansCJKjp-Regular`, `WYMHDN+LatinModernMath-Regular`, `XFKZBL+TeXGyrePagella-Regular`, `YWZBGJ+TeXGyrePagella-Italic`
 
 ### Japanese
 
