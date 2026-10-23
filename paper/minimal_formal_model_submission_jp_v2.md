@@ -50,6 +50,17 @@ Incorporated Readabilityはstored historyから分離され、局所的に成立
 
 **キーワード:** Gyro Logic、最小形式モデル、Structure、Slice、Stability、local articulation、Incorporated Readability、Continuity Readability、contextual Trajectory、Difference、Boundary
 
+## 日本語訳版・改訂版に関する注記
+
+本稿は、Jxivで公開された英語版プレプリント Shuntaro Kawakami (2026), *A Minimal Formal Model for Gyro Logic: Local Articulation, Stability Scenes, and Contextual Tracing*, DOI: [10.51094/jxiv.5641](https://doi.org/10.51094/jxiv.5641) の改訂第2版（v2）を日本語化した翻訳版である [@kawakami2026minimalformal_en]。同一研究の英語版と日本語版であり、独立した別研究としての新規性を主張するものではない。
+
+英語版からの主な改訂点は、(1) `slice-done` を事象の客観的終了ではなく局所的単位化（local unitization）として明確化したこと、(2) `Readable(...)` を普遍的な独立述語ではなく、個別領域で意味を与える domain-relative placeholder として整理したこと、(3) 境界の根拠を事後的に作り出さないための anti-post-hoc 制約を加えたこと、(4) 過去の事象と、それについて現在成立する retrospective establishment を区別したこと、(5) `minimal` を厳密な数学的最小性の証明ではなく探索的・操作的な意味に限定したことである。Gyro Logic の不変 Core（Structure → Slice → Stability）とその順序は変更していない。
+
+## 用語・表記方針
+
+本稿は日本語訳版であるが、英語版との定義・数式・実装資料の対応関係を明確にするため、Structure、Slice、Stability、Stability Scene、Trajectory、Readable、local articulation、slice-done 等の専門用語は原則として英語表記を維持する。初出や説明上必要な箇所では日本語を併記する。英日混在は意図的な用語統一方針であり、未翻訳を意味するものではない。
+
+
 # 1 Introduction
 
 Gyro Logicは、次の不変Coreを中心に構成される理論的枠組みである。
@@ -1922,7 +1933,7 @@ continuity break
 current authentication situationをStructureとし、device、behavior、network、time、motionなどのobservationsを扱う。local articulationは例えば
 
 ```text
-The current session is consistent enough with the previously available user trajectory to continue provisionally.
+The current session is consistent enough with the previously available user trajectory\nto continue provisionally.
 ```
 
 Stabilityはnumerical authentication scoreそのものではなく、scoreは\(L_n\)のevidential componentの一つにすぎない。
@@ -2258,7 +2269,7 @@ present resultはdeliberately limitedであり、proposed schemaがuniquely mini
 
 ## Use of Generative AI and AI-Assisted Tools
 
-本稿のstructure organization、drafting assistance、language refinement、consistency checkingに、generative AIおよびその他のAI-assisted toolsを使用した。著者はmanuscript content、theoretical claims、citations、references、final textをreview、verify、editし、本稿のすべての内容について最終的な責任を負う。
+本稿の構成整理、草稿作成支援、英日翻訳・表現調整、整合性確認に、OpenAI ChatGPT、Anthropic Claude／Claude Code、Google Gemini等の生成AIツールを使用した。各ツールの寄与は補助的なものであり、理論的主張の検証を代替しない。著者はmanuscript content、theoretical claims、citations、references、final textをreview、verify、editし、本稿のすべての内容について最終的な責任を負う。
 
 ## Code and Materials Availability
 
