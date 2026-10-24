@@ -59,6 +59,7 @@ jobs:
             --standalone \
             --citeproc \
             --pdf-engine=lualatex \
+            --lua-filter=latex/normalize_ascii_digits.lua \
             --resource-path=".:figures" \
             --metadata=bibliography:references.bib \
             --include-in-header="latex/pandoc_header.tex" \
