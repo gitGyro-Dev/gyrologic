@@ -1,3 +1,9 @@
 % Additional LaTeX package required by the Minimal Formal Model manuscript.
 % mathtools defines the extensible arrow command \xRightarrow used in the paper.
 \usepackage{mathtools}
+
+% Jxiv typography: keep ASCII digits in years, ORCID, DOI, section numbering,
+% citations and bibliography even when the surrounding paragraph is Japanese.
+% luatexja defaults may map ASCII digits to full-width glyphs in JA runs.
+\usepackage{luatexja}
+\ltjsetparameter{jacharrange={-2,-3,-6,-7,-8,-9}}
