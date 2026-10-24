@@ -91,6 +91,19 @@ jobs:
           grep -Fq 'slice-done' "$TXT"
           grep -Fq 'local unitization' "$TXT"
           grep -Fq 'Use of Generative AI and AI-Assisted Tools' "$TXT"
+          # Guard against Japanese glyph loss caused by LuaTeX font/range settings.
+          python3 - "$TXT" <<'PY'
+          import pathlib, re, sys
+          txt = pathlib.Path(sys.argv[1]).read_text()
+          expected = ['本稿', '日本語', '改訂', '理論']
+          missing = [word for word in expected if word not in txt]
+          jp_count = len(re.findall(r'[ぁ-んァ-ン一-龯]', txt))
+          replacement_count = txt.count('\ufffd')
+          print(f'Japanese text check: {jp_count} characters, replacement glyphs: {replacement_count}')
+          if missing or jp_count < 1000 or replacement_count > 100:
+              print(f'ERROR: Japanese text extraction failed. Missing phrases: {missing}')
+              sys.exit(1)
+          PY
           # Jxiv requires half-width digits throughout the PDF, including generated metadata.
           python3 - "$TXT" <<'PY'
           import pathlib, re, sys
