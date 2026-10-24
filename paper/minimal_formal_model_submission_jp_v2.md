@@ -1933,7 +1933,9 @@ continuity break
 current authentication situationをStructureとし、device、behavior、network、time、motionなどのobservationsを扱う。local articulationは例えば
 
 ```text
-The current session is consistent enough with the previously available user trajectory\nto continue provisionally.
+The current session is consistent enough
+with the previously available user trajectory
+to continue provisionally.
 ```
 
 Stabilityはnumerical authentication scoreそのものではなく、scoreは\(L_n\)のevidential componentの一つにすぎない。
