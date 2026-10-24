@@ -66,7 +66,7 @@ jobs:
             -V papersize=a4 \
             -V geometry:margin=25mm \
             -V fontsize=11pt \
-            -V mainfont="Noto Serif CJK JP" \
+            -V mainfont="Latin Modern Roman" \
             -V sansfont="Noto Sans CJK JP" \
             -V monofont="DejaVu Sans Mono" \
             -V mathfont="Latin Modern Math" \
