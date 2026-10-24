@@ -2,6 +2,9 @@ name: Build Minimal Formal Model v2 Japanese Jxiv PDF
 
 on:
   workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main]
   issues:
     types: [opened, edited, reopened]
 
@@ -25,6 +28,7 @@ jobs:
         uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
         with:
           fetch-depth: 0
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref_name }}
 
       - name: Install PDF dependencies
         env:
@@ -55,13 +59,14 @@ jobs:
             --standalone \
             --citeproc \
             --pdf-engine=lualatex \
+            --lua-filter=latex/normalize_ascii_digits.lua \
             --resource-path=".:figures" \
             --metadata=bibliography:references.bib \
             --include-in-header="latex/pandoc_header.tex" \
             -V papersize=a4 \
             -V geometry:margin=25mm \
             -V fontsize=11pt \
-            -V mainfont="Noto Serif CJK JP" \
+            -V mainfont="Latin Modern Roman" \
             -V sansfont="Noto Sans CJK JP" \
             -V monofont="DejaVu Sans Mono" \
             -V mathfont="Latin Modern Math" \
@@ -86,6 +91,34 @@ jobs:
           grep -Fq 'slice-done' "$TXT"
           grep -Fq 'local unitization' "$TXT"
           grep -Fq 'Use of Generative AI and AI-Assisted Tools' "$TXT"
+          # Guard against Japanese glyph loss caused by LuaTeX font/range settings.
+          python3 - "$TXT" <<'PY'
+          import pathlib, re, sys
+          txt = pathlib.Path(sys.argv[1]).read_text()
+          expected = ['本稿', '日本語', '改訂', '理論']
+          missing = [word for word in expected if word not in txt]
+          jp_count = len(re.findall(r'[ぁ-んァ-ン一-龯]', txt))
+          replacement_count = txt.count('\ufffd')
+          print(f'Japanese text check: {jp_count} characters, replacement glyphs: {replacement_count}')
+          if missing or jp_count < 1000 or replacement_count > 100:
+              print(f'ERROR: Japanese text extraction failed. Missing phrases: {missing}')
+              sys.exit(1)
+          PY
+          # Jxiv requires half-width digits throughout the PDF, including generated metadata.
+          python3 - "$TXT" <<'PY'
+          import pathlib, re, sys
+          txt = pathlib.Path(sys.argv[1]).read_text()
+          hits = re.findall(r'[０-９]', txt)
+          if hits:
+              print(f'ERROR: {len(hits)} full-width digits remain in PDF text.')
+              for line in txt.splitlines():
+                  if re.search(r'[０-９]', line):
+                      print(line[:180])
+                      if len(hits) > 20:
+                          break
+              sys.exit(1)
+          print('Validated: no full-width digits in extracted PDF text.')
+          PY
           echo 'Validated Japanese v2 Jxiv PDF.'
 
       - name: Commit generated PDF
@@ -100,8 +133,8 @@ jobs:
           fi
           git commit -m 'Build Minimal Formal Model v2 Japanese Jxiv PDF'
           for attempt in 1 2 3; do
-            git fetch origin main
-            if git rebase origin/main && git push origin HEAD:main; then
+            git fetch origin "${GITHUB_HEAD_REF:-main}"
+            if git rebase "origin/${GITHUB_HEAD_REF:-main}" && git push origin "HEAD:${GITHUB_HEAD_REF:-main}"; then
               exit 0
             fi
             git rebase --abort || true
