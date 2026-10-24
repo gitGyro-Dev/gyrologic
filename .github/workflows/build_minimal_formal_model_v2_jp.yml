@@ -90,6 +90,21 @@ jobs:
           grep -Fq 'slice-done' "$TXT"
           grep -Fq 'local unitization' "$TXT"
           grep -Fq 'Use of Generative AI and AI-Assisted Tools' "$TXT"
+          # Jxiv requires half-width digits throughout the PDF, including generated metadata.
+          python3 - "$TXT" <<'PY'
+          import pathlib, re, sys
+          txt = pathlib.Path(sys.argv[1]).read_text()
+          hits = re.findall(r'[０-９]', txt)
+          if hits:
+              print(f'ERROR: {len(hits)} full-width digits remain in PDF text.')
+              for line in txt.splitlines():
+                  if re.search(r'[０-９]', line):
+                      print(line[:180])
+                      if len(hits) > 20:
+                          break
+              sys.exit(1)
+          print('Validated: no full-width digits in extracted PDF text.')
+          PY
           echo 'Validated Japanese v2 Jxiv PDF.'
 
       - name: Commit generated PDF
