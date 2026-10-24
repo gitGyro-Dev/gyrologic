@@ -2,8 +2,8 @@
 % mathtools defines the extensible arrow command \xRightarrow used in the paper.
 \usepackage{mathtools}
 
-% Jxiv typography: keep ASCII digits in years, ORCID, DOI, section numbering,
-% citations and bibliography even when the surrounding paragraph is Japanese.
-% luatexja defaults may map ASCII digits to full-width glyphs in JA runs.
+% LuaLaTeX Japanese typesetting is configured by Pandoc's CJKmainfont
+% (Noto Serif CJK JP). Do not disable luatexja Japanese character ranges:
+% doing so sends Japanese glyphs to the Latin font and makes them disappear.
+% Latin Modern Roman handles ASCII digits; CJK characters use CJKmainfont.
 \usepackage{luatexja}
-\ltjsetparameter{jacharrange={-2,-3,-6,-7,-8,-9}}
